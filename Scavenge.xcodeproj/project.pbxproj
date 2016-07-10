@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
+		4E2277A11D32D0D100E22436 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277A01D32D0D100E22436 /* ViewController.swift */; };
+		4E2277A41D32D0D100E22436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2277A21D32D0D100E22436 /* Main.storyboard */; };
+		4E2277A71D32D0D100E22436 /* Scavenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277A51D32D0D100E22436 /* Scavenge.xcdatamodeld */; };
+		4E2277A91D32D0D100E22436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2277A81D32D0D100E22436 /* Assets.xcassets */; };
+		4E2277AC1D32D0D100E22436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2277AA1D32D0D100E22436 /* LaunchScreen.storyboard */; };
+		4E2277B71D32D0D100E22436 /* ScavengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277B61D32D0D100E22436 /* ScavengeTests.swift */; };
+		4E2277C21D32D0D100E22436 /* ScavengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277C11D32D0D100E22436 /* ScavengeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4E2277B31D32D0D100E22436 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E2277931D32D0D100E22436 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E22779A1D32D0D100E22436;
+			remoteInfo = Scavenge;
+		};
+		4E2277BE1D32D0D100E22436 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E2277931D32D0D100E22436 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E22779A1D32D0D100E22436;
+			remoteInfo = Scavenge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4E22779B1D32D0D100E22436 /* Scavenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E22779E1D32D0D100E22436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4E2277A01D32D0D100E22436 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4E2277A31D32D0D100E22436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4E2277A61D32D0D100E22436 /* Scavenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scavenge.xcdatamodel; sourceTree = "<group>"; };
+		4E2277A81D32D0D100E22436 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4E2277AB1D32D0D100E22436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4E2277AD1D32D0D100E22436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E2277B21D32D0D100E22436 /* ScavengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2277B61D32D0D100E22436 /* ScavengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengeTests.swift; sourceTree = "<group>"; };
+		4E2277B81D32D0D100E22436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E2277BD1D32D0D100E22436 /* ScavengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2277C11D32D0D100E22436 /* ScavengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengeUITests.swift; sourceTree = "<group>"; };
+		4E2277C31D32D0D100E22436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E2277981D32D0D100E22436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E2277AF1D32D0D100E22436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E2277BA1D32D0D100E22436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E2277921D32D0D100E22436 = {
+			isa = PBXGroup;
+			children = (
+				4E22779D1D32D0D100E22436 /* Scavenge */,
+				4E2277B51D32D0D100E22436 /* ScavengeTests */,
+				4E2277C01D32D0D100E22436 /* ScavengeUITests */,
+				4E22779C1D32D0D100E22436 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4E22779C1D32D0D100E22436 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E22779B1D32D0D100E22436 /* Scavenge.app */,
+				4E2277B21D32D0D100E22436 /* ScavengeTests.xctest */,
+				4E2277BD1D32D0D100E22436 /* ScavengeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E22779D1D32D0D100E22436 /* Scavenge */ = {
+			isa = PBXGroup;
+			children = (
+				4E22779E1D32D0D100E22436 /* AppDelegate.swift */,
+				4E2277A01D32D0D100E22436 /* ViewController.swift */,
+				4E2277A21D32D0D100E22436 /* Main.storyboard */,
+				4E2277A81D32D0D100E22436 /* Assets.xcassets */,
+				4E2277AA1D32D0D100E22436 /* LaunchScreen.storyboard */,
+				4E2277AD1D32D0D100E22436 /* Info.plist */,
+				4E2277A51D32D0D100E22436 /* Scavenge.xcdatamodeld */,
+			);
+			path = Scavenge;
+			sourceTree = "<group>";
+		};
+		4E2277B51D32D0D100E22436 /* ScavengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				4E2277B61D32D0D100E22436 /* ScavengeTests.swift */,
+				4E2277B81D32D0D100E22436 /* Info.plist */,
+			);
+			path = ScavengeTests;
+			sourceTree = "<group>";
+		};
+		4E2277C01D32D0D100E22436 /* ScavengeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4E2277C11D32D0D100E22436 /* ScavengeUITests.swift */,
+				4E2277C31D32D0D100E22436 /* Info.plist */,
+			);
+			path = ScavengeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E22779A1D32D0D100E22436 /* Scavenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E2277C61D32D0D100E22436 /* Build configuration list for PBXNativeTarget "Scavenge" */;
+			buildPhases = (
+				4E2277971D32D0D100E22436 /* Sources */,
+				4E2277981D32D0D100E22436 /* Frameworks */,
+				4E2277991D32D0D100E22436 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Scavenge;
+			productName = Scavenge;
+			productReference = 4E22779B1D32D0D100E22436 /* Scavenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4E2277B11D32D0D100E22436 /* ScavengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E2277C91D32D0D100E22436 /* Build configuration list for PBXNativeTarget "ScavengeTests" */;
+			buildPhases = (
+				4E2277AE1D32D0D100E22436 /* Sources */,
+				4E2277AF1D32D0D100E22436 /* Frameworks */,
+				4E2277B01D32D0D100E22436 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E2277B41D32D0D100E22436 /* PBXTargetDependency */,
+			);
+			name = ScavengeTests;
+			productName = ScavengeTests;
+			productReference = 4E2277B21D32D0D100E22436 /* ScavengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4E2277BC1D32D0D100E22436 /* ScavengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E2277CC1D32D0D100E22436 /* Build configuration list for PBXNativeTarget "ScavengeUITests" */;
+			buildPhases = (
+				4E2277B91D32D0D100E22436 /* Sources */,
+				4E2277BA1D32D0D100E22436 /* Frameworks */,
+				4E2277BB1D32D0D100E22436 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E2277BF1D32D0D100E22436 /* PBXTargetDependency */,
+			);
+			name = ScavengeUITests;
+			productName = ScavengeUITests;
+			productReference = 4E2277BD1D32D0D100E22436 /* ScavengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E2277931D32D0D100E22436 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Kim Seltzer";
+				TargetAttributes = {
+					4E22779A1D32D0D100E22436 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					4E2277B11D32D0D100E22436 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 4E22779A1D32D0D100E22436;
+					};
+					4E2277BC1D32D0D100E22436 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 4E22779A1D32D0D100E22436;
+					};
+				};
+			};
+			buildConfigurationList = 4E2277961D32D0D100E22436 /* Build configuration list for PBXProject "Scavenge" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4E2277921D32D0D100E22436;
+			productRefGroup = 4E22779C1D32D0D100E22436 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E22779A1D32D0D100E22436 /* Scavenge */,
+				4E2277B11D32D0D100E22436 /* ScavengeTests */,
+				4E2277BC1D32D0D100E22436 /* ScavengeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E2277991D32D0D100E22436 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2277AC1D32D0D100E22436 /* LaunchScreen.storyboard in Resources */,
+				4E2277A91D32D0D100E22436 /* Assets.xcassets in Resources */,
+				4E2277A41D32D0D100E22436 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E2277B01D32D0D100E22436 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E2277BB1D32D0D100E22436 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E2277971D32D0D100E22436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2277A71D32D0D100E22436 /* Scavenge.xcdatamodeld in Sources */,
+				4E2277A11D32D0D100E22436 /* ViewController.swift in Sources */,
+				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E2277AE1D32D0D100E22436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2277B71D32D0D100E22436 /* ScavengeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E2277B91D32D0D100E22436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2277C21D32D0D100E22436 /* ScavengeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4E2277B41D32D0D100E22436 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E22779A1D32D0D100E22436 /* Scavenge */;
+			targetProxy = 4E2277B31D32D0D100E22436 /* PBXContainerItemProxy */;
+		};
+		4E2277BF1D32D0D100E22436 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E22779A1D32D0D100E22436 /* Scavenge */;
+			targetProxy = 4E2277BE1D32D0D100E22436 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4E2277A21D32D0D100E22436 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E2277A31D32D0D100E22436 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4E2277AA1D32D0D100E22436 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E2277AB1D32D0D100E22436 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E2277C41D32D0D100E22436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4E2277C51D32D0D100E22436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E2277C71D32D0D100E22436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Scavenge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.Scavenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4E2277C81D32D0D100E22436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Scavenge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.Scavenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4E2277CA1D32D0D100E22436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ScavengeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.ScavengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scavenge.app/Scavenge";
+			};
+			name = Debug;
+		};
+		4E2277CB1D32D0D100E22436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ScavengeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.ScavengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scavenge.app/Scavenge";
+			};
+			name = Release;
+		};
+		4E2277CD1D32D0D100E22436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ScavengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.ScavengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Scavenge;
+			};
+			name = Debug;
+		};
+		4E2277CE1D32D0D100E22436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ScavengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.ScavengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Scavenge;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E2277961D32D0D100E22436 /* Build configuration list for PBXProject "Scavenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2277C41D32D0D100E22436 /* Debug */,
+				4E2277C51D32D0D100E22436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E2277C61D32D0D100E22436 /* Build configuration list for PBXNativeTarget "Scavenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2277C71D32D0D100E22436 /* Debug */,
+				4E2277C81D32D0D100E22436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4E2277C91D32D0D100E22436 /* Build configuration list for PBXNativeTarget "ScavengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2277CA1D32D0D100E22436 /* Debug */,
+				4E2277CB1D32D0D100E22436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4E2277CC1D32D0D100E22436 /* Build configuration list for PBXNativeTarget "ScavengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2277CD1D32D0D100E22436 /* Debug */,
+				4E2277CE1D32D0D100E22436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4E2277A51D32D0D100E22436 /* Scavenge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4E2277A61D32D0D100E22436 /* Scavenge.xcdatamodel */,
+			);
+			currentVersion = 4E2277A61D32D0D100E22436 /* Scavenge.xcdatamodel */;
+			path = Scavenge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4E2277931D32D0D100E22436 /* Project object */;
+}
