@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y0W-em-lQR">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Playing Game View Controller-->
+        <scene sceneID="94I-KD-VET">
+            <objects>
+                <viewController id="y0W-em-lQR" customClass="PlayingGameViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zwf-qp-Jxc"/>
+                        <viewControllerLayoutGuide type="bottom" id="rrM-SH-JbP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cjv-K5-3rL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYx-Qa-vVt">
+                                <rect key="frame" x="273" y="285" width="54" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eMk-oC-dQw"/>
+                                    <constraint firstAttribute="width" constant="54" id="mYb-vA-Cgf"/>
+                                </constraints>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="y0W-em-lQR" eventType="touchUpInside" id="fTJ-4y-SDC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yYx-Qa-vVt" firstAttribute="centerY" secondItem="cjv-K5-3rL" secondAttribute="centerY" id="ZA7-Fn-D0Y"/>
+                            <constraint firstItem="yYx-Qa-vVt" firstAttribute="centerX" secondItem="cjv-K5-3rL" secondAttribute="centerX" id="vXR-rZ-pXs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZrS-oP-QEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="369"/>
+        </scene>
+    </scenes>
+</document>
