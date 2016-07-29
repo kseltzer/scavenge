@@ -19,9 +19,22 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var startButton: SButton!
+    
+    @IBOutlet weak var profileImageViewUser: ProfileImageView!
+    @IBOutlet weak var profileImageViewFriend1: ProfileImageView!
+    @IBOutlet weak var profileImageViewFriend2: ProfileImageView!
+    @IBOutlet weak var profileImageViewFriend3: ProfileImageView!
+    @IBOutlet weak var profileImageViewFriend4: ProfileImageView!
+    @IBOutlet weak var profileImageViewFriend5: ProfileImageView!
+    
+    
+    
     var invitedFriends : [String] = []
     var selectedFriends : [String] = []
-    var currentInviteFriendIndexPath : NSIndexPath?
+    var selectedFriendsIndices : [Int] = [5, 4, 3, 2, 1]
+    var selectedFacebookFriendCell : FacebookFriendCell?
+    var selectedFacebookFriend : String?
     
     let indexTitles = ["★","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","✉︎"];
     override func viewDidLoad() {
@@ -29,6 +42,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
+        startButton.enabled = false
     }
     
     // MARK: - Table View Delegate
@@ -109,9 +123,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell : FriendCell = FriendCell()
-        var name : String = ""
-        switch (self.tableView(tableView, titleForHeaderInSection: indexPath.section)!) {
+        return self.configureCell(indexPath, section: self.tableView(tableView, titleForHeaderInSection: indexPath.section)!)
+    }
+    
+    func configureCell(indexPath: NSIndexPath, section: String) -> FriendCell {
+        var cell: FriendCell = FriendCell()
+        var name: String = ""
+        switch (section) {
         case kSectionTitleRecents:
             cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierScavenge, forIndexPath: indexPath) as! ScavengeFriendCell
             name = sampleRecents[indexPath.row]
@@ -121,7 +139,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 cell.setDeselectedAppearance()
             }
-            break
+            return cell
         case kSectionTitleFriendsOnScavenge:
             cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierScavenge, forIndexPath: indexPath) as! ScavengeFriendCell
             name = sampleScavengeFriends[indexPath.row]
@@ -131,7 +149,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 cell.setDeselectedAppearance()
             }
-            break
+            return cell
         case kSectionTitleFriendsNotOnScavenge:
             cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierFacebook, forIndexPath: indexPath) as! FacebookFriendCell
             name = sampleFacebookFriends[indexPath.row]
@@ -141,11 +159,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 cell.setDeselectedAppearance()
             }
-            break
+            return cell
         default:
             return cell
         }
-        return cell
     }
     
     func friendForIndexPath(indexPath: NSIndexPath) -> String {
@@ -165,17 +182,86 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.section == 0 || indexPath.section == 1) {
-            if let index = selectedFriends.indexOf(friendForIndexPath(indexPath)) {
-                selectedFriends.removeAtIndex(index)
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! ScavengeFriendCell
+            if let headerIndex = cell.headerProfilePhotoIndex, selectedFriendsIndex = selectedFriends.indexOf(friendForIndexPath(indexPath)) {
+                selectedFriendsIndices.append(headerIndex)
+                self.removeSelectedFriendImageFromHeader(headerIndex)
+                selectedFriends.removeAtIndex(selectedFriendsIndex)
+            } else if selectedFriends.count == 5 {
+                let alertController = UIAlertController(title: kErrorTitle, message: "You cannot have more than 6 players in a game. Remove one of your selected friends if you wanna add this lil guy", preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK, My Bad", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                return
             } else {
-                selectedFriends.append(friendForIndexPath(indexPath))
+                let cell = tableView.cellForRowAtIndexPath(indexPath) as! ScavengeFriendCell
+                let index = selectedFriendsIndices.popLast()
+                cell.headerProfilePhotoIndex = index
+                selectedFriends.append(cell.nameLabel.text!)
+//                self.addSelectedFriendImageToHeader(cell.profileImage.image, index: index)
+                self.addSelectedFriendImageToHeader(UIImage(named: "fbProfilePic"), index: index)
             }
         } else {
-            self.currentInviteFriendIndexPath = indexPath
+            self.selectedFacebookFriendCell = tableView.cellForRowAtIndexPath(indexPath) as? FacebookFriendCell
+            self.selectedFacebookFriend = friendForIndexPath(indexPath)
             self.inviteFriend()
-            invitedFriends.append(friendForIndexPath(indexPath))
+        }
+        if (selectedFriends.count >= 2 && selectedFriends.count <= 6) {
+            startButton.enabled = true
+            startButton.alpha = 1.0
+        } else {
+            startButton.enabled = false
+            startButton.alpha = 0.5
         }
         tableView.reloadData()
+    }
+    
+    func addSelectedFriendImageToHeader(profileImage: UIImage?, index: Int?) {
+        if let image = profileImage, headerProfilePhotoIndex = index {
+            switch (headerProfilePhotoIndex) {
+            case 1:
+                profileImageViewFriend1.image = image
+                break
+            case 2:
+                profileImageViewFriend2.image = image
+                break
+            case 3:
+                profileImageViewFriend3.image = image
+                break
+            case 4:
+                profileImageViewFriend4.image = image
+                break
+            case 5:
+                profileImageViewFriend5.image = image
+                break
+            default:
+                break
+            }
+        }
+    }
+    
+    func removeSelectedFriendImageFromHeader(index: Int?) {
+        if let headerProfilePhotoIndex = index {
+            switch (headerProfilePhotoIndex) {
+            case 1:
+                profileImageViewFriend1.image = UIImage(named: "profilePicNegativeState")
+                break
+            case 2:
+                profileImageViewFriend2.image = UIImage(named: "profilePicNegativeState")
+                break
+            case 3:
+                profileImageViewFriend3.image = UIImage(named: "profilePicNegativeState")
+                break
+            case 4:
+                profileImageViewFriend4.image = UIImage(named: "profilePicNegativeState")
+                break
+            case 5:
+                profileImageViewFriend5.image = UIImage(named: "profilePicNegativeState")
+                break
+            default:
+                break
+            }
+        }
     }
 
     
@@ -187,12 +273,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Check the result or perform other tasks.
         switch (result.rawValue) {
         case MessageComposeResultSent.rawValue:
-            if let indexPath = self.currentInviteFriendIndexPath {
-                let cell = tableView.cellForRowAtIndexPath(indexPath) as! FacebookFriendCell
-                cell.setSelectedAppearance()
+            if let friend = selectedFacebookFriend {
+                invitedFriends.append(friend)
             }
+            selectedFacebookFriendCell?.setDeselectedAppearance()
             break
         case MessageComposeResultCancelled.rawValue:
+            selectedFacebookFriendCell?.setDeselectedAppearance()
             break
         case MessageComposeResultFailed.rawValue:
             let alertController = UIAlertController(title: kErrorTitle, message: "Message Failed :/", preferredStyle: .Alert)
@@ -203,6 +290,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             break
         }
+        tableView.reloadData()
+        selectedFacebookFriendCell = nil
+        selectedFacebookFriend = nil
         
         // Dismiss the mail compose view controller.
         controller.dismissViewControllerAnimated(true, completion: nil)
@@ -227,5 +317,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     func presentSearchController(searchController: UISearchController) {
         print("present search controller")
     }
+    
+    // MARK: - Segue
+    @IBAction func startButtonTapped(sender: SButton) {
+        let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
+        let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
+        self.navigationController?.presentViewController(playingGameViewController!, animated: true, completion: nil)
+    }
+    
 
 }

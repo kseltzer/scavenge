@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum CELL_STATUS {
-    case SHOULD_ADD_TO_GAME
-    case SHOULD_REMOVE_FROM_GAME
-    case DEFAULT
-}
-
 enum CELL_COLOR: String {
     case DEFAULT_COLOR
     case HIGHLIGHTED_COLOR
@@ -21,14 +15,15 @@ enum CELL_COLOR: String {
 
 class FriendCell: UITableViewCell {
 
-    @IBOutlet weak var profileImage: ProfileImageView!
-    @IBOutlet weak var customView: RoundedBorderedView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImage : ProfileImageView!
+    @IBOutlet weak var customView : RoundedBorderedView!
+    @IBOutlet weak var nameLabel : UILabel!
+    
     var currentBackgroundColor: CELL_COLOR = .DEFAULT_COLOR
     let highlightColor = UIColor.groupTableViewBackgroundColor()
     let defaultColor = UIColor.whiteColor()
-    
-    var cellStatus : CELL_STATUS = .DEFAULT
+
+    var headerProfilePhotoIndex : Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()

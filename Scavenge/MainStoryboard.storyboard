@@ -152,14 +152,14 @@
                                                                             <constraint firstAttribute="height" constant="28" id="hAf-0S-qLU"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="eC9-jz-KZf" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="eC9-jz-KZf" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                                         <rect key="frame" x="32" y="0.0" width="28" height="28"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="28" id="BoH-UR-g5f"/>
                                                                             <constraint firstAttribute="height" constant="28" id="f6z-tG-iCM"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="VQQ-2N-1rB" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="VQQ-2N-1rB" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                                         <rect key="frame" x="64" y="0.0" width="28" height="28"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="28" id="lPm-7j-4Ya"/>
@@ -171,21 +171,21 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kJ0-pZ-Ctq" userLabel="Bottom Player Images Stack">
                                                                 <rect key="frame" x="0.0" y="30" width="92" height="28"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="PSL-zh-cWV" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="PSL-zh-cWV" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="28" id="D9n-dc-UbG"/>
                                                                             <constraint firstAttribute="width" constant="28" id="fGL-DS-d49"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="ece-qn-jEr" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="ece-qn-jEr" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                                         <rect key="frame" x="32" y="0.0" width="28" height="28"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="28" id="GkQ-1z-Ope"/>
                                                                             <constraint firstAttribute="width" constant="28" id="lux-jf-LjZ"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="5TB-DZ-SHH" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="5TB-DZ-SHH" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                                         <rect key="frame" x="64" y="0.0" width="28" height="28"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="28" id="KdT-iV-bXt"/>
@@ -218,7 +218,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-7l-Ogv" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-7l-Ogv" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="504" y="23.5" width="64" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -226,6 +226,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="Pi2-G1-1iA"/>
                                                 </constraints>
                                                 <state key="normal" title="Start!"/>
+                                                <connections>
+                                                    <action selector="startButtonTapped:" destination="jKf-zi-WjN" eventType="touchUpInside" id="41b-8s-GUW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -253,9 +256,11 @@
                                     <outlet property="delegate" destination="jKf-zi-WjN" id="trx-BR-IZM"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
                                 <rect key="frame" x="0.0" y="209" width="600" height="391"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.85522942208940833" green="0.94810288714802637" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scavengeFriendCell" rowHeight="54" id="cR7-Sz-a0A" customClass="ScavengeFriendCell" customModule="Scavenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="54"/>
@@ -332,8 +337,8 @@
                                                                 <constraint firstAttribute="width" secondItem="dvh-iD-fhB" secondAttribute="height" multiplier="1:1" id="R0a-ts-pMV"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="invite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAN-3A-U7H">
-                                                            <rect key="frame" x="526" y="12" width="50" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="invite" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAN-3A-U7H">
+                                                            <rect key="frame" x="518" y="12" width="50" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="0tn-Dt-0Ec"/>
                                                                 <constraint firstAttribute="width" constant="50" id="a8a-d1-gu5"/>
@@ -343,7 +348,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ FirstName LastName }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGA-Q2-3eL">
-                                                            <rect key="frame" x="62" y="8" width="456" height="30"/>
+                                                            <rect key="frame" x="62" y="8" width="448" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="TYI-cM-Dts"/>
                                                             </constraints>
@@ -357,7 +362,7 @@
                                                         <constraint firstItem="kGA-Q2-3eL" firstAttribute="leading" secondItem="dvh-iD-fhB" secondAttribute="trailing" constant="16" id="FI8-SS-WVF"/>
                                                         <constraint firstItem="dvh-iD-fhB" firstAttribute="top" secondItem="frz-On-7KI" secondAttribute="top" constant="4" id="GAx-XR-lMm"/>
                                                         <constraint firstAttribute="bottom" secondItem="dvh-iD-fhB" secondAttribute="bottom" constant="4" id="SZL-oc-pot"/>
-                                                        <constraint firstAttribute="trailing" secondItem="EAN-3A-U7H" secondAttribute="trailing" constant="8" id="rw9-Dl-AHN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EAN-3A-U7H" secondAttribute="trailing" constant="16" id="rw9-Dl-AHN"/>
                                                         <constraint firstItem="dvh-iD-fhB" firstAttribute="leading" secondItem="frz-On-7KI" secondAttribute="leading" constant="8" id="sUv-Jx-qEI"/>
                                                         <constraint firstItem="EAN-3A-U7H" firstAttribute="leading" secondItem="kGA-Q2-3eL" secondAttribute="trailing" constant="8" id="wcE-Kk-KuL"/>
                                                         <constraint firstItem="EAN-3A-U7H" firstAttribute="centerY" secondItem="frz-On-7KI" secondAttribute="centerY" id="yVg-p8-TwK"/>
@@ -396,7 +401,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="profileImageViewFriend1" destination="eC9-jz-KZf" id="Zu0-rb-91X"/>
+                        <outlet property="profileImageViewFriend2" destination="VQQ-2N-1rB" id="iRz-d5-1YG"/>
+                        <outlet property="profileImageViewFriend3" destination="PSL-zh-cWV" id="Lkv-mD-xQz"/>
+                        <outlet property="profileImageViewFriend4" destination="ece-qn-jEr" id="UwC-1w-QLP"/>
+                        <outlet property="profileImageViewFriend5" destination="5TB-DZ-SHH" id="Ib4-JJ-VPn"/>
+                        <outlet property="profileImageViewUser" destination="h0t-TS-Vom" id="pDP-1f-OsY"/>
                         <outlet property="searchDisplayController" destination="VEI-4H-SYh" id="EYy-iG-O3w"/>
+                        <outlet property="startButton" destination="ox0-7l-Ogv" id="lBX-ue-WqX"/>
                         <outlet property="tableView" destination="66F-xm-mkX" id="c9q-WA-aN3"/>
                         <outlet property="titleTextField" destination="lKf-QK-c0k" id="r3Q-cb-K0g"/>
                     </connections>
@@ -435,6 +447,7 @@
     </scenes>
     <resources>
         <image name="fbProfilePic" width="960" height="960"/>
+        <image name="profilePicNegativeState" width="1290" height="1290"/>
         <image name="uncheckedBox" width="626" height="626"/>
     </resources>
 </document>
