@@ -137,7 +137,7 @@
                                         <rect key="frame" x="8" y="0.0" width="568" height="77"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-AN-uUh" userLabel="Player Images View">
-                                                <rect key="frame" x="0.0" y="8.5" width="92" height="60"/>
+                                                <rect key="frame" x="0.0" y="8" width="92" height="60"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9Xr-M6-NiE" userLabel="Player Images Stack">
                                                         <rect key="frame" x="0.0" y="0.0" width="92" height="58"/>
@@ -214,12 +214,12 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKf-QK-c0k">
-                                                <rect key="frame" x="100" y="23.5" width="396" height="30"/>
+                                                <rect key="frame" x="100" y="23" width="396" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-7l-Ogv" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
-                                                <rect key="frame" x="504" y="23.5" width="64" height="30"/>
+                                                <rect key="frame" x="504" y="23" width="64" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="64" id="0vC-1c-VF9"/>
@@ -249,15 +249,8 @@
                                     <constraint firstAttribute="height" constant="77" id="iCk-bD-Asa"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" placeholder="Search Friends" translatesAutoresizingMaskIntoConstraints="NO" id="MwK-yl-2Kz">
-                                <rect key="frame" x="0.0" y="157" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="jKf-zi-WjN" id="trx-BR-IZM"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
-                                <rect key="frame" x="0.0" y="209" width="600" height="391"/>
+                                <rect key="frame" x="0.0" y="157" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.85522942208940833" green="0.94810288714802637" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -279,7 +272,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckedBox" translatesAutoresizingMaskIntoConstraints="NO" id="aDH-yX-DUJ">
-                                                            <rect key="frame" x="543" y="10.5" width="25" height="25"/>
+                                                            <rect key="frame" x="543" y="10" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="DEW-QQ-AWN"/>
                                                                 <constraint firstAttribute="height" constant="25" id="nWl-oq-PR5"/>
@@ -388,14 +381,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MwK-yl-2Kz" firstAttribute="top" secondItem="mSv-6k-nCZ" secondAttribute="bottom" constant="8" id="3Ss-mO-pVC"/>
                             <constraint firstItem="mSv-6k-nCZ" firstAttribute="top" secondItem="8iZ-SD-Nmf" secondAttribute="bottom" constant="8" id="5uF-Sv-rJ5"/>
                             <constraint firstAttribute="trailing" secondItem="66F-xm-mkX" secondAttribute="trailing" id="9NU-JY-dbE"/>
                             <constraint firstAttribute="trailing" secondItem="mSv-6k-nCZ" secondAttribute="trailing" constant="8" id="AgC-5x-fu1"/>
+                            <constraint firstItem="66F-xm-mkX" firstAttribute="top" secondItem="mSv-6k-nCZ" secondAttribute="bottom" constant="8" id="Fbm-aq-pmJ"/>
                             <constraint firstItem="66F-xm-mkX" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="TZ7-qK-Agg"/>
-                            <constraint firstItem="66F-xm-mkX" firstAttribute="top" secondItem="MwK-yl-2Kz" secondAttribute="bottom" constant="8" id="dl1-jJ-LhT"/>
-                            <constraint firstItem="MwK-yl-2Kz" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="ezQ-EL-6Pw"/>
-                            <constraint firstAttribute="trailing" secondItem="MwK-yl-2Kz" secondAttribute="trailing" id="mrf-YG-1E2"/>
                             <constraint firstItem="eX7-wd-3RR" firstAttribute="top" secondItem="66F-xm-mkX" secondAttribute="bottom" id="wvE-Ot-3ou"/>
                             <constraint firstItem="mSv-6k-nCZ" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" constant="8" id="ycB-AB-sIA"/>
                         </constraints>
@@ -417,7 +407,6 @@
                 <searchDisplayController id="VEI-4H-SYh">
                     <connections>
                         <outlet property="delegate" destination="jKf-zi-WjN" id="rdf-r0-aPK"/>
-                        <outlet property="searchBar" destination="MwK-yl-2Kz" id="KWy-ke-oYm"/>
                         <outlet property="searchContentsController" destination="jKf-zi-WjN" id="mC8-rz-Zd9"/>
                         <outlet property="searchResultsDataSource" destination="jKf-zi-WjN" id="SCQ-53-qmh"/>
                         <outlet property="searchResultsDelegate" destination="jKf-zi-WjN" id="WlK-2m-3K5"/>

@@ -15,7 +15,7 @@ let sampleFacebookFriends = ["Mahir Shah", "Ian Abramson", "Jenny Seltzer", "Rya
 
 let smsInviteBody: String = "Hey! Long time no talk hahaha :) no but seriously I found this really fun app called Scavenge. Kind of a stupid name but it's actually a good game. You should download it so we can play."
 
-class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, UITextFieldDelegate {
+class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, UITextFieldDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -28,13 +28,17 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileImageViewFriend4: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend5: ProfileImageView!
     
-    
-    
     var invitedFriends : [String] = []
     var selectedFriends : [String] = []
     var selectedFriendsIndices : [Int] = [5, 4, 3, 2, 1]
     var selectedFacebookFriendCell : FacebookFriendCell?
     var selectedFacebookFriend : String?
+    
+    var filteredRecents : [String] = []
+    var filteredScavengeFriends : [String] = []
+    var filteredFacebookFriends : [String] = []
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     let indexTitles = ["★","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","✉︎"];
     override func viewDidLoad() {
@@ -42,7 +46,14 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
+
         startButton.enabled = false
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
     }
     
     // MARK: - Table View Delegate
@@ -53,10 +64,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (self.tableView(tableView, titleForHeaderInSection: section)!) {
         case kSectionTitleRecents:
+            if (searchController.active) {
+                return filteredRecents.count
+            }
             return sampleRecents.count
         case kSectionTitleFriendsOnScavenge:
+            if (searchController.active) {
+                return filteredScavengeFriends.count
+            }
             return sampleScavengeFriends.count
         case kSectionTitleFriendsNotOnScavenge:
+            if (searchController.active) {
+                return filteredFacebookFriends.count
+            }
             return sampleFacebookFriends.count
         default:
             return 0
@@ -132,7 +152,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch (section) {
         case kSectionTitleRecents:
             cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierScavenge, forIndexPath: indexPath) as! ScavengeFriendCell
-            name = sampleRecents[indexPath.row]
+            if searchController.active && searchController.searchBar.text != "" {
+                name = filteredRecents[indexPath.row]
+            } else {
+                name = sampleRecents[indexPath.row]
+            }
             cell.nameLabel.text = name
             if (selectedFriends.indexOf(name) != nil) {
                 cell.setSelectedAppearance()
@@ -142,7 +166,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         case kSectionTitleFriendsOnScavenge:
             cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierScavenge, forIndexPath: indexPath) as! ScavengeFriendCell
-            name = sampleScavengeFriends[indexPath.row]
+            if searchController.active && searchController.searchBar.text != "" {
+                name = filteredScavengeFriends[indexPath.row]
+            } else {
+                name = sampleScavengeFriends[indexPath.row]
+            }
             cell.nameLabel.text = name
             if (selectedFriends.indexOf(name) != nil) {
                 cell.setSelectedAppearance()
@@ -152,7 +180,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         case kSectionTitleFriendsNotOnScavenge:
             cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierFacebook, forIndexPath: indexPath) as! FacebookFriendCell
-            name = sampleFacebookFriends[indexPath.row]
+            if searchController.active && searchController.searchBar.text != "" {
+                name = filteredFacebookFriends[indexPath.row]
+            } else {
+                name = sampleFacebookFriends[indexPath.row]
+            }
             cell.nameLabel.text = name
             if (invitedFriends.indexOf(name) != nil) {
                 cell.setSelectedAppearance()
@@ -169,11 +201,23 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         var name : String = ""
         switch (self.tableView(tableView, titleForHeaderInSection: indexPath.section)!) {
         case kSectionTitleRecents:
-            name = sampleRecents[indexPath.row]
+            if searchController.active && searchController.searchBar.text != "" {
+                name = filteredRecents[indexPath.row]
+            } else {
+                name = sampleRecents[indexPath.row]
+            }
         case kSectionTitleFriendsOnScavenge:
-            name = sampleScavengeFriends[indexPath.row]
+            if searchController.active && searchController.searchBar.text != "" {
+                name = filteredScavengeFriends[indexPath.row]
+            } else {
+                name = sampleScavengeFriends[indexPath.row]
+            }
         case kSectionTitleFriendsNotOnScavenge:
-            name = sampleFacebookFriends[indexPath.row]
+            if searchController.active && searchController.searchBar.text != "" {
+                name = filteredFacebookFriends[indexPath.row]
+            } else {
+                name = sampleFacebookFriends[indexPath.row]
+            }
         default:
             break
         }
@@ -313,10 +357,35 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    // MARK: - Search Controller
-    func presentSearchController(searchController: UISearchController) {
-        print("present search controller")
+    // MARK: - UISearchResultsUpdating Protocol
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
+    
+//    func filterContentForSearchText(searchText: String, scope: String = "All") {
+//        filteredCandies = candies.filter { candy in
+//            return candy.name.lowercaseString.containsString(searchText.lowercaseString)
+//        }
+//        
+//        tableView.reloadData()
+//    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredRecents = sampleRecents.filter { friend in
+            return friend.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        filteredScavengeFriends = sampleScavengeFriends.filter { friend in
+            return friend.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        filteredFacebookFriends = sampleFacebookFriends.filter { friend in
+            return friend.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        tableView.reloadData()
+    }
+    
+    // MARK: - UISearchBarDelegate
+    
     
     // MARK: - Segue
     @IBAction func startButtonTapped(sender: SButton) {

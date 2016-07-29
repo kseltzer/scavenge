@@ -37,6 +37,7 @@
 		4E22781E1D42030000E22436 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22781D1D42030000E22436 /* FriendCell.swift */; };
 		4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */; };
 		4E27053B1D49DB7600052671 /* FacebookFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */; };
+		4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		4E22781D1D42030000E22436 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriendCell.swift; sourceTree = "<group>"; };
 		4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriendCell.swift; sourceTree = "<group>"; };
+		4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		4E2277CF1D32D1C900E22436 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4E27053C1D4B3A9800052671 /* Shared */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,14 @@
 				4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */,
 			);
 			name = "Create Game";
+			sourceTree = "<group>";
+		};
+		4E27053C1D4B3A9800052671 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2278141D41DE2100E22436 /* ProfileImageView.swift in Sources */,
+				4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */,
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
 				4E2278011D33292500E22436 /* ActiveGameCell.swift in Sources */,
