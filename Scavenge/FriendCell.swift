@@ -22,8 +22,8 @@ class FriendCell: UITableViewCell {
     var currentBackgroundColor: CELL_COLOR = .DEFAULT_COLOR
     let highlightColor = UIColor.groupTableViewBackgroundColor()
     let defaultColor = UIColor.whiteColor()
-
-    var headerProfilePhotoIndex : Int?
+    
+    var userID : String!
     
     override func awakeFromNib() {
         super.awakeFromNib()

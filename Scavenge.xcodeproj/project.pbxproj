@@ -38,6 +38,8 @@
 		4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */; };
 		4E27053B1D49DB7600052671 /* FacebookFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */; };
 		4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */; };
+		4E2705401D4B432200052671 /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053F1D4B432200052671 /* FacebookFriend.swift */; };
+		4E2705421D4C4FD400052671 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705411D4C4FD400052671 /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriendCell.swift; sourceTree = "<group>"; };
 		4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriendCell.swift; sourceTree = "<group>"; };
 		4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriend.swift; sourceTree = "<group>"; };
+		4E27053F1D4B432200052671 /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
+		4E2705411D4C4FD400052671 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */,
+				4E27053F1D4B432200052671 /* FacebookFriend.swift */,
+				4E2705411D4C4FD400052671 /* Friend.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2278141D41DE2100E22436 /* ProfileImageView.swift in Sources */,
+				4E2705401D4B432200052671 /* FacebookFriend.swift in Sources */,
 				4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */,
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
@@ -464,6 +471,7 @@
 				4E2277E91D32E5DB00E22436 /* SNavigationController.swift in Sources */,
 				4E2278071D3748B500E22436 /* PlayingGameViewController.swift in Sources */,
 				4E2277F81D33171800E22436 /* SBarButtonItem.swift in Sources */,
+				4E2705421D4C4FD400052671 /* Friend.swift in Sources */,
 				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
 				4E2277D71D32D29400E22436 /* Constants.swift in Sources */,
 				4E22781E1D42030000E22436 /* FriendCell.swift in Sources */,

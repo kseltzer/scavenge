@@ -1,5 +1,5 @@
 //
-//  ScavengeFriend.swift
+//  FacebookFriend.swift
 //  Scavenge
 //
 //  Created by Kimberly Seltzer on 7/29/16.
@@ -9,12 +9,10 @@
 import Foundation
 import UIKit
 
-struct ScavengeFriend : Friend
+struct FacebookFriend : Friend
 {
     var name : String
     var id : String
     var profileImage: UIImage
-    var firstName: String
-    var addedToGame : Bool
-    var headerIndex : Int?    
+    var invited : Bool
 }
