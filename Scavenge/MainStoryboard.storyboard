@@ -213,10 +213,10 @@
                                                     <constraint firstAttribute="height" constant="60" id="yvy-5o-nPY"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Game Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKf-QK-c0k">
-                                                <rect key="frame" x="100" y="23" width="396" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="{ Game Title }" textAlignment="natural" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lKf-QK-c0k">
+                                                <rect key="frame" x="100" y="8" width="396" height="61"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="light" returnKeyType="done"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-7l-Ogv" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="504" y="23" width="64" height="30"/>
@@ -233,6 +233,8 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="KhG-AN-uUh" firstAttribute="leading" secondItem="T3O-qF-NxB" secondAttribute="leading" constant="8" id="4Da-G6-w6X"/>
+                                            <constraint firstItem="lKf-QK-c0k" firstAttribute="top" secondItem="T3O-qF-NxB" secondAttribute="top" constant="8" id="8XV-PP-ml7"/>
+                                            <constraint firstAttribute="bottom" secondItem="lKf-QK-c0k" secondAttribute="bottom" constant="8" id="rsy-q9-m3p"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">

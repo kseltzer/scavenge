@@ -14,7 +14,6 @@ class ScavengeFriendCell: FriendCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelectedAppearance() {
