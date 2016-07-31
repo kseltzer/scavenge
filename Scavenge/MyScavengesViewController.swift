@@ -52,13 +52,13 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         case TableViewSection.Invites.rawValue:
             return 3
         case TableViewSection.Results.rawValue:
-            return 3
+            return 1
         case TableViewSection.ActiveGames.rawValue:
             return 0
         case TableViewSection.YourMove.rawValue:
-            return 3
+            return 1
         case TableViewSection.TheirMove.rawValue:
-            return 3
+            return 1
         case TableViewSection.CompletedGames.rawValue:
             return 3
         default:
@@ -70,7 +70,7 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         let cell: SBaseTableViewCell
         switch (indexPath.section) {
         case TableViewSection.Invites.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("twoPlayerCell") as! SBaseTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("threePlayerCell") as! SBaseTableViewCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
 //            cell.gameStatusLabel.text = "your turn"
             break
@@ -87,7 +87,7 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
 //            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.TheirMove.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("gameCell") as! SBaseTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("fivePlayerCell") as! SBaseTableViewCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
 //            cell.gameStatusLabel.text = "your turn"
             break
