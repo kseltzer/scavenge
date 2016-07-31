@@ -16,11 +16,6 @@ class LoginViewController: UIViewController {
         self.attemptLoginWithFacebook()
     }
     
-    override func viewDidLoad() {
-        self.navigationController?.navigationBar.barTintColor = NAVIGATION_BAR_TINT_COLOR
-        self.navigationController?.navigationBar.tintColor = NAVIGATION_BAR_TEXT_COLOR
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         

@@ -58,7 +58,7 @@ let fbFriendDictionaryFromAPI : [String:FacebookFriend] = [
 var fbFriendDictionary = fbFriendDictionaryFromAPI
 
 let smsInviteBody: String = "Hey! Long time no talk hahaha :) no but seriously I found this really fun app called Scavenge. Kind of a stupid name but it's actually a good game. You should download it so we can play."
-let cannotAddAdditionalPlayersMessage = "You cannot have more than 6 players in a game. Remove one of your selected friends if you wanna add this lil guy"
+let cannotAddAdditionalPlayersMessage = "ya can't have more than 6 players\nin a game"
 
 class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, UITextFieldDelegate, UISearchResultsUpdating {
     
@@ -109,11 +109,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         searchController.loadViewIfNeeded()
+        searchController.hidesNavigationBarDuringPresentation = false
         
         titleTextField.delegate = self
         titleTextField.placeholder = gameTitle
-        
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     // MARK: - UITableViewDelegate
@@ -123,7 +122,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        print(gameTitle)
+//        print(gameTitle)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -190,24 +189,28 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var sectionTitle = "Default"
+        var topPadding : CGFloat!
         switch (section) {
         case 0:
             sectionTitle = kSectionTitleRecents
+            topPadding = 3
             break
         case 1:
             sectionTitle = kSectionTitleFriendsOnScavenge
+            topPadding = 0
             break
         case 2:
             sectionTitle = kSectionTitleFriendsNotOnScavenge
+            topPadding = 0
             break
         default:
             break
         }
         
-        let returnedView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 22))
+        let returnedView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 35))
         returnedView.backgroundColor = UIColor.whiteColor()
         
-        let label = UILabel(frame: CGRectMake(8, 0, tableView.frame.width, 22))
+        let label = UILabel(frame: CGRectMake(8, topPadding, tableView.frame.width, 22))
         label.text = sectionTitle
         returnedView.addSubview(label)
         
@@ -354,7 +357,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         } else if (selectedFriendsHeaderIndices.count == 0) {                                     // maximum friends added alert
             let alertController = UIAlertController(title: kErrorTitle, message: cannotAddAdditionalPlayersMessage, preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "OK, My Bad", style: .Default, handler: nil)
+            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .Default, handler: nil)
             alertController.addAction(defaultAction)
             self.presentViewController(alertController, animated: true, completion: nil)
             return nil
@@ -439,19 +442,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let headerProfilePhotoIndex = index {
             switch (headerProfilePhotoIndex) {
             case 1:
-                profileImageViewFriend1.image = UIImage(named: "profilePicNegativeState")
+                profileImageViewFriend1.image = UIImage(named: "kimNegativeState")
                 break
             case 2:
-                profileImageViewFriend2.image = UIImage(named: "profilePicNegativeState")
+                profileImageViewFriend2.image = UIImage(named: "sachinNegativeState")
                 break
             case 3:
-                profileImageViewFriend3.image = UIImage(named: "profilePicNegativeState")
+                profileImageViewFriend3.image = UIImage(named: "kimNegativeState")
                 break
             case 4:
-                profileImageViewFriend4.image = UIImage(named: "profilePicNegativeState")
+                profileImageViewFriend4.image = UIImage(named: "sachinNegativeState")
                 break
             case 5:
-                profileImageViewFriend5.image = UIImage(named: "profilePicNegativeState")
+                profileImageViewFriend5.image = UIImage(named: "kimNegativeState")
                 break
             default:
                 break
@@ -569,8 +572,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func startButtonTapped(sender: SButton) {
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
         let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
-        self.showViewController(playingGameViewController!, sender: self)
-//        self.navigationController?.pushViewController(playingGameViewController!, animated: true)
+        playingGameViewController?.navigationItem.hidesBackButton = true
+        navigationController?.pushViewController(playingGameViewController!, animated: true)
     }
     
     override func willMoveToParentViewController(parent: UIViewController?) {

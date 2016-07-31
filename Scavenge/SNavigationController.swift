@@ -14,8 +14,5 @@ class SNavigationController: UINavigationController {
         
         self.navigationBar.barTintColor = NAVIGATION_BAR_TINT_COLOR
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: NAVIGATION_BAR_TEXT_COLOR, NSFontAttributeName: NAVIGATION_BAR_FONT!]
-        
-//        self.navigationBar.backIndicatorImage = BACK_BAR_BUTTON
-//        self.navigationBar.backIndicatorTransitionMaskImage = BACK_BAR_BUTTON_MASK
     }
 }

@@ -14,10 +14,6 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var customView : RoundedBorderedView!
     @IBOutlet weak var nameLabel : UILabel!
     
-    var highlightedColor = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)
-    var selectedColor = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)
-    let defaultColor = UIColor.whiteColor()
-    
     var userID : String!
     
     override func awakeFromNib() {
@@ -26,16 +22,16 @@ class FriendCell: UITableViewCell {
     }
     
     func setSelectedAppearance() {
-        customView.backgroundColor = selectedColor
+        customView.backgroundColor = CELL_SELECTED_COLOR
     }
     
     func setDeselectedAppearance() {
-        customView.backgroundColor = defaultColor
+        customView.backgroundColor = CELL_DEFAULT_COLOR
     }
     
     override func setHighlighted(highlighted: Bool, animated: Bool) {
         if (highlighted) {
-            customView.backgroundColor = highlightedColor
+            customView.backgroundColor = CELL_HIGHLIGHTED_COLOR
         }
     }
 

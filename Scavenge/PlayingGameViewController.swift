@@ -9,15 +9,13 @@
 import UIKit
 
 class PlayingGameViewController: UIViewController {
-
+    
     @IBAction func cameraButtonPressed (sender: UIButton!) {
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

@@ -3,9 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Playing Game View Controller-->
+        <!--{ Game Title }-->
         <scene sceneID="94I-KD-VET">
             <objects>
                 <viewController id="y0W-em-lQR" customClass="PlayingGameViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,13 +18,160 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYx-Qa-vVt">
-                                <rect key="frame" x="273" y="285" width="54" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DgJ-oc-zyD">
+                                <rect key="frame" x="8" y="28" width="584" height="357"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mxc-gk-0Rn" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="584" height="65"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The perfect balance between business and casual" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="B9o-PX-bd8">
+                                                <rect key="frame" x="8" y="8" width="513" height="49"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMB-4a-MEX" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
+                                                <rect key="frame" x="529" y="8" width="47" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bMB-4a-MEX" secondAttribute="height" multiplier="15:16" constant="1" id="x07-0w-VBc"/>
+                                                </constraints>
+                                                <state key="normal" title="camera" image="aliya"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="B9o-PX-bd8" firstAttribute="top" secondItem="Mxc-gk-0Rn" secondAttribute="top" constant="8" id="3bZ-gF-39l"/>
+                                            <constraint firstAttribute="trailing" secondItem="bMB-4a-MEX" secondAttribute="trailing" constant="8" id="QVE-U8-k4o"/>
+                                            <constraint firstAttribute="bottom" secondItem="bMB-4a-MEX" secondAttribute="bottom" constant="8" id="c03-J4-7Qc"/>
+                                            <constraint firstItem="B9o-PX-bd8" firstAttribute="leading" secondItem="Mxc-gk-0Rn" secondAttribute="leading" constant="8" id="e4j-UI-nuy"/>
+                                            <constraint firstAttribute="bottom" secondItem="B9o-PX-bd8" secondAttribute="bottom" constant="8" id="nsM-5e-3o7"/>
+                                            <constraint firstItem="bMB-4a-MEX" firstAttribute="leading" secondItem="B9o-PX-bd8" secondAttribute="trailing" constant="8" id="pXI-bc-E4U"/>
+                                            <constraint firstItem="bMB-4a-MEX" firstAttribute="top" secondItem="Mxc-gk-0Rn" secondAttribute="top" constant="8" id="uFw-7l-vgr"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lc-jX-vSQ" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="73" width="584" height="65"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="Pvf-BB-zMh">
+                                                <rect key="frame" x="530" y="8" width="46" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Pvf-BB-zMh" secondAttribute="height" multiplier="15:16" id="Pd5-x5-MqJ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Punchable face" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Adb-sp-Lub">
+                                                <rect key="frame" x="8" y="8" width="514" height="49"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Adb-sp-Lub" firstAttribute="top" secondItem="4Lc-jX-vSQ" secondAttribute="top" constant="8" id="9bB-ab-FLE"/>
+                                            <constraint firstAttribute="bottom" secondItem="Pvf-BB-zMh" secondAttribute="bottom" constant="8" id="ILM-hQ-TDn"/>
+                                            <constraint firstItem="Pvf-BB-zMh" firstAttribute="top" secondItem="4Lc-jX-vSQ" secondAttribute="top" constant="8" id="NPG-Tt-cBJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Adb-sp-Lub" secondAttribute="bottom" constant="8" id="Qog-B8-8WW"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pvf-BB-zMh" secondAttribute="trailing" constant="8" id="am6-oc-0YP"/>
+                                            <constraint firstItem="Adb-sp-Lub" firstAttribute="leading" secondItem="4Lc-jX-vSQ" secondAttribute="leading" constant="8" id="kzO-Xm-O1n"/>
+                                            <constraint firstItem="Pvf-BB-zMh" firstAttribute="leading" secondItem="Adb-sp-Lub" secondAttribute="trailing" constant="8" id="shF-RE-ydI"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdG-iW-hcE" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="146" width="584" height="65"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-2x-wV0">
+                                                <rect key="frame" x="530" y="8" width="46" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="IDN-2x-wV0" secondAttribute="height" multiplier="15:16" id="mWw-R9-DuD"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So crazy it just might work" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jPI-gL-QDe">
+                                                <rect key="frame" x="8" y="8" width="514" height="49"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="jPI-gL-QDe" secondAttribute="bottom" constant="8" id="7eX-7h-pOq"/>
+                                            <constraint firstItem="jPI-gL-QDe" firstAttribute="leading" secondItem="QdG-iW-hcE" secondAttribute="leading" constant="8" id="AE5-Bh-Svw"/>
+                                            <constraint firstItem="IDN-2x-wV0" firstAttribute="leading" secondItem="jPI-gL-QDe" secondAttribute="trailing" constant="8" id="TFm-dj-ge2"/>
+                                            <constraint firstAttribute="trailing" secondItem="IDN-2x-wV0" secondAttribute="trailing" constant="8" id="TPa-5L-FeW"/>
+                                            <constraint firstItem="IDN-2x-wV0" firstAttribute="top" secondItem="QdG-iW-hcE" secondAttribute="top" constant="8" id="bzy-s2-iqy"/>
+                                            <constraint firstAttribute="bottom" secondItem="IDN-2x-wV0" secondAttribute="bottom" multiplier="1:1" constant="8" id="esZ-eW-1in"/>
+                                            <constraint firstItem="jPI-gL-QDe" firstAttribute="top" secondItem="QdG-iW-hcE" secondAttribute="top" constant="8" id="qoU-oa-cue"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cy3-eI-wPs" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="219" width="584" height="65"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="9T6-sC-Cia">
+                                                <rect key="frame" x="530" y="8" width="46" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9T6-sC-Cia" secondAttribute="height" multiplier="15:16" id="RGh-94-Kuk"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sachin's worst nightmare" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="wf0-ce-W4r">
+                                                <rect key="frame" x="8" y="8" width="514" height="49"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="wf0-ce-W4r" firstAttribute="top" secondItem="Cy3-eI-wPs" secondAttribute="top" constant="8" id="6XT-j4-TEH"/>
+                                            <constraint firstItem="wf0-ce-W4r" firstAttribute="leading" secondItem="Cy3-eI-wPs" secondAttribute="leading" constant="8" id="8W5-ZE-o6Q"/>
+                                            <constraint firstItem="9T6-sC-Cia" firstAttribute="leading" secondItem="wf0-ce-W4r" secondAttribute="trailing" constant="8" id="F5i-cD-iYe"/>
+                                            <constraint firstItem="9T6-sC-Cia" firstAttribute="top" secondItem="Cy3-eI-wPs" secondAttribute="top" constant="8" id="Sh1-zW-0dI"/>
+                                            <constraint firstAttribute="bottom" secondItem="wf0-ce-W4r" secondAttribute="bottom" constant="8" id="TUO-K3-9Vx"/>
+                                            <constraint firstAttribute="bottom" secondItem="9T6-sC-Cia" secondAttribute="bottom" constant="8" id="dsX-nr-oVA"/>
+                                            <constraint firstAttribute="trailing" secondItem="9T6-sC-Cia" secondAttribute="trailing" constant="8" id="rWg-jM-Acv"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hh-Fl-aBU" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="292" width="584" height="65"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="shQ-o2-nIR">
+                                                <rect key="frame" x="530" y="8" width="46" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="shQ-o2-nIR" secondAttribute="height" multiplier="15:16" id="yRu-hW-5eS"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regret" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hHM-5S-roK">
+                                                <rect key="frame" x="8" y="8" width="514" height="49"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="hHM-5S-roK" secondAttribute="bottom" constant="8" id="JEx-u3-TZm"/>
+                                            <constraint firstItem="hHM-5S-roK" firstAttribute="top" secondItem="3hh-Fl-aBU" secondAttribute="top" constant="8" id="U2I-6y-CnC"/>
+                                            <constraint firstItem="shQ-o2-nIR" firstAttribute="top" secondItem="3hh-Fl-aBU" secondAttribute="top" constant="8" id="bbr-RY-07c"/>
+                                            <constraint firstItem="shQ-o2-nIR" firstAttribute="leading" secondItem="hHM-5S-roK" secondAttribute="trailing" constant="8" id="hde-AB-YTK"/>
+                                            <constraint firstItem="hHM-5S-roK" firstAttribute="leading" secondItem="3hh-Fl-aBU" secondAttribute="leading" constant="8" id="jM3-Eg-94M"/>
+                                            <constraint firstAttribute="trailing" secondItem="shQ-o2-nIR" secondAttribute="trailing" constant="8" id="ngF-Gu-pLb"/>
+                                            <constraint firstAttribute="bottom" secondItem="shQ-o2-nIR" secondAttribute="bottom" constant="8" id="w4k-Su-omy"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="eMk-oC-dQw"/>
-                                    <constraint firstAttribute="width" constant="54" id="mYb-vA-Cgf"/>
+                                    <constraint firstItem="4Lc-jX-vSQ" firstAttribute="width" secondItem="Mxc-gk-0Rn" secondAttribute="width" id="AME-dk-lfp"/>
+                                    <constraint firstItem="3hh-Fl-aBU" firstAttribute="width" secondItem="Mxc-gk-0Rn" secondAttribute="width" id="J43-2b-Q9a"/>
+                                    <constraint firstItem="4Lc-jX-vSQ" firstAttribute="height" secondItem="Mxc-gk-0Rn" secondAttribute="height" id="MQ3-Bg-1oj"/>
+                                    <constraint firstItem="Cy3-eI-wPs" firstAttribute="height" secondItem="Mxc-gk-0Rn" secondAttribute="height" id="V75-H0-9lL"/>
+                                    <constraint firstItem="QdG-iW-hcE" firstAttribute="height" secondItem="Mxc-gk-0Rn" secondAttribute="height" id="VXD-xY-OQg"/>
+                                    <constraint firstItem="QdG-iW-hcE" firstAttribute="width" secondItem="Mxc-gk-0Rn" secondAttribute="width" id="iJu-cf-NqJ"/>
+                                    <constraint firstItem="3hh-Fl-aBU" firstAttribute="height" secondItem="Mxc-gk-0Rn" secondAttribute="height" id="sTZ-2B-6lc"/>
+                                    <constraint firstItem="Cy3-eI-wPs" firstAttribute="width" secondItem="Mxc-gk-0Rn" secondAttribute="width" id="t81-BY-IJz"/>
                                 </constraints>
-                                <state key="normal" title="Camera"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYx-Qa-vVt" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
+                                <rect key="frame" x="242" y="465" width="115" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="eMk-oC-dQw"/>
+                                    <constraint firstAttribute="width" constant="115" id="mYb-vA-Cgf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Submit!"/>
                                 <connections>
                                     <action selector="cameraButtonPressed:" destination="y0W-em-lQR" eventType="touchUpInside" id="fTJ-4y-SDC"/>
                                 </connections>
@@ -31,14 +179,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yYx-Qa-vVt" firstAttribute="centerY" secondItem="cjv-K5-3rL" secondAttribute="centerY" id="ZA7-Fn-D0Y"/>
-                            <constraint firstItem="yYx-Qa-vVt" firstAttribute="centerX" secondItem="cjv-K5-3rL" secondAttribute="centerX" id="vXR-rZ-pXs"/>
+                            <constraint firstItem="yYx-Qa-vVt" firstAttribute="top" secondItem="DgJ-oc-zyD" secondAttribute="bottom" constant="80" id="5y2-s8-2cI"/>
+                            <constraint firstItem="DgJ-oc-zyD" firstAttribute="leading" secondItem="cjv-K5-3rL" secondAttribute="leading" constant="8" id="WK1-C6-Puo"/>
+                            <constraint firstItem="yYx-Qa-vVt" firstAttribute="centerX" secondItem="cjv-K5-3rL" secondAttribute="centerX" id="bYl-Pt-kpb"/>
+                            <constraint firstAttribute="trailing" secondItem="DgJ-oc-zyD" secondAttribute="trailing" constant="8" id="rZq-WW-BSO"/>
+                            <constraint firstItem="rrM-SH-JbP" firstAttribute="top" secondItem="yYx-Qa-vVt" secondAttribute="bottom" constant="80" id="xAx-AM-sWa"/>
+                            <constraint firstItem="DgJ-oc-zyD" firstAttribute="top" secondItem="Zwf-qp-Jxc" secondAttribute="bottom" constant="8" id="xhU-Zu-MO5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="{ Game Title }" id="Zuv-pl-Nfe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZrS-oP-QEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="401" y="369"/>
+            <point key="canvasLocation" x="1213" y="369"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="aliya" width="960" height="1280"/>
+    </resources>
 </document>
