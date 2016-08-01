@@ -6,7 +6,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--My Scavenges-->
+        <!--{ Scavenge Logo }-->
         <scene sceneID="04e-hM-u32">
             <objects>
                 <viewController id="dik-UW-LCa" customClass="MyScavengesViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cxU-8J-dn4" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="77"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wto-VI-i7v" userLabel="Create Game Fields Stack">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wto-VI-i7v" userLabel="Create Game Fields Stack">
                                                             <rect key="frame" x="8" y="0.0" width="568" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xf-F6-AFG" userLabel="Player Images View">
@@ -42,41 +42,8 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Bsu-H2-o6v" userLabel="Player Images Stack">
                                                                             <rect key="frame" x="0.0" y="0.0" width="92" height="58"/>
                                                                             <subviews>
-                                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-pq-chF">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-vA-04W" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="Z5U-Cb-A6V"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="aeV-2m-awI"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-FQ-m3L" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <rect key="frame" x="32" y="0.0" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="YOy-kp-4tX"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="cNY-97-vep"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                    <constraints>
-                                                                                        <constraint firstItem="dSc-vA-04W" firstAttribute="top" secondItem="WrO-pq-chF" secondAttribute="top" id="BQ9-7a-hve"/>
-                                                                                        <constraint firstItem="dSc-vA-04W" firstAttribute="leading" secondItem="WrO-pq-chF" secondAttribute="leading" id="Mta-wz-q1E"/>
-                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="leading" secondItem="dSc-vA-04W" secondAttribute="leading" constant="4" id="UBV-sv-GaQ"/>
-                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="top" secondItem="WrO-pq-chF" secondAttribute="top" id="gUz-2c-ocD"/>
-                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="top" secondItem="dSc-vA-04W" secondAttribute="bottom" id="nSq-Rr-3Kl"/>
-                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="leading" secondItem="dSc-vA-04W" secondAttribute="trailing" constant="4" id="slh-BZ-xCM"/>
-                                                                                    </constraints>
-                                                                                    <variation key="default">
-                                                                                        <mask key="constraints">
-                                                                                            <exclude reference="UBV-sv-GaQ"/>
-                                                                                            <exclude reference="nSq-Rr-3Kl"/>
-                                                                                        </mask>
-                                                                                    </variation>
-                                                                                </view>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YYt-cl-C1R" userLabel="Bottom Player Images Stack">
-                                                                                    <rect key="frame" x="0.0" y="30" width="92" height="28"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="28"/>
                                                                                     <subviews>
                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="VBm-Mu-onr" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
@@ -101,12 +68,51 @@
                                                                                         </imageView>
                                                                                     </subviews>
                                                                                 </stackView>
+                                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-pq-chF">
+                                                                                    <rect key="frame" x="0.0" y="30" width="92" height="28"/>
+                                                                                    <subviews>
+                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-vA-04W" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                                            <rect key="frame" x="16" y="0.0" width="28" height="28"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="width" constant="28" id="Z5U-Cb-A6V"/>
+                                                                                                <constraint firstAttribute="height" constant="28" id="aeV-2m-awI"/>
+                                                                                            </constraints>
+                                                                                        </imageView>
+                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-FQ-m3L" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                                            <rect key="frame" x="48" y="0.0" width="28" height="28"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="28" id="YOy-kp-4tX"/>
+                                                                                                <constraint firstAttribute="width" constant="28" id="cNY-97-vep"/>
+                                                                                            </constraints>
+                                                                                        </imageView>
+                                                                                    </subviews>
+                                                                                    <constraints>
+                                                                                        <constraint firstItem="dSc-vA-04W" firstAttribute="top" secondItem="WrO-pq-chF" secondAttribute="top" id="BQ9-7a-hve"/>
+                                                                                        <constraint firstItem="dSc-vA-04W" firstAttribute="leading" secondItem="WrO-pq-chF" secondAttribute="leading" constant="16" id="Mta-wz-q1E"/>
+                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="leading" secondItem="dSc-vA-04W" secondAttribute="leading" constant="4" id="UBV-sv-GaQ"/>
+                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="top" secondItem="WrO-pq-chF" secondAttribute="top" id="gUz-2c-ocD"/>
+                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="top" secondItem="dSc-vA-04W" secondAttribute="bottom" id="nSq-Rr-3Kl"/>
+                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="leading" secondItem="dSc-vA-04W" secondAttribute="trailing" constant="4" id="slh-BZ-xCM"/>
+                                                                                    </constraints>
+                                                                                    <variation key="default">
+                                                                                        <mask key="constraints">
+                                                                                            <exclude reference="UBV-sv-GaQ"/>
+                                                                                            <exclude reference="nSq-Rr-3Kl"/>
+                                                                                        </mask>
+                                                                                    </variation>
+                                                                                </view>
                                                                             </subviews>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="bottom" secondItem="YYt-cl-C1R" secondAttribute="bottom" id="9vI-m6-sq8"/>
+                                                                                <constraint firstItem="YYt-cl-C1R" firstAttribute="top" secondItem="Bsu-H2-o6v" secondAttribute="top" id="k3a-l1-yEd"/>
                                                                                 <constraint firstItem="YYt-cl-C1R" firstAttribute="leading" secondItem="Bsu-H2-o6v" secondAttribute="leading" id="njb-A3-dbj"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="YYt-cl-C1R" secondAttribute="trailing" id="xly-6R-gVl"/>
                                                                             </constraints>
+                                                                            <variation key="default">
+                                                                                <mask key="constraints">
+                                                                                    <exclude reference="9vI-m6-sq8"/>
+                                                                                </mask>
+                                                                            </variation>
                                                                         </stackView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -117,8 +123,8 @@
                                                                         <constraint firstAttribute="height" constant="60" id="Wpk-AN-Zxp"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqB-Mj-prk" userLabel="Game Title Label">
-                                                                    <rect key="frame" x="100" y="8" width="360" height="61"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="yqB-Mj-prk" userLabel="Game Title Label">
+                                                                    <rect key="frame" x="104" y="8" width="352" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -173,11 +179,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-zv-1ep" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="0.0" width="584" height="60"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-zv-1ep" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="77"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="33u-yI-ca8" userLabel="Create Game Fields Stack">
-                                                            <rect key="frame" x="8" y="0.0" width="568" height="77"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="33u-yI-ca8" userLabel="Create Game Fields Stack">
+                                                            <rect key="frame" x="24" y="0.0" width="552" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vP8-QS-BU9" userLabel="Player Images View">
                                                                     <rect key="frame" x="0.0" y="9" width="60" height="60"/>
@@ -242,14 +248,14 @@
                                                                         <constraint firstAttribute="width" constant="60" id="TFV-mi-koR"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-ef-xsV" userLabel="Game Title Label">
-                                                                    <rect key="frame" x="68" y="8" width="392" height="61"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-ef-xsV" userLabel="Game Title Label">
+                                                                    <rect key="frame" x="72" y="8" width="368" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-Lo-F3D" userLabel="Right Text Label">
-                                                                    <rect key="frame" x="468" y="8" width="100" height="61"/>
+                                                                    <rect key="frame" x="452" y="8" width="100" height="61"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="100" id="ZRY-XU-AGU"/>
                                                                     </constraints>
@@ -275,7 +281,7 @@
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="33u-yI-ca8" firstAttribute="leading" secondItem="Xea-zv-1ep" secondAttribute="leading" constant="8" id="7NX-Fo-1Yd"/>
+                                                        <constraint firstItem="33u-yI-ca8" firstAttribute="leading" secondItem="Xea-zv-1ep" secondAttribute="leading" constant="24" id="7NX-Fo-1Yd"/>
                                                         <constraint firstItem="33u-yI-ca8" firstAttribute="top" secondItem="Xea-zv-1ep" secondAttribute="top" id="7f0-bX-dhi"/>
                                                         <constraint firstAttribute="height" constant="77" id="Fyi-16-TwV"/>
                                                         <constraint firstAttribute="trailing" secondItem="33u-yI-ca8" secondAttribute="trailing" constant="8" id="VTy-hO-wym"/>
@@ -291,8 +297,133 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="threePlayerCell" id="MVJ-uU-4qa" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="threePlayerCell" id="v2I-Ds-qTe" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="222" width="600" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="v2I-Ds-qTe" id="TWx-Rq-oxn">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lup-Ka-LrW" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="77"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Acb-hd-JC6" userLabel="Create Game Fields Stack">
+                                                            <rect key="frame" x="24" y="0.0" width="552" height="77"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pkn-we-rbe" userLabel="Player Images View">
+                                                                    <rect key="frame" x="0.0" y="9" width="92" height="60"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nzS-UO-vLz" userLabel="Player Images Stack">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="58"/>
+                                                                            <subviews>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="t8S-U7-tbO" userLabel="Bottom Player Images Stack">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="28"/>
+                                                                                    <subviews>
+                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="VID-Ck-2fo" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="width" constant="28" id="6wt-mv-J41"/>
+                                                                                                <constraint firstAttribute="height" constant="28" id="hLn-Iv-Ck5"/>
+                                                                                            </constraints>
+                                                                                        </imageView>
+                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-Me-pkc" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                                            <rect key="frame" x="32" y="0.0" width="28" height="28"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="28" id="v3J-tk-fkg"/>
+                                                                                                <constraint firstAttribute="width" constant="28" id="yKe-A2-sVl"/>
+                                                                                            </constraints>
+                                                                                        </imageView>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-CX-oo8">
+                                                                                    <rect key="frame" x="0.0" y="30" width="60" height="28"/>
+                                                                                    <subviews>
+                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="JJo-eS-jA7" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                                                            <rect key="frame" x="16" y="0.0" width="28" height="28"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="width" constant="28" id="Cgj-aF-Q5M"/>
+                                                                                                <constraint firstAttribute="height" constant="28" id="jOp-If-RlL"/>
+                                                                                            </constraints>
+                                                                                        </imageView>
+                                                                                    </subviews>
+                                                                                    <constraints>
+                                                                                        <constraint firstItem="JJo-eS-jA7" firstAttribute="top" secondItem="L9g-CX-oo8" secondAttribute="top" id="Yab-YN-AMY"/>
+                                                                                        <constraint firstItem="JJo-eS-jA7" firstAttribute="leading" secondItem="L9g-CX-oo8" secondAttribute="leading" constant="16" id="lfZ-a6-yYz"/>
+                                                                                    </constraints>
+                                                                                </view>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstItem="t8S-U7-tbO" firstAttribute="top" secondItem="nzS-UO-vLz" secondAttribute="top" id="NIy-pS-ZdU"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="t8S-U7-tbO" secondAttribute="trailing" id="QEd-jC-tpG"/>
+                                                                                <constraint firstItem="t8S-U7-tbO" firstAttribute="leading" secondItem="nzS-UO-vLz" secondAttribute="leading" id="b4G-v5-6Zp"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="t8S-U7-tbO" secondAttribute="bottom" id="ynN-XK-hCA"/>
+                                                                            </constraints>
+                                                                            <variation key="default">
+                                                                                <mask key="constraints">
+                                                                                    <exclude reference="ynN-XK-hCA"/>
+                                                                                </mask>
+                                                                            </variation>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="nzS-UO-vLz" firstAttribute="leading" secondItem="Pkn-we-rbe" secondAttribute="leading" id="9r0-ua-idt"/>
+                                                                        <constraint firstItem="nzS-UO-vLz" firstAttribute="top" secondItem="Pkn-we-rbe" secondAttribute="top" id="Yzm-Vd-AO0"/>
+                                                                        <constraint firstAttribute="width" constant="92" id="iNB-10-Bsd"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="jCu-VM-hUy"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-7H-dRf" userLabel="Game Title Label">
+                                                                    <rect key="frame" x="104" y="8" width="336" height="61"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5G-Bg-aDc" userLabel="Right Text Label">
+                                                                    <rect key="frame" x="452" y="8" width="100" height="61"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="100" id="iwL-ft-Fjl"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="t5G-Bg-aDc" firstAttribute="centerY" secondItem="Acb-hd-JC6" secondAttribute="centerY" id="9C9-AZ-7lQ"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Dkn-7H-dRf" secondAttribute="bottom" constant="8" id="CHI-ae-fqV"/>
+                                                                <constraint firstItem="Pkn-we-rbe" firstAttribute="leading" secondItem="Acb-hd-JC6" secondAttribute="leading" constant="8" id="ecE-vg-PhM"/>
+                                                                <constraint firstItem="Dkn-7H-dRf" firstAttribute="top" secondItem="Acb-hd-JC6" secondAttribute="top" constant="8" id="hwS-HG-c2h"/>
+                                                                <constraint firstAttribute="bottom" secondItem="t5G-Bg-aDc" secondAttribute="bottom" constant="8" id="tiQ-Lj-sa2"/>
+                                                                <constraint firstItem="t5G-Bg-aDc" firstAttribute="top" secondItem="Acb-hd-JC6" secondAttribute="top" constant="8" id="vgx-MQ-3em"/>
+                                                            </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="ecE-vg-PhM"/>
+                                                                    <exclude reference="9C9-AZ-7lQ"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="77" id="3zR-Fb-C6n"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Acb-hd-JC6" secondAttribute="bottom" id="5hl-sd-kOs"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Acb-hd-JC6" secondAttribute="trailing" constant="8" id="JYh-xq-wqa"/>
+                                                        <constraint firstItem="Acb-hd-JC6" firstAttribute="top" secondItem="lup-Ka-LrW" secondAttribute="top" id="gYH-9A-dCq"/>
+                                                        <constraint firstItem="Acb-hd-JC6" firstAttribute="leading" secondItem="lup-Ka-LrW" secondAttribute="leading" constant="24" id="jXz-V7-lWI"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="lup-Ka-LrW" secondAttribute="bottom" constant="8" id="COH-KE-lZg"/>
+                                                <constraint firstItem="lup-Ka-LrW" firstAttribute="top" secondItem="TWx-Rq-oxn" secondAttribute="top" id="Xdt-Ql-jNq"/>
+                                                <constraint firstItem="lup-Ka-LrW" firstAttribute="leading" secondItem="TWx-Rq-oxn" secondAttribute="leading" constant="8" id="dIO-tm-ZaP"/>
+                                                <constraint firstAttribute="trailing" secondItem="lup-Ka-LrW" secondAttribute="trailing" constant="8" id="u7G-bd-Erg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="3PlayerCell" id="MVJ-uU-4qa" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="287" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="MVJ-uU-4qa" id="Zmd-fE-m8N">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -301,7 +432,7 @@
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGZ-2D-ZUQ" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="60"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fCw-0Y-BGU" userLabel="Create Game Fields Stack">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fCw-0Y-BGU" userLabel="Create Game Fields Stack">
                                                             <rect key="frame" x="8" y="0.0" width="568" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yR3-gK-5ze" userLabel="Player Images View">
@@ -343,8 +474,8 @@
                                                                         <constraint firstAttribute="height" constant="60" id="cyo-xb-LcT"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gz-St-0hh" userLabel="Game Title Label">
-                                                                    <rect key="frame" x="100" y="8" width="360" height="61"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gz-St-0hh" userLabel="Game Title Label">
+                                                                    <rect key="frame" x="104" y="8" width="352" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -393,7 +524,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="invitationCell" id="8xQ-en-9Bu" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="287" width="600" height="65"/>
+                                        <rect key="frame" x="0.0" y="352" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="8xQ-en-9Bu" id="gcs-9X-5kl">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -402,7 +533,7 @@
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ERt-1S-WEu" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="60"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t53-8a-hAb" userLabel="Create Game Fields Stack">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="t53-8a-hAb" userLabel="Create Game Fields Stack">
                                                             <rect key="frame" x="8" y="0.0" width="568" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySn-4k-dgK" userLabel="Player Images View">
@@ -482,8 +613,8 @@
                                                                         <constraint firstAttribute="height" constant="60" id="zyE-AP-02m"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIU-aO-8NI" userLabel="Game Title Label">
-                                                                    <rect key="frame" x="100" y="8" width="360" height="61"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="CIU-aO-8NI" userLabel="Game Title Label">
+                                                                    <rect key="frame" x="104" y="8" width="352" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -532,7 +663,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteCell" id="LZf-GO-GjG" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="352" width="600" height="65"/>
+                                        <rect key="frame" x="0.0" y="417" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LZf-GO-GjG" id="0Jr-ML-0Hn">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -552,7 +683,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" id="tVn-qu-KmI" userLabel="sixPlayerCell" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="417" width="600" height="65"/>
+                                        <rect key="frame" x="0.0" y="482" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="tVn-qu-KmI" id="uaJ-1e-yPl">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -561,7 +692,7 @@
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FNt-NV-DCP" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="60"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="avl-nq-6qA" userLabel="Create Game Fields Stack">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="avl-nq-6qA" userLabel="Create Game Fields Stack">
                                                             <rect key="frame" x="8" y="0.0" width="568" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNK-Zz-lgv" userLabel="Player Images View">
@@ -641,8 +772,8 @@
                                                                         <constraint firstItem="XRj-4v-NRJ" firstAttribute="leading" secondItem="SNK-Zz-lgv" secondAttribute="leading" id="znE-aq-f86"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-65-hdg" userLabel="Game Title Label">
-                                                                    <rect key="frame" x="100" y="8" width="360" height="61"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-65-hdg" userLabel="Game Title Label">
+                                                                    <rect key="frame" x="104" y="8" width="352" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -707,7 +838,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="My Scavenges" id="aeh-vV-kcq">
+                    <navigationItem key="navigationItem" title="{ Scavenge Logo }" id="aeh-vV-kcq">
                         <barButtonItem key="leftBarButtonItem" title="i" id="hJe-aQ-I0C" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xlp-rT-VH7" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target">
                             <connections>
