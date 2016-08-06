@@ -110,6 +110,11 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         capturedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        if (imagePickerController.cameraDevice == .Front && capturedImage != nil) {
+            capturedImage = UIImage(CGImage: (capturedImage!.CGImage)!, scale: (capturedImage!.scale), orientation: UIImageOrientation.LeftMirrored)
+        } else {
+            capturedImage = UIImage(CGImage: (capturedImage!.CGImage)!, scale: (capturedImage!.scale), orientation: .Right)
+        }
         imageView.image = capturedImage
         self.setupUIForReviewingImage()
     }
@@ -164,10 +169,10 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func frontRearFacingCameraButtonTapped(sender: AnyObject) {
         if (imagePickerController.cameraDevice == .Front) {
             imagePickerController.cameraDevice = .Rear
-            imageView.transform = CGAffineTransformMakeScale(1, 1)
+//            imageView.transform = CGAffineTransformMakeScale(1, 1)
         } else {
             imagePickerController.cameraDevice = .Front
-            imageView.transform = CGAffineTransformMakeScale(-1, 1)
+//            imageView.transform = CGAffineTransformMakeScale(-1, 1)
         }
     }
     
