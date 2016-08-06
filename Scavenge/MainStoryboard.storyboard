@@ -126,7 +126,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="yqB-Mj-prk" userLabel="Game Title Label">
                                                                     <rect key="frame" x="104" y="8" width="352" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0My-ee-VZh" userLabel="Right Text Label">
@@ -135,7 +135,7 @@
                                                                         <constraint firstAttribute="width" constant="100" id="jPs-pc-xzH"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -251,7 +251,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-ef-xsV" userLabel="Game Title Label">
                                                                     <rect key="frame" x="72" y="8" width="368" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-Lo-F3D" userLabel="Right Text Label">
@@ -260,7 +260,7 @@
                                                                         <constraint firstAttribute="width" constant="100" id="ZRY-XU-AGU"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -376,7 +376,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-7H-dRf" userLabel="Game Title Label">
                                                                     <rect key="frame" x="104" y="8" width="336" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5G-Bg-aDc" userLabel="Right Text Label">
@@ -385,7 +385,7 @@
                                                                         <constraint firstAttribute="width" constant="100" id="iwL-ft-Fjl"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -477,7 +477,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gz-St-0hh" userLabel="Game Title Label">
                                                                     <rect key="frame" x="104" y="8" width="352" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGD-yi-q6A" userLabel="Right Text Label">
@@ -486,7 +486,7 @@
                                                                         <constraint firstAttribute="width" constant="100" id="oQ1-rk-bJQ"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -616,7 +616,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="CIU-aO-8NI" userLabel="Game Title Label">
                                                                     <rect key="frame" x="104" y="8" width="352" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fI4-hs-2c0" userLabel="Right Text Label">
@@ -625,7 +625,7 @@
                                                                         <constraint firstAttribute="width" constant="100" id="LYh-EO-q73"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -775,7 +775,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-65-hdg" userLabel="Game Title Label">
                                                                     <rect key="frame" x="104" y="8" width="352" height="61"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3T-ar-8dH" userLabel="Right Text Label">
@@ -784,7 +784,7 @@
                                                                         <constraint firstAttribute="width" constant="100" id="Txw-oA-9cU"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -873,7 +873,7 @@
                                         <rect key="frame" x="8" y="0.0" width="568" height="77"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-AN-uUh" userLabel="Player Images View">
-                                                <rect key="frame" x="0.0" y="9" width="92" height="60"/>
+                                                <rect key="frame" x="0.0" y="8" width="92" height="60"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9Xr-M6-NiE" userLabel="Player Images Stack">
                                                         <rect key="frame" x="0.0" y="0.0" width="92" height="58"/>
@@ -949,13 +949,14 @@
                                                     <constraint firstAttribute="height" constant="60" id="yvy-5o-nPY"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="{ Game Title }" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lKf-QK-c0k">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="{ Game Title }" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oTk-BP-7oq">
                                                 <rect key="frame" x="100" y="8" width="396" height="61"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                            </textField>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                            </textView>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-7l-Ogv" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
-                                                <rect key="frame" x="504" y="24" width="64" height="30"/>
+                                                <rect key="frame" x="504" y="23" width="64" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="64" id="0vC-1c-VF9"/>
@@ -969,8 +970,8 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="KhG-AN-uUh" firstAttribute="leading" secondItem="T3O-qF-NxB" secondAttribute="leading" constant="8" id="4Da-G6-w6X"/>
-                                            <constraint firstItem="lKf-QK-c0k" firstAttribute="top" secondItem="T3O-qF-NxB" secondAttribute="top" constant="8" id="8XV-PP-ml7"/>
-                                            <constraint firstAttribute="bottom" secondItem="lKf-QK-c0k" secondAttribute="bottom" constant="8" id="rsy-q9-m3p"/>
+                                            <constraint firstAttribute="bottom" secondItem="oTk-BP-7oq" secondAttribute="bottom" constant="8" id="89m-jK-IY1"/>
+                                            <constraint firstItem="oTk-BP-7oq" firstAttribute="top" secondItem="T3O-qF-NxB" secondAttribute="top" constant="8" id="NXg-3V-1od"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -1138,7 +1139,6 @@
                         <outlet property="searchDisplayController" destination="VEI-4H-SYh" id="EYy-iG-O3w"/>
                         <outlet property="startButton" destination="ox0-7l-Ogv" id="lBX-ue-WqX"/>
                         <outlet property="tableView" destination="66F-xm-mkX" id="c9q-WA-aN3"/>
-                        <outlet property="titleTextField" destination="lKf-QK-c0k" id="r3Q-cb-K0g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXF-c1-egz" userLabel="First Responder" sceneMemberID="firstResponder"/>

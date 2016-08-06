@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PlayingGameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+let sampleTopics = ["The Epitome of Disappointment", "So Crazy It Just Might Work", "Public Selfie", "The Perfect Balance Between Business and Casual", "Sachin's Worst Nightmare"]
+
+class PlayingGameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    let cameraNotAvailableErrorMsg = "ya need a camera to play Scavenge, and this device doesn't have one"
     
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -19,29 +23,46 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var selectCapturedImageButton: UIButton!
     @IBOutlet weak var captureImageButton: UIButton!
     @IBOutlet weak var bottomBarStackView: UIStackView!
+    @IBOutlet weak var topicLabel: UILabel!
     
     @IBOutlet weak var imageView : UIImageView!
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var submitButton: SButton!
+    
     var imagePickerController : UIImagePickerController!
     var capturedImage : UIImage?
+    var selectedIndex : Int!
     
-    @IBAction func cameraButtonPressed (sender: UIButton!) {
-        self.showImagePicker()
-    }
+    var capturedImages : [UIImage?] = [nil, nil, nil, nil, nil]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if !UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            // There is not a camera on this device, so don't show the camera button.
-            
-        } else {
-            
-        }
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 85
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: - UIImagePickerControllerDelegate
-    func showImagePicker() {
+    func attemptShowImagePicker(topic: String) {
+        if (capturedImage != nil) {
+            return
+        }
+        
+        if !UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            // There is not a camera on this device
+            let alertController = UIAlertController(title: kErrorTitle, message: cameraNotAvailableErrorMsg, preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            return self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        
         if capturedImage != nil {
             capturedImage = nil
         }
@@ -57,8 +78,11 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         NSBundle.mainBundle().loadNibNamed("CameraOverlayView", owner:self, options:nil)
         overlayView.frame = imagePickerController.cameraOverlayView!.frame
         selectCapturedImageButton.hidden = true
+        topicLabel.text = topic
         imagePickerController.cameraOverlayView = overlayView
         overlayView = nil
+        
+        
         
         self.presentViewController(imagePickerController, animated: true, completion: nil)
     }
@@ -90,8 +114,21 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         self.setupUIForReviewingImage()
     }
     
+    func cropImage(image: UIImage) -> UIImage {
+        return image
+    }
     
     // MARK: - Top Bar Actions
+    
+    func cameraViewDoubleTapped(sender: UITapGestureRecognizer) {
+        if (imagePickerController.cameraDevice == .Front) {
+            imagePickerController.cameraDevice = .Rear
+            imageView.transform = CGAffineTransformMakeScale(1, 1)
+        } else {
+            imagePickerController.cameraDevice = .Front
+            imageView.transform = CGAffineTransformMakeScale(-1, 1)
+        }
+    }
     
     @IBAction func exitButtonTapped(sender: AnyObject) {
         if (capturedImage != nil) {
@@ -108,14 +145,17 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         switch (imagePickerController.cameraFlashMode) {
         case .Off:
             imagePickerController.cameraFlashMode = .On
+            cameraFlashButton.setImage(UIImage(named: "flashOnButton"), forState: .Normal)
             print("turning flash on")
             break
         case .On:
             imagePickerController.cameraFlashMode = .Auto
+            cameraFlashButton.setImage(UIImage(named: "flashAutoButton"), forState: .Normal)
             print("turning flash on auto")
             break
         case .Auto:
             imagePickerController.cameraFlashMode = .Off
+            cameraFlashButton.setImage(UIImage(named: "flashOffButton"), forState: .Normal)
             print("turning flash off")
             break
         }
@@ -138,14 +178,53 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func selectCapturedImageButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: {() -> Void in
+            self.setImageForCellAtIndexPath(self.selectedIndex, image: self.capturedImage)
+            self.capturedImages[self.selectedIndex] = self.capturedImage
+            self.capturedImage = nil
+            
+            var allImagesCaptured : Bool = true
+            for image in self.capturedImages {
+                if (image == nil) {
+                    allImagesCaptured = false
+                }
+            }
+            if (allImagesCaptured) {
+                self.submitButton.enabled = true
+                self.submitButton.alpha = 1.0
+            } else {
+                self.submitButton.enabled = false
+                self.submitButton.alpha = 0.6
+            }
+        })
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK :- UITableViewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedIndex = indexPath.row
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.attemptShowImagePicker(sampleTopics[indexPath.row])
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("topicCell", forIndexPath: indexPath) as! PlayingGameTopicCell
+        cell.topicLabel.text = sampleTopics[indexPath.row]
+        return cell
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func setImageForCellAtIndexPath (index: Int, image: UIImage?) {
+        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! PlayingGameTopicCell
+        cell.thumbnailImageView.image = cropImage(image!)
+    }
 
     /*
     // MARK: - Navigation

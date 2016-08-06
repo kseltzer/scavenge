@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */; };
 		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
 		4E2277A71D32D0D100E22436 /* Scavenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277A51D32D0D100E22436 /* Scavenge.xcdatamodeld */; };
 		4E2277A91D32D0D100E22436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2277A81D32D0D100E22436 /* Assets.xcassets */; };
@@ -25,8 +26,6 @@
 		4E2277F61D33137F00E22436 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277F51D33137F00E22436 /* LoginButton.swift */; };
 		4E2277F81D33171800E22436 /* SBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277F71D33171800E22436 /* SBarButtonItem.swift */; };
 		4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277FE1D33290800E22436 /* SBaseTableViewCell.swift */; };
-		4E2278011D33292500E22436 /* ActiveGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2278001D33292500E22436 /* ActiveGameCell.swift */; };
-		4E2278031D33293700E22436 /* CompletedGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2278021D33293700E22436 /* CompletedGameCell.swift */; };
 		4E2278051D37489000E22436 /* PlayingGameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2278041D37489000E22436 /* PlayingGameStoryboard.storyboard */; };
 		4E2278071D3748B500E22436 /* PlayingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2278061D3748B500E22436 /* PlayingGameViewController.swift */; };
 		4E22780D1D376FF500E22436 /* SUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22780C1D376FF500E22436 /* SUtilities.swift */; };
@@ -61,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
 		4E22779B1D32D0D100E22436 /* Scavenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E22779E1D32D0D100E22436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E2277A61D32D0D100E22436 /* Scavenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scavenge.xcdatamodel; sourceTree = "<group>"; };
@@ -85,8 +85,6 @@
 		4E2277F51D33137F00E22436 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		4E2277F71D33171800E22436 /* SBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBarButtonItem.swift; sourceTree = "<group>"; };
 		4E2277FE1D33290800E22436 /* SBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBaseTableViewCell.swift; sourceTree = "<group>"; };
-		4E2278001D33292500E22436 /* ActiveGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveGameCell.swift; sourceTree = "<group>"; };
-		4E2278021D33293700E22436 /* CompletedGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedGameCell.swift; sourceTree = "<group>"; };
 		4E2278041D37489000E22436 /* PlayingGameStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlayingGameStoryboard.storyboard; sourceTree = "<group>"; };
 		4E2278061D3748B500E22436 /* PlayingGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameViewController.swift; sourceTree = "<group>"; };
 		4E22780C1D376FF500E22436 /* SUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SUtilities.swift; sourceTree = "<group>"; };
@@ -131,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E1584631D4ED76E00208E3A /* Playing Game */ = {
+			isa = PBXGroup;
+			children = (
+				4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */,
+			);
+			name = "Playing Game";
+			sourceTree = "<group>";
+		};
 		4E2277921D32D0D100E22436 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +203,7 @@
 		4E2277D01D32D1CD00E22436 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4E1584631D4ED76E00208E3A /* Playing Game */,
 				4E2277F31D33134700E22436 /* Shared */,
 				4E2277F41D33136000E22436 /* Login */,
 				4E2277F91D331D2300E22436 /* My Scavenges */,
@@ -294,8 +301,6 @@
 		4E2277F91D331D2300E22436 /* My Scavenges */ = {
 			isa = PBXGroup;
 			children = (
-				4E2278001D33292500E22436 /* ActiveGameCell.swift */,
-				4E2278021D33293700E22436 /* CompletedGameCell.swift */,
 			);
 			name = "My Scavenges";
 			sourceTree = "<group>";
@@ -461,12 +466,11 @@
 				4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */,
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
-				4E2278011D33292500E22436 /* ActiveGameCell.swift in Sources */,
 				4E2277E71D32E56D00E22436 /* MyScavengesViewController.swift in Sources */,
 				4E2277F61D33137F00E22436 /* LoginButton.swift in Sources */,
 				4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */,
 				4E2277D41D32D26100E22436 /* LoginViewController.swift in Sources */,
-				4E2278031D33293700E22436 /* CompletedGameCell.swift in Sources */,
+				4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */,
 				4E22780D1D376FF500E22436 /* SUtilities.swift in Sources */,
 				4E2277D91D32D30300E22436 /* SButton.swift in Sources */,
 				4E2278181D41EB5B00E22436 /* NewGameViewController.swift in Sources */,
