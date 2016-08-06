@@ -949,12 +949,11 @@
                                                     <constraint firstAttribute="height" constant="60" id="yvy-5o-nPY"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="{ Game Title }" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oTk-BP-7oq">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Untitled Game" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-Pm-aXv">
                                                 <rect key="frame" x="100" y="8" width="396" height="61"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
-                                            </textView>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-7l-Ogv" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="504" y="23" width="64" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -970,8 +969,8 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="KhG-AN-uUh" firstAttribute="leading" secondItem="T3O-qF-NxB" secondAttribute="leading" constant="8" id="4Da-G6-w6X"/>
-                                            <constraint firstAttribute="bottom" secondItem="oTk-BP-7oq" secondAttribute="bottom" constant="8" id="89m-jK-IY1"/>
-                                            <constraint firstItem="oTk-BP-7oq" firstAttribute="top" secondItem="T3O-qF-NxB" secondAttribute="top" constant="8" id="NXg-3V-1od"/>
+                                            <constraint firstItem="GMn-Pm-aXv" firstAttribute="top" secondItem="T3O-qF-NxB" secondAttribute="top" constant="8" id="cYG-hl-ZGI"/>
+                                            <constraint firstAttribute="bottom" secondItem="GMn-Pm-aXv" secondAttribute="bottom" constant="8" id="efd-Fm-phV"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -1139,6 +1138,7 @@
                         <outlet property="searchDisplayController" destination="VEI-4H-SYh" id="EYy-iG-O3w"/>
                         <outlet property="startButton" destination="ox0-7l-Ogv" id="lBX-ue-WqX"/>
                         <outlet property="tableView" destination="66F-xm-mkX" id="c9q-WA-aN3"/>
+                        <outlet property="titleTextField" destination="GMn-Pm-aXv" id="HY0-L0-SLx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXF-c1-egz" userLabel="First Responder" sceneMemberID="firstResponder"/>
