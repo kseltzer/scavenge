@@ -39,7 +39,9 @@
 		4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */; };
 		4E2705401D4B432200052671 /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053F1D4B432200052671 /* FacebookFriend.swift */; };
 		4E2705421D4C4FD400052671 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705411D4C4FD400052671 /* Friend.swift */; };
+		4E6D98431D56CBF9007DEFAB /* VotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D98421D56CBF9007DEFAB /* VotingCell.swift */; };
 		4E6EA4F51D4E93E00022127B /* CameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */; };
+		4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +100,9 @@
 		4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriend.swift; sourceTree = "<group>"; };
 		4E27053F1D4B432200052671 /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
 		4E2705411D4C4FD400052671 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		4E6D98421D56CBF9007DEFAB /* VotingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingCell.swift; sourceTree = "<group>"; };
 		4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayView.xib; sourceTree = "<group>"; };
+		4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */,
+				4E6D98421D56CBF9007DEFAB /* VotingCell.swift */,
 			);
 			name = "Playing Game";
 			sourceTree = "<group>";
@@ -215,11 +220,11 @@
 		4E2277D11D32D1D200E22436 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4EB9AEB31D56BEAF00F19BB2 /* Shared */,
+				4EB9AEB21D56BE9300F19BB2 /* PlayingGame */,
 				4E2277D31D32D26100E22436 /* LoginViewController.swift */,
 				4E2277E61D32E56D00E22436 /* MyScavengesViewController.swift */,
 				4E2278171D41EB5B00E22436 /* NewGameViewController.swift */,
-				4E2278061D3748B500E22436 /* PlayingGameViewController.swift */,
-				4E2277E81D32E5DB00E22436 /* SNavigationController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -322,6 +327,23 @@
 				4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */,
 				4E27053F1D4B432200052671 /* FacebookFriend.swift */,
 				4E2705411D4C4FD400052671 /* Friend.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		4EB9AEB21D56BE9300F19BB2 /* PlayingGame */ = {
+			isa = PBXGroup;
+			children = (
+				4E2278061D3748B500E22436 /* PlayingGameViewController.swift */,
+				4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */,
+			);
+			name = PlayingGame;
+			sourceTree = "<group>";
+		};
+		4EB9AEB31D56BEAF00F19BB2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4E2277E81D32E5DB00E22436 /* SNavigationController.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -470,6 +492,8 @@
 				4E2277F61D33137F00E22436 /* LoginButton.swift in Sources */,
 				4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */,
 				4E2277D41D32D26100E22436 /* LoginViewController.swift in Sources */,
+				4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */,
+				4E6D98431D56CBF9007DEFAB /* VotingCell.swift in Sources */,
 				4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */,
 				4E22780D1D376FF500E22436 /* SUtilities.swift in Sources */,
 				4E2277D91D32D30300E22436 /* SButton.swift in Sources */,

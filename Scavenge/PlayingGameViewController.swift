@@ -18,6 +18,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var topView: UIView!
     
+    @IBOutlet weak var overlayTopView: UIView!
+    @IBOutlet weak var overlayBottomView: UIView!
     @IBOutlet weak var cameraFlashButton: UIButton!
     @IBOutlet weak var frontRearFacingCameraButton: UIButton!
     @IBOutlet weak var selectCapturedImageButton: UIButton!
@@ -38,6 +40,9 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = customBackBarItem(title: "")
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -77,6 +82,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         
         NSBundle.mainBundle().loadNibNamed("CameraOverlayView", owner:self, options:nil)
         overlayView.frame = imagePickerController.cameraOverlayView!.frame
+        topView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
+        bottomView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
         selectCapturedImageButton.hidden = true
         topicLabel.text = topic
         imagePickerController.cameraOverlayView = overlayView
@@ -119,8 +126,21 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         self.setupUIForReviewingImage()
     }
     
-    func cropImage(image: UIImage) -> UIImage {
-        return image
+    func cropImageToSquare(image: UIImage) -> UIImage {
+        let refWidth = CGImageGetWidth(image.CGImage)
+        let refHeight = CGImageGetHeight(image.CGImage)
+        
+        let newWidth = refWidth
+        let newHeight = refWidth
+        
+        let x = (refWidth - newWidth) / 2
+        let y = (refHeight - newHeight) / 2
+        
+        let cropRect = CGRect(x: x, y: y, width: newWidth, height: newHeight)
+        let imageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect)
+        let croppedImage = UIImage(CGImage: imageRef!, scale: 0.0, orientation: image.imageOrientation)
+
+        return croppedImage
     }
     
     // MARK: - Top Bar Actions
@@ -198,7 +218,9 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
                 self.submitButton.enabled = true
                 self.submitButton.alpha = 1.0
             } else {
-                self.submitButton.enabled = false
+//                TODO: UNCOMMENT
+//                self.submitButton.enabled = false
+                self.submitButton.enabled = true
                 self.submitButton.alpha = 0.6
             }
         })
@@ -228,7 +250,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     
     func setImageForCellAtIndexPath (index: Int, image: UIImage?) {
         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! PlayingGameTopicCell
-        cell.thumbnailImageView.image = cropImage(image!)
+        cell.thumbnailImageView.image = cropImageToSquare(image!)
     }
 
     /*
