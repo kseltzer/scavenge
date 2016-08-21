@@ -39,7 +39,7 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.rowHeight = 85
         
-        navigationItem.backBarButtonItem = customBackBarItem(title: "")
+        navigationItem.backBarButtonItem = customBackBarItem()
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     

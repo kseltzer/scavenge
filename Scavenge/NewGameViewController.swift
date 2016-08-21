@@ -111,6 +111,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.loadViewIfNeeded()
         searchController.hidesNavigationBarDuringPresentation = false
         
+        navigationItem.backBarButtonItem = customBackBarItem()
+        
         titleTextField.delegate = self
         titleTextField.placeholder = gameTitle
     }
@@ -572,7 +574,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func startButtonTapped(sender: SButton) {
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
         let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
-        playingGameViewController?.navigationItem.hidesBackButton = true
         navigationController?.pushViewController(playingGameViewController!, animated: true)
     }
     

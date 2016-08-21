@@ -41,7 +41,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.backBarButtonItem = customBackBarItem(title: "")
+        navigationItem.backBarButtonItem = customBackBarItem()
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         tableView.delegate = self
