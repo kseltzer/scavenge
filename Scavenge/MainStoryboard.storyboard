@@ -4,8 +4,77 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="ayS-9Q-Nns">
+            <objects>
+                <viewController id="Cja-2C-WBn" customClass="MenuViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E3s-o6-pWc"/>
+                        <viewControllerLayoutGuide type="bottom" id="36V-WE-NeA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kEh-gX-94x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-2c-8DQ">
+                                <rect key="frame" x="480" y="20" width="120" height="580"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="M3r-xS-rh4"/>
+                                    <constraint firstAttribute="height" constant="200" id="Pue-uW-uB9"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="M3r-xS-rh4"/>
+                                        <exclude reference="Pue-uW-uB9"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="closeMenu:" destination="Cja-2C-WBn" eventType="touchUpInside" id="vVr-mL-LeZ"/>
+                                    <outletCollection property="gestureRecognizers" destination="3pC-qE-OeZ" appends="YES" id="CoY-xI-IZd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aJu-2c-8DQ" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leadingMargin" constant="17" id="7Vw-Er-EKg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aJu-2c-8DQ" secondAttribute="trailing" constant="343" id="AOW-7s-eWV"/>
+                            <constraint firstItem="aJu-2c-8DQ" firstAttribute="top" secondItem="E3s-o6-pWc" secondAttribute="bottom" id="LfI-eI-hyD"/>
+                            <constraint firstItem="36V-WE-NeA" firstAttribute="top" secondItem="aJu-2c-8DQ" secondAttribute="bottom" id="WKo-Xt-Ufg"/>
+                            <constraint firstItem="aJu-2c-8DQ" firstAttribute="top" secondItem="E3s-o6-pWc" secondAttribute="bottom" constant="114" id="eTB-zK-4d0"/>
+                            <constraint firstItem="aJu-2c-8DQ" firstAttribute="width" secondItem="kEh-gX-94x" secondAttribute="width" multiplier="0.2" id="esj-DH-bno"/>
+                            <constraint firstItem="aJu-2c-8DQ" firstAttribute="top" secondItem="E3s-o6-pWc" secondAttribute="bottom" constant="114" id="gyJ-uy-DZx"/>
+                            <constraint firstAttribute="trailing" secondItem="aJu-2c-8DQ" secondAttribute="trailing" id="iHU-IT-e7d"/>
+                            <constraint firstItem="aJu-2c-8DQ" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leadingMargin" constant="17" id="sjc-nk-t9a"/>
+                            <constraint firstItem="aJu-2c-8DQ" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leadingMargin" constant="17" id="vMW-4N-wNY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7Vw-Er-EKg"/>
+                                <exclude reference="AOW-7s-eWV"/>
+                                <exclude reference="eTB-zK-4d0"/>
+                                <exclude reference="gyJ-uy-DZx"/>
+                                <exclude reference="sjc-nk-t9a"/>
+                                <exclude reference="vMW-4N-wNY"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofi-0L-lHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="3pC-qE-OeZ">
+                    <connections>
+                        <action selector="handleGesture:" destination="Cja-2C-WBn" id="4eq-qf-gte"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1333" y="-306"/>
+        </scene>
         <!--{ Scavenge Logo }-->
         <scene sceneID="04e-hM-u32">
             <objects>
@@ -839,7 +908,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="{ Scavenge Logo }" id="aeh-vV-kcq">
-                        <barButtonItem key="leftBarButtonItem" title="i" id="hJe-aQ-I0C" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target"/>
+                        <barButtonItem key="leftBarButtonItem" title="///" id="hJe-aQ-I0C" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="dik-UW-LCa" id="OMV-ge-ImV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xlp-rT-VH7" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target">
                             <connections>
                                 <segue destination="jKf-zi-WjN" kind="show" identifier="createGameSegue" id="VqO-by-I8g"/>
@@ -848,6 +921,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="8W9-Ff-FdF" id="V7x-6e-oTH"/>
+                        <segue destination="Cja-2C-WBn" kind="presentation" identifier="showMenu" id="q6K-O4-tQy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lg4-BH-pLg" userLabel="First Responder" sceneMemberID="firstResponder"/>

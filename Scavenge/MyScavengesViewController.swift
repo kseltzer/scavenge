@@ -22,8 +22,10 @@ enum SectionType {
     case Subsection
 }
 
-class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
+    let interactor = InteractiveMenuTransition()
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func createNewGameButtonTapped(sender: UIBarButtonItem) {
@@ -178,6 +180,30 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
         let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
         self.navigationController?.pushViewController(playingGameViewController!, animated: true);
+    }
+    
+    // MARK: - Slideout Menu
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("showMenu", sender: self)
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return ShowMenuAnimator()
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return HideMenuAnimator()
+    }
+    
+    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationViewController = segue.destinationViewController as? MenuViewController {
+            destinationViewController.transitioningDelegate = self
+            destinationViewController.interactor = interactor
+        }
     }
     
 }
