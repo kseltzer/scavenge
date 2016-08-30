@@ -9,12 +9,9 @@
 import Foundation
 import UIKit
 
-class ShowMenuAnimator : NSObject {
-}
-
-extension ShowMenuAnimator : UIViewControllerAnimatedTransitioning {
+class ShowMenuAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.6
+        return 0.3
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
