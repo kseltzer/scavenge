@@ -14,7 +14,6 @@ class TourViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     /*
@@ -48,7 +47,7 @@ extension TourViewController: UIViewControllerTransitioningDelegate {
             self.performSegueWithIdentifier("showMenu", sender: self)
         }
     }
-    
+
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ShowMenuAnimator()
     }

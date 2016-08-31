@@ -1,20 +1,22 @@
 //
-//  TourViewController.swift
+//  AboutViewController.swift
 //  Scavenge
 //
-//  Created by Kimberly Seltzer on 8/29/16.
+//  Created by Kimberly Seltzer on 8/30/16.
 //  Copyright © 2016 Kim Seltzer. All rights reserved.
 //
 
 import UIKit
 
-class TourViewController: UIViewController {
-
+class AboutViewController: UIViewController {
+    
     let interactor = InteractiveMenuTransition()
+    let rightToLeftAnimator = RightToLeftAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Do any additional setup after loading the view.
     }
 
     /*
@@ -31,8 +33,8 @@ class TourViewController: UIViewController {
 
 // MARK: - Slideout Menu
 
-extension TourViewController: UIViewControllerTransitioningDelegate {
-   
+extension AboutViewController: UIViewControllerTransitioningDelegate {
+    
     @IBAction func handleEdgeGesture(sender: UIScreenEdgePanGestureRecognizer) {
         let translation = sender.translationInView(view)
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
@@ -69,7 +71,7 @@ extension TourViewController: UIViewControllerTransitioningDelegate {
         if let destinationViewController = segue.destinationViewController as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
-            destinationViewController.currentScreen = .Tour
+            destinationViewController.currentScreen = .About
         }
     }
 }

@@ -46,7 +46,11 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-2c-8DQ">
                                 <rect key="frame" x="390" y="20" width="210" height="580"/>
+<<<<<<< HEAD
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+>>>>>>> 5053f684799db20bd05ab16a7c0f666e85ec99c5
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="M3r-xS-rh4"/>
@@ -77,7 +81,11 @@
                                     <constraint firstAttribute="height" constant="25" id="BNO-7m-jfA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+<<<<<<< HEAD
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+>>>>>>> 5053f684799db20bd05ab16a7c0f666e85ec99c5
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hrb-fO-CNx">
@@ -96,7 +104,11 @@
                                                     <rect key="frame" x="15" y="0.0" width="360" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+<<<<<<< HEAD
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+>>>>>>> 5053f684799db20bd05ab16a7c0f666e85ec99c5
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -111,7 +123,11 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="oIJ-AQ-nmi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+<<<<<<< HEAD
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+>>>>>>> 5053f684799db20bd05ab16a7c0f666e85ec99c5
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

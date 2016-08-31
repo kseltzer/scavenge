@@ -16,7 +16,7 @@ enum Direction {
 
 struct MenuHelper {
     static let menuWidth : CGFloat = 0.65
-    static let percentThreshold : CGFloat = 0.3 // how far (%) the user must pan before the menu changes state
+    static let percentThreshold : CGFloat = 0.4 // how far (%) the user must pan before the menu changes state
     static let snapshotNumber = 12345  // tag a snapshot view for later retrieval
     static let animationDuration = 0.3 // length of animation (seconds)
     
@@ -42,7 +42,6 @@ struct MenuHelper {
                 return CGFloat(-positiveMovementOnAxisPercent)
         }
     }
-    
     
     static func mapGestureStateToInteractor(gestureState : UIGestureRecognizerState, progress : CGFloat, interactor : InteractiveMenuTransition?, triggerSegue: () -> Void) {
         guard let interactor = interactor else { return }

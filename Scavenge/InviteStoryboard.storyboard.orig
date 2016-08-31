@@ -28,7 +28,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4W-Mj-LdM">
                                 <rect key="frame" x="280" y="289.5" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+<<<<<<< HEAD
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+>>>>>>> 5053f684799db20bd05ab16a7c0f666e85ec99c5
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kde-9R-aZy" customClass="CustomNavigationBar" customModule="Scavenge" customModuleProvider="target">
@@ -40,7 +44,11 @@
                                     <navigationItem title="Invite" id="GfY-pt-Kt5">
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="yvM-NG-N6W" customClass="MenuButton" customModule="Scavenge" customModuleProvider="target">
                                             <connections>
+<<<<<<< HEAD
                                                 <segue destination="5GY-zE-095" kind="presentation" identifier="showMenu" id="bV2-dS-suD"/>
+=======
+                                                <segue destination="5GY-zE-095" kind="presentation" identifier="" id="bV2-dS-suD"/>
+>>>>>>> 5053f684799db20bd05ab16a7c0f666e85ec99c5
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -48,7 +56,10 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<<<<<<< HEAD
                         <gestureRecognizers/>
+=======
+>>>>>>> 5053f684799db20bd05ab16a7c0f666e85ec99c5
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Kde-9R-aZy" secondAttribute="trailing" id="0nT-1d-T75"/>
                             <constraint firstItem="Kde-9R-aZy" firstAttribute="top" secondItem="3mY-4O-2mu" secondAttribute="bottom" id="1DH-pX-BRm"/>
@@ -56,6 +67,7 @@
                             <constraint firstItem="u4W-Mj-LdM" firstAttribute="centerX" secondItem="0PY-xX-1GO" secondAttribute="centerX" id="PQa-dL-HR8"/>
                             <constraint firstItem="u4W-Mj-LdM" firstAttribute="centerY" secondItem="0PY-xX-1GO" secondAttribute="centerY" id="U6q-MD-4Ju"/>
                         </constraints>
+<<<<<<< HEAD
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="NLa-7g-ub7" appends="YES" id="YAu-0n-u7A"/>
                             <outletCollection property="gestureRecognizers" destination="a6k-ob-bIB" appends="YES" id="Uyq-cO-3ab"/>
@@ -74,6 +86,11 @@
                         <action selector="handleGesture:" destination="MrV-jP-ISS" id="EUc-yc-9st"/>
                     </connections>
                 </panGestureRecognizer>
+=======
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uKh-dO-IUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+>>>>>>> 5053f684799db20bd05ab16a7c0f666e85ec99c5
             </objects>
             <point key="canvasLocation" x="495" y="335"/>
         </scene>

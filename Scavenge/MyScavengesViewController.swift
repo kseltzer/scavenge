@@ -187,8 +187,28 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         performSegueWithIdentifier("showMenu", sender: self)
     }
     
+    @IBAction func handleEdgeGesture(sender: UIScreenEdgePanGestureRecognizer) {
+        let translation = sender.translationInView(view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+        MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
+            self.performSegueWithIdentifier("showMenu", sender: self)
+        }
+    }
+    
+    @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
+        let translation = sender.translationInView(view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+        MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
+            self.performSegueWithIdentifier("showMenu", sender: self)
+        }
+    }
+    
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ShowMenuAnimator()
+    }
+    
+    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -203,6 +223,7 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         if let destinationViewController = segue.destinationViewController as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
+            destinationViewController.currentScreen = .Home
         }
     }
     

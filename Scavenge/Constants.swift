@@ -54,6 +54,10 @@ let kSectionTitleRecents = "Recents"
 let kSectionTitleFriendsOnScavenge = "Friends On Scavenge"
 let kSectionTitleFriendsNotOnScavenge = "Friends Not On Scavenge"
 
+// MARK: - Menu Customization
+let MENU_OPTION_TEXT_DEFAULT_COLOR = UIColor.groupTableViewBackgroundColor()
+let MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR = UIColor.lightGrayColor()
+
 // MARK: - Cell Customization
 let CELL_COMPLETED_GAME_BACKGROUND_COLOR = UIColor.lightGrayColor()
 let CELL_ACTIVE_GAME_BACKGROUND_COLOR = UIColor.groupTableViewBackgroundColor()
