@@ -15,9 +15,10 @@ enum Direction {
 }
 
 struct MenuHelper {
-    static let menuWidth:CGFloat = 0.8
-    static let percentThreshold:CGFloat = 0.3 // how far (%) the user must pan before the menu changes state
+    static let menuWidth : CGFloat = 0.65
+    static let percentThreshold : CGFloat = 0.3 // how far (%) the user must pan before the menu changes state
     static let snapshotNumber = 12345  // tag a snapshot view for later retrieval
+    static let animationDuration = 0.3 // length of animation in seconds
     
     // parameters:
     // translationInView = the user’s touch coordinates
@@ -31,11 +32,11 @@ struct MenuHelper {
         let positiveMovementOnAxisPercent : Float
         
         switch direction {
-            case .Right: // positive
+            case .Right:
                 positiveMovementOnAxis = fmaxf(Float(movementOnAxis), 0.0)
                 positiveMovementOnAxisPercent = fminf(positiveMovementOnAxis, 1.0)
                 return CGFloat(positiveMovementOnAxisPercent)
-            case .Left: // negative
+            case .Left:
                 positiveMovementOnAxis = fminf(Float(movementOnAxis), 0.0)
                 positiveMovementOnAxisPercent = fmaxf(positiveMovementOnAxis, -1.0)
                 return CGFloat(-positiveMovementOnAxisPercent)

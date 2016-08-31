@@ -9,12 +9,9 @@
 import Foundation
 import UIKit
 
-class HideMenuAnimator : NSObject {
-}
-
-extension HideMenuAnimator : UIViewControllerAnimatedTransitioning {
+class HideMenuAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.6
+        return MenuHelper.animationDuration
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
