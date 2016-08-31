@@ -153,10 +153,10 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="hrb-fO-CNx" id="kUL-gZ-B5O"/>
-                        <segue destination="RbZ-Hg-mcN" kind="presentation" identifier="showTour" animates="NO" id="Mhu-KX-uXL"/>
-                        <segue destination="sJG-Et-qLp" kind="presentation" identifier="showInvite" animates="NO" id="gNU-ET-IWu"/>
-                        <segue destination="4hY-v4-QbR" kind="presentation" identifier="showAbout" animates="NO" id="D1o-cW-r8m"/>
-                        <segue destination="9EV-vy-12j" kind="presentation" identifier="showHome" animates="NO" id="EHD-Md-T2h"/>
+                        <segue destination="RbZ-Hg-mcN" kind="presentation" identifier="showTour" id="Mhu-KX-uXL"/>
+                        <segue destination="sJG-Et-qLp" kind="presentation" identifier="showInvite" id="gNU-ET-IWu"/>
+                        <segue destination="4hY-v4-QbR" kind="presentation" identifier="showAbout" id="D1o-cW-r8m"/>
+                        <segue destination="9EV-vy-12j" kind="presentation" identifier="showHome" id="EHD-Md-T2h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofi-0L-lHN" userLabel="First Responder" sceneMemberID="firstResponder"/>

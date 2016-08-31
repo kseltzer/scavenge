@@ -8,11 +8,21 @@
 
 import UIKit
 
+enum MenuOption : String {
+    case Home = "Home"
+    case Invite = "Invite"
+    case Tour = "Tour"
+    case About = "About"
+    case Feedback = "Feedback"
+    case Logout = "Logout"
+}
+
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let menuOptions = ["Home", "Invite", "Tour", "About", "Feedback", "Logout"]
+    let menuOptions : [MenuOption] = [.Home, .Invite, .Tour, .About, .Feedback, .Logout]
+    var currentScreen : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +45,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell")
         cell?.backgroundColor = UIColor.clearColor()
         cell?.textLabel?.textColor = UIColor.groupTableViewBackgroundColor()
-        cell?.textLabel?.text = menuOptionTitleForRow(indexPath.row)
+        cell?.textLabel?.text = menuOptionForRow(indexPath.row).rawValue
         return cell!
     }
     
@@ -45,20 +55,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        switch menuOptionTitleForRow(indexPath.row) {
-            case "Home":
-                self.performSegueWithIdentifier("showHome", sender: self)
+        let menuOption = menuOptionForRow(indexPath.row)
+        switch menuOption {
+            case .Home, .Invite, .Tour, .About:
+                self.performSegueWithIdentifier("show\(menuOption.rawValue)", sender: self)
                 break
-            case "Invite":
-                self.performSegueWithIdentifier("showInvite", sender: self)
-                break
-            case "Tour":
-                performSegueWithIdentifier("showTour", sender: self)
-                break
-            case "About":
-                performSegueWithIdentifier("showAbout", sender: self)
-                break
-            case "Feedback":
+            case .Feedback:
                 let alertController = UIAlertController(title: "Judge Us!", message: "Your feedback is important to us. We appreciate you rating and reviewing us in the app store.", preferredStyle: .Alert)
                 let rateAction = UIAlertAction(title: "Rate", style: .Default) { (alert) in
                     // go to app store
@@ -68,7 +70,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                 alertController.addAction(cancelAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
                 break
-            case "Logout":
+            case .Logout:
                 let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .Alert)
                 let logoutAction = UIAlertAction(title: "Yah", style: .Default) { (alert) in
                     // logout
@@ -87,19 +89,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return menuOptions.count
     }
     
-    func menuOptionTitleForRow(row: Int) -> String {
+    func menuOptionForRow(row: Int) -> MenuOption {
         return menuOptions[row]
     }
     
     // MARK: - Navigation
 
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+////         Get the new view controller using segue.destinationViewController.
+////         Pass the selected object to the new view controller.
+//    }
     
     @IBAction func closeMenu(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
