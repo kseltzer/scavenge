@@ -16,9 +16,9 @@ enum Direction {
 
 struct MenuHelper {
     static let menuWidth : CGFloat = 0.65
-    static let percentThreshold : CGFloat = 0.3 // how far (%) the user must pan before the menu changes state
+    static let percentThreshold : CGFloat = 0.4 // how far (%) the user must pan before the menu changes state
     static let snapshotNumber = 12345  // tag a snapshot view for later retrieval
-    static let animationDuration = 0.3 // length of animation in seconds
+    static let animationDuration = 0.3 // length of animation (seconds)
     
     // parameters:
     // translationInView = the user’s touch coordinates

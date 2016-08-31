@@ -34,6 +34,22 @@ class AboutViewController: UIViewController {
 // MARK: - Slideout Menu
 
 extension AboutViewController: UIViewControllerTransitioningDelegate {
+    
+    @IBAction func handleEdgeGesture(sender: UIScreenEdgePanGestureRecognizer) {
+        let translation = sender.translationInView(view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+        MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
+            self.performSegueWithIdentifier("showMenu", sender: self)
+        }
+    }
+    
+    @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
+        let translation = sender.translationInView(view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+        MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
+            self.performSegueWithIdentifier("showMenu", sender: self)
+        }
+    }
    
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ShowMenuAnimator()
@@ -41,6 +57,10 @@ extension AboutViewController: UIViewControllerTransitioningDelegate {
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return HideMenuAnimator()
+    }
+    
+    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
     }
     
     func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

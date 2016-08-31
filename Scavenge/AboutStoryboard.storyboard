@@ -28,7 +28,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiW-45-SMY">
                                 <rect key="frame" x="276.5" y="289.5" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65R-JX-cY1" customClass="CustomNavigationBar" customModule="Scavenge" customModuleProvider="target">
@@ -40,7 +40,7 @@
                                     <navigationItem title="About" id="iXh-Bh-a9e">
                                         <barButtonItem key="leftBarButtonItem" title="///" id="0QC-0D-D8P" customClass="MenuButton" customModule="Scavenge" customModuleProvider="target">
                                             <connections>
-                                                <segue destination="E8p-JY-DVk" kind="presentation" id="tOG-rg-28j"/>
+                                                <segue destination="E8p-JY-DVk" kind="presentation" identifier="showMenu" id="tOG-rg-28j"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -48,6 +48,7 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="uiW-45-SMY" firstAttribute="centerX" secondItem="yKr-C4-DUp" secondAttribute="centerX" id="4uW-yT-oXZ"/>
                             <constraint firstItem="uiW-45-SMY" firstAttribute="centerY" secondItem="yKr-C4-DUp" secondAttribute="centerY" id="8dE-mf-3aO"/>
@@ -55,9 +56,24 @@
                             <constraint firstItem="65R-JX-cY1" firstAttribute="top" secondItem="uaK-gh-spJ" secondAttribute="bottom" id="Npv-Ov-UM2"/>
                             <constraint firstItem="65R-JX-cY1" firstAttribute="leading" secondItem="yKr-C4-DUp" secondAttribute="leading" id="hLy-Xx-Wei"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lQ2-Dg-JoG" appends="YES" id="BiO-GX-c4f"/>
+                            <outletCollection property="gestureRecognizers" destination="neH-ri-Nfz" appends="YES" id="sGE-Hz-6V9"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpG-A0-IFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="lQ2-Dg-JoG">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="handleEdgeGesture:" destination="8IC-YS-kHq" id="PSb-90-nKB"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="neH-ri-Nfz">
+                    <connections>
+                        <action selector="handleGesture:" destination="8IC-YS-kHq" id="l33-pO-1E3"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="180" y="313"/>
         </scene>
