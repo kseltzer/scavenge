@@ -80,8 +80,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                 alertController.addAction(cancelAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
                 break
-            default:
-                break
         }
     }
     
@@ -93,15 +91,21 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return menuOptions[row]
     }
     
-    // MARK: - Navigation
-
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-////         Get the new view controller using segue.destinationViewController.
-////         Pass the selected object to the new view controller.
-//    }
-    
     @IBAction func closeMenu(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+}
+
+// MARK: - Slideout Menu
+
+extension MenuViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return RightToLeftAnimator()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        segue.destinationViewController.transitioningDelegate = self
+    }
 }

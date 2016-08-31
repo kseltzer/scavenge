@@ -11,6 +11,7 @@ import UIKit
 class AboutViewController: UIViewController {
     
     let interactor = InteractiveMenuTransition()
+    let rightToLeftAnimator = RightToLeftAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()

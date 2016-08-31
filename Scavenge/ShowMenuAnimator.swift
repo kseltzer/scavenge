@@ -11,7 +11,7 @@ import UIKit
 
 class ShowMenuAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.3
+        return MenuHelper.animationDuration
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
