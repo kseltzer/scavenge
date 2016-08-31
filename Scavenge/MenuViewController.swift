@@ -22,7 +22,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     let menuOptions : [MenuOption] = [.Home, .Invite, .Tour, .About, .Feedback, .Logout]
-    var currentScreen : String?
+    var currentScreen : MenuOption?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +44,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell")
         cell?.backgroundColor = UIColor.clearColor()
-        cell?.textLabel?.textColor = UIColor.groupTableViewBackgroundColor()
-        cell?.textLabel?.text = menuOptionForRow(indexPath.row).rawValue
+        let option = menuOptionForRow(indexPath.row)
+        if option == currentScreen {
+            cell?.textLabel?.textColor = MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR
+        } else {
+            cell?.textLabel?.textColor = MENU_OPTION_TEXT_DEFAULT_COLOR
+        }
+        cell?.textLabel?.text = option.rawValue
         return cell!
     }
     

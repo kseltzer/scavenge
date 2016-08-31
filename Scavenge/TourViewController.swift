@@ -8,39 +8,13 @@
 
 import UIKit
 
-class TourViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource{
+class TourViewController: UIViewController {
 
     let interactor = InteractiveMenuTransition()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = self
         
-        if let firstViewController = orderedViewControllers.first {
-            setViewControllers([firstViewController],
-                               direction: .Forward,
-                               animated: true,
-                               completion: nil)
-        }
-    }
-
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        return nil
-    }
-    
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        return nil
-    }
-    
-    private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newTourViewController("1"),
-                self.newTourViewController("2"),
-                self.newTourViewController("3")]
-    }()
-    
-    private func newTourViewController(pageNum: String) -> UIViewController {
-        return UIStoryboard(name: "TourStoryboard", bundle: nil) .
-            instantiateViewControllerWithIdentifier("Step\(pageNum)ViewController")
     }
 
     /*
@@ -95,6 +69,7 @@ extension TourViewController: UIViewControllerTransitioningDelegate {
         if let destinationViewController = segue.destinationViewController as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
+            destinationViewController.currentScreen = .Tour
         }
     }
 }

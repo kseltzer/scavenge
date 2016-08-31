@@ -34,7 +34,7 @@
                                     <navigationItem title="Tour" id="H70-q6-1zW">
                                         <barButtonItem key="leftBarButtonItem" title="///" id="GUm-rU-0OW" customClass="MenuButton" customModule="Scavenge" customModuleProvider="target">
                                             <connections>
-                                                <segue destination="1uT-AI-we8" kind="presentation" identifier="" id="hiV-l6-2Cc"/>
+                                                <segue destination="1uT-AI-we8" kind="presentation" identifier="showMenu" id="hiV-l6-2Cc"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -42,14 +42,30 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.10215320164550323" blue="0.26067378724738288" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GQJ-by-iwU" firstAttribute="leading" secondItem="cjv-Rl-qxI" secondAttribute="leading" id="Ssc-Gd-Owe"/>
                             <constraint firstItem="GQJ-by-iwU" firstAttribute="top" secondItem="2ZX-DO-Mhh" secondAttribute="bottom" id="kr2-uC-oaC"/>
                             <constraint firstAttribute="trailing" secondItem="GQJ-by-iwU" secondAttribute="trailing" id="sPh-HV-YZV"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="zfa-7J-DSU" appends="YES" id="Vnq-I5-SQB"/>
+                            <outletCollection property="gestureRecognizers" destination="Fqe-Nd-2KF" appends="YES" id="Wxo-VF-zFY"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5h-P5-VMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="zfa-7J-DSU">
+                    <connections>
+                        <action selector="handleGesture:" destination="WeG-Gq-ea1" id="N4U-e3-Wg5"/>
+                    </connections>
+                </panGestureRecognizer>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="Fqe-Nd-2KF">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="handleEdgeGesture:" destination="WeG-Gq-ea1" id="eZW-aN-bWj"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="598" y="-334"/>
         </scene>

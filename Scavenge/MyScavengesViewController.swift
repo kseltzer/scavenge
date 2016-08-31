@@ -223,6 +223,7 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         if let destinationViewController = segue.destinationViewController as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
+            destinationViewController.currentScreen = .Home
         }
     }
     
