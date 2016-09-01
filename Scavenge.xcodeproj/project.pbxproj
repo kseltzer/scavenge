@@ -42,6 +42,8 @@
 		4E2705421D4C4FD400052671 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705411D4C4FD400052671 /* Friend.swift */; };
 		4E6D98431D56CBF9007DEFAB /* VotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D98421D56CBF9007DEFAB /* VotingCell.swift */; };
 		4E6EA4F51D4E93E00022127B /* CameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */; };
+		4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA238491D779BBE00BD278B /* ResultsViewController.swift */; };
+		4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384B1D77A23B00BD278B /* ResultsCell.swift */; };
 		4EB640761D73C38F00EA308D /* InteractiveMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640751D73C38F00EA308D /* InteractiveMenuTransition.swift */; };
 		4EB640781D73C41900EA308D /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640771D73C41900EA308D /* MenuHelper.swift */; };
 		4EB6407A1D73C62900EA308D /* ShowMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */; };
@@ -117,6 +119,8 @@
 		4E2705411D4C4FD400052671 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		4E6D98421D56CBF9007DEFAB /* VotingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingCell.swift; sourceTree = "<group>"; };
 		4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayView.xib; sourceTree = "<group>"; };
+		4EA238491D779BBE00BD278B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		4EA2384B1D77A23B00BD278B /* ResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		4EB640751D73C38F00EA308D /* InteractiveMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveMenuTransition.swift; sourceTree = "<group>"; };
 		4EB640771D73C41900EA308D /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
 		4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMenuAnimator.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */,
 				4E6D98421D56CBF9007DEFAB /* VotingCell.swift */,
+				4EA2384B1D77A23B00BD278B /* ResultsCell.swift */,
 			);
 			name = "Playing Game";
 			sourceTree = "<group>";
@@ -292,9 +297,9 @@
 			isa = PBXGroup;
 			children = (
 				4E2277AA1D32D0D100E22436 /* LaunchScreen.storyboard */,
+				4E2278111D41D4AA00E22436 /* LoginStoryboard.storyboard */,
 				4E2277EB1D32F41A00E22436 /* MainStoryboard.storyboard */,
 				4E2278041D37489000E22436 /* PlayingGameStoryboard.storyboard */,
-				4E2278111D41D4AA00E22436 /* LoginStoryboard.storyboard */,
 				4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */,
 				4EB6407D1D75198200EA308D /* TourStoryboard.storyboard */,
 				4EB640831D75421D00EA308D /* InviteStoryboard.storyboard */,
@@ -378,6 +383,7 @@
 			children = (
 				4E2278061D3748B500E22436 /* PlayingGameViewController.swift */,
 				4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */,
+				4EA238491D779BBE00BD278B /* ResultsViewController.swift */,
 			);
 			name = PlayingGame;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				4E2278181D41EB5B00E22436 /* NewGameViewController.swift in Sources */,
 				4E2277A71D32D0D100E22436 /* Scavenge.xcdatamodeld in Sources */,
 				4EB640761D73C38F00EA308D /* InteractiveMenuTransition.swift in Sources */,
+				4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */,
 				4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */,
 				4E27053B1D49DB7600052671 /* FacebookFriendCell.swift in Sources */,
 				4E2277E91D32E5DB00E22436 /* SNavigationController.swift in Sources */,
@@ -563,6 +570,7 @@
 				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
 				4E2277D71D32D29400E22436 /* Constants.swift in Sources */,
 				4E22781E1D42030000E22436 /* FriendCell.swift in Sources */,
+				4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

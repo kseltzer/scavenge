@@ -37,7 +37,7 @@ extension TourViewController: UIViewControllerTransitioningDelegate {
         let translation = sender.translationInView(view)
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegueWithIdentifier("showMenu", sender: self)
+            self.performSegueWithIdentifier(kShowMenuSegue, sender: self)
         }
     }
     
@@ -45,7 +45,7 @@ extension TourViewController: UIViewControllerTransitioningDelegate {
         let translation = sender.translationInView(view)
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegueWithIdentifier("showMenu", sender: self)
+            self.performSegueWithIdentifier(kShowMenuSegue, sender: self)
         }
     }
     

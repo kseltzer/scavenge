@@ -24,6 +24,10 @@ let kMyScavengesViewController = "MyScavengesViewController"
 let kCreateGameViewController = "CreateGameViewController"
 let kPlayingGameViewController = "PlayingGameViewController"
 let kSNavigationController = "SNavigationController"
+let kGameResultsViewControllerIdentifier = "ResultsViewController"
+
+// MARK: - Segue Constants
+let kShowMenuSegue = "showMenu"
 
 // MARK: - Navigation Bar Constants
 let NAVIGATION_BAR_TINT_COLOR = UIColor(red: 108/255, green: 122/255, blue: 137/255, alpha: 1.0)

@@ -177,21 +177,38 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
-        let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
-        self.navigationController?.pushViewController(playingGameViewController!, animated: true);
+        switch (indexPath.section) {
+        case TableViewSection.Invites.rawValue:
+            break
+        case TableViewSection.Results.rawValue, TableViewSection.CompletedGames.rawValue:
+            let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
+            let resultsViewController = playingGameStoryboard.instantiateViewControllerWithIdentifier(kGameResultsViewControllerIdentifier)
+            self.navigationController?.pushViewController(resultsViewController, animated: true);
+            break
+        case TableViewSection.ActiveGames.rawValue:
+            break
+        case TableViewSection.YourMove.rawValue:
+            let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
+            let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
+            self.navigationController?.pushViewController(playingGameViewController!, animated: true);
+            break
+        case TableViewSection.TheirMove.rawValue:
+            break
+        default:
+            break
+        }
     }
     
     // MARK: - Slideout Menu
     @IBAction func menuButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("showMenu", sender: self)
+        performSegueWithIdentifier(kShowMenuSegue, sender: self)
     }
     
     @IBAction func handleEdgeGesture(sender: UIScreenEdgePanGestureRecognizer) {
         let translation = sender.translationInView(view)
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegueWithIdentifier("showMenu", sender: self)
+            self.performSegueWithIdentifier(kShowMenuSegue, sender: self)
         }
     }
     
@@ -199,7 +216,7 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         let translation = sender.translationInView(view)
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegueWithIdentifier("showMenu", sender: self)
+            self.performSegueWithIdentifier(kShowMenuSegue, sender: self)
         }
     }
     
