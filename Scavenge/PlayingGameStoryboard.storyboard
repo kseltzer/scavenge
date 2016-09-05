@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Playing Game View Controller-->
@@ -130,18 +129,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic #1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnI-4M-Jj2">
-                                                    <rect key="frame" x="8" y="8" width="584" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="ZtM-Es-MCB"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0L-TW-ths">
-                                                    <rect key="frame" x="8" y="36" width="592" height="329"/>
-                                                </scrollView>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-8I-W8o">
                                                     <rect key="frame" x="280.5" y="363" width="39" height="37"/>
                                                     <constraints>
@@ -150,16 +137,16 @@
                                                     <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </pageControl>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0L-TW-ths">
+                                                    <rect key="frame" x="8" y="0.0" width="592" height="365"/>
+                                                </scrollView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="VnI-4M-Jj2" firstAttribute="trailing" secondItem="uua-2J-ZDz" secondAttribute="trailingMargin" id="F0b-Uf-kLh"/>
                                                 <constraint firstAttribute="bottom" secondItem="dYD-8I-W8o" secondAttribute="bottom" id="Iej-jt-Stc"/>
                                                 <constraint firstAttribute="trailing" secondItem="k0L-TW-ths" secondAttribute="trailing" id="Vny-xn-nuV"/>
                                                 <constraint firstItem="k0L-TW-ths" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leading" constant="8" id="Zt2-m3-WKx"/>
-                                                <constraint firstItem="k0L-TW-ths" firstAttribute="top" secondItem="VnI-4M-Jj2" secondAttribute="bottom" constant="8" id="iWZ-0U-76f"/>
+                                                <constraint firstItem="k0L-TW-ths" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="top" id="c44-WI-6Q1"/>
                                                 <constraint firstAttribute="bottom" secondItem="k0L-TW-ths" secondAttribute="bottom" constant="35" id="jnS-ic-6Ef"/>
-                                                <constraint firstItem="VnI-4M-Jj2" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leadingMargin" id="oUU-ZO-uaQ"/>
-                                                <constraint firstItem="VnI-4M-Jj2" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="topMargin" id="sX1-VD-5yD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -168,7 +155,6 @@
                                         <connections>
                                             <outlet property="pageControl" destination="dYD-8I-W8o" id="Hw0-6T-JHQ"/>
                                             <outlet property="scrollView" destination="k0L-TW-ths" id="bfj-AI-A8p"/>
-                                            <outlet property="topicLabel" destination="VnI-4M-Jj2" id="EGa-WH-by8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

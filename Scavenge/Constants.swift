@@ -52,6 +52,7 @@ let BAR_BUTTON_TEXT_COLOR = UIColor.whiteColor()
 let TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue-Medium", size: 22.0)
 let TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 16.0)
 
+let VOTING_TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue", size: 20.0)
 let RESULTS_TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 12.0)
 
 let kSectionTitleInvites = "Invites"
