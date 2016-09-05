@@ -58,7 +58,7 @@ let fbFriendDictionaryFromAPI : [String:FacebookFriend] = [
 var fbFriendDictionary = fbFriendDictionaryFromAPI
 
 let smsInviteBody: String = "Hey! Long time no talk hahaha :) no but seriously I found this really fun app called Scavenge. Kind of a stupid name but it's actually a good game. You should download it so we can play."
-let cannotAddAdditionalPlayersMessage = "ya can't have more than 6 players\nin a game"
+let cannotAddAdditionalPlayersMessage = "ya can't have more than \(MAX_PLAYERS) players\nin a game"
 
 class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, UITextFieldDelegate, UISearchResultsUpdating {
     
@@ -103,6 +103,15 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         startButton.enabled = false
         
+        setupSearchController()
+        
+        navigationItem.backBarButtonItem = customBackBarItem()
+        
+        titleTextField.delegate = self
+        titleTextField.placeholder = gameTitle
+    }
+    
+    func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
@@ -110,11 +119,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.tableHeaderView = searchController.searchBar
         searchController.loadViewIfNeeded()
         searchController.hidesNavigationBarDuringPresentation = false
-        
-        navigationItem.backBarButtonItem = customBackBarItem()
-        
-        titleTextField.delegate = self
-        titleTextField.placeholder = gameTitle
     }
     
     // MARK: - UITableViewDelegate

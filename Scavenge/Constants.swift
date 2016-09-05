@@ -12,6 +12,7 @@ import UIKit
 // MARK: - Game Play Constants
 let NUM_GAME_QUESTIONS = 5
 let IMAGE_RATIO : CGFloat = 8 / 7
+let MAX_PLAYERS : Int = 6
 
 // MARK: - Session Constants
 let KEY_UID = "uid"
