@@ -14,7 +14,7 @@ protocol ResultsCellDelegate {
 
 class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     
-    let numPlayers = 5 // TODO: hard coded data
+    let numPlayers = 5 // TODO: get data from backend
 
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -39,8 +39,9 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
 
     func setupUIScrollView() {
         let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let imageViewWidth = (screenSize.width - 16) / 2.5
-        let imageViewHeight = imageViewWidth * (8 / 7)
+        let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
+        let imageViewWidth = (screenSize.width - (leadingSpace + trailingSpace)) / 2.5
+        let imageViewHeight = imageViewWidth * IMAGE_RATIO
         let scrollViewWidth = (imageViewWidth * CGFloat(numPlayers)) + (8 * CGFloat(numPlayers))
         scrollView.contentSize = CGSizeMake(scrollViewWidth, imageViewHeight)
         scrollView.scrollsToTop = true
@@ -51,18 +52,21 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
         for _ in 0 ..< numPlayers {
             let imageViewTopic = UIImageView(frame: CGRectMake(x, y, imageViewWidth, imageViewHeight))
             imageViewTopic.contentMode = .ScaleAspectFill
-            imageViewTopic.image = UIImage(named: "aliya")
+            let photoSubmission = UIImage(named: "aliya") // TODO: get data from backend
+            imageViewTopic.image = photoSubmission
             scrollView.addSubview(imageViewTopic)
             
-            let votesLabel = UILabel(frame: CGRectMake(x, y + imageViewHeight + 16, imageViewWidth, 20))
-            votesLabel.text = "Kim Seltzer"  // TODO: hard coded data
+            let playerLabel = UILabel(frame: CGRectMake(x, y + imageViewHeight + 16, imageViewWidth, 20))
+            let submittedBy = "Kim Seltzer" // TODO: get data from backend
+            playerLabel.text = "by: \(submittedBy)"
+            playerLabel.font = RESULTS_TABLE_VIEW_SUBSECTION_FONT
+            scrollView.addSubview(playerLabel)
+            
+            let votesLabel = UILabel(frame: CGRectMake(x + 4, y, imageViewWidth, 20))
+            let numVotes = 3 // TODO: get data from backend
+            votesLabel.text = "\(numVotes) votes"
             votesLabel.font = TABLE_VIEW_SUBSECTION_FONT
             scrollView.addSubview(votesLabel)
-            
-            let playerLabel = UILabel(frame: CGRectMake(x + 4, y, imageViewWidth, 20))
-            playerLabel.text = "3 votes" // TODO: hard coded data
-            playerLabel.font = TABLE_VIEW_SUBSECTION_FONT
-            scrollView.addSubview(playerLabel)
             
             x += (imageViewWidth + 8)
         }

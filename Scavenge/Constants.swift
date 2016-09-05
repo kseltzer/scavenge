@@ -11,6 +11,7 @@ import UIKit
 
 // MARK: - Game Play Constants
 let NUM_GAME_QUESTIONS = 5
+let IMAGE_RATIO : CGFloat = 8 / 7
 
 // MARK: - Session Constants
 let KEY_UID = "uid"
@@ -49,6 +50,8 @@ let BAR_BUTTON_TEXT_COLOR = UIColor.whiteColor()
 // MARK: - Table View Constants
 let TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue-Medium", size: 22.0)
 let TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 16.0)
+
+let RESULTS_TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 12.0)
 
 let kSectionTitleInvites = "Invites"
 let kSectionTitleResults = "Results"

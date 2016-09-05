@@ -35,7 +35,8 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func setupScrollViewOffsets() {
-        for _ in 0..<10 {
+        let numPlayers = 5 // TODO: get data from backend
+        for _ in 0..<numPlayers {
             scrollViewOffsets.append(0)
         }
     }
@@ -53,7 +54,6 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultsCell") as! ResultsCell
         cell.delegate = self
         cell.index = indexPath.section
-        print(indexPath.section)
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
         return cell
     }
