@@ -12,8 +12,7 @@ import UIKit
 let screenSize: CGRect = UIScreen.mainScreen().bounds
 let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
 let cellWidth = screenSize.width - (leadingSpace + trailingSpace)
-let imageViewHeight = cellWidth * IMAGE_RATIO
-let cellHeight = imageViewHeight + 28 + 35 + 12
+
 
 class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -27,6 +26,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let bottomSpace : CGFloat = 8
         let pageControlHeight : CGFloat = 37
+        let imageViewHeight = cellWidth * IMAGE_RATIO
         tableView.rowHeight = imageViewHeight + bottomSpace + pageControlHeight
         tableView.scrollsToTop = true
         
@@ -47,7 +47,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderView = UIView(frame: CGRectMake(0, 0, cellWidth, 30))
         sectionHeaderView.backgroundColor = UIColor.whiteColor()
-        let topicLabel = UILabel(frame: CGRectMake(8, 0, cellWidth, 30))
+        let topicLabel = UILabel(frame: CGRectMake(leadingSpace, 0, cellWidth, 30))
         topicLabel.text = "Topic" // TODO: get data from backend
         topicLabel.font = VOTING_TABLE_VIEW_SECTION_FONT
         sectionHeaderView.addSubview(topicLabel)
