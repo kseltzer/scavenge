@@ -224,32 +224,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDP-CI-zBE">
-                                                    <rect key="frame" x="8" y="8" width="584" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="cwA-Ed-V3w"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH2-ub-TGK">
-                                                    <rect key="frame" x="8" y="36" width="592" height="205.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="592" height="241.5"/>
                                                 </scrollView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lDP-CI-zBE" firstAttribute="leading" secondItem="T2E-sf-pmO" secondAttribute="leading" constant="8" id="JaA-K2-20a"/>
-                                                <constraint firstItem="lDP-CI-zBE" firstAttribute="top" secondItem="T2E-sf-pmO" secondAttribute="top" constant="8" id="YCM-Cy-0Fl"/>
+                                                <constraint firstItem="OH2-ub-TGK" firstAttribute="top" secondItem="T2E-sf-pmO" secondAttribute="top" id="H38-C3-vm1"/>
                                                 <constraint firstAttribute="bottom" secondItem="OH2-ub-TGK" secondAttribute="bottom" constant="8" id="YDt-vT-vPc"/>
-                                                <constraint firstAttribute="trailing" secondItem="lDP-CI-zBE" secondAttribute="trailing" constant="8" id="ZxT-Pq-hOK"/>
                                                 <constraint firstAttribute="trailing" secondItem="OH2-ub-TGK" secondAttribute="trailing" id="a4B-uK-h6E"/>
-                                                <constraint firstItem="OH2-ub-TGK" firstAttribute="top" secondItem="lDP-CI-zBE" secondAttribute="bottom" constant="8" id="d7i-Zp-gt0"/>
                                                 <constraint firstItem="OH2-ub-TGK" firstAttribute="leading" secondItem="T2E-sf-pmO" secondAttribute="leading" constant="8" id="rNU-HD-UIq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="scrollView" destination="OH2-ub-TGK" id="hpX-1E-vdX"/>
-                                            <outlet property="topicLabel" destination="lDP-CI-zBE" id="SPB-WW-SaX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -8,12 +8,22 @@
 
 import UIKit
 
+protocol ResultsCellDelegate {
+    func updateScrollPositionForIndexPath(scrollPosition scrollPosition: CGFloat, index: Int)
+}
+
 class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     
-    let numPlayers = 3 // TODO: - hard coded data
+    let numPlayers = 5 // TODO: hard coded data
 
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    var scrollPosition : CGPoint = CGPointMake(0, 0)
+    
+    var index: Int!
+    
+    var delegate : ResultsCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,13 +54,22 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
             imageViewTopic.image = UIImage(named: "aliya")
             scrollView.addSubview(imageViewTopic)
             
-            let playerLabel = UILabel(frame: CGRectMake(x, y + imageViewHeight + 16, imageViewWidth, 20))
-            playerLabel.text = "Kim Seltzer"
+            let votesLabel = UILabel(frame: CGRectMake(x, y + imageViewHeight + 16, imageViewWidth, 20))
+            votesLabel.text = "Kim Seltzer"  // TODO: hard coded data
+            votesLabel.font = TABLE_VIEW_SUBSECTION_FONT
+            scrollView.addSubview(votesLabel)
+            
+            let playerLabel = UILabel(frame: CGRectMake(x + 4, y, imageViewWidth, 20))
+            playerLabel.text = "3 votes" // TODO: hard coded data
             playerLabel.font = TABLE_VIEW_SUBSECTION_FONT
             scrollView.addSubview(playerLabel)
             
             x += (imageViewWidth + 8)
         }
     }
-
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        scrollPosition = scrollView.contentOffset
+        delegate.updateScrollPositionForIndexPath(scrollPosition: scrollPosition.x, index: index)
+    }
 }

@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+// MARK: - Game Play Constants
+let NUM_GAME_QUESTIONS = 5
+
 // MARK: - Session Constants
 let KEY_UID = "uid"
 
