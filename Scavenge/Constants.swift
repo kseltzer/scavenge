@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+// MARK: - Game Play Constants
+let NUM_GAME_QUESTIONS = 5
+let IMAGE_RATIO : CGFloat = 8 / 7
+
 // MARK: - Session Constants
 let KEY_UID = "uid"
 
@@ -24,6 +28,10 @@ let kMyScavengesViewController = "MyScavengesViewController"
 let kCreateGameViewController = "CreateGameViewController"
 let kPlayingGameViewController = "PlayingGameViewController"
 let kSNavigationController = "SNavigationController"
+let kGameResultsViewControllerIdentifier = "ResultsViewController"
+
+// MARK: - Segue Constants
+let kShowMenuSegue = "showMenu"
 
 // MARK: - Navigation Bar Constants
 let NAVIGATION_BAR_TINT_COLOR = UIColor(red: 108/255, green: 122/255, blue: 137/255, alpha: 1.0)
@@ -42,6 +50,8 @@ let BAR_BUTTON_TEXT_COLOR = UIColor.whiteColor()
 // MARK: - Table View Constants
 let TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue-Medium", size: 22.0)
 let TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 16.0)
+
+let RESULTS_TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 12.0)
 
 let kSectionTitleInvites = "Invites"
 let kSectionTitleResults = "Results"

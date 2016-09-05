@@ -47,6 +47,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 85
+        tableView.scrollsToTop = true
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -14,7 +14,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    let numPlayers = 3
+    let numPlayers = 3 // TODO: hard coded
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,11 +31,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
         let scrollViewWidth = (imageViewWidth * CGFloat(numPlayers)) + (8 * CGFloat(numPlayers))
         scrollView.contentSize = CGSizeMake(scrollViewWidth, imageViewHeight)
         scrollView.scrollsToTop = true
-        
-        let imageViewTopic1 = UIImageView(frame: CGRectMake(0, 0, imageViewWidth, imageViewHeight))
-        imageViewTopic1.contentMode = .ScaleAspectFill
-        imageViewTopic1.image = UIImage(named: "aliya")
-        
+                
         var x: CGFloat = 0
         let y: CGFloat = 0
         

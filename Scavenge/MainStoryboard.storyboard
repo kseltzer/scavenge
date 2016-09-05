@@ -166,7 +166,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1333" y="-306"/>
+            <point key="canvasLocation" x="1333" y="-136"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="04e-hM-u32">
@@ -1334,7 +1334,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2035" y="355"/>
+            <point key="canvasLocation" x="2013" y="557"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yqr-Y4-Nv5">
@@ -1357,7 +1357,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUK-DB-vco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="521" y="355"/>
+            <point key="canvasLocation" x="605" y="557"/>
         </scene>
     </scenes>
     <resources>
