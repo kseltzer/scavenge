@@ -8,8 +8,14 @@
 
 import UIKit
 
-class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+let screenSize: CGRect = UIScreen.mainScreen().bounds
+let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
+let cellWidth = screenSize.width - (leadingSpace + trailingSpace)
+
+
+class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -17,25 +23,39 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.delegate = self
         tableView.dataSource = self
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let cellWidth = screenSize.width - 16
-        let imageViewHeight = cellWidth * 8 / 7
-        let cellHeight = imageViewHeight + 28 + 35 + 12
-        tableView.rowHeight = cellHeight
+        
+        let bottomSpace : CGFloat = 8
+        let pageControlHeight : CGFloat = 37
+        let imageViewHeight = cellWidth * IMAGE_RATIO
+        tableView.rowHeight = imageViewHeight + bottomSpace + pageControlHeight
         tableView.scrollsToTop = true
         
-        navigationItem.backBarButtonItem = customBackBarItem(title: "")
+        navigationItem.backBarButtonItem = customBackBarItem()
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
 
     // MARK: - UITableViewDelegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
+        return NUM_GAME_QUESTIONS
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeaderView = UIView(frame: CGRectMake(0, 0, cellWidth, 30))
+        sectionHeaderView.backgroundColor = UIColor.whiteColor()
+        let topicLabel = UILabel(frame: CGRectMake(leadingSpace, 0, cellWidth, 30))
+        topicLabel.text = "Topic" // TODO: get data from backend
+        topicLabel.font = VOTING_TABLE_VIEW_SECTION_FONT
+        sectionHeaderView.addSubview(topicLabel)
+        return sectionHeaderView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

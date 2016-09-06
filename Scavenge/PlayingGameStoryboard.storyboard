@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Playing Game View Controller-->
@@ -19,20 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjY-Bv-sPk" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
-                                <rect key="frame" x="242" y="465" width="115" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="6Jd-hR-FFN"/>
-                                    <constraint firstAttribute="width" constant="115" id="Mrg-co-t6a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="18"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <segue destination="pPk-Lz-qMp" kind="show" id="81l-4O-8EY"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DJc-FU-6k7">
-                                <rect key="frame" x="8" y="28" width="584" height="465"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DJc-FU-6k7">
+                                <rect key="frame" x="8" y="8" width="584" height="592"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="465" id="jur-MB-P0v"/>
@@ -85,22 +72,60 @@
                                             <outlet property="topicLabel" destination="wo8-DZ-m2S" id="jBV-g7-f4d"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="submitCell" id="4fd-TX-W7M" customClass="SubmitCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="584" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4fd-TX-W7M" id="OPo-UH-Ob7">
+                                            <rect key="frame" x="0.0" y="0.0" width="584" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qz-4S-yVF" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
+                                                    <rect key="frame" x="234.5" y="8.5" width="115" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="115" id="ATj-JX-2iC"/>
+                                                        <constraint firstAttribute="height" constant="55" id="EVj-qR-Maf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="Submit"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7Qz-4S-yVF" firstAttribute="centerX" secondItem="OPo-UH-Ob7" secondAttribute="centerX" id="J14-xX-qoy"/>
+                                                <constraint firstItem="7Qz-4S-yVF" firstAttribute="centerY" secondItem="OPo-UH-Ob7" secondAttribute="centerY" id="saJ-ZU-u51"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="submitButton" destination="7Qz-4S-yVF" id="ugR-H0-Pcl"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jur-MB-P0v"/>
+                                    </mask>
+                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DJc-FU-6k7" firstAttribute="leading" secondItem="tKY-Rr-1Ff" secondAttribute="leading" constant="8" id="7SR-Ad-Jht"/>
-                            <constraint firstItem="qjY-Bv-sPk" firstAttribute="centerX" secondItem="tKY-Rr-1Ff" secondAttribute="centerX" id="EYL-hR-Oxv"/>
                             <constraint firstAttribute="trailing" secondItem="DJc-FU-6k7" secondAttribute="trailing" constant="8" id="MzW-d2-P9v"/>
-                            <constraint firstItem="VvT-z5-VqI" firstAttribute="top" secondItem="qjY-Bv-sPk" secondAttribute="bottom" constant="80" id="dzA-1h-q2V"/>
+                            <constraint firstItem="DJc-FU-6k7" firstAttribute="top" secondItem="cuI-H1-qSG" secondAttribute="bottom" id="N0R-YG-0Aj"/>
+                            <constraint firstItem="DJc-FU-6k7" firstAttribute="top" secondItem="tKY-Rr-1Ff" secondAttribute="top" constant="8" id="ZMY-ib-85z"/>
                             <constraint firstItem="DJc-FU-6k7" firstAttribute="top" secondItem="cuI-H1-qSG" secondAttribute="bottom" constant="8" id="k59-jU-Exz"/>
+                            <constraint firstItem="VvT-z5-VqI" firstAttribute="top" secondItem="DJc-FU-6k7" secondAttribute="bottom" id="mmJ-pe-XBb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="N0R-YG-0Aj"/>
+                                <exclude reference="k59-jU-Exz"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="{ Game Title }" id="oZH-Wr-hLB"/>
                     <connections>
-                        <outlet property="submitButton" destination="qjY-Bv-sPk" id="fjt-y4-g3j"/>
                         <outlet property="tableView" destination="DJc-FU-6k7" id="iOA-hq-naI"/>
+                        <segue destination="pPk-Lz-qMp" kind="show" identifier="showVoting" id="h9l-jO-5wk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3IU-vo-fbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -130,18 +155,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic #1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnI-4M-Jj2">
-                                                    <rect key="frame" x="8" y="8" width="584" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="ZtM-Es-MCB"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0L-TW-ths">
-                                                    <rect key="frame" x="8" y="36" width="592" height="329"/>
-                                                </scrollView>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-8I-W8o">
                                                     <rect key="frame" x="280.5" y="363" width="39" height="37"/>
                                                     <constraints>
@@ -150,16 +163,16 @@
                                                     <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </pageControl>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0L-TW-ths">
+                                                    <rect key="frame" x="8" y="0.0" width="592" height="365"/>
+                                                </scrollView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="VnI-4M-Jj2" firstAttribute="trailing" secondItem="uua-2J-ZDz" secondAttribute="trailingMargin" id="F0b-Uf-kLh"/>
                                                 <constraint firstAttribute="bottom" secondItem="dYD-8I-W8o" secondAttribute="bottom" id="Iej-jt-Stc"/>
                                                 <constraint firstAttribute="trailing" secondItem="k0L-TW-ths" secondAttribute="trailing" id="Vny-xn-nuV"/>
                                                 <constraint firstItem="k0L-TW-ths" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leading" constant="8" id="Zt2-m3-WKx"/>
-                                                <constraint firstItem="k0L-TW-ths" firstAttribute="top" secondItem="VnI-4M-Jj2" secondAttribute="bottom" constant="8" id="iWZ-0U-76f"/>
+                                                <constraint firstItem="k0L-TW-ths" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="top" id="c44-WI-6Q1"/>
                                                 <constraint firstAttribute="bottom" secondItem="k0L-TW-ths" secondAttribute="bottom" constant="35" id="jnS-ic-6Ef"/>
-                                                <constraint firstItem="VnI-4M-Jj2" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leadingMargin" id="oUU-ZO-uaQ"/>
-                                                <constraint firstItem="VnI-4M-Jj2" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="topMargin" id="sX1-VD-5yD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -168,7 +181,6 @@
                                         <connections>
                                             <outlet property="pageControl" destination="dYD-8I-W8o" id="Hw0-6T-JHQ"/>
                                             <outlet property="scrollView" destination="k0L-TW-ths" id="bfj-AI-A8p"/>
-                                            <outlet property="topicLabel" destination="VnI-4M-Jj2" id="EGa-WH-by8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
