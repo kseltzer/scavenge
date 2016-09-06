@@ -44,6 +44,7 @@
 		4E6EA4F51D4E93E00022127B /* CameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */; };
 		4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA238491D779BBE00BD278B /* ResultsViewController.swift */; };
 		4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384B1D77A23B00BD278B /* ResultsCell.swift */; };
+		4EA2384E1D7F4D4900BD278B /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */; };
 		4EB640761D73C38F00EA308D /* InteractiveMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640751D73C38F00EA308D /* InteractiveMenuTransition.swift */; };
 		4EB640781D73C41900EA308D /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640771D73C41900EA308D /* MenuHelper.swift */; };
 		4EB6407A1D73C62900EA308D /* ShowMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */; };
@@ -121,6 +122,7 @@
 		4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayView.xib; sourceTree = "<group>"; };
 		4EA238491D779BBE00BD278B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		4EA2384B1D77A23B00BD278B /* ResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
+		4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitCell.swift; sourceTree = "<group>"; };
 		4EB640751D73C38F00EA308D /* InteractiveMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveMenuTransition.swift; sourceTree = "<group>"; };
 		4EB640771D73C41900EA308D /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
 		4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMenuAnimator.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */,
 				4E6D98421D56CBF9007DEFAB /* VotingCell.swift */,
 				4EA2384B1D77A23B00BD278B /* ResultsCell.swift */,
+				4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */,
 			);
 			name = "Playing Game";
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				4EB640921D77617100EA308D /* RightToLeftAnimator.swift in Sources */,
 				4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */,
 				4E2277D41D32D26100E22436 /* LoginViewController.swift in Sources */,
+				4EA2384E1D7F4D4900BD278B /* SubmitCell.swift in Sources */,
 				4EB640821D751B4B00EA308D /* TourViewController.swift in Sources */,
 				4EB6407A1D73C62900EA308D /* ShowMenuAnimator.swift in Sources */,
 				4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */,

@@ -35,6 +35,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     var imagePickerController : UIImagePickerController!
     var capturedImage : UIImage?
     var selectedIndex : Int!
+    var allImagesCaptured : Bool = false
     
     var capturedImages : [UIImage?] = [nil, nil, nil, nil, nil]
     
@@ -190,10 +191,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func frontRearFacingCameraButtonTapped(sender: AnyObject) {
         if (imagePickerController.cameraDevice == .Front) {
             imagePickerController.cameraDevice = .Rear
-//            imageView.transform = CGAffineTransformMakeScale(1, 1)
         } else {
             imagePickerController.cameraDevice = .Front
-//            imageView.transform = CGAffineTransformMakeScale(-1, 1)
         }
     }
     
@@ -209,20 +208,14 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             self.capturedImages[self.selectedIndex] = self.capturedImage
             self.capturedImage = nil
             
-            var allImagesCaptured : Bool = true
+            self.allImagesCaptured = true
             for image in self.capturedImages {
                 if (image == nil) {
-                    allImagesCaptured = false
+                    self.allImagesCaptured = false
                 }
             }
-            if (allImagesCaptured) {
-                self.submitButton.enabled = true
-                self.submitButton.alpha = 1.0
-            } else {
-//                TODO: UNCOMMENT
-//                self.submitButton.enabled = false
-                self.submitButton.enabled = true
-                self.submitButton.alpha = 0.6
+            if (self.allImagesCaptured) {
+                self.tableView.reloadData()
             }
         })
     }
@@ -230,15 +223,20 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     // MARK :- UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedIndex = indexPath.row
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        self.attemptShowImagePicker(sampleTopics[indexPath.row])
+        if (indexPath.row != NUM_GAME_QUESTIONS) {
+            selectedIndex = indexPath.row
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            self.attemptShowImagePicker(sampleTopics[indexPath.row])
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("topicCell", forIndexPath: indexPath) as! PlayingGameTopicCell
-        cell.topicLabel.text = sampleTopics[indexPath.row]
-        return cell
+        if (indexPath.row == NUM_GAME_QUESTIONS) {
+            let submitCell = tableView.dequeueReusableCellWithIdentifier("submitCell", forIndexPath: indexPath) as! SubmitCell
+            return configureSubmitCell(submitCell)
+        }
+        let topicCell = tableView.dequeueReusableCellWithIdentifier("topicCell", forIndexPath: indexPath) as! PlayingGameTopicCell
+        return configureTopicCellForIndexPath(topicCell, indexPath: indexPath)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -246,17 +244,39 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return NUM_GAME_QUESTIONS + 1
     }
     
     func setImageForCellAtIndexPath (index: Int, image: UIImage?) {
         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! PlayingGameTopicCell
         cell.thumbnailImageView.image = cropImageToSquare(image!)
     }
+    
+    func configureSubmitCell(cell: SubmitCell) -> SubmitCell {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToVotingViewController))
+        cell.submitButton.addGestureRecognizer(tapGesture)
+        if (self.allImagesCaptured) {
+            cell.submitButton.enabled = true
+            cell.submitButton.alpha = 1.0
+        } else {
+            cell.submitButton.enabled = false
+            cell.submitButton.alpha = 0.6
+        }
+        return cell
+    }
+    
+    func configureTopicCellForIndexPath(cell: PlayingGameTopicCell, indexPath: NSIndexPath) -> PlayingGameTopicCell {
+        cell.topicLabel.text = sampleTopics[indexPath.row]
+        return cell
+    }
 
-    /*
     // MARK: - Navigation
 
+    func goToVotingViewController() {
+        self.performSegueWithIdentifier("showVoting", sender: self)
+    }
+    
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
