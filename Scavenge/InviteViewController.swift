@@ -9,6 +9,10 @@
 import UIKit
 import FBSDKCoreKit
 
+let INDEX_SECTION_TEXT_COLOR = UIColor.blackColor()
+let INDEX_DEFAULT_BACKGROUND_COLOR = UIColor.lightGrayColor()
+let INDEX_HIGHLIGHTED_BACKGROUND_COLOR = UIColor.grayColor()
+
 class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
     let interactor = InteractiveMenuTransition()
@@ -17,7 +21,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var searchBarView: UIView!
     
     let searchController = UISearchController(searchResultsController: nil)
-    let indexTitles = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    let indexTitles = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "#"];
     var sectionTitles : [String] = []
     var sectionContents : [[FacebookInviteFriend]] = []
     var fbFriends : [FacebookInviteFriend] = []
@@ -29,6 +33,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         
+        setupTableViewIndex()
         setupSearchController()
         getUserFriends()
     }
@@ -85,10 +90,13 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
             friendsList = fbFriends
         }
         
+        var nonAlphabetList : [FacebookInviteFriend] = []
         for contact in friendsList {
             if let firstLetterCharacter = contact.name.characters.first {
                 let firstLetterString = String(firstLetterCharacter)
-                if sectionTitles.contains(firstLetterString) {
+                if (indexTitles.indexOf(firstLetterString) == nil) || (indexTitles.indexOf(firstLetterString) == indexTitles.count-1) { // first letter is a #
+                    nonAlphabetList.append(contact)
+                } else if sectionTitles.contains(firstLetterString) {
                     sectionContents[sectionContents.count-1].append(contact)
                 } else {
                     sectionTitles.append(firstLetterString)
@@ -97,7 +105,17 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
             }
         }
+        if !nonAlphabetList.isEmpty {
+            sectionTitles.append("#")
+            sectionContents.append(nonAlphabetList)
+        }
         tableView.reloadData()
+    }
+    
+    func setupTableViewIndex() {
+        tableView.sectionIndexColor = INDEX_SECTION_TEXT_COLOR
+        tableView.sectionIndexBackgroundColor = INDEX_DEFAULT_BACKGROUND_COLOR
+        tableView.sectionIndexTrackingBackgroundColor = INDEX_HIGHLIGHTED_BACKGROUND_COLOR
     }
     
     // MARK: - UISearchResultsUpdating Protocol
@@ -195,7 +213,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let label = UILabel(frame: CGRectMake(8, 3, tableView.frame.width, 22))
         label.text = sectionTitles[section]
-        label.textColor = UIColor.blueColor()
+        label.textColor = INDEX_SECTION_TEXT_COLOR
         customView.addSubview(label)
         
         return customView
