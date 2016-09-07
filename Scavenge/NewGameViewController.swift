@@ -66,6 +66,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var startButton: SButton!
     
+    @IBOutlet weak var searchBarView: UIView!
+    
     @IBOutlet weak var profileImageViewUser: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend1: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend2: ProfileImageView!
@@ -116,7 +118,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
+        searchBarView.addSubview(searchController.searchBar)
         searchController.loadViewIfNeeded()
         searchController.hidesNavigationBarDuringPresentation = false
     }

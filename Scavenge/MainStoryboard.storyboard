@@ -1171,7 +1171,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
-                                <rect key="frame" x="0.0" y="157" width="600" height="443"/>
+                                <rect key="frame" x="0.0" y="201" width="600" height="399"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.85522942208940833" green="0.94810288714802637" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1299,14 +1299,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jc8-TR-Mh0" userLabel="Search Bar View">
+                                <rect key="frame" x="0.0" y="157" width="600" height="44"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="qOP-0u-aiT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mSv-6k-nCZ" firstAttribute="top" secondItem="8iZ-SD-Nmf" secondAttribute="bottom" constant="8" id="5uF-Sv-rJ5"/>
+                            <constraint firstItem="jc8-TR-Mh0" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="7vG-0H-Zza"/>
                             <constraint firstAttribute="trailing" secondItem="66F-xm-mkX" secondAttribute="trailing" id="9NU-JY-dbE"/>
                             <constraint firstAttribute="trailing" secondItem="mSv-6k-nCZ" secondAttribute="trailing" constant="8" id="AgC-5x-fu1"/>
-                            <constraint firstItem="66F-xm-mkX" firstAttribute="top" secondItem="mSv-6k-nCZ" secondAttribute="bottom" constant="8" id="Fbm-aq-pmJ"/>
+                            <constraint firstItem="jc8-TR-Mh0" firstAttribute="top" secondItem="mSv-6k-nCZ" secondAttribute="bottom" constant="8" id="Qxf-FB-19R"/>
                             <constraint firstItem="66F-xm-mkX" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="TZ7-qK-Agg"/>
+                            <constraint firstItem="66F-xm-mkX" firstAttribute="top" secondItem="jc8-TR-Mh0" secondAttribute="bottom" id="YaX-YI-DXu"/>
+                            <constraint firstAttribute="trailing" secondItem="jc8-TR-Mh0" secondAttribute="trailing" id="qOd-qy-zCe"/>
                             <constraint firstItem="eX7-wd-3RR" firstAttribute="top" secondItem="66F-xm-mkX" secondAttribute="bottom" id="wvE-Ot-3ou"/>
                             <constraint firstItem="mSv-6k-nCZ" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" constant="8" id="ycB-AB-sIA"/>
                         </constraints>
@@ -1318,6 +1328,7 @@
                         <outlet property="profileImageViewFriend4" destination="ece-qn-jEr" id="UwC-1w-QLP"/>
                         <outlet property="profileImageViewFriend5" destination="5TB-DZ-SHH" id="Ib4-JJ-VPn"/>
                         <outlet property="profileImageViewUser" destination="h0t-TS-Vom" id="pDP-1f-OsY"/>
+                        <outlet property="searchBarView" destination="jc8-TR-Mh0" id="j7I-S2-NY7"/>
                         <outlet property="searchDisplayController" destination="VEI-4H-SYh" id="EYy-iG-O3w"/>
                         <outlet property="startButton" destination="ox0-7l-Ogv" id="lBX-ue-WqX"/>
                         <outlet property="tableView" destination="66F-xm-mkX" id="c9q-WA-aN3"/>
