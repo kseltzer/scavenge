@@ -35,14 +35,15 @@ class LoginViewController: UIViewController {
                 print("cancelled")
             } else {
                 print("Successfully logged into Facebook.")
-//                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                NSUserDefaults.standardUserDefaults().setValue("someUserId", forKey: KEY_UID)
+                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+                print(accessToken)
+                NSUserDefaults.standardUserDefaults().setValue(accessToken, forKey: KEY_UID)
             }
         })
     }
     
     func handleLoginError() {
-        let alertController = UIAlertController(title: kErrorTitle, message: "There was an error logging into Facebook. Please try again or gtfo.", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: kErrorTitle, message: "There was an error logging into Facebook. Please try again.", preferredStyle: .Alert)
         let tryAgainAction = UIAlertAction(title: "Try Again", style: .Default) { (alert) in
             self.attemptLoginWithFacebook()
         }
