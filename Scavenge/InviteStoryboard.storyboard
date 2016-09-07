@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--MenuViewController-->
@@ -62,13 +63,19 @@
                                                     <rect key="frame" x="8" y="4" width="584" height="46"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKQ-yn-3Jv">
-                                                            <rect key="frame" x="8" y="8" width="568" height="30"/>
+                                                            <rect key="frame" x="59.5" y="8" width="516.5" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ssf-Le-YMr" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="4" width="35.5" height="38"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="ssf-Le-YMr" secondAttribute="height" multiplier="43:46" id="ctB-v6-ji6"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="invite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88b-91-jie">
-                                                            <rect key="frame" x="526" y="12.5" width="50" height="21"/>
+                                                            <rect key="frame" x="526" y="12" width="50" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="6XC-6D-g9a"/>
                                                                 <constraint firstAttribute="width" constant="50" id="lVh-mw-OX6"/>
@@ -80,6 +87,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="ssf-Le-YMr" firstAttribute="top" secondItem="5XO-fH-rWE" secondAttribute="top" constant="4" id="1W9-aX-ZQs"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ssf-Le-YMr" secondAttribute="bottom" constant="4" id="8Bs-Pd-Y6x"/>
+                                                        <constraint firstItem="CKQ-yn-3Jv" firstAttribute="leading" secondItem="ssf-Le-YMr" secondAttribute="trailing" constant="16" id="Aqt-Oi-DN5"/>
+                                                        <constraint firstItem="ssf-Le-YMr" firstAttribute="leading" secondItem="5XO-fH-rWE" secondAttribute="leading" constant="8" id="GJy-QA-Jon"/>
                                                         <constraint firstAttribute="trailing" secondItem="CKQ-yn-3Jv" secondAttribute="trailing" constant="8" id="N6J-tw-F7j"/>
                                                         <constraint firstAttribute="trailing" secondItem="88b-91-jie" secondAttribute="trailing" constant="8" id="Q3M-g7-gVQ"/>
                                                         <constraint firstItem="CKQ-yn-3Jv" firstAttribute="top" secondItem="5XO-fH-rWE" secondAttribute="top" constant="8" id="U7o-lm-J2L"/>
@@ -87,6 +98,11 @@
                                                         <constraint firstItem="88b-91-jie" firstAttribute="centerY" secondItem="5XO-fH-rWE" secondAttribute="centerY" id="pAb-3q-XsB"/>
                                                         <constraint firstAttribute="bottom" secondItem="CKQ-yn-3Jv" secondAttribute="bottom" constant="8" id="ts3-ex-k8L"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="X69-5u-CPv"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -97,7 +113,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="inviteLabel" destination="88b-91-jie" id="zco-SR-Fsl"/>
                                             <outlet property="nameLabel" destination="CKQ-yn-3Jv" id="6Vv-6O-CDh"/>
+                                            <outlet property="profileImage" destination="ssf-Le-YMr" id="z7X-df-liW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

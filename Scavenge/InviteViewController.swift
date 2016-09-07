@@ -19,7 +19,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let searchController = UISearchController(searchResultsController: nil)
     let indexTitles = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z" ];
     var sectionTitles : [String] = []
-    var sectionContents : [[String]] = []
+    var sectionContents : [[FacebookInviteFriend]] = []
     var fbFriends : [FacebookInviteFriend] = []
     
     override func viewDidLoad() {
@@ -42,9 +42,17 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             else if let resultDict = result as? NSDictionary {
                 if let resultArray = resultDict["data"] as? NSArray {
+//                    print(resultArray)
                     for friend in resultArray {
-                        if let  name = friend["name"] as? String {
-                            let contact = FacebookInviteFriend(name: name, id: nil, profileImageURL: nil, hasNegativeStateImage: false, invited: false)
+                        if let  name = friend["name"] as? String, id = friend["id"] as? String {
+                            var hasNegativeStateImage : Bool = false, url : String? = nil
+                            if let pictureDict = friend["picture"] as? NSDictionary {
+                                if let pictureData = pictureDict["data"] as? NSDictionary {
+                                    hasNegativeStateImage = (pictureData["is_silhouette"] as? Bool)!
+                                    url = pictureData["url"] as? String
+                                }
+                            }
+                            let contact = FacebookInviteFriend(name: name, id: id, profileImageURL: url, hasNegativeStateImage: hasNegativeStateImage, invited: false)
                             self.fbFriends.append(contact)
                         }
                     }
@@ -70,10 +78,10 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let firstLetterCharacter = contact.name.characters.first {
                 let firstLetterString = String(firstLetterCharacter)
                 if sectionTitles.contains(firstLetterString) {
-                    sectionContents[sectionContents.count-1].append(contact.name)
+                    sectionContents[sectionContents.count-1].append(contact)
                 } else {
                     sectionTitles.append(firstLetterString)
-                    sectionContents.append([contact.name])
+                    sectionContents.append([contact])
                 }
                 
             }
@@ -105,7 +113,21 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell", forIndexPath: indexPath) as! InviteCell
-        cell.nameLabel.text = sectionContents[indexPath.section][indexPath.row]
+        let friend = sectionContents[indexPath.section][indexPath.row]
+        cell.nameLabel.text = friend.name
+        
+        if let urlString = friend.profileImageURL {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                if let url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        cell.profileImage.image = UIImage(data: data)
+                    });
+                }
+            }
+        } else {
+            // set cell.profileImage to negativeState
+        }
+        
         return cell
     }
     

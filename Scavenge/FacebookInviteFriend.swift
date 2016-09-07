@@ -13,7 +13,7 @@ struct FacebookInviteFriend
 {
     var name : String
     var id : String?
-    var profileImageURL : NSURL?
+    var profileImageURL : String?
     var hasNegativeStateImage : Bool
     var invited : Bool
 }
