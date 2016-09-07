@@ -21,6 +21,8 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var sectionTitles : [String] = []
     var sectionContents : [[FacebookInviteFriend]] = []
     var fbFriends : [FacebookInviteFriend] = []
+    var filteredFBFriends : [FacebookInviteFriend] = []
+    var invitedFriendsIndices: [NSIndexPath] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +75,17 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func configureSections() {
-        for contact in fbFriends {
+        var friendsList : [FacebookInviteFriend] = []
+        sectionTitles = []
+        sectionContents = []
+        
+        if (searchController.active && searchController.searchBar.text != "") {
+            friendsList = filteredFBFriends
+        } else {
+            friendsList = fbFriends
+        }
+        
+        for contact in friendsList {
             if let firstLetterCharacter = contact.name.characters.first {
                 let firstLetterString = String(firstLetterCharacter)
                 if sectionTitles.contains(firstLetterString) {
@@ -129,12 +141,21 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 0
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        invitedFriendsIndices.append(indexPath)
+    }
+    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
     
     func filterContentForSearchText(searchText: String) {
-        tableView.reloadData()
+        filteredFBFriends = []
+        filteredFBFriends = fbFriends.filter { friend in
+            return friend.name.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        configureSections()
     }
     
     // MARK: - UITableViewDelegate
@@ -153,6 +174,12 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         } else {
             // set cell.profileImage to negativeState
+        }
+        
+        if invitedFriendsIndices.indexOf(indexPath) != nil {
+            cell.setSelectedAppearance()
+        } else {
+            cell.setDeselectedAppearance()
         }
         
         return cell
