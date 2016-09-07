@@ -64,14 +64,14 @@
                                     <outletCollection property="gestureRecognizers" destination="3pC-qE-OeZ" appends="YES" id="CoY-xI-IZd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="oVh-Bq-3US" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oVh-Bq-3US" userLabel="profileImageView" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                 <rect key="frame" x="16" y="64" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="45V-hd-rgf"/>
                                     <constraint firstAttribute="width" secondItem="oVh-Bq-3US" secondAttribute="height" multiplier="1:1" id="8gR-wJ-uOW"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sachin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz1-xl-KvO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ FirstName }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz1-xl-KvO" userLabel="First Name Label">
                                 <rect key="frame" x="84" y="64" width="298" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="BNO-7m-jfA"/>
@@ -104,7 +104,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medhekar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QI-UZ-7ea">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ LastName }" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QI-UZ-7ea" userLabel="Last Name Label">
                                 <rect key="frame" x="84" y="82" width="298" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="6l8-8G-NSd"/>
@@ -152,6 +152,9 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="firstNameLabel" destination="hz1-xl-KvO" id="Of3-ux-3x5"/>
+                        <outlet property="lastNameLabel" destination="0QI-UZ-7ea" id="qi2-nn-xx0"/>
+                        <outlet property="profileImageView" destination="oVh-Bq-3US" id="j6l-Am-xfM"/>
                         <outlet property="tableView" destination="hrb-fO-CNx" id="kUL-gZ-B5O"/>
                         <segue destination="RbZ-Hg-mcN" kind="presentation" identifier="showTour" id="Mhu-KX-uXL"/>
                         <segue destination="sJG-Et-qLp" kind="presentation" identifier="showInvite" id="gNU-ET-IWu"/>

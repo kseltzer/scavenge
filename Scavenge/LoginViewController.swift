@@ -36,8 +36,8 @@ class LoginViewController: UIViewController {
             } else {
                 print("Successfully logged into Facebook.")
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                print(accessToken)
                 NSUserDefaults.standardUserDefaults().setValue(accessToken, forKey: KEY_UID)
+                self.getFacebookUserData()
             }
         })
     }
@@ -62,4 +62,39 @@ class LoginViewController: UIViewController {
     }
     
     
+    func getFacebookUserData() {
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large)"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+            if (error != nil){
+                print("Error: \(error)")
+            } else {
+                let firstName = result["first_name"]
+                let lastName = result["last_name"]
+                var profileImageURL : String?
+                if let profileImageDict = result["picture"] as? NSDictionary {
+                    if let pictureData = profileImageDict["data"] as? NSDictionary {
+                        profileImageURL = pictureData["url"] as? String
+                    }
+                }
+                NSUserDefaults.standardUserDefaults().setValue(firstName, forKey: KEY_FIRST_NAME)
+                NSUserDefaults.standardUserDefaults().setValue(lastName, forKey: KEY_LAST_NAME)
+                
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    let urlString = profileImageURL
+                    if let url = NSURL(string: urlString!), data = NSData(contentsOfURL: url) {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            if let profileImage = UIImage(data: data), profileImageData = UIImagePNGRepresentation(profileImage) {
+                                let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+                                let destinationPath = documentsPath.stringByAppendingPathComponent("profileImage.png")
+                                do {
+                                    try profileImageData.writeToFile(destinationPath, options: .AtomicWrite)
+                                } catch {
+                                    print("error")
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        })
+    }
 }

@@ -20,6 +20,9 @@ enum MenuOption : String {
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profileImageView: ProfileImageView!
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
     
     let menuOptions : [MenuOption] = [.Home, .Invite, .Tour, .About, .Feedback, .Logout]
     var currentScreen : MenuOption?
@@ -29,8 +32,21 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
+        
+        firstNameLabel.text = NSUserDefaults.standardUserDefaults().valueForKey(KEY_FIRST_NAME) as? String
+        lastNameLabel.text = NSUserDefaults.standardUserDefaults().valueForKey(KEY_LAST_NAME) as? String
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        let fileManager = NSFileManager.defaultManager()
+        let imagePath = (documentsDirectory as NSString).stringByAppendingPathComponent("profileImage.png")
+        if fileManager.fileExistsAtPath(imagePath){
+            self.profileImageView.image = UIImage(contentsOfFile: imagePath)
+        } else{
+            print("No profile image available")
+        }
     }
-
+    
     var interactor: InteractiveMenuTransition? = nil
     @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
         let translation = sender.translationInView(view)
