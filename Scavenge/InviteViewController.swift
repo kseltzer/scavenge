@@ -17,7 +17,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var searchBarView: UIView!
     
     let searchController = UISearchController(searchResultsController: nil)
-    let indexTitles = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z" ];
+    let indexTitles = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
     var sectionTitles : [String] = []
     var sectionContents : [[FacebookInviteFriend]] = []
     var fbFriends : [FacebookInviteFriend] = []
@@ -33,7 +33,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func getUserFriends() {
         let params = ["fields": "id, name, picture"]
-        let request = FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: params)
+        let request = FBSDKGraphRequest(graphPath: "me/taggable_friends?limit=5000", parameters: params)
         request.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
             
             if error != nil {
@@ -42,7 +42,6 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             else if let resultDict = result as? NSDictionary {
                 if let resultArray = resultDict["data"] as? NSArray {
-//                    print(resultArray)
                     for friend in resultArray {
                         if let  name = friend["name"] as? String, id = friend["id"] as? String {
                             var hasNegativeStateImage : Bool = false, url : String? = nil
@@ -98,8 +97,36 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let index = sectionTitles.indexOf(title) {
             return index
         }
-        let index = sectionTitles.count - 1
-        return index >= 0 ? index : 0
+
+        // if no contents in section, return index of nearest non-empty section
+        if let _ = indexTitles.indexOf(title) {
+            // check preceeding sections
+            var entireAlphabetIndex = indexTitles.indexOf(title)!
+            var returnIndex : Int? = nil
+            var closestLetter : String? = nil
+            while entireAlphabetIndex >= 0 && returnIndex == nil {
+                closestLetter = indexTitles[entireAlphabetIndex]
+                returnIndex = sectionTitles.indexOf(closestLetter!)
+                entireAlphabetIndex -= 1
+            }
+            if returnIndex != nil {
+                return returnIndex!
+            }
+            
+            // check following sections
+            entireAlphabetIndex = indexTitles.indexOf(title)!
+            returnIndex = nil
+            closestLetter = nil
+            while entireAlphabetIndex < indexTitles.count && returnIndex == nil {
+                closestLetter = indexTitles[entireAlphabetIndex]
+                returnIndex = sectionTitles.indexOf(closestLetter!)
+                entireAlphabetIndex += 1
+            }
+            if returnIndex != nil {
+                return returnIndex!
+            }
+        }
+        return 0
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -135,10 +162,6 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return sectionTitles.count
     }
     
-//    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return sectionTitles[section]
-//    }
-    
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let customView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 35))
         customView.backgroundColor = UIColor.whiteColor()
@@ -152,7 +175,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionContents[section].count // TODO: get data
+        return sectionContents[section].count
     }
 
     /*
