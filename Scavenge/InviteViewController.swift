@@ -9,9 +9,6 @@
 import UIKit
 import FBSDKCoreKit
 
-let sampleData = ["Kim Seltzer", "Aliya Kamalova", "Albert Einstein", "Mahir Shah", "Rachel Green", "Ross Gellar", "Monica Gellar", "Joey Tribiani", "Chandler Bing", "Blaise Pascal",
-"Dorothy Hodgkin", "Edwin Powell Hubble", "Gertrude B. Elion", "Johannes Kepler", "Marie Curie", "3SixMafia"]
-
 class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
     let interactor = InteractiveMenuTransition()
@@ -23,16 +20,15 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let indexTitles = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z" ];
     var sectionTitles : [String] = []
     var sectionContents : [[String]] = []
-    var contacts : [String] = []
+    var fbFriends : [FacebookInviteFriend] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-        getUserFriends()
-        configureSections()
         setupSearchController()
+        getUserFriends()
     }
     
     func getUserFriends() {
@@ -44,9 +40,17 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let errorMessage = error.localizedDescription
                 print("Error: ", errorMessage)
             }
-            else if result.isKindOfClass(NSDictionary){
-                /* Handle response */
-                print(result)
+            else if let resultDict = result as? NSDictionary {
+                if let resultArray = resultDict["data"] as? NSArray {
+                    for friend in resultArray {
+                        if let  name = friend["name"] as? String {
+                            let contact = FacebookInviteFriend(name: name, id: nil, profileImageURL: nil, hasNegativeStateImage: false, invited: false)
+                            self.fbFriends.append(contact)
+                        }
+                    }
+                }
+                self.fbFriends.sortInPlace({ $0.name < $1.name })
+                self.configureSections()
             }
         }
     }
@@ -62,19 +66,19 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func configureSections() {
-        contacts = sampleData.sort()
-        for contact in contacts {
-            if let firstLetterCharacter = contact.characters.first {
+        for contact in fbFriends {
+            if let firstLetterCharacter = contact.name.characters.first {
                 let firstLetterString = String(firstLetterCharacter)
                 if sectionTitles.contains(firstLetterString) {
-                    sectionContents[sectionContents.count-1].append(contact)
+                    sectionContents[sectionContents.count-1].append(contact.name)
                 } else {
                     sectionTitles.append(firstLetterString)
-                    sectionContents.append([contact])
+                    sectionContents.append([contact.name])
                 }
                 
             }
         }
+        tableView.reloadData()
     }
     
     // MARK: - UISearchResultsUpdating Protocol

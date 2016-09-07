@@ -60,6 +60,7 @@
 		4EB640901D763AAC00EA308D /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB6408F1D763AAC00EA308D /* InviteViewController.swift */; };
 		4EB640921D77617100EA308D /* RightToLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640911D77617100EA308D /* RightToLeftAnimator.swift */; };
 		4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */; };
+		4ED06E831D7FA2DB006C4B77 /* FacebookInviteFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED06E821D7FA2DB006C4B77 /* FacebookInviteFriend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		4EB6408F1D763AAC00EA308D /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		4EB640911D77617100EA308D /* RightToLeftAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeftAnimator.swift; sourceTree = "<group>"; };
 		4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
+		4ED06E821D7FA2DB006C4B77 /* FacebookInviteFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInviteFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 				4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */,
 				4E27053F1D4B432200052671 /* FacebookFriend.swift */,
 				4E2705411D4C4FD400052671 /* Friend.swift */,
+				4ED06E821D7FA2DB006C4B77 /* FacebookInviteFriend.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
 				4E2277D71D32D29400E22436 /* Constants.swift in Sources */,
 				4E22781E1D42030000E22436 /* FriendCell.swift in Sources */,
+				4ED06E831D7FA2DB006C4B77 /* FacebookInviteFriend.swift in Sources */,
 				4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
