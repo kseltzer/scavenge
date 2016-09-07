@@ -1059,7 +1059,7 @@
                                         <rect key="frame" x="8" y="0.0" width="568" height="77"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-AN-uUh" userLabel="Player Images View">
-                                                <rect key="frame" x="0.0" y="8" width="92" height="60"/>
+                                                <rect key="frame" x="0.0" y="9" width="92" height="60"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9Xr-M6-NiE" userLabel="Player Images Stack">
                                                         <rect key="frame" x="0.0" y="0.0" width="92" height="58"/>
@@ -1135,23 +1135,11 @@
                                                     <constraint firstAttribute="height" constant="60" id="yvy-5o-nPY"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Untitled Game" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-Pm-aXv">
-                                                <rect key="frame" x="100" y="8" width="396" height="61"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Untitled Game" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-Pm-aXv">
+                                                <rect key="frame" x="100" y="8" width="468" height="61"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-7l-Ogv" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
-                                                <rect key="frame" x="504" y="23" width="64" height="30"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="64" id="0vC-1c-VF9"/>
-                                                    <constraint firstAttribute="height" constant="30" id="Pi2-G1-1iA"/>
-                                                </constraints>
-                                                <state key="normal" title="Start!"/>
-                                                <connections>
-                                                    <action selector="startButtonTapped:" destination="jKf-zi-WjN" eventType="touchUpInside" id="41b-8s-GUW"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="KhG-AN-uUh" firstAttribute="leading" secondItem="T3O-qF-NxB" secondAttribute="leading" constant="8" id="4Da-G6-w6X"/>
@@ -1173,7 +1161,7 @@
                                     <constraint firstAttribute="height" constant="77" id="iCk-bD-Asa"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
                                 <rect key="frame" x="0.0" y="201" width="600" height="399"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1324,6 +1312,15 @@
                             <constraint firstItem="mSv-6k-nCZ" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" constant="8" id="ycB-AB-sIA"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="New Game" id="jQK-5z-HtD">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Start" id="BKk-Ze-Clt">
+                            <connections>
+                                <action selector="startButtonTapped:" destination="jKf-zi-WjN" id="Aw0-cl-NZj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="profileImageViewFriend1" destination="eC9-jz-KZf" id="Zu0-rb-91X"/>
                         <outlet property="profileImageViewFriend2" destination="VQQ-2N-1rB" id="iRz-d5-1YG"/>
@@ -1333,7 +1330,7 @@
                         <outlet property="profileImageViewUser" destination="h0t-TS-Vom" id="pDP-1f-OsY"/>
                         <outlet property="searchBarView" destination="jc8-TR-Mh0" id="j7I-S2-NY7"/>
                         <outlet property="searchDisplayController" destination="VEI-4H-SYh" id="EYy-iG-O3w"/>
-                        <outlet property="startButton" destination="ox0-7l-Ogv" id="lBX-ue-WqX"/>
+                        <outlet property="startButton" destination="BKk-Ze-Clt" id="QYd-4l-cbv"/>
                         <outlet property="tableView" destination="66F-xm-mkX" id="c9q-WA-aN3"/>
                         <outlet property="titleTextField" destination="GMn-Pm-aXv" id="HY0-L0-SLx"/>
                     </connections>
