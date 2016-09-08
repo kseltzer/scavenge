@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
     
     func getFacebookUserData() {
         FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large)"]).startWithCompletionHandler({ (connection, result, error) -> Void in
-            if (error != nil){
+            if (error != nil) {
                 print("Error: \(error)")
             } else {
                 let firstName = result["first_name"]
@@ -87,6 +87,7 @@ class LoginViewController: UIViewController {
                                 let destinationPath = documentsPath.stringByAppendingPathComponent("profileImage.png")
                                 do {
                                     try profileImageData.writeToFile(destinationPath, options: .AtomicWrite)
+                                    self.handleLoggedIn()
                                 } catch {
                                     print("error")
                                 }
