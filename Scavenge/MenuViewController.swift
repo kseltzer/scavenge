@@ -95,6 +95,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .Alert)
                 let logoutAction = UIAlertAction(title: "Yah", style: .Default) { (alert) in
                     // logout
+                    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                    let loginStoryboard = UIStoryboard(name: kLoginStoryboard, bundle: nil)
+                    let loginViewController = loginStoryboard.instantiateInitialViewController()
+                    self.presentViewController(loginViewController!, animated: true, completion: nil)
                 }
                 let cancelAction = UIAlertAction(title: "Nah", style: .Cancel, handler: nil)
                 alertController.addAction(logoutAction)
