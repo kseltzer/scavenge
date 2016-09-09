@@ -130,14 +130,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-//        print(gameTitle)
+//        do something with gameTitle
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if (isInitialCellConfiguration) {
-            tableView.reloadData()
-        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -413,10 +410,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if (selectedFriendsFirstNames.count >= 2) {
             startButton.enabled = true
-//            startButton.alpha = 1.0
         } else {
             startButton.enabled = false
-//            startButton.alpha = 0.6
         }
         
         tableView.reloadData()
@@ -506,7 +501,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 selectedFacebookFriend!.invited = true
                 fbFriendDictionary[friend.id] = selectedFacebookFriend!
             }
-//            selectedFacebookFriendCell?.setDeselectedAppearance()
             break
         case MessageComposeResultCancelled.rawValue:
             selectedFacebookFriendCell?.setDeselectedAppearance()
