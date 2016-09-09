@@ -183,6 +183,32 @@
                                             <outlet property="scrollView" destination="k0L-TW-ths" id="bfj-AI-A8p"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="submitCell" rowHeight="100" id="syt-HD-LRy" customClass="SubmitCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="420" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="syt-HD-LRy" id="YNf-rp-A2J">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9d-jA-EmT" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
+                                                    <rect key="frame" x="242.5" y="22.5" width="115" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="9ia-8P-vVw"/>
+                                                        <constraint firstAttribute="width" constant="115" id="bie-UD-Nx7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="Submit"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="G9d-jA-EmT" firstAttribute="centerY" secondItem="YNf-rp-A2J" secondAttribute="centerY" id="K6o-CV-F8U"/>
+                                                <constraint firstItem="G9d-jA-EmT" firstAttribute="centerX" secondItem="YNf-rp-A2J" secondAttribute="centerX" id="f9f-D8-nGf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="submitButton" destination="G9d-jA-EmT" id="9Hi-Nb-jwv"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
