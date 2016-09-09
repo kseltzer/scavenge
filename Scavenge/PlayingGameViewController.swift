@@ -259,7 +259,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             cell.submitButton.enabled = true
             cell.submitButton.alpha = 1.0
         } else {
-            cell.submitButton.enabled = false
+            cell.submitButton.enabled = true // TODO: replace true with false
             cell.submitButton.alpha = 0.6
         }
         return cell
