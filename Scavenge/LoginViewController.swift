@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
             self.handleLoggedIn()
         }
     }
-    
+
     func attemptLoginWithFacebook() {
         let fbLoginManager = FBSDKLoginManager()
         fbLoginManager.logInWithReadPermissions(["public_profile", "user_friends"], fromViewController: self, handler: { (fbResult: FBSDKLoginManagerLoginResult!, error: NSError!) ->
@@ -54,11 +54,9 @@ class LoginViewController: UIViewController {
     }
     
     func handleLoggedIn() {
-        if let appDelegate = UIApplication.sharedApplication().delegate {
-            let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
-            let myScavengesViewController = mainStoryboard.instantiateInitialViewController()
-            appDelegate.window!!.rootViewController?.presentViewController(myScavengesViewController!, animated: true, completion: nil)
-        }
+        let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
+        let myScavengesViewController = mainStoryboard.instantiateInitialViewController()
+        self.presentViewController(myScavengesViewController!, animated: true, completion: nil)
     }
     
     
@@ -87,7 +85,6 @@ class LoginViewController: UIViewController {
                                 let destinationPath = documentsPath.stringByAppendingPathComponent("profileImage.png")
                                 do {
                                     try profileImageData.writeToFile(destinationPath, options: .AtomicWrite)
-                                    self.handleLoggedIn()
                                 } catch {
                                     print("error")
                                 }
