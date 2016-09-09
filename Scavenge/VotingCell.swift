@@ -22,7 +22,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     var index: Int!
     var delegate : VotingCellDelegate!
     
-    let numPlayers = 3 // TODO: hard coded
+    let numPlayers = 3 // TODO: get data from backend
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,9 +34,10 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     
     func setupUIScrollView() {
         let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let imageViewWidth = screenSize.width - 16
-        let imageViewHeight = imageViewWidth * 8 / 7
-        let scrollViewWidth = (imageViewWidth * CGFloat(numPlayers)) + (8 * CGFloat(numPlayers))
+        let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
+        let imageViewWidth = screenSize.width - (leadingSpace + trailingSpace)
+        let imageViewHeight = imageViewWidth * IMAGE_RATIO
+        let scrollViewWidth = (imageViewWidth * CGFloat(numPlayers)) + (leadingSpace * CGFloat(numPlayers))
         scrollView.contentSize = CGSizeMake(scrollViewWidth, imageViewHeight)
         scrollView.scrollsToTop = true
                 
@@ -47,7 +48,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
             let imageViewTopic = UIImageView(frame: CGRectMake(x, y, imageViewWidth, imageViewHeight))
             imageViewTopic.contentMode = .ScaleAspectFill
             imageViewTopic.image = UIImage(named: "aliya")
-            x += (imageViewWidth + 8)
+            x += (imageViewWidth + trailingSpace)
             scrollView.addSubview(imageViewTopic)
         }
     }
