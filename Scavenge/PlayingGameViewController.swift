@@ -80,7 +80,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         imagePickerController.delegate = self
         imagePickerController.showsCameraControls = false
         imagePickerController.allowsEditing = true
-        imagePickerController.cameraFlashMode = .Off
+        imagePickerController.cameraFlashMode = .Auto
         
         NSBundle.mainBundle().loadNibNamed("CameraOverlayView", owner:self, options:nil)
         overlayView.frame = imagePickerController.cameraOverlayView!.frame
