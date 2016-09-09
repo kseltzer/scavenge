@@ -20,7 +20,6 @@ class FacebookFriendCell: FriendCell {
         super.setSelectedAppearance()
         inviteLabel.text = "invited"
         inviteLabel.textColor = UIColor.lightGrayColor()
-        customView.backgroundColor = CELL_HIGHLIGHTED_COLOR
         self.userInteractionEnabled = false
     }
     
