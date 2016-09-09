@@ -64,7 +64,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var startButton: SButton!
+    @IBOutlet weak var startButton: UIBarButtonItem!
     
     @IBOutlet weak var searchBarView: UIView!
     
@@ -413,10 +413,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if (selectedFriendsFirstNames.count >= 2) {
             startButton.enabled = true
-            startButton.alpha = 1.0
+//            startButton.alpha = 1.0
         } else {
             startButton.enabled = false
-            startButton.alpha = 0.6
+//            startButton.alpha = 0.6
         }
         
         tableView.reloadData()
@@ -577,7 +577,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - Segue
-    @IBAction func startButtonTapped(sender: SButton) {
+    @IBAction func startButtonTapped(sender: UIBarButtonItem) {
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
         let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
         navigationController?.pushViewController(playingGameViewController!, animated: true)
