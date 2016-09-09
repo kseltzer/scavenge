@@ -68,12 +68,12 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return sectionHeaderView
     }
     
+    // MARK: - ResultsCellDelegate
     func scrollViewOffsetForIndexPath(indexPath: NSIndexPath) -> CGPoint {
         let horizontalOffset = scrollViewOffsets[indexPath.section]
         return CGPointMake(horizontalOffset, 0)
     }
     
-    // MARK: - ResultsCellDelegate
     func updateScrollPositionForIndexPath(scrollPosition scrollPosition: CGFloat, index: Int) {
         scrollViewOffsets[index] = scrollPosition
     }

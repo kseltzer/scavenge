@@ -20,9 +20,7 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var scrollPosition : CGPoint = CGPointMake(0, 0)
-    
     var index: Int!
-    
     var delegate : ResultsCellDelegate!
     
     override func awakeFromNib() {

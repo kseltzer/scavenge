@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol VotingCellDelegate {
+    func updateScrollPositionForIndexPath(scrollPosition scrollPosition: CGFloat, index: Int)
+}
+
 class VotingCell: UITableViewCell, UIScrollViewDelegate {
 
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    var scrollPosition : CGPoint = CGPointMake(0, 0)
+    var index: Int!
+    var delegate : VotingCellDelegate!
     
     let numPlayers = 3 // TODO: hard coded
     
@@ -55,17 +63,12 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
+        scrollPosition = scrollView.contentOffset
+        delegate.updateScrollPositionForIndexPath(scrollPosition: scrollPosition.x, index: index)
     }
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
