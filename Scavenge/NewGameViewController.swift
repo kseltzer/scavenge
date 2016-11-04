@@ -79,7 +79,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var selectedFriendsFirstNames : [String] = []
     var selectedFacebookFriendCell : FacebookFriendCell?
     var selectedFacebookFriend : FacebookFriend?
-    var selectedIndexPaths : [NSIndexPath] = []
+    var selectedIndexPaths : [IndexPath] = []
     
     var filteredRecents : [ScavengeFriend] = []
     var filteredScavengeFriends : [ScavengeFriend] = []
@@ -103,7 +103,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
 
-        startButton.enabled = false
+        startButton.isEnabled = false
         
         setupSearchController()
         
@@ -124,33 +124,33 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - UITableViewDelegate
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 //        do something with gameTitle
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (self.tableView(tableView, titleForHeaderInSection: section)!) {
         case kSectionTitleRecents:
-            if (searchController.active && searchController.searchBar.text != "") {
+            if (searchController.isActive && searchController.searchBar.text != "") {
                 return filteredRecentsIDs.count
             }
             return sampleRecentsIDs.count
         case kSectionTitleFriendsOnScavenge:
-            if (searchController.active && searchController.searchBar.text != "") {
+            if (searchController.isActive && searchController.searchBar.text != "") {
                 return filteredScavengeFriendsIDs.count
             }
             return sampleScavengeFriendIDs.count
         case kSectionTitleFriendsNotOnScavenge:
-            if (searchController.active && searchController.searchBar.text != "") {
+            if (searchController.isActive && searchController.searchBar.text != "") {
                 return filteredFacebookFriendsIDs.count
             }
             return sampleFacebookFriendIDs.count
@@ -159,7 +159,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch (section) {
         case 0:
             return kSectionTitleRecents
@@ -192,7 +192,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
      */
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var sectionTitle = "Default"
         var topPadding : CGFloat!
         switch (section) {
@@ -212,61 +212,61 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             break
         }
         
-        let returnedView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 35))
-        returnedView.backgroundColor = UIColor.whiteColor()
+        let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 35))
+        returnedView.backgroundColor = UIColor.white
         
-        let label = UILabel(frame: CGRectMake(8, topPadding, tableView.frame.width, 22))
+        let label = UILabel(frame: CGRect(x: 8, y: topPadding, width: tableView.frame.width, height: 22))
         label.text = sectionTitle
         returnedView.addSubview(label)
         
         return returnedView
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (isInitialCellConfiguration) {
-            return self.configureCellInitially(indexPath, section: self.tableView(tableView, titleForHeaderInSection: indexPath.section)!)
+            return self.configureCellInitially(indexPath, section: self.tableView(tableView, titleForHeaderInSection: (indexPath as NSIndexPath).section)!)
         } else {
-            return self.configureCell(indexPath, section: self.tableView(tableView, titleForHeaderInSection: indexPath.section)!)
+            return self.configureCell(indexPath, section: self.tableView(tableView, titleForHeaderInSection: (indexPath as NSIndexPath).section)!)
         }
     }
     
-    func configureCellInitially(indexPath: NSIndexPath, section: String) -> FriendCell {
+    func configureCellInitially(_ indexPath: IndexPath, section: String) -> FriendCell {
         var cell : FriendCell = FriendCell()
         var scavengeFriend : ScavengeFriend
         var facebookFriend : FacebookFriend
         var friend : Friend
         switch (section) {
         case kSectionTitleRecents:
-            cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierScavenge, forIndexPath: indexPath) as! ScavengeFriendCell
-            if searchController.active && searchController.searchBar.text != "" {
-                let id = filteredRecentsIDs[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifierScavenge, for: indexPath) as! ScavengeFriendCell
+            if searchController.isActive && searchController.searchBar.text != "" {
+                let id = filteredRecentsIDs[(indexPath as NSIndexPath).row]
                 scavengeFriend = recentsDictionary[id]!
             } else {
-                scavengeFriend = recentsDictionary[sampleRecentsIDs[indexPath.row]]!
+                scavengeFriend = recentsDictionary[sampleRecentsIDs[(indexPath as NSIndexPath).row]]!
             }
             scavengeFriend.addedToGame = false
             recentsDictionary[scavengeFriend.id] = scavengeFriend
             friend = scavengeFriend
             break
         case kSectionTitleFriendsOnScavenge:
-            cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierScavenge, forIndexPath: indexPath) as! ScavengeFriendCell
-            if searchController.active && searchController.searchBar.text != "" {
-                let id = filteredScavengeFriendsIDs[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifierScavenge, for: indexPath) as! ScavengeFriendCell
+            if searchController.isActive && searchController.searchBar.text != "" {
+                let id = filteredScavengeFriendsIDs[(indexPath as NSIndexPath).row]
                 scavengeFriend = scavengeDictionary[id]!
             } else {
-                scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[indexPath.row]]!
+                scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[(indexPath as NSIndexPath).row]]!
             }
             scavengeFriend.addedToGame = false
             scavengeDictionary[scavengeFriend.id] = scavengeFriend
             friend = scavengeFriend
             break
         case kSectionTitleFriendsNotOnScavenge:
-            cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierFacebook, forIndexPath: indexPath) as! FacebookFriendCell
-            if searchController.active && searchController.searchBar.text != "" {
-                let id = filteredFacebookFriendsIDs[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifierFacebook, for: indexPath) as! FacebookFriendCell
+            if searchController.isActive && searchController.searchBar.text != "" {
+                let id = filteredFacebookFriendsIDs[(indexPath as NSIndexPath).row]
                 facebookFriend = fbFriendDictionary[id]!
             } else {
-                facebookFriend = fbFriendDictionary[sampleFacebookFriendIDs[indexPath.row]]!
+                facebookFriend = fbFriendDictionary[sampleFacebookFriendIDs[(indexPath as NSIndexPath).row]]!
             }
             facebookFriend.invited = false
             fbFriendDictionary[facebookFriend.id] = facebookFriend
@@ -282,19 +282,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    func configureCell(indexPath: NSIndexPath, section: String) -> FriendCell {
+    func configureCell(_ indexPath: IndexPath, section: String) -> FriendCell {
         var cell : FriendCell = FriendCell()
         var scavengeFriend : ScavengeFriend
         var facebookFriend : FacebookFriend
         var friend : Friend
         switch (section) {
         case kSectionTitleRecents:
-            cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierScavenge, forIndexPath: indexPath) as! ScavengeFriendCell
-            if searchController.active && searchController.searchBar.text != "" {
-                let id = filteredRecentsIDs[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifierScavenge, for: indexPath) as! ScavengeFriendCell
+            if searchController.isActive && searchController.searchBar.text != "" {
+                let id = filteredRecentsIDs[(indexPath as NSIndexPath).row]
                 scavengeFriend = recentsDictionary[id]!
             } else {
-                scavengeFriend = recentsDictionary[sampleRecentsIDs[indexPath.row]]!
+                scavengeFriend = recentsDictionary[sampleRecentsIDs[(indexPath as NSIndexPath).row]]!
             }
             if (scavengeFriend.addedToGame) {
                 cell.setSelectedAppearance()
@@ -304,12 +304,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             friend = scavengeFriend
             break
         case kSectionTitleFriendsOnScavenge:
-            cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierScavenge, forIndexPath: indexPath) as! ScavengeFriendCell
-            if searchController.active && searchController.searchBar.text != "" {
-                let id = filteredScavengeFriendsIDs[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifierScavenge, for: indexPath) as! ScavengeFriendCell
+            if searchController.isActive && searchController.searchBar.text != "" {
+                let id = filteredScavengeFriendsIDs[(indexPath as NSIndexPath).row]
                 scavengeFriend = scavengeDictionary[id]!
             } else {
-                scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[indexPath.row]]!
+                scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[(indexPath as NSIndexPath).row]]!
             }
             if (scavengeFriend.addedToGame) {
                 cell.setSelectedAppearance()
@@ -319,12 +319,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             friend = scavengeFriend
             break
         case kSectionTitleFriendsNotOnScavenge:
-            cell = tableView.dequeueReusableCellWithIdentifier(kFriendCellIdentifierFacebook, forIndexPath: indexPath) as! FacebookFriendCell
-            if searchController.active && searchController.searchBar.text != "" {
-                let id = filteredFacebookFriendsIDs[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifierFacebook, for: indexPath) as! FacebookFriendCell
+            if searchController.isActive && searchController.searchBar.text != "" {
+                let id = filteredFacebookFriendsIDs[(indexPath as NSIndexPath).row]
                 facebookFriend = fbFriendDictionary[id]!
             } else {
-                facebookFriend = fbFriendDictionary[sampleFacebookFriendIDs[indexPath.row]]!
+                facebookFriend = fbFriendDictionary[sampleFacebookFriendIDs[(indexPath as NSIndexPath).row]]!
             }
             if (facebookFriend.invited) {
                 cell.setSelectedAppearance()
@@ -342,17 +342,17 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    func handleAddRemoveFriend(friend : ScavengeFriend, indexPath : NSIndexPath) -> ScavengeFriend? {
+    func handleAddRemoveFriend(_ friend : ScavengeFriend, indexPath : IndexPath) -> ScavengeFriend? {
         var scavengeFriend = friend
         if scavengeFriend.addedToGame {                                                     // remove friend
             selectedFriendsHeaderIndices.append(scavengeFriend.headerIndex!)
             self.removeSelectedFriendImageFromHeader(scavengeFriend.headerIndex!)
             scavengeFriend.addedToGame = false
-            if let indexOfIndexPath = selectedIndexPaths.indexOf(indexPath) {
-                selectedIndexPaths.removeAtIndex(indexOfIndexPath)
+            if let indexOfIndexPath = selectedIndexPaths.index(of: indexPath) {
+                selectedIndexPaths.remove(at: indexOfIndexPath)
             }
-            if let indexOfFirstName = selectedFriendsFirstNames.indexOf(scavengeFriend.firstName) {
-                selectedFriendsFirstNames.removeAtIndex(indexOfFirstName)
+            if let indexOfFirstName = selectedFriendsFirstNames.index(of: scavengeFriend.firstName) {
+                selectedFriendsFirstNames.remove(at: indexOfFirstName)
                 if (selectedFriendsFirstNames.isEmpty) {
                     gameTitle = "Untitled Game"
                 } else {
@@ -361,13 +361,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 titleTextField.placeholder = gameTitle
             }
         } else if (selectedFriendsHeaderIndices.count == 0) {                                     // maximum friends added alert
-            let alertController = UIAlertController(title: kErrorTitle, message: cannotAddAdditionalPlayersMessage, preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .Default, handler: nil)
+            let alertController = UIAlertController(title: kErrorTitle, message: cannotAddAdditionalPlayersMessage, preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .default, handler: nil)
             alertController.addAction(defaultAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
             return nil
         } else {                                                                            // add friend
-            selectedFriendsHeaderIndices = selectedFriendsHeaderIndices.sort().reverse()
+            selectedFriendsHeaderIndices = selectedFriendsHeaderIndices.sorted().reversed()
             let headerIndex = selectedFriendsHeaderIndices.popLast()
             scavengeFriend.headerIndex = headerIndex
             scavengeFriend.addedToGame = true
@@ -380,22 +380,22 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         return scavengeFriend
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (titleTextField.isFirstResponder()) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (titleTextField.isFirstResponder) {
             titleTextField.resignFirstResponder()
         }
         
         isInitialCellConfiguration = false
         
         var scavengeFriend : ScavengeFriend
-        if (indexPath.section == 0 || indexPath.section == 1) {
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as! ScavengeFriendCell
-            if (indexPath.section == 0) {
+        if ((indexPath as NSIndexPath).section == 0 || (indexPath as NSIndexPath).section == 1) {
+            let cell = tableView.cellForRow(at: indexPath) as! ScavengeFriendCell
+            if ((indexPath as NSIndexPath).section == 0) {
                 scavengeFriend = recentsDictionary[cell.userID]!
                 if let updatedFriend = handleAddRemoveFriend(scavengeFriend, indexPath: indexPath) {
                     recentsDictionary[scavengeFriend.id] = updatedFriend
                 }
-            } else if (indexPath.section == 1) {
+            } else if ((indexPath as NSIndexPath).section == 1) {
                 scavengeFriend = scavengeDictionary[cell.userID]!
                 if let updatedFriend = handleAddRemoveFriend(scavengeFriend, indexPath: indexPath) {
                     scavengeDictionary[scavengeFriend.id] = updatedFriend
@@ -403,22 +403,22 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         else {
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as! FacebookFriendCell
+            let cell = tableView.cellForRow(at: indexPath) as! FacebookFriendCell
             self.selectedFacebookFriend = fbFriendDictionary[cell.userID]!
             self.inviteFriend()
         }
         
         if (selectedFriendsFirstNames.count >= 2) {
-            startButton.enabled = true
+            startButton.isEnabled = true
         } else {
-            startButton.enabled = false
+            startButton.isEnabled = false
         }
         
         tableView.reloadData()
     }
     
-    func addSelectedFriendImageToHeader(profileImage: UIImage?, index: Int?) {
-        if let image = profileImage, headerProfilePhotoIndex = index {
+    func addSelectedFriendImageToHeader(_ profileImage: UIImage?, index: Int?) {
+        if let image = profileImage, let headerProfilePhotoIndex = index {
             switch (headerProfilePhotoIndex) {
             case 1:
                 profileImageViewFriend1.image = image
@@ -441,7 +441,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func removeSelectedFriendImageFromHeader(index: Int?) {
+    func removeSelectedFriendImageFromHeader(_ index: Int?) {
         if let headerProfilePhotoIndex = index {
             switch (headerProfilePhotoIndex) {
             case 1:
@@ -468,48 +468,48 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - UITextFieldDelegate
     func generateGameTitle() -> String {
-        return selectedFriendsFirstNames.joinWithSeparator(", ")
+        return selectedFriendsFirstNames.joined(separator: ", ")
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         textField.placeholder = gameTitle
-        tableView.userInteractionEnabled = true
+        tableView.isUserInteractionEnabled = true
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.placeholder = "Game Title"
-        tableView.userInteractionEnabled = false
+        tableView.isUserInteractionEnabled = false
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         titleTextField.resignFirstResponder()
     }
     
     // MARK: - MessageComposeViewControllerDelegate
-    func messageComposeViewController(controller: MFMessageComposeViewController,
-                                      didFinishWithResult result: MessageComposeResult) {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController,
+                                      didFinishWith result: MessageComposeResult) {
         // Check the result or perform other tasks.
         switch (result.rawValue) {
-        case MessageComposeResultSent.rawValue:
+        case MessageComposeResult.sent.rawValue:
             if let friend = selectedFacebookFriend {
                 selectedFacebookFriend!.invited = true
                 fbFriendDictionary[friend.id] = selectedFacebookFriend!
             }
             break
-        case MessageComposeResultCancelled.rawValue:
+        case MessageComposeResult.cancelled.rawValue:
             selectedFacebookFriendCell?.setDeselectedAppearance()
             break
-        case MessageComposeResultFailed.rawValue:
-            let alertController = UIAlertController(title: kErrorTitle, message: "Message Failed :/", preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "Ugh, OK", style: .Default, handler: nil)
+        case MessageComposeResult.failed.rawValue:
+            let alertController = UIAlertController(title: kErrorTitle, message: "Message Failed :/", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Ugh, OK", style: .default, handler: nil)
             alertController.addAction(defaultAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
             break
         default:
             break
@@ -519,33 +519,33 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         selectedFacebookFriend = nil
         
         // Dismiss the mail compose view controller.
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        controller.dismiss(animated: true, completion: nil)
     }
     
     func inviteFriend() {
         if !MFMessageComposeViewController.canSendText() {
-            let alertController = UIAlertController(title: kErrorTitle, message: kSMSFailureMessage, preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .Default, handler: nil)
+            let alertController = UIAlertController(title: kErrorTitle, message: kSMSFailureMessage, preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .default, handler: nil)
             alertController.addAction(defaultAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             let composeVC = MFMessageComposeViewController()
             composeVC.messageComposeDelegate = self
             composeVC.recipients = []
             composeVC.body = smsInviteBody
-            self.presentViewController(composeVC, animated: true, completion: nil)
+            self.present(composeVC, animated: true, completion: nil)
         }
     }
     
     // MARK: - UISearchResultsUpdating Protocol
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
 
-    func filterContentForSearchText(searchText: String) {
+    func filterContentForSearchText(_ searchText: String) {
         filteredRecentsIDs = []
         filteredRecents = recentsDictionary.values.filter { friend in
-            return friend.name.lowercaseString.containsString(searchText.lowercaseString)
+            return friend.name.lowercased().contains(searchText.lowercased())
         }
         for friend in filteredRecents {
             filteredRecentsIDs.append(friend.id)
@@ -553,7 +553,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
         filteredScavengeFriendsIDs = []
         filteredScavengeFriends = scavengeDictionary.values.filter { friend in
-            return friend.name.lowercaseString.containsString(searchText.lowercaseString)
+            return friend.name.lowercased().contains(searchText.lowercased())
         }
         for friend in filteredScavengeFriends {
             filteredScavengeFriendsIDs.append(friend.id)
@@ -561,7 +561,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         filteredFacebookFriendsIDs = []
         filteredFacebookFriends = fbFriendDictionary.values.filter { friend in
-            return friend.name.lowercaseString.containsString(searchText.lowercaseString)
+            return friend.name.lowercased().contains(searchText.lowercased())
         }
         for friend in filteredFacebookFriends {
             filteredFacebookFriendsIDs.append(friend.id)
@@ -571,13 +571,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - Segue
-    @IBAction func startButtonTapped(sender: UIBarButtonItem) {
+    @IBAction func startButtonTapped(_ sender: UIBarButtonItem) {
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
         let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
         navigationController?.pushViewController(playingGameViewController!, animated: true)
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
+    override func willMove(toParentViewController parent: UIViewController?) {
         self.isInitialCellConfiguration = true
     }
 }

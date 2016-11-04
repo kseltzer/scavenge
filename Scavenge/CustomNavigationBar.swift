@@ -13,13 +13,13 @@ class CustomNavigationBar: UINavigationBar, UINavigationBarDelegate {
     override func awakeFromNib() {
         tintColor = NAVIGATION_BAR_TEXT_COLOR
         barTintColor = NAVIGATION_BAR_TINT_COLOR
-        titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(),
+        titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,
                                NSFontAttributeName: NAVIGATION_BAR_FONT!]
         delegate = self
     }
     
-    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
-        return .TopAttached
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
     }
 
 }

@@ -15,11 +15,11 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var nameLabel : UILabel!
     
     var userID : String!
-    var isSelected: Bool!
+//    var isSelected: Bool!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .None
+        self.selectionStyle = .none
         isSelected = false
     }
     
@@ -33,7 +33,7 @@ class FriendCell: UITableViewCell {
         customView.backgroundColor = CELL_DEFAULT_COLOR
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if (highlighted) {
             customView.backgroundColor = CELL_HIGHLIGHTED_COLOR
         }

@@ -10,19 +10,19 @@ import UIKit
 
 class RightToLeftAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return MenuHelper.animationDuration
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let finalFrameForVC = transitionContext.finalFrameForViewController(toVC)
-        let containerView = transitionContext.containerView()
-        toVC.view.frame = CGRectOffset(finalFrameForVC, UIScreen.mainScreen().bounds.width * MenuHelper.menuWidth, 0)
-        containerView!.addSubview(toVC.view)
+        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
+        let finalFrameForVC = transitionContext.finalFrame(for: toVC)
+        let containerView = transitionContext.containerView
+        toVC.view.frame = finalFrameForVC.offsetBy(dx: UIScreen.main.bounds.width * MenuHelper.menuWidth, dy: 0)
+        containerView.addSubview(toVC.view)
         
-        UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             toVC.view.frame = finalFrameForVC
             }, completion: {
                 finished in

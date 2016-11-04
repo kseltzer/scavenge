@@ -14,7 +14,7 @@ class MenuButton: UIBarButtonItem {
         title = "Menu"
     }
     
-    @IBAction func buttonPressed(sender: AnyObject) {
+    @IBAction func buttonPressed(_ sender: AnyObject) {
         print("open menu")
     }
 }

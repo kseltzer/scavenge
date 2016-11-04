@@ -9,17 +9,17 @@
 import UIKit
 
 enum TableViewSection : Int {
-    case Invites = 0
-    case Results = 1
-    case ActiveGames = 2
-    case YourMove = 3
-    case TheirMove = 4
-    case CompletedGames = 5
+    case invites = 0
+    case results = 1
+    case activeGames = 2
+    case yourMove = 3
+    case theirMove = 4
+    case completedGames = 5
 }
 
 enum SectionType {
-    case Main
-    case Subsection
+    case main
+    case subsection
 }
 
 class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
@@ -28,7 +28,7 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func createNewGameButtonTapped(sender: UIBarButtonItem) {
+    @IBAction func createNewGameButtonTapped(_ sender: UIBarButtonItem) {
         let createGameStoryboard = UIStoryboard(name: kCreateGameStoryboard, bundle: nil)
         let createGameViewController = createGameStoryboard.instantiateInitialViewController()
         self.navigationController?.pushViewController(createGameViewController!, animated: true);
@@ -42,59 +42,59 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.rowHeight = 85
         
         navigationItem.backBarButtonItem = customBackBarItem()
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 6
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case TableViewSection.Invites.rawValue:
+        case TableViewSection.invites.rawValue:
             return 3
-        case TableViewSection.Results.rawValue:
+        case TableViewSection.results.rawValue:
             return 1
-        case TableViewSection.ActiveGames.rawValue:
+        case TableViewSection.activeGames.rawValue:
             return 0
-        case TableViewSection.YourMove.rawValue:
+        case TableViewSection.yourMove.rawValue:
             return 1
-        case TableViewSection.TheirMove.rawValue:
+        case TableViewSection.theirMove.rawValue:
             return 1
-        case TableViewSection.CompletedGames.rawValue:
+        case TableViewSection.completedGames.rawValue:
             return 3
         default:
             return 0
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SBaseTableViewCell
-        switch (indexPath.section) {
-        case TableViewSection.Invites.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("threePlayerCell") as! SBaseTableViewCell
+        switch ((indexPath as NSIndexPath).section) {
+        case TableViewSection.invites.rawValue:
+            cell = tableView.dequeueReusableCell(withIdentifier: "threePlayerCell") as! SBaseTableViewCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
 //            cell.gameStatusLabel.text = "your turn"
             break
-        case TableViewSection.Results.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("fourPlayerCell") as! SBaseTableViewCell
+        case TableViewSection.results.rawValue:
+            cell = tableView.dequeueReusableCell(withIdentifier: "fourPlayerCell") as! SBaseTableViewCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
 //            cell.gameStatusLabel.text = "your turn"
             break
-        case TableViewSection.ActiveGames.rawValue:
+        case TableViewSection.activeGames.rawValue:
             return UITableViewCell()
-        case TableViewSection.YourMove.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("threePlayerCell") as! SBaseTableViewCell
+        case TableViewSection.yourMove.rawValue:
+            cell = tableView.dequeueReusableCell(withIdentifier: "threePlayerCell") as! SBaseTableViewCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
 //            cell.gameStatusLabel.text = "your turn"
             break
-        case TableViewSection.TheirMove.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("fivePlayerCell") as! SBaseTableViewCell
+        case TableViewSection.theirMove.rawValue:
+            cell = tableView.dequeueReusableCell(withIdentifier: "fivePlayerCell") as! SBaseTableViewCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
 //            cell.gameStatusLabel.text = "your turn"
             break
-        case TableViewSection.CompletedGames.rawValue:
-            cell = tableView.dequeueReusableCellWithIdentifier("gameCell") as! SBaseTableViewCell
+        case TableViewSection.completedGames.rawValue:
+            cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as! SBaseTableViewCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
 //            cell.gameStatusLabel.text = "your turn"
             break
@@ -104,47 +104,47 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch (section) {
-        case TableViewSection.Invites.rawValue:
+        case TableViewSection.invites.rawValue:
             return "Invites"
-        case TableViewSection.Results.rawValue:
+        case TableViewSection.results.rawValue:
             return "Results"
-        case TableViewSection.ActiveGames.rawValue:
+        case TableViewSection.activeGames.rawValue:
             return "Active Games"
-        case TableViewSection.YourMove.rawValue:
+        case TableViewSection.yourMove.rawValue:
             return "Your Move"
-        case TableViewSection.TheirMove.rawValue:
+        case TableViewSection.theirMove.rawValue:
             return "Their Move"
-        case TableViewSection.CompletedGames.rawValue:
+        case TableViewSection.completedGames.rawValue:
             return "Completed Games"
         default:
             return ""
         }
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var sectionTitle : String!
         var sectionType : SectionType!
         switch (section) {
-        case TableViewSection.Invites.rawValue:
+        case TableViewSection.invites.rawValue:
             sectionTitle = kSectionTitleInvites
-            sectionType = .Main
-        case TableViewSection.Results.rawValue:
+            sectionType = .main
+        case TableViewSection.results.rawValue:
             sectionTitle = kSectionTitleResults
-            sectionType = .Main
-        case TableViewSection.ActiveGames.rawValue:
+            sectionType = .main
+        case TableViewSection.activeGames.rawValue:
             sectionTitle = kSectionTitleActiveGames
-            sectionType = .Main
-        case TableViewSection.YourMove.rawValue:
+            sectionType = .main
+        case TableViewSection.yourMove.rawValue:
             sectionTitle = kSubsectionTitleYourMove
-            sectionType = .Subsection
-        case TableViewSection.TheirMove.rawValue:
+            sectionType = .subsection
+        case TableViewSection.theirMove.rawValue:
             sectionTitle = kSubsectionTitleTheirMove
-            sectionType = .Subsection
-        case TableViewSection.CompletedGames.rawValue:
+            sectionType = .subsection
+        case TableViewSection.completedGames.rawValue:
             sectionTitle = kSectionTitleCompletedGames
-            sectionType = .Main
+            sectionType = .main
         default:
             sectionTitle = ""
         }
@@ -152,21 +152,21 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         return viewForHeaderInSectionWithTitle(sectionType, title: sectionTitle)
     }
     
-    func viewForHeaderInSectionWithTitle(sectionType: SectionType, title: String) -> UIView {
+    func viewForHeaderInSectionWithTitle(_ sectionType: SectionType, title: String) -> UIView {
         var height : CGFloat!
         var font : UIFont!
-        if sectionType == .Main {
+        if sectionType == .main {
             height = 26
             font = TABLE_VIEW_SECTION_FONT
-        } else if sectionType == .Subsection {
+        } else if sectionType == .subsection {
             height = 18
             font = TABLE_VIEW_SUBSECTION_FONT
         }
         
-        let sectionTitleView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, height))
-        sectionTitleView.backgroundColor = UIColor.whiteColor()
+        let sectionTitleView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: height))
+        sectionTitleView.backgroundColor = UIColor.white
         
-        let label = UILabel(frame: CGRectMake(8, 0, tableView.frame.width, height))
+        let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.frame.width, height: height))
         label.text = title
         label.font = font
         sectionTitleView.addSubview(label)
@@ -174,25 +174,25 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
         return sectionTitleView
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        switch (indexPath.section) {
-        case TableViewSection.Invites.rawValue:
+        switch ((indexPath as NSIndexPath).section) {
+        case TableViewSection.invites.rawValue:
             break
-        case TableViewSection.Results.rawValue, TableViewSection.CompletedGames.rawValue:
+        case TableViewSection.results.rawValue, TableViewSection.completedGames.rawValue:
             let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
-            let resultsViewController = playingGameStoryboard.instantiateViewControllerWithIdentifier(kGameResultsViewControllerIdentifier)
+            let resultsViewController = playingGameStoryboard.instantiateViewController(withIdentifier: kGameResultsViewControllerIdentifier)
             self.navigationController?.pushViewController(resultsViewController, animated: true);
             break
-        case TableViewSection.ActiveGames.rawValue:
+        case TableViewSection.activeGames.rawValue:
             break
-        case TableViewSection.YourMove.rawValue:
+        case TableViewSection.yourMove.rawValue:
             let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
             let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
             self.navigationController?.pushViewController(playingGameViewController!, animated: true);
             break
-        case TableViewSection.TheirMove.rawValue:
+        case TableViewSection.theirMove.rawValue:
             break
         default:
             break
@@ -200,44 +200,44 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     // MARK: - Slideout Menu
-    @IBAction func menuButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier(kShowMenuSegue, sender: self)
+    @IBAction func menuButtonPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: kShowMenuSegue, sender: self)
     }
     
-    @IBAction func handleEdgeGesture(sender: UIScreenEdgePanGestureRecognizer) {
-        let translation = sender.translationInView(view)
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+    @IBAction func handleEdgeGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegueWithIdentifier(kShowMenuSegue, sender: self)
+            self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
         }
     }
     
-    @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
-        let translation = sender.translationInView(view)
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+    @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegueWithIdentifier(kShowMenuSegue, sender: self)
+            self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
         }
     }
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ShowMenuAnimator()
     }
     
-    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return HideMenuAnimator()
     }
     
-    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destinationViewController = segue.destinationViewController as? MenuViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
             destinationViewController.currentScreen = .Home

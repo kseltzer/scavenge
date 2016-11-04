@@ -19,15 +19,15 @@ class FacebookFriendCell: FriendCell {
     override func setSelectedAppearance() {
         super.setSelectedAppearance()
         inviteLabel.text = "invited"
-        inviteLabel.textColor = UIColor.lightGrayColor()
-        self.userInteractionEnabled = false
+        inviteLabel.textColor = UIColor.lightGray
+        self.isUserInteractionEnabled = false
     }
     
     override func setDeselectedAppearance() {
         super.setDeselectedAppearance()
         inviteLabel.text = "invite"
-        inviteLabel.textColor = UIColor.blackColor()
-        self.userInteractionEnabled = true
+        inviteLabel.textColor = UIColor.black
+        self.isUserInteractionEnabled = true
     }
 
 }

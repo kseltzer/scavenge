@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 enum Direction {
-    case Left
-    case Right
+    case left
+    case right
 }
 
 struct MenuHelper {
@@ -24,7 +24,7 @@ struct MenuHelper {
     // translationInView = the user’s touch coordinates
     // viewBounds = the screen’s dimensions
     // direction = direction that the slide-out menu is moving
-    static func calculateProgress(translationInView : CGPoint, viewBounds : CGRect, direction : Direction) -> CGFloat {
+    static func calculateProgress(_ translationInView : CGPoint, viewBounds : CGRect, direction : Direction) -> CGFloat {
         let pointOnAxis = translationInView.x
         let axisLength = viewBounds.width
         let movementOnAxis = pointOnAxis / axisLength
@@ -32,11 +32,11 @@ struct MenuHelper {
         let positiveMovementOnAxisPercent : Float
         
         switch direction {
-            case .Right:
+            case .right:
                 positiveMovementOnAxis = fmaxf(Float(movementOnAxis), 0.0)
                 positiveMovementOnAxisPercent = fminf(positiveMovementOnAxis, 1.0)
                 return CGFloat(positiveMovementOnAxisPercent)
-            case .Left:
+            case .left:
                 positiveMovementOnAxis = fminf(Float(movementOnAxis), 0.0)
                 positiveMovementOnAxisPercent = fmaxf(positiveMovementOnAxis, -1.0)
                 return CGFloat(-positiveMovementOnAxisPercent)
@@ -44,23 +44,23 @@ struct MenuHelper {
     }
     
     
-    static func mapGestureStateToInteractor(gestureState : UIGestureRecognizerState, progress : CGFloat, interactor : InteractiveMenuTransition?, triggerSegue: () -> Void) {
+    static func mapGestureStateToInteractor(_ gestureState : UIGestureRecognizerState, progress : CGFloat, interactor : InteractiveMenuTransition?, triggerSegue: () -> Void) {
         guard let interactor = interactor else { return }
         switch gestureState {
-            case .Began:
+            case .began:
                 interactor.hasStarted = true
                 triggerSegue()
-            case .Changed:
+            case .changed:
                 interactor.shouldFinish = progress > percentThreshold
-                interactor.updateInteractiveTransition(progress)
-            case .Cancelled:
+                interactor.update(progress)
+            case .cancelled:
                 interactor.hasStarted = false
-                interactor.cancelInteractiveTransition()
-            case .Ended:
+                interactor.cancel()
+            case .ended:
                 interactor.hasStarted = false
                 interactor.shouldFinish
-                    ? interactor.finishInteractiveTransition()
-                    : interactor.cancelInteractiveTransition()
+                    ? interactor.finish()
+                    : interactor.cancel()
             default:
                 break
         }

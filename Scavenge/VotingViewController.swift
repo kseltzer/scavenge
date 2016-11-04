@@ -9,7 +9,7 @@
 import UIKit
 
 
-let screenSize: CGRect = UIScreen.mainScreen().bounds
+let screenSize: CGRect = UIScreen.main.bounds
 let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
 let cellWidth = screenSize.width - (leadingSpace + trailingSpace)
 
@@ -28,32 +28,32 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.scrollsToTop = true
         
         navigationItem.backBarButtonItem = customBackBarItem()
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.tintColor = UIColor.white
         
         setupScrollViewOffsets()
     }
 
     // MARK: - UITableViewDelegate
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return NUM_GAME_QUESTIONS + 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeaderView = UIView(frame: CGRectMake(0, 0, cellWidth, 30))
-        sectionHeaderView.backgroundColor = UIColor.whiteColor()
-        let topicLabel = UILabel(frame: CGRectMake(leadingSpace, 0, cellWidth, 30))
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: 30))
+        sectionHeaderView.backgroundColor = UIColor.white
+        let topicLabel = UILabel(frame: CGRect(x: leadingSpace, y: 0, width: cellWidth, height: 30))
         topicLabel.text = "Topic" // TODO: get data from backend
         topicLabel.font = VOTING_TABLE_VIEW_SECTION_FONT
         sectionHeaderView.addSubview(topicLabel)
         return sectionHeaderView
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section >= NUM_GAME_QUESTIONS {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath as NSIndexPath).section >= NUM_GAME_QUESTIONS {
             let buttonHeight : CGFloat = 55
             let topSpace : CGFloat = 8, bottomSpace : CGFloat = 32
             return buttonHeight + topSpace + bottomSpace
@@ -66,7 +66,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return rowHeight
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section >= NUM_GAME_QUESTIONS {
             return 0
         }
@@ -74,28 +74,28 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 30
     }
     
-    func configureSubmitCell(cell: SubmitCell) -> SubmitCell {
+    func configureSubmitCell(_ cell: SubmitCell) -> SubmitCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToResultsViewController))
         cell.submitButton.addGestureRecognizer(tapGesture)
         if (self.allVotesSubmitted) {
-            cell.submitButton.enabled = true
+            cell.submitButton.isEnabled = true
                 cell.submitButton.alpha = 1.0
             } else {
-            cell.submitButton.enabled = true // TODO: replace true with false
+            cell.submitButton.isEnabled = true // TODO: replace true with false
                 cell.submitButton.alpha = 0.6
             }
         return cell
         }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.section >= NUM_GAME_QUESTIONS {
-            let cell = tableView.dequeueReusableCellWithIdentifier("submitCell") as! SubmitCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath as NSIndexPath).section >= NUM_GAME_QUESTIONS {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "submitCell") as! SubmitCell
             return configureSubmitCell(cell)
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("photosForTopicCell") as! VotingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "photosForTopicCell") as! VotingCell
         cell.delegate = self
-        cell.index = indexPath.section
+        cell.index = (indexPath as NSIndexPath).section
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
         let pageNumber = round(cell.scrollView.contentOffset.x / cell.scrollView.frame.size.width)
         cell.pageControl.currentPage = Int(pageNumber)
@@ -110,18 +110,18 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func scrollViewOffsetForIndexPath(indexPath: NSIndexPath) -> CGPoint {
-        let horizontalOffset = scrollViewOffsets[indexPath.section]
-        return CGPointMake(horizontalOffset, 0)
+    private func scrollViewOffsetForIndexPath(_ indexPath: IndexPath) -> CGPoint {
+        let horizontalOffset = scrollViewOffsets[(indexPath as NSIndexPath).section]
+        return CGPoint(x: horizontalOffset, y: 0)
     }
     
-    func updateScrollPositionForIndexPath(scrollPosition scrollPosition: CGFloat, index: Int) {
+    func updateScrollPositionForIndexPath(scrollPosition: CGFloat, index: Int) {
         scrollViewOffsets[index] = scrollPosition
     }
 
     // MARK: - Navigation
     func goToResultsViewController() {
-        self.performSegueWithIdentifier("showGameResults", sender: self)
+        self.performSegue(withIdentifier: "showGameResults", sender: self)
     }
     /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation

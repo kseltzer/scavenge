@@ -19,26 +19,26 @@ class InviteCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        if (selected) {
-            setSelectedAppearance()
-        } else {
-            setDeselectedAppearance()
-        }
+    override func setSelected(_ selected: Bool, animated: Bool) {
+//        if (selected) {
+//            setSelectedAppearance()
+//        } else {
+//            setDeselectedAppearance()
+//        }
     }
     
     func setSelectedAppearance() {
         customView.backgroundColor = CELL_SELECTED_COLOR
         inviteLabel.text = "invited"
-        inviteLabel.textColor = UIColor.lightGrayColor()
-        self.userInteractionEnabled = false
+        inviteLabel.textColor = UIColor.lightGray
+        self.isUserInteractionEnabled = false
     }
     
     func setDeselectedAppearance() {
         customView.backgroundColor = CELL_DEFAULT_COLOR
         inviteLabel.text = "invite"
-        inviteLabel.textColor = UIColor.blackColor()
-        self.userInteractionEnabled = true
+        inviteLabel.textColor = UIColor.black
+        self.isUserInteractionEnabled = true
     }
 
 }

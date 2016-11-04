@@ -39,17 +39,17 @@ let kShowMenuSegue = "showMenu"
 
 // MARK: - Navigation Bar Constants
 let NAVIGATION_BAR_TINT_COLOR = UIColor(red: 108/255, green: 122/255, blue: 137/255, alpha: 1.0)
-let NAVIGATION_BAR_TEXT_COLOR = UIColor.whiteColor()
+let NAVIGATION_BAR_TEXT_COLOR = UIColor.white
 let NAVIGATION_BAR_FONT = UIFont(name: "Helvetica Neue", size: 20.0)
 
 // MARK: - Button Constants
 let BUTTON_DEFAULT_BACKGROUND_COLOR = UIColor(red: 244/255.0, green: 81/255.0, blue: 30/255.0, alpha: 1.0)
 let BUTTON_FACEBOOK_BACKGROUND_COLOR = UIColor(red: 30/255.0, green: 136/255.0, blue: 229/255.0, alpha: 1.0)
 let BUTTON_TEXT_COLOR_NORMAL = UIColor(red: 243/255.0, green: 243/255.0, blue: 243/255.0, alpha: 1.0)
-let BUTTON_TEXT_COLOR_DISABLED = UIColor.lightGrayColor()
+let BUTTON_TEXT_COLOR_DISABLED = UIColor.lightGray
 let BUTTON_TEXT_FONT = UIFont(name: "Helvetica Neue", size: 18.0)
 let BUTTON_TEXT_FONT_ITALIC = UIFont(name: "HelveticaNeue-Italic ", size: 12.0)
-let BAR_BUTTON_TEXT_COLOR = UIColor.whiteColor()
+let BAR_BUTTON_TEXT_COLOR = UIColor.white
 
 // MARK: - Table View Constants
 let TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue-Medium", size: 22.0)
@@ -70,16 +70,16 @@ let kSectionTitleFriendsOnScavenge = "Friends On Scavenge"
 let kSectionTitleFriendsNotOnScavenge = "Friends Not On Scavenge"
 
 // MARK: - Menu Customization
-let MENU_OPTION_TEXT_DEFAULT_COLOR = UIColor.groupTableViewBackgroundColor()
-let MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR = UIColor.lightGrayColor()
+let MENU_OPTION_TEXT_DEFAULT_COLOR = UIColor.groupTableViewBackground
+let MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR = UIColor.lightGray
 
 // MARK: - Cell Customization
-let CELL_COMPLETED_GAME_BACKGROUND_COLOR = UIColor.lightGrayColor()
-let CELL_ACTIVE_GAME_BACKGROUND_COLOR = UIColor.groupTableViewBackgroundColor()
+let CELL_COMPLETED_GAME_BACKGROUND_COLOR = UIColor.lightGray
+let CELL_ACTIVE_GAME_BACKGROUND_COLOR = UIColor.groupTableViewBackground
 
 let CELL_SELECTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)
 let CELL_HIGHLIGHTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)
-let CELL_DEFAULT_COLOR = UIColor.whiteColor()
+let CELL_DEFAULT_COLOR = UIColor.white
 
 let kFriendCellIdentifierScavenge = "scavengeFriendCell"
 let kFriendCellIdentifierFacebook = "facebookFriendCell"

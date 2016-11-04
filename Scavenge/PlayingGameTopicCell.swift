@@ -20,10 +20,10 @@ class PlayingGameTopicCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if (highlighted) {
             customView.backgroundColor = CELL_HIGHLIGHTED_COLOR
         }

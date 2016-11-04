@@ -13,6 +13,6 @@ class SBarButtonItem: UIBarButtonItem {
     override func awakeFromNib() {
         super.awakeFromNib()
         tintColor = BAR_BUTTON_TEXT_COLOR
-        setTitleTextAttributes([NSFontAttributeName:BUTTON_TEXT_FONT!], forState: .Normal)
+        setTitleTextAttributes([NSFontAttributeName:BUTTON_TEXT_FONT!], for: UIControlState())
     }
 }

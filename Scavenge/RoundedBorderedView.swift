@@ -11,7 +11,7 @@ import UIKit
 class RoundedBorderedView: UIView {
 
     override func awakeFromNib() {
-        layer.borderColor = UIColor.grayColor().CGColor
+        layer.borderColor = UIColor.gray.cgColor
         layer.borderWidth = 1.0
         layer.cornerRadius = 3.0
     }
