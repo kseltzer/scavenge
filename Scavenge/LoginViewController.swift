@@ -65,38 +65,37 @@ class LoginViewController: UIViewController {
             if (error != nil) {
                 print("Error: \(error)")
             } else {
-//                var profileImageURL : String?
-//                guard let result = result as? [String:[AnyObject]],
-//                    let firstName = result["first_name"],
-//                    let lastName = result["last_name"]
-//                    else {
-//                    return
-//                }
-////                var profileImageURL : String?
-////                if let profileImageDict = result["picture"] as NSDictionary {
-////                    if let pictureData = profileImageDict["data"] as? NSDictionary {
-////                        profileImageURL = pictureData["url"] as? String
-////                    }
-////                }
-//                UserDefaults.standard.setValue(firstName, forKey: KEY_FIRST_NAME)
-//                UserDefaults.standard.setValue(lastName, forKey: KEY_LAST_NAME)
-//                
-//                DispatchQueue.global(qos: .default).async {
-//                    let urlString = profileImageURL
-//                    if let url = URL(string: urlString!), let data = try? Data(contentsOf: url) {
-//                        DispatchQueue.main.async(execute: {
-//                            if let profileImage = UIImage(data: data), let profileImageData = UIImagePNGRepresentation(profileImage) {
-//                                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
-//                                let destinationPath = documentsPath.appendingPathComponent("profileImage.png")
-//                                do {
-//                                    try profileImageData.write(to: URL(fileURLWithPath: destinationPath), options: .atomicWrite)
-//                                } catch {
-//                                    print("error")
-//                                }
-//                            }
-//                        });
-//                    }
-//                }
+                guard let result = result as? [String:AnyObject],
+                    let firstName = result["first_name"],
+                    let lastName = result["last_name"]
+                else {
+                    return
+                }
+                var profileImageURL : String?
+                if let profileImageDict = result["picture"] as? NSDictionary {
+                    if let pictureData = profileImageDict["data"] as? NSDictionary {
+                        profileImageURL = pictureData["url"] as? String
+                    }
+                }
+                UserDefaults.standard.setValue(firstName, forKey: KEY_FIRST_NAME)
+                UserDefaults.standard.setValue(lastName, forKey: KEY_LAST_NAME)
+                
+                DispatchQueue.global(qos: .default).async {
+                    let urlString = profileImageURL
+                    if let url = URL(string: urlString!), let data = try? Data(contentsOf: url) {
+                        DispatchQueue.main.async(execute: {
+                            if let profileImage = UIImage(data: data), let profileImageData = UIImagePNGRepresentation(profileImage) {
+                                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+                                let destinationPath = documentsPath.appendingPathComponent("profileImage.png")
+                                do {
+                                    try profileImageData.write(to: URL(fileURLWithPath: destinationPath), options: .atomicWrite)
+                                } catch {
+                                    print("error")
+                                }
+                            }
+                        });
+                    }
+                }
             }
         })
     }

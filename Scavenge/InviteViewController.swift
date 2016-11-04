@@ -213,7 +213,8 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.nameLabel.text = friend.name
         
         if let urlString = friend.profileImageURL {
-            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+//            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                 if let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
                     DispatchQueue.main.async(execute: {
                         cell.profileImage.image = UIImage(data: data)
