@@ -61,5 +61,7 @@
 	<string>828413077289585</string>
 	<key>FacebookDisplayName</key>
 	<string>Scavenge</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Used to play the entire goddamn game.</string>
 </dict>
 </plist>
