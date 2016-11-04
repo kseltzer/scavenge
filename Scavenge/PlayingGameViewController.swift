@@ -43,7 +43,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = customBackBarItem()
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.tintColor = UIColor.white
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,22 +51,22 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         tableView.scrollsToTop = true
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     // MARK: - UIImagePickerControllerDelegate
-    func attemptShowImagePicker(topic: String) {
+    func attemptShowImagePicker(_ topic: String) {
         if (capturedImage != nil) {
             return
         }
         
-        if !UIImagePickerController.isSourceTypeAvailable(.Camera) {
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             // There is not a camera on this device
-            let alertController = UIAlertController(title: kErrorTitle, message: cameraNotAvailableErrorMsg, preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .Default, handler: nil)
+            let alertController = UIAlertController(title: kErrorTitle, message: cameraNotAvailableErrorMsg, preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .default, handler: nil)
             alertController.addAction(defaultAction)
-            return self.presentViewController(alertController, animated: true, completion: nil)
+            return self.present(alertController, animated: true, completion: nil)
         }
         
         
@@ -75,135 +75,135 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         imagePickerController = UIImagePickerController()
-        imagePickerController.modalPresentationStyle = .CurrentContext
-        imagePickerController.sourceType = .Camera
+        imagePickerController.modalPresentationStyle = .currentContext
+        imagePickerController.sourceType = .camera
         imagePickerController.delegate = self
         imagePickerController.showsCameraControls = false
         imagePickerController.allowsEditing = true
-        imagePickerController.cameraFlashMode = .Auto
+        imagePickerController.cameraFlashMode = .auto
         
-        NSBundle.mainBundle().loadNibNamed("CameraOverlayView", owner:self, options:nil)
+        Bundle.main.loadNibNamed("CameraOverlayView", owner:self, options:nil)
         overlayView.frame = imagePickerController.cameraOverlayView!.frame
         topView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
         bottomView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
-        selectCapturedImageButton.hidden = true
+        selectCapturedImageButton.isHidden = true
         topicLabel.text = topic
         imagePickerController.cameraOverlayView = overlayView
         overlayView = nil
         
         
         
-        self.presentViewController(imagePickerController, animated: true, completion: nil)
+        self.present(imagePickerController, animated: true, completion: nil)
     }
     
     func setupUIForCapturingImage() {
-        cameraFlashButton.hidden = false
-        frontRearFacingCameraButton.hidden = false
-        captureImageButton.hidden = false
-        selectCapturedImageButton.hidden = true
+        cameraFlashButton.isHidden = false
+        frontRearFacingCameraButton.isHidden = false
+        captureImageButton.isHidden = false
+        selectCapturedImageButton.isHidden = true
         capturedImage = nil
-        bottomBarStackView.userInteractionEnabled = true
+        bottomBarStackView.isUserInteractionEnabled = true
     }
     
     func setupUIForReviewingImage() {
-        frontRearFacingCameraButton.hidden = true
-        cameraFlashButton.hidden = true
-        captureImageButton.hidden = true
-        selectCapturedImageButton.hidden = false
-        bottomBarStackView.userInteractionEnabled = false
+        frontRearFacingCameraButton.isHidden = true
+        cameraFlashButton.isHidden = true
+        captureImageButton.isHidden = true
+        selectCapturedImageButton.isHidden = false
+        bottomBarStackView.isUserInteractionEnabled = false
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         capturedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        if (imagePickerController.cameraDevice == .Front && capturedImage != nil) {
-            capturedImage = UIImage(CGImage: (capturedImage!.CGImage)!, scale: (capturedImage!.scale), orientation: UIImageOrientation.LeftMirrored)
+        if (imagePickerController.cameraDevice == .front && capturedImage != nil) {
+            capturedImage = UIImage(cgImage: (capturedImage!.cgImage)!, scale: (capturedImage!.scale), orientation: UIImageOrientation.leftMirrored)
         } else {
-            capturedImage = UIImage(CGImage: (capturedImage!.CGImage)!, scale: (capturedImage!.scale), orientation: .Right)
+            capturedImage = UIImage(cgImage: (capturedImage!.cgImage)!, scale: (capturedImage!.scale), orientation: .right)
         }
         imageView.image = capturedImage
         self.setupUIForReviewingImage()
     }
     
-    func cropImageToSquare(image: UIImage) -> UIImage {
-        let refWidth = CGImageGetWidth(image.CGImage)
-        let refHeight = CGImageGetHeight(image.CGImage)
+    func cropImageToSquare(_ image: UIImage) -> UIImage {
+        let refWidth = image.cgImage?.width
+        let refHeight = image.cgImage?.height
         
         let newWidth = refWidth
         let newHeight = refWidth
         
-        let x = (refWidth - newWidth) / 2
-        let y = (refHeight - newHeight) / 2
+        let x = (refWidth! - newWidth!) / 2
+        let y = (refHeight! - newHeight!) / 2
         
-        let cropRect = CGRect(x: x, y: y, width: newWidth, height: newHeight)
-        let imageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect)
-        let croppedImage = UIImage(CGImage: imageRef!, scale: 0.0, orientation: image.imageOrientation)
+        let cropRect = CGRect(x: x, y: y, width: newWidth!, height: newHeight!)
+        let imageRef = image.cgImage?.cropping(to: cropRect)
+        let croppedImage = UIImage(cgImage: imageRef!, scale: 0.0, orientation: image.imageOrientation)
 
         return croppedImage
     }
     
     // MARK: - Top Bar Actions
     
-    func cameraViewDoubleTapped(sender: UITapGestureRecognizer) {
-        if (imagePickerController.cameraDevice == .Front) {
-            imagePickerController.cameraDevice = .Rear
-            imageView.transform = CGAffineTransformMakeScale(1, 1)
+    func cameraViewDoubleTapped(_ sender: UITapGestureRecognizer) {
+        if (imagePickerController.cameraDevice == .front) {
+            imagePickerController.cameraDevice = .rear
+            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
         } else {
-            imagePickerController.cameraDevice = .Front
-            imageView.transform = CGAffineTransformMakeScale(-1, 1)
+            imagePickerController.cameraDevice = .front
+            imageView.transform = CGAffineTransform(scaleX: -1, y: 1)
         }
     }
     
-    @IBAction func exitButtonTapped(sender: AnyObject) {
+    @IBAction func exitButtonTapped(_ sender: AnyObject) {
         if (capturedImage != nil) {
             // exiting review of image, will return to capture image state
             imageView.image = nil
             self.setupUIForCapturingImage()
         } else {
             // exiting capture image state, will return to topics list
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
-    @IBAction func flashButtonTapped(sender: AnyObject) {
+    @IBAction func flashButtonTapped(_ sender: AnyObject) {
         switch (imagePickerController.cameraFlashMode) {
-        case .Off:
-            imagePickerController.cameraFlashMode = .On
-            cameraFlashButton.setImage(UIImage(named: "flashOnButton"), forState: .Normal)
+        case .off:
+            imagePickerController.cameraFlashMode = .on
+            cameraFlashButton.setImage(UIImage(named: "flashOnButton"), for: UIControlState())
             print("turning flash on")
             break
-        case .On:
-            imagePickerController.cameraFlashMode = .Auto
-            cameraFlashButton.setImage(UIImage(named: "flashAutoButton"), forState: .Normal)
+        case .on:
+            imagePickerController.cameraFlashMode = .auto
+            cameraFlashButton.setImage(UIImage(named: "flashAutoButton"), for: UIControlState())
             print("turning flash on auto")
             break
-        case .Auto:
-            imagePickerController.cameraFlashMode = .Off
-            cameraFlashButton.setImage(UIImage(named: "flashOffButton"), forState: .Normal)
+        case .auto:
+            imagePickerController.cameraFlashMode = .off
+            cameraFlashButton.setImage(UIImage(named: "flashOffButton"), for: UIControlState())
             print("turning flash off")
             break
         }
     }
     
-    @IBAction func frontRearFacingCameraButtonTapped(sender: AnyObject) {
-        if (imagePickerController.cameraDevice == .Front) {
-            imagePickerController.cameraDevice = .Rear
+    @IBAction func frontRearFacingCameraButtonTapped(_ sender: AnyObject) {
+        if (imagePickerController.cameraDevice == .front) {
+            imagePickerController.cameraDevice = .rear
         } else {
-            imagePickerController.cameraDevice = .Front
+            imagePickerController.cameraDevice = .front
         }
     }
     
     // MARK: - Bottom Bar Actions
     
-    @IBAction func captureImageTapped(sender: AnyObject) {
+    @IBAction func captureImageTapped(_ sender: AnyObject) {
         imagePickerController.takePicture()
     }
     
-    @IBAction func selectCapturedImageButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {() -> Void in
+    @IBAction func selectCapturedImageButtonTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: {() -> Void in
             self.setImageForCellAtIndexPath(self.selectedIndex, image: self.capturedImage)
             self.capturedImages[self.selectedIndex] = self.capturedImage
             self.capturedImage = nil
@@ -222,58 +222,58 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
 
     // MARK :- UITableViewDelegate
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row != NUM_GAME_QUESTIONS) {
-            selectedIndex = indexPath.row
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            self.attemptShowImagePicker(sampleTopics[indexPath.row])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if ((indexPath as NSIndexPath).row != NUM_GAME_QUESTIONS) {
+            selectedIndex = (indexPath as NSIndexPath).row
+            tableView.deselectRow(at: indexPath, animated: true)
+            self.attemptShowImagePicker(sampleTopics[(indexPath as NSIndexPath).row])
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.row == NUM_GAME_QUESTIONS) {
-            let submitCell = tableView.dequeueReusableCellWithIdentifier("submitCell", forIndexPath: indexPath) as! SubmitCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if ((indexPath as NSIndexPath).row == NUM_GAME_QUESTIONS) {
+            let submitCell = tableView.dequeueReusableCell(withIdentifier: "submitCell", for: indexPath) as! SubmitCell
             return configureSubmitCell(submitCell)
         }
-        let topicCell = tableView.dequeueReusableCellWithIdentifier("topicCell", forIndexPath: indexPath) as! PlayingGameTopicCell
+        let topicCell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as! PlayingGameTopicCell
         return configureTopicCellForIndexPath(topicCell, indexPath: indexPath)
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return NUM_GAME_QUESTIONS + 1
     }
     
-    func setImageForCellAtIndexPath (index: Int, image: UIImage?) {
-        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! PlayingGameTopicCell
+    func setImageForCellAtIndexPath (_ index: Int, image: UIImage?) {
+        let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! PlayingGameTopicCell
         cell.thumbnailImageView.image = cropImageToSquare(image!)
     }
     
-    func configureSubmitCell(cell: SubmitCell) -> SubmitCell {
+    func configureSubmitCell(_ cell: SubmitCell) -> SubmitCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToVotingViewController))
         cell.submitButton.addGestureRecognizer(tapGesture)
         if (self.allImagesCaptured) {
-            cell.submitButton.enabled = true
+            cell.submitButton.isEnabled = true
             cell.submitButton.alpha = 1.0
         } else {
-            cell.submitButton.enabled = true // TODO: replace true with false
+            cell.submitButton.isEnabled = true // TODO: replace true with false
             cell.submitButton.alpha = 0.6
         }
         return cell
     }
     
-    func configureTopicCellForIndexPath(cell: PlayingGameTopicCell, indexPath: NSIndexPath) -> PlayingGameTopicCell {
-        cell.topicLabel.text = sampleTopics[indexPath.row]
+    func configureTopicCellForIndexPath(_ cell: PlayingGameTopicCell, indexPath: IndexPath) -> PlayingGameTopicCell {
+        cell.topicLabel.text = sampleTopics[(indexPath as NSIndexPath).row]
         return cell
     }
 
     // MARK: - Navigation
 
     func goToVotingViewController() {
-        self.performSegueWithIdentifier("showVoting", sender: self)
+        self.performSegue(withIdentifier: "showVoting", sender: self)
     }
     
     /*

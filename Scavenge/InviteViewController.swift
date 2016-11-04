@@ -9,9 +9,9 @@
 import UIKit
 import FBSDKCoreKit
 
-let INDEX_SECTION_TEXT_COLOR = UIColor.blackColor()
-let INDEX_DEFAULT_BACKGROUND_COLOR = UIColor.lightGrayColor()
-let INDEX_HIGHLIGHTED_BACKGROUND_COLOR = UIColor.grayColor()
+let INDEX_SECTION_TEXT_COLOR = UIColor.black
+let INDEX_DEFAULT_BACKGROUND_COLOR = UIColor.lightGray
+let INDEX_HIGHLIGHTED_BACKGROUND_COLOR = UIColor.gray
 
 class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
@@ -26,7 +26,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var sectionContents : [[FacebookInviteFriend]] = []
     var fbFriends : [FacebookInviteFriend] = []
     var filteredFBFriends : [FacebookInviteFriend] = []
-    var invitedFriendsIndices: [NSIndexPath] = []
+    var invitedFriendsIndices: [IndexPath] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +41,16 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func getUserFriends() {
         let params = ["fields": "id, name, picture"]
         let request = FBSDKGraphRequest(graphPath: "me/taggable_friends?limit=5000", parameters: params)
-        request.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
+        let connection = FBSDKGraphRequestConnection()
+        connection.add(request, completionHandler: { (connection, result, error) in
             
             if error != nil {
-                let errorMessage = error.localizedDescription
+                let errorMessage = error?.localizedDescription
                 print("Error: ", errorMessage)
-            }
-            else if let resultDict = result as? NSDictionary {
-                if let resultArray = resultDict["data"] as? NSArray {
+            } else if let resultDict = result as? NSDictionary {
+                if let resultArray = resultDict["data"] as? [[String:Any]] {
                     for friend in resultArray {
-                        if let  name = friend["name"] as? String, id = friend["id"] as? String {
+                        if let  name = friend["name"] as? String, let id = friend["id"] as? String {
                             var hasNegativeStateImage : Bool = false, url : String? = nil
                             if let pictureDict = friend["picture"] as? NSDictionary {
                                 if let pictureData = pictureDict["data"] as? NSDictionary {
@@ -63,10 +63,38 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         }
                     }
                 }
-                self.fbFriends.sortInPlace({ $0.name < $1.name })
+                self.fbFriends.sort(by: { $0.name < $1.name })
                 self.configureSections()
             }
-        }
+        })
+        
+        connection.start()
+//        request?.start { (connection, result, error) -> Void in
+//            
+//            if error != nil {
+//                let errorMessage = error?.localizedDescription
+//                print("Error: ", errorMessage)
+//            }
+//            else if let resultDict = result as? NSDictionary {
+//                if let resultArray = resultDict["data"] as? NSArray {
+//                    for friend in resultArray {
+//                        if let  name = friend["name"] as? String, let id = friend["id"] as? String {
+//                            var hasNegativeStateImage : Bool = false, url : String? = nil
+//                            if let pictureDict = friend["picture"] as? NSDictionary {
+//                                if let pictureData = pictureDict["data"] as? NSDictionary {
+//                                    hasNegativeStateImage = (pictureData["is_silhouette"] as? Bool)!
+//                                    url = pictureData["url"] as? String
+//                                }
+//                            }
+//                            let contact = FacebookInviteFriend(name: name, id: id, profileImageURL: url, hasNegativeStateImage: hasNegativeStateImage, invited: false)
+//                            self.fbFriends.append(contact)
+//                        }
+//                    }
+//                }
+//                self.fbFriends.sort(by: { $0.name < $1.name })
+//                self.configureSections()
+//            }
+//        }
     }
     
     func setupSearchController() {
@@ -84,7 +112,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         sectionTitles = []
         sectionContents = []
         
-        if (searchController.active && searchController.searchBar.text != "") {
+        if (searchController.isActive && searchController.searchBar.text != "") {
             friendsList = filteredFBFriends
         } else {
             friendsList = fbFriends
@@ -94,7 +122,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         for contact in friendsList {
             if let firstLetterCharacter = contact.name.characters.first {
                 let firstLetterString = String(firstLetterCharacter)
-                if (indexTitles.indexOf(firstLetterString) == nil) || (indexTitles.indexOf(firstLetterString) == indexTitles.count-1) { // first letter is a #
+                if (indexTitles.index(of: firstLetterString) == nil) || (indexTitles.index(of: firstLetterString) == indexTitles.count-1) { // first letter is a #
                     nonAlphabetList.append(contact)
                 } else if sectionTitles.contains(firstLetterString) {
                     sectionContents[sectionContents.count-1].append(contact)
@@ -119,24 +147,24 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: - UISearchResultsUpdating Protocol
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return indexTitles
     }
     
-    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
-        if let index = sectionTitles.indexOf(title) {
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        if let index = sectionTitles.index(of: title) {
             return index
         }
 
         // if no contents in section, return index of nearest non-empty section
-        if let _ = indexTitles.indexOf(title) {
+        if let _ = indexTitles.index(of: title) {
             // check preceeding sections
-            var entireAlphabetIndex = indexTitles.indexOf(title)!
+            var entireAlphabetIndex = indexTitles.index(of: title)!
             var returnIndex : Int? = nil
             var closestLetter : String? = nil
             while entireAlphabetIndex >= 0 && returnIndex == nil {
                 closestLetter = indexTitles[entireAlphabetIndex]
-                returnIndex = sectionTitles.indexOf(closestLetter!)
+                returnIndex = sectionTitles.index(of: closestLetter!)
                 entireAlphabetIndex -= 1
             }
             if returnIndex != nil {
@@ -144,12 +172,12 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
             // check following sections
-            entireAlphabetIndex = indexTitles.indexOf(title)!
+            entireAlphabetIndex = indexTitles.index(of: title)!
             returnIndex = nil
             closestLetter = nil
             while entireAlphabetIndex < indexTitles.count && returnIndex == nil {
                 closestLetter = indexTitles[entireAlphabetIndex]
-                returnIndex = sectionTitles.indexOf(closestLetter!)
+                returnIndex = sectionTitles.index(of: closestLetter!)
                 entireAlphabetIndex += 1
             }
             if returnIndex != nil {
@@ -159,33 +187,35 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 0
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         invitedFriendsIndices.append(indexPath)
+        let cell = tableView.cellForRow(at: indexPath) as! InviteCell
+        cell.setSelectedAppearance()
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
     
-    func filterContentForSearchText(searchText: String) {
+    func filterContentForSearchText(_ searchText: String) {
         filteredFBFriends = []
         filteredFBFriends = fbFriends.filter { friend in
-            return friend.name.lowercaseString.containsString(searchText.lowercaseString)
+            return friend.name.lowercased().contains(searchText.lowercased())
         }
         
         configureSections()
     }
     
     // MARK: - UITableViewDelegate
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell", forIndexPath: indexPath) as! InviteCell
-        let friend = sectionContents[indexPath.section][indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InviteCell
+        let friend = sectionContents[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
         cell.nameLabel.text = friend.name
         
         if let urlString = friend.profileImageURL {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                if let url = NSURL(string: urlString), data = NSData(contentsOfURL: url) {
-                    dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+                if let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
+                    DispatchQueue.main.async(execute: {
                         cell.profileImage.image = UIImage(data: data)
                     });
                 }
@@ -194,7 +224,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // set cell.profileImage to negativeState
         }
         
-        if invitedFriendsIndices.indexOf(indexPath) != nil {
+        if invitedFriendsIndices.index(of: indexPath) != nil {
             cell.setSelectedAppearance()
         } else {
             cell.setDeselectedAppearance()
@@ -203,15 +233,15 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let customView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 35))
-        customView.backgroundColor = UIColor.whiteColor()
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 35))
+        customView.backgroundColor = UIColor.white
         
-        let label = UILabel(frame: CGRectMake(8, 3, tableView.frame.width, 22))
+        let label = UILabel(frame: CGRect(x: 8, y: 3, width: tableView.frame.width, height: 22))
         label.text = sectionTitles[section]
         label.textColor = INDEX_SECTION_TEXT_COLOR
         customView.addSubview(label)
@@ -219,7 +249,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return customView
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sectionContents[section].count
     }
 
@@ -237,40 +267,40 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 extension InviteViewController: UIViewControllerTransitioningDelegate {
     
-    @IBAction func handleEdgeGesture(sender: UIScreenEdgePanGestureRecognizer) {
-        let translation = sender.translationInView(view)
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+    @IBAction func handleEdgeGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegueWithIdentifier(kShowMenuSegue, sender: self)
+            self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
         }
     }
     
-    @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
-        let translation = sender.translationInView(view)
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+    @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegueWithIdentifier(kShowMenuSegue, sender: self)
+            self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
         }
     }
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ShowMenuAnimator()
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return HideMenuAnimator()
     }
     
-    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
     }
     
-    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destinationViewController = segue.destinationViewController as? MenuViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
             destinationViewController.currentScreen = .Invite

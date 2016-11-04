@@ -16,12 +16,12 @@ class SNavigationController: UINavigationController {
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: NAVIGATION_BAR_TEXT_COLOR, NSFontAttributeName: NAVIGATION_BAR_FONT!]
     }
     
-    override func popViewControllerAnimated(animated: Bool) -> UIViewController? {
-        if (self.topViewController != nil && self.topViewController!.isKindOfClass(PlayingGameViewController)) {
-            self.popToRootViewControllerAnimated(true)
+    override func popViewController(animated: Bool) -> UIViewController? {
+        if (self.topViewController != nil && self.topViewController!.isKind(of: PlayingGameViewController.self)) {
+            self.popToRootViewController(animated: true)
             return nil
         } else {
-            return super.popViewControllerAnimated(animated)
+            return super.popViewController(animated: animated)
         }
     }
 }

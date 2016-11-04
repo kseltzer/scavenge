@@ -15,8 +15,8 @@ class SButton: UIButton {
         layer.cornerRadius = 3.0
         backgroundColor = BUTTON_DEFAULT_BACKGROUND_COLOR
         titleLabel?.font = BUTTON_TEXT_FONT
-        setTitleColor(BUTTON_TEXT_COLOR_NORMAL, forState: .Normal)
-        if (state == .Disabled) {
+        setTitleColor(BUTTON_TEXT_COLOR_NORMAL, for: UIControlState())
+        if (state == .disabled) {
             self.alpha = 0.5
         }
     }

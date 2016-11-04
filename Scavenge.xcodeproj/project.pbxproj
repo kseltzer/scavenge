@@ -13,7 +13,6 @@
 		4E2277A71D32D0D100E22436 /* Scavenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277A51D32D0D100E22436 /* Scavenge.xcdatamodeld */; };
 		4E2277A91D32D0D100E22436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2277A81D32D0D100E22436 /* Assets.xcassets */; };
 		4E2277AC1D32D0D100E22436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2277AA1D32D0D100E22436 /* LaunchScreen.storyboard */; };
-		4E2277B71D32D0D100E22436 /* ScavengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277B61D32D0D100E22436 /* ScavengeTests.swift */; };
 		4E2277C21D32D0D100E22436 /* ScavengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277C11D32D0D100E22436 /* ScavengeUITests.swift */; };
 		4E2277D41D32D26100E22436 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277D31D32D26100E22436 /* LoginViewController.swift */; };
 		4E2277D71D32D29400E22436 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277D61D32D29400E22436 /* Constants.swift */; };
@@ -60,6 +59,7 @@
 		4EB640901D763AAC00EA308D /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB6408F1D763AAC00EA308D /* InviteViewController.swift */; };
 		4EB640921D77617100EA308D /* RightToLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640911D77617100EA308D /* RightToLeftAnimator.swift */; };
 		4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */; };
+		4EC034AA1D87BBE400C6D346 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC034A91D87BBE400C6D346 /* FBSDKMessengerShareKit.framework */; };
 		4ED06E831D7FA2DB006C4B77 /* FacebookInviteFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED06E821D7FA2DB006C4B77 /* FacebookInviteFriend.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E033FE11DCD164300824D7E /* Scavenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scavenge.entitlements; sourceTree = "<group>"; };
 		4E1011D11D73BE4E00662E9F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
 		4E22779B1D32D0D100E22436 /* Scavenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,8 +91,6 @@
 		4E2277AB1D32D0D100E22436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E2277AD1D32D0D100E22436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E2277B21D32D0D100E22436 /* ScavengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E2277B61D32D0D100E22436 /* ScavengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengeTests.swift; sourceTree = "<group>"; };
-		4E2277B81D32D0D100E22436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E2277BD1D32D0D100E22436 /* ScavengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScavengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2277C11D32D0D100E22436 /* ScavengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengeUITests.swift; sourceTree = "<group>"; };
 		4E2277C31D32D0D100E22436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +139,7 @@
 		4EB6408F1D763AAC00EA308D /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		4EB640911D77617100EA308D /* RightToLeftAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeftAnimator.swift; sourceTree = "<group>"; };
 		4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
+		4EC034A91D87BBE400C6D346 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		4ED06E821D7FA2DB006C4B77 /* FacebookInviteFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInviteFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC034AA1D87BBE400C6D346 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				4E2277DE1D32D80A00E22436 /* Bolts.framework in Frameworks */,
 				4E2277DF1D32D80B00E22436 /* FBSDKCoreKit.framework in Frameworks */,
 				4E2277E01D32D80B00E22436 /* FBSDKLoginKit.framework in Frameworks */,
@@ -186,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				4E22779D1D32D0D100E22436 /* Scavenge */,
-				4E2277B51D32D0D100E22436 /* ScavengeTests */,
 				4E2277C01D32D0D100E22436 /* ScavengeUITests */,
 				4E22779C1D32D0D100E22436 /* Products */,
 				4E2277DA1D32D7F900E22436 /* Frameworks */,
@@ -206,6 +206,7 @@
 		4E22779D1D32D0D100E22436 /* Scavenge */ = {
 			isa = PBXGroup;
 			children = (
+				4E033FE11DCD164300824D7E /* Scavenge.entitlements */,
 				4E22779E1D32D0D100E22436 /* AppDelegate.swift */,
 				4E2277EA1D32F3EB00E22436 /* Storyboards */,
 				4E2277D51D32D28600E22436 /* Util */,
@@ -217,15 +218,6 @@
 				4E2277D21D32D21D00E22436 /* Resources */,
 			);
 			path = Scavenge;
-			sourceTree = "<group>";
-		};
-		4E2277B51D32D0D100E22436 /* ScavengeTests */ = {
-			isa = PBXGroup;
-			children = (
-				4E2277B61D32D0D100E22436 /* ScavengeTests.swift */,
-				4E2277B81D32D0D100E22436 /* Info.plist */,
-			);
-			path = ScavengeTests;
 			sourceTree = "<group>";
 		};
 		4E2277C01D32D0D100E22436 /* ScavengeUITests */ = {
@@ -294,6 +286,7 @@
 		4E2277DA1D32D7F900E22436 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EC034A91D87BBE400C6D346 /* FBSDKMessengerShareKit.framework */,
 				4E2277DB1D32D80A00E22436 /* Bolts.framework */,
 				4E2277DC1D32D80A00E22436 /* FBSDKCoreKit.framework */,
 				4E2277DD1D32D80A00E22436 /* FBSDKLoginKit.framework */,
@@ -468,19 +461,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Kim Seltzer";
 				TargetAttributes = {
 					4E22779A1D32D0D100E22436 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 83NM8QSVHT;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					4E2277B11D32D0D100E22436 = {
 						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 4E22779A1D32D0D100E22436;
+						LastSwiftMigration = 0800;
 					};
 					4E2277BC1D32D0D100E22436 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4E22779A1D32D0D100E22436;
 					};
 				};
@@ -590,7 +590,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2277B71D32D0D100E22436 /* ScavengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,8 +642,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -666,7 +667,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -689,8 +690,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -706,9 +709,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -718,6 +722,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scavenge/Scavenge.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -727,6 +732,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.Scavenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -734,6 +740,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scavenge/Scavenge.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -743,30 +750,29 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.Scavenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		4E2277CA1D32D0D100E22436 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ScavengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.ScavengeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scavenge.app/Scavenge";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		4E2277CB1D32D0D100E22436 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ScavengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.ScavengeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scavenge.app/Scavenge";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -777,6 +783,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.ScavengeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Scavenge;
 			};
 			name = Debug;
@@ -788,6 +795,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.ScavengeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Scavenge;
 			};
 			name = Release;

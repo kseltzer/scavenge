@@ -21,7 +21,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        screenSize = UIScreen.mainScreen().bounds
+        screenSize = UIScreen.main.bounds
         cellWidth = screenSize.width - 16
         
         let topPadding : CGFloat = 8, bottomPadding : CGFloat = 8, playerLabelHeightAndPadding : CGFloat = 36
@@ -42,26 +42,26 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - Table View
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return NUM_GAME_QUESTIONS
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ResultsCell") as! ResultsCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsCell") as! ResultsCell
         cell.delegate = self
-        cell.index = indexPath.section
+        cell.index = (indexPath as NSIndexPath).section
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
         return cell
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeaderView = UIView(frame: CGRectMake(0, 0, cellWidth, 20))
-        sectionHeaderView.backgroundColor = UIColor.whiteColor()
-        let topicLabel = UILabel(frame: CGRectMake(8, 0, cellWidth, 20))
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: 20))
+        sectionHeaderView.backgroundColor = UIColor.white
+        let topicLabel = UILabel(frame: CGRect(x: 8, y: 0, width: cellWidth, height: 20))
         topicLabel.text = "Topic" // TODO: hard coded data
         topicLabel.font = TABLE_VIEW_SUBSECTION_FONT
         sectionHeaderView.addSubview(topicLabel)
@@ -69,12 +69,12 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - ResultsCellDelegate
-    func scrollViewOffsetForIndexPath(indexPath: NSIndexPath) -> CGPoint {
-        let horizontalOffset = scrollViewOffsets[indexPath.section]
-        return CGPointMake(horizontalOffset, 0)
+    private func scrollViewOffsetForIndexPath(_ indexPath: IndexPath) -> CGPoint {
+        let horizontalOffset = scrollViewOffsets[(indexPath as NSIndexPath).section]
+        return CGPoint(x: horizontalOffset, y: 0)
     }
     
-    func updateScrollPositionForIndexPath(scrollPosition scrollPosition: CGFloat, index: Int) {
+    func updateScrollPositionForIndexPath(scrollPosition: CGFloat, index: Int) {
         scrollViewOffsets[index] = scrollPosition
     }
 

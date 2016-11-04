@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-func customBackBarItem (title title: String = "") -> SBarButtonItem {
-    return SBarButtonItem(title: title, style: .Plain, target: nil, action: nil)
+func customBackBarItem (title: String = "") -> SBarButtonItem {
+    return SBarButtonItem(title: title, style: .plain, target: nil, action: nil)
 }

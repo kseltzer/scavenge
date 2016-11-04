@@ -33,14 +33,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         
-        firstNameLabel.text = NSUserDefaults.standardUserDefaults().valueForKey(KEY_FIRST_NAME) as? String
-        lastNameLabel.text = NSUserDefaults.standardUserDefaults().valueForKey(KEY_LAST_NAME) as? String
+        firstNameLabel.text = UserDefaults.standard.value(forKey: KEY_FIRST_NAME) as? String
+        lastNameLabel.text = UserDefaults.standard.value(forKey: KEY_LAST_NAME) as? String
         
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
-        let fileManager = NSFileManager.defaultManager()
-        let imagePath = (documentsDirectory as NSString).stringByAppendingPathComponent("profileImage.png")
-        if fileManager.fileExistsAtPath(imagePath){
+        let fileManager = FileManager.default
+        let imagePath = (documentsDirectory as NSString).appendingPathComponent("profileImage.png")
+        if fileManager.fileExists(atPath: imagePath){
             self.profileImageView.image = UIImage(contentsOfFile: imagePath)
         } else{
             print("No profile image available")
@@ -48,19 +48,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     var interactor: InteractiveMenuTransition? = nil
-    @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
-        let translation = sender.translationInView(view)
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Left)
+    @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .left)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
     // MARK: - Table View
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell")
-        cell?.backgroundColor = UIColor.clearColor()
-        let option = menuOptionForRow(indexPath.row)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell")
+        cell?.backgroundColor = UIColor.clear
+        let option = menuOptionForRow((indexPath as NSIndexPath).row)
         if option == currentScreen {
             cell?.textLabel?.textColor = MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR
         } else {
@@ -70,55 +70,55 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell!
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let menuOption = menuOptionForRow(indexPath.row)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let menuOption = menuOptionForRow((indexPath as NSIndexPath).row)
         switch menuOption {
             case .Home, .Invite, .Tour, .About:
-                self.performSegueWithIdentifier("show\(menuOption.rawValue)", sender: self)
+                self.performSegue(withIdentifier: "show\(menuOption.rawValue)", sender: self)
                 break
             case .Feedback:
-                let alertController = UIAlertController(title: "Judge Us!", message: "Your feedback is important to us. We appreciate you rating and reviewing us in the app store.", preferredStyle: .Alert)
-                let rateAction = UIAlertAction(title: "Rate", style: .Default) { (alert) in
+                let alertController = UIAlertController(title: "Judge Us!", message: "Your feedback is important to us. We appreciate you rating and reviewing us in the app store.", preferredStyle: .alert)
+                let rateAction = UIAlertAction(title: "Rate", style: .default) { (alert) in
                     // go to app store
                 }
-                let cancelAction = UIAlertAction(title: "Not Now", style: .Cancel, handler: nil)
+                let cancelAction = UIAlertAction(title: "Not Now", style: .cancel, handler: nil)
                 alertController.addAction(rateAction)
                 alertController.addAction(cancelAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
                 break
             case .Logout:
-                let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .Alert)
-                let logoutAction = UIAlertAction(title: "Yah", style: .Default) { (alert) in
+                let alertController = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
+                let logoutAction = UIAlertAction(title: "Yah", style: .default) { (alert) in
                     // logout
-                    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
-                    NSUserDefaults.standardUserDefaults().synchronize()
+                    UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+                    UserDefaults.standard.synchronize()
                     let loginStoryboard = UIStoryboard(name: kLoginStoryboard, bundle: nil)
                     let loginViewController = loginStoryboard.instantiateInitialViewController()
-                    self.presentViewController(loginViewController!, animated: true, completion: nil)
+                    self.present(loginViewController!, animated: true, completion: nil)
                 }
-                let cancelAction = UIAlertAction(title: "Nah", style: .Cancel, handler: nil)
+                let cancelAction = UIAlertAction(title: "Nah", style: .cancel, handler: nil)
                 alertController.addAction(logoutAction)
                 alertController.addAction(cancelAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
                 break
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuOptions.count
     }
     
-    func menuOptionForRow(row: Int) -> MenuOption {
+    func menuOptionForRow(_ row: Int) -> MenuOption {
         return menuOptions[row]
     }
     
-    @IBAction func closeMenu(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeMenu(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -127,11 +127,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 extension MenuViewController: UIViewControllerTransitioningDelegate {
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return RightToLeftAnimator()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        segue.destinationViewController.transitioningDelegate = self
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination.transitioningDelegate = self
     }
 }
