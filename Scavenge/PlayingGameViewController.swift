@@ -36,6 +36,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     var capturedImage : UIImage?
     var selectedIndex : Int!
     var allImagesCaptured : Bool = false
+    var doubleTapGestureRecognizer : UITapGestureRecognizer!
     
     var capturedImages : [UIImage?] = [nil, nil, nil, nil, nil]
     
@@ -82,6 +83,10 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         imagePickerController.allowsEditing = true
         imagePickerController.cameraFlashMode = .auto
         
+        doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(switchDirectionCameraIsFacing))
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        imagePickerController.view.addGestureRecognizer(doubleTapGestureRecognizer)
+        
         Bundle.main.loadNibNamed("CameraOverlayView", owner:self, options:nil)
         overlayView.frame = imagePickerController.cameraOverlayView!.frame
         topView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
@@ -103,6 +108,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         selectCapturedImageButton.isHidden = true
         capturedImage = nil
         bottomBarStackView.isUserInteractionEnabled = true
+        imagePickerController.view.addGestureRecognizer(doubleTapGestureRecognizer)
     }
     
     func setupUIForReviewingImage() {
@@ -111,6 +117,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         captureImageButton.isHidden = true
         selectCapturedImageButton.isHidden = false
         bottomBarStackView.isUserInteractionEnabled = false
+        imagePickerController.view.removeGestureRecognizer(doubleTapGestureRecognizer)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -188,12 +195,16 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    @IBAction func frontRearFacingCameraButtonTapped(_ sender: AnyObject) {
+    func switchDirectionCameraIsFacing() {
         if (imagePickerController.cameraDevice == .front) {
             imagePickerController.cameraDevice = .rear
         } else {
             imagePickerController.cameraDevice = .front
         }
+    }
+    
+    @IBAction func frontRearFacingCameraButtonTapped(_ sender: AnyObject) {
+        switchDirectionCameraIsFacing()
     }
     
     // MARK: - Bottom Bar Actions
