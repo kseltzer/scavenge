@@ -10,6 +10,8 @@ import UIKit
 
 protocol VotingCellDelegate {
     func updateScrollPositionForIndexPath(scrollPosition: CGFloat, index: Int)
+    func updateVoteForImageAtIndexPath(_ image: UIImage?, index: Int)
+    func hasVotedAtIndexPath(_ index: Int) -> Bool
 }
 
 class VotingCell: UITableViewCell, UIScrollViewDelegate {
@@ -23,6 +25,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     var delegate : VotingCellDelegate!
     
     let numPlayers = 3 // TODO: get data from backend
+    var images: [UIImage] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,12 +47,48 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
         var x: CGFloat = 0
         let y: CGFloat = 0
         
-        for _ in 0 ..< numPlayers {
+        for i in 0 ..< numPlayers {
             let imageViewTopic = UIImageView(frame: CGRect(x: x, y: y, width: imageViewWidth, height: imageViewHeight))
             imageViewTopic.contentMode = .scaleAspectFill
-            imageViewTopic.image = UIImage(named: "aliya")
+            imageViewTopic.clipsToBounds = true
+            imageViewTopic.image = sampleContentImagesFromBackend[i]
+            imageViewTopic.isUserInteractionEnabled = true
+            let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+            doubleTapGestureRecognizer.numberOfTapsRequired = 2
+            imageViewTopic.addGestureRecognizer(doubleTapGestureRecognizer)
             x += (imageViewWidth + trailingSpace)
             scrollView.addSubview(imageViewTopic)
+        }
+    }
+    
+    // Mark: - Double Tap To Vote
+    func updateUIForVotingState() {
+        if (delegate.hasVotedAtIndexPath(index)) {
+            setVotedUI()
+        } else {
+            setNotVotedUI()
+        }
+    }
+    
+    func setVotedUI() {
+        scrollView.alpha = 0.7
+        scrollView.isScrollEnabled = false
+    }
+    
+    func setNotVotedUI() {
+        scrollView.alpha = 1.0
+        scrollView.isScrollEnabled = true
+    }
+    
+    func imageTapped(_ gestureRecognizer: UITapGestureRecognizer) {
+        print("voted!")
+        if (scrollView.isScrollEnabled) {                                     // vote
+            setVotedUI()
+            delegate.updateVoteForImageAtIndexPath(images[pageControl.currentPage], index: index)
+        }
+        else {                                                                // cancel vote
+            setNotVotedUI()
+            delegate.updateVoteForImageAtIndexPath(nil, index: index)
         }
     }
     
