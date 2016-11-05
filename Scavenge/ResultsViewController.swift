@@ -68,6 +68,10 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return sectionHeaderView
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return RESULTS_TABLE_VIEW_SECTION_HEIGHT
+    }
+    
     // MARK: - ResultsCellDelegate
     private func scrollViewOffsetForIndexPath(_ indexPath: IndexPath) -> CGPoint {
         let horizontalOffset = scrollViewOffsets[(indexPath as NSIndexPath).section]

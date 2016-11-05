@@ -57,6 +57,7 @@ let TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 16.0)
 
 let VOTING_TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue", size: 20.0)
 let RESULTS_TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 12.0)
+let RESULTS_TABLE_VIEW_SECTION_HEIGHT : CGFloat = 28
 
 let kSectionTitleInvites = "Invites"
 let kSectionTitleResults = "Results"
