@@ -48,9 +48,18 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
             let imageViewTopic = UIImageView(frame: CGRect(x: x, y: y, width: imageViewWidth, height: imageViewHeight))
             imageViewTopic.contentMode = .scaleAspectFill
             imageViewTopic.image = UIImage(named: "aliya")
+            imageViewTopic.isUserInteractionEnabled = true
+            let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+            doubleTapGestureRecognizer.numberOfTapsRequired = 2
+            imageViewTopic.addGestureRecognizer(doubleTapGestureRecognizer)
             x += (imageViewWidth + trailingSpace)
             scrollView.addSubview(imageViewTopic)
         }
+    }
+    
+    func imageTapped(_ gestureRecognizer: UITapGestureRecognizer) {
+        print("voted!")
+        scrollView.isScrollEnabled = !scrollView.isScrollEnabled // lock scrollView if it's unlocked, unlock scrollView if it's locked
     }
     
     // Mark: - UIScrollViewDelegate
