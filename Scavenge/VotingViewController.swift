@@ -13,12 +13,16 @@ let screenSize: CGRect = UIScreen.main.bounds
 let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
 let cellWidth = screenSize.width - (leadingSpace + trailingSpace)
 
+let sampleContentImagesFromBackend = [UIImage(named: "aliya"), UIImage(named: "sachin"), UIImage(named: "paul")] // TODO: delete this line
 
 class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VotingCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var allVotesSubmitted : Bool = false
+    var hasSubmittedAllVotes : Bool = false
     var scrollViewOffsets : [CGFloat] = []
+    var votedImagesArray : [UIImage?] = []
+    
+    var images : [[UIImage]] = [] // TODO: get data from backend
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.navigationBar.tintColor = UIColor.white
         
         setupScrollViewOffsets()
+        setupVotedImagesArray()
     }
 
     // MARK: - UITableViewDelegate
@@ -77,11 +82,11 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func configureSubmitCell(_ cell: SubmitCell) -> SubmitCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToResultsViewController))
         cell.submitButton.addGestureRecognizer(tapGesture)
-        if (self.allVotesSubmitted) {
+        if (self.hasSubmittedAllVotes) {
             cell.submitButton.isEnabled = true
                 cell.submitButton.alpha = 1.0
             } else {
-            cell.submitButton.isEnabled = true // TODO: replace true with false
+            cell.submitButton.isEnabled = false
                 cell.submitButton.alpha = 0.6
             }
         return cell
@@ -96,9 +101,11 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "photosForTopicCell") as! VotingCell
         cell.delegate = self
         cell.index = (indexPath as NSIndexPath).section
+        cell.images = sampleContentImagesFromBackend as! [UIImage] // TODO: get data from images array, which gets data from backend
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
         let pageNumber = round(cell.scrollView.contentOffset.x / cell.scrollView.frame.size.width)
         cell.pageControl.currentPage = Int(pageNumber)
+        cell.updateUIForVotingState()
         return cell
     }
     
@@ -117,6 +124,27 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func updateScrollPositionForIndexPath(scrollPosition: CGFloat, index: Int) {
         scrollViewOffsets[index] = scrollPosition
+    }
+    
+    func setupVotedImagesArray() {
+        for _ in 0..<NUM_GAME_QUESTIONS {
+            votedImagesArray.append(nil)
+        }
+    }
+    
+    func updateVoteForImageAtIndexPath(_ image: UIImage?, index: Int) {
+        votedImagesArray[index] = image
+        hasSubmittedAllVotes = true
+        for row in 0..<NUM_GAME_QUESTIONS {
+            if (votedImagesArray[row] == nil) {
+                hasSubmittedAllVotes = false
+            }
+        }
+        tableView.reloadSections(IndexSet(integer: NUM_GAME_QUESTIONS), with: .none)
+    }
+    
+    func hasVotedAtIndexPath(_ index: Int) -> Bool {
+        return votedImagesArray[index] !== nil
     }
 
     // MARK: - Navigation
