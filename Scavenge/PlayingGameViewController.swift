@@ -80,7 +80,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         imagePickerController.sourceType = .camera
         imagePickerController.delegate = self
         imagePickerController.showsCameraControls = false
-        imagePickerController.allowsEditing = true
+        imagePickerController.allowsEditing = false
         imagePickerController.cameraFlashMode = .auto
         
         doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(switchDirectionCameraIsFacing))
@@ -176,23 +176,26 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func flashButtonTapped(_ sender: AnyObject) {
+        print("flash: ")
+        imagePickerController.showsCameraControls = true // workaround for cameraflashmode bug in iOS 10
         switch (imagePickerController.cameraFlashMode) {
         case .off:
-            imagePickerController.cameraFlashMode = .on
             cameraFlashButton.setImage(UIImage(named: "flashOnButton"), for: UIControlState())
+            imagePickerController.cameraFlashMode = .on
             print("turning flash on")
             break
         case .on:
-            imagePickerController.cameraFlashMode = .auto
             cameraFlashButton.setImage(UIImage(named: "flashAutoButton"), for: UIControlState())
+            imagePickerController.cameraFlashMode = .auto
             print("turning flash on auto")
             break
         case .auto:
-            imagePickerController.cameraFlashMode = .off
             cameraFlashButton.setImage(UIImage(named: "flashOffButton"), for: UIControlState())
+            imagePickerController.cameraFlashMode = .off
             print("turning flash off")
             break
         }
+        imagePickerController.showsCameraControls = false // workaround for cameraflashmode bug in iOS 10
     }
     
     func switchDirectionCameraIsFacing() {
@@ -287,12 +290,9 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         self.performSegue(withIdentifier: "showVoting", sender: self)
     }
     
-    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Get the new view controller using segue.destinationViewController.
     }
-    */
-
 }
