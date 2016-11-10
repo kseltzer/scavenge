@@ -15,13 +15,18 @@ class SNavigationController: UINavigationController {
         self.navigationBar.barTintColor = NAVIGATION_BAR_TINT_COLOR
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: NAVIGATION_BAR_TEXT_COLOR, NSFontAttributeName: NAVIGATION_BAR_FONT!]
     }
-    
-    override func popViewController(animated: Bool) -> UIViewController? {
-        if (self.topViewController != nil && self.topViewController!.isKind(of: PlayingGameViewController.self)) {
-            self.popToRootViewController(animated: true)
-            return nil
-        } else {
-            return super.popViewController(animated: animated)
-        }
+}
+
+extension UINavigationController {
+    /*
+     This function replaces the current view controller in the navigation stack with a new view controller but animates like a push
+     The back navigation now pops to the root view controller instead of to the current view controller
+     */
+    func replaceStackWithViewController(destinationViewController: UIViewController) {
+        let viewControllers = self.viewControllers
+        var newViewControllers : [UIViewController] = []
+        newViewControllers.append(viewControllers[0]) // preserve the root view controller
+        newViewControllers.append(destinationViewController) // add the new view controller
+        self.setViewControllers(newViewControllers, animated: true) // perform the segue
     }
 }

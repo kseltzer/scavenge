@@ -574,7 +574,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func startButtonTapped(_ sender: UIBarButtonItem) {
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
         let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
-        navigationController?.pushViewController(playingGameViewController!, animated: true)
+        navigationController?.replaceStackWithViewController(destinationViewController: playingGameViewController!)
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {

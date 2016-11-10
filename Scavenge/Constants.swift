@@ -32,7 +32,8 @@ let kMyScavengesViewController = "MyScavengesViewController"
 let kCreateGameViewController = "CreateGameViewController"
 let kPlayingGameViewController = "PlayingGameViewController"
 let kSNavigationController = "SNavigationController"
-let kGameResultsViewControllerIdentifier = "ResultsViewController"
+let kGameResultsViewController = "ResultsViewController"
+let kVotingViewController = "VotingViewController"
 
 // MARK: - Segue Constants
 let kShowMenuSegue = "showMenu"
