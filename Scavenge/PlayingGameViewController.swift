@@ -70,35 +70,36 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             return self.present(alertController, animated: true, completion: nil)
         }
         
-        
         if capturedImage != nil {
             capturedImage = nil
         }
         
-        imagePickerController = UIImagePickerController()
-        imagePickerController.modalPresentationStyle = .currentContext
-        imagePickerController.sourceType = .camera
-        imagePickerController.delegate = self
-        imagePickerController.showsCameraControls = false
-        imagePickerController.allowsEditing = false
-        imagePickerController.cameraFlashMode = .auto
-        
-        doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(switchDirectionCameraIsFacing))
-        doubleTapGestureRecognizer.numberOfTapsRequired = 2
-        imagePickerController.view.addGestureRecognizer(doubleTapGestureRecognizer)
-        
-        Bundle.main.loadNibNamed("CameraOverlayView", owner:self, options:nil)
-        overlayView.frame = imagePickerController.cameraOverlayView!.frame
-        topView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
-        bottomView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
-        selectCapturedImageButton.isHidden = true
-        topicLabel.text = topic
-        imagePickerController.cameraOverlayView = overlayView
-        overlayView = nil
-        
-        
-        
-        self.present(imagePickerController, animated: true, completion: nil)
+        let queue = DispatchQueue(label: "imagePickerQueue")
+        queue.async(qos: .userInitiated) {
+            self.imagePickerController = UIImagePickerController()
+            self.imagePickerController.modalPresentationStyle = .currentContext
+            self.imagePickerController.sourceType = .camera
+            self.imagePickerController.delegate = self
+            self.imagePickerController.showsCameraControls = false
+            self.imagePickerController.allowsEditing = false
+            self.imagePickerController.cameraFlashMode = .auto
+    
+            self.doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.switchDirectionCameraIsFacing))
+            self.doubleTapGestureRecognizer.numberOfTapsRequired = 2
+            self.imagePickerController.view.addGestureRecognizer(self.doubleTapGestureRecognizer)
+            
+            DispatchQueue.main.async {
+                Bundle.main.loadNibNamed("CameraOverlayView", owner:self, options:nil)
+                self.overlayView.frame = self.imagePickerController.cameraOverlayView!.frame
+                self.topView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
+                self.bottomView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
+                self.selectCapturedImageButton.isHidden = true
+                self.topicLabel.text = topic
+                self.imagePickerController.cameraOverlayView = self.overlayView
+                self.overlayView = nil
+                self.present(self.imagePickerController, animated: true, completion: nil)
+            }
+        }
     }
     
     func setupUIForCapturingImage() {
