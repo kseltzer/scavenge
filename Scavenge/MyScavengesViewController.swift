@@ -182,7 +182,7 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
             break
         case TableViewSection.results.rawValue, TableViewSection.completedGames.rawValue:
             let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
-            let resultsViewController = playingGameStoryboard.instantiateViewController(withIdentifier: kGameResultsViewControllerIdentifier)
+            let resultsViewController = playingGameStoryboard.instantiateViewController(withIdentifier: kGameResultsViewController)
             self.navigationController?.pushViewController(resultsViewController, animated: true);
             break
         case TableViewSection.activeGames.rawValue:

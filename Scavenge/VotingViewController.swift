@@ -86,7 +86,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.submitButton.isEnabled = true
                 cell.submitButton.alpha = 1.0
             } else {
-            cell.submitButton.isEnabled = false
+            cell.submitButton.isEnabled = true //TODO: set to false; currently set to true for testing purposes only
                 cell.submitButton.alpha = 0.6
             }
         return cell
@@ -149,7 +149,9 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     // MARK: - Navigation
     func goToResultsViewController() {
-        self.performSegue(withIdentifier: "showGameResults", sender: self)
+        let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
+        let resultsViewController = playingGameStoryboard.instantiateViewController(withIdentifier: kGameResultsViewController)
+        navigationController?.replaceStackWithViewController(destinationViewController: resultsViewController)
     }
     /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation

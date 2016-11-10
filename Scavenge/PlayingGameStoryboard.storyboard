@@ -131,7 +131,7 @@
         <!--Voting-->
         <scene sceneID="GUe-GY-J7K">
             <objects>
-                <viewController title="Voting" automaticallyAdjustsScrollViewInsets="NO" id="pPk-Lz-qMp" customClass="VotingViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VotingViewController" title="Voting" automaticallyAdjustsScrollViewInsets="NO" id="pPk-Lz-qMp" customClass="VotingViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k2z-Xc-kgO"/>
                         <viewControllerLayoutGuide type="bottom" id="kRk-V0-XCH"/>

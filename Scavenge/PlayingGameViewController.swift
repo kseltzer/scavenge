@@ -288,7 +288,9 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     // MARK: - Navigation
 
     func goToVotingViewController() {
-        self.performSegue(withIdentifier: "showVoting", sender: self)
+        let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
+        let votingViewController = playingGameStoryboard.instantiateViewController(withIdentifier: kVotingViewController)
+        navigationController?.replaceStackWithViewController(destinationViewController: votingViewController)
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
