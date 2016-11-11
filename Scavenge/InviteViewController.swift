@@ -211,17 +211,18 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InviteCell
         let friend = sectionContents[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
         cell.nameLabel.text = friend.name
-        
+
         if let urlString = friend.profileImageURL {
-//            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
             DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
                 if let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
                     DispatchQueue.main.async(execute: {
+                        cell.profileImage.circular()
                         cell.profileImage.image = UIImage(data: data)
                     });
                 }
             }
         } else {
+            cell.profileImage.circular()
             // set cell.profileImage to negativeState
         }
         

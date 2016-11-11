@@ -12,3 +12,10 @@ import UIKit
 func customBackBarItem (title: String = "") -> SBarButtonItem {
     return SBarButtonItem(title: title, style: .plain, target: nil, action: nil)
 }
+
+extension UIImageView {
+    func circular() {
+        layer.cornerRadius = frame.height / 2.0
+        clipsToBounds = true
+    }
+}
