@@ -1050,8 +1050,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSv-6k-nCZ" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                <frame key="frameInset" minX="8" minY="72" width="584" height="77"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSv-6k-nCZ" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T3O-qF-NxB" userLabel="Create Game Fields Stack">
                                         <subviews>
@@ -1147,17 +1146,16 @@
                                     <constraint firstAttribute="height" constant="77" id="iCk-bD-Asa"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
-                                <frame key="frameInset" minY="201" width="600" height="399"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.85522942208940833" green="0.94810288714802637" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scavengeFriendCell" rowHeight="54" id="cR7-Sz-a0A" customClass="ScavengeFriendCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cR7-Sz-a0A" id="e1G-rf-7vx">
-                                            <frame key="frameInset" width="600" height="54"/>
+                                            <frame key="frameInset" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-ZW-dc5" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
@@ -1209,10 +1207,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facebookFriendCell" rowHeight="54" id="uO3-q7-OGR" customClass="FacebookFriendCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="82" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="82" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uO3-q7-OGR" id="yDf-4N-Xb9">
-                                            <frame key="frameInset" width="600" height="54"/>
+                                            <frame key="frameInset" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frz-On-7KI" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
@@ -1266,10 +1264,75 @@
                                             <outlet property="profileImage" destination="dvh-iD-fhB" id="3RT-OO-me0"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteViaTextCell" id="KMP-pg-aMa" customClass="InviteViaTextCell">
+                                        <rect key="frame" x="0.0" y="136" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KMP-pg-aMa" id="iA2-ei-XpN">
+                                            <frame key="frameInset" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loK-jL-R32" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Via Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u7-Jy-7OY">
+                                                            <color key="backgroundColor" red="0.57808811199999999" green="1" blue="0.36239426889999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="3u7-Jy-7OY" firstAttribute="leading" secondItem="loK-jL-R32" secondAttribute="leading" id="AcY-nh-vG1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3u7-Jy-7OY" secondAttribute="trailing" id="EUB-3N-Q0X"/>
+                                                        <constraint firstItem="3u7-Jy-7OY" firstAttribute="top" secondItem="loK-jL-R32" secondAttribute="top" id="mEl-uo-daf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="3u7-Jy-7OY" secondAttribute="bottom" id="phb-eF-KgO"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="loK-jL-R32" secondAttribute="bottom" constant="8" id="0UT-af-Ip5"/>
+                                                <constraint firstItem="loK-jL-R32" firstAttribute="leading" secondItem="iA2-ei-XpN" secondAttribute="leading" constant="8" id="6HL-i7-KFW"/>
+                                                <constraint firstAttribute="trailing" secondItem="loK-jL-R32" secondAttribute="trailing" constant="8" id="FhC-gn-EOU"/>
+                                                <constraint firstItem="loK-jL-R32" firstAttribute="top" secondItem="iA2-ei-XpN" secondAttribute="top" id="WdP-F7-HnA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteViaFacebookCell" id="Bph-S3-n4C" customClass="InviteViaFacebookCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="190" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bph-S3-n4C" id="WOO-mp-wTy">
+                                            <frame key="frameInset" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpd-uc-GnA" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Via Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xJ-OT-P2Y">
+                                                            <color key="backgroundColor" red="0.10537041112139137" green="0.16718631527476316" blue="0.56350160256410264" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="7xJ-OT-P2Y" firstAttribute="top" secondItem="rpd-uc-GnA" secondAttribute="top" id="0u7-JG-Rq0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="7xJ-OT-P2Y" secondAttribute="bottom" id="MRR-tV-j9l"/>
+                                                        <constraint firstAttribute="trailing" secondItem="7xJ-OT-P2Y" secondAttribute="trailing" id="TwH-Ed-SPS"/>
+                                                        <constraint firstItem="7xJ-OT-P2Y" firstAttribute="leading" secondItem="rpd-uc-GnA" secondAttribute="leading" id="j9l-Ti-jcA"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="rpd-uc-GnA" secondAttribute="bottom" constant="8" id="FDS-5C-2aW"/>
+                                                <constraint firstItem="rpd-uc-GnA" firstAttribute="top" secondItem="WOO-mp-wTy" secondAttribute="top" id="cfX-Gg-KQH"/>
+                                                <constraint firstAttribute="trailing" secondItem="rpd-uc-GnA" secondAttribute="trailing" constant="8" id="dOQ-Wu-Y1X"/>
+                                                <constraint firstItem="rpd-uc-GnA" firstAttribute="leading" secondItem="WOO-mp-wTy" secondAttribute="leading" constant="8" id="kes-gR-MxX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jc8-TR-Mh0" userLabel="Search Bar View">
-                                <frame key="frameInset" minY="157" width="600" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jc8-TR-Mh0" userLabel="Search Bar View">
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="qOP-0u-aiT"/>
@@ -1323,7 +1386,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2013" y="557"/>
+            <point key="canvasLocation" x="2012" y="555.47226386806597"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yqr-Y4-Nv5">

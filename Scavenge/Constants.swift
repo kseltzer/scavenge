@@ -85,6 +85,8 @@ let CELL_DEFAULT_COLOR = UIColor.white
 
 let kFriendCellIdentifierScavenge = "scavengeFriendCell"
 let kFriendCellIdentifierFacebook = "facebookFriendCell"
+let kInviteViaTextCellIdentifier = "inviteViaTextCell"
+let kInviteViaFacebookCellIdentifier = "inviteViaFacebookCell"
 
 // MARK: - String Constants
 let kErrorTitle = "oops!"

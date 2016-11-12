@@ -150,10 +150,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             return sampleScavengeFriendIDs.count
         case kSectionTitleFriendsNotOnScavenge:
-            if (searchController.isActive && searchController.searchBar.text != "") {
-                return filteredFacebookFriendsIDs.count
-            }
-            return sampleFacebookFriendIDs.count
+//            if (searchController.isActive && searchController.searchBar.text != "") {
+//                return filteredFacebookFriendsIDs.count
+//            }
+//            return sampleFacebookFriendIDs.count
+            return 2
         default:
             return 0
         }
@@ -230,10 +231,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func configureCellInitially(_ indexPath: IndexPath, section: String) -> FriendCell {
+    func configureCellInitially(_ indexPath: IndexPath, section: String) -> UITableViewCell {
         var cell : FriendCell = FriendCell()
         var scavengeFriend : ScavengeFriend
-        var facebookFriend : FacebookFriend
         var friend : Friend
         switch (section) {
         case kSectionTitleRecents:
@@ -261,17 +261,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             friend = scavengeFriend
             break
         case kSectionTitleFriendsNotOnScavenge:
-            cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifierFacebook, for: indexPath) as! FacebookFriendCell
-            if searchController.isActive && searchController.searchBar.text != "" {
-                let id = filteredFacebookFriendsIDs[(indexPath as NSIndexPath).row]
-                facebookFriend = fbFriendDictionary[id]!
+            if (indexPath.row == 0) {
+                return tableView.dequeueReusableCell(withIdentifier: kInviteViaTextCellIdentifier)!
             } else {
-                facebookFriend = fbFriendDictionary[sampleFacebookFriendIDs[(indexPath as NSIndexPath).row]]!
+                return tableView.dequeueReusableCell(withIdentifier: kInviteViaFacebookCellIdentifier)!
             }
-            facebookFriend.invited = false
-            fbFriendDictionary[facebookFriend.id] = facebookFriend
-            friend = facebookFriend
-            break
         default:
             return cell
         }
@@ -282,10 +276,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    func configureCell(_ indexPath: IndexPath, section: String) -> FriendCell {
+    func configureCell(_ indexPath: IndexPath, section: String) -> UITableViewCell {
         var cell : FriendCell = FriendCell()
         var scavengeFriend : ScavengeFriend
-        var facebookFriend : FacebookFriend
         var friend : Friend
         switch (section) {
         case kSectionTitleRecents:
@@ -319,20 +312,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             friend = scavengeFriend
             break
         case kSectionTitleFriendsNotOnScavenge:
-            cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifierFacebook, for: indexPath) as! FacebookFriendCell
-            if searchController.isActive && searchController.searchBar.text != "" {
-                let id = filteredFacebookFriendsIDs[(indexPath as NSIndexPath).row]
-                facebookFriend = fbFriendDictionary[id]!
+            if (indexPath.row == 0) {
+                return tableView.dequeueReusableCell(withIdentifier: kInviteViaTextCellIdentifier)!
             } else {
-                facebookFriend = fbFriendDictionary[sampleFacebookFriendIDs[(indexPath as NSIndexPath).row]]!
+                return tableView.dequeueReusableCell(withIdentifier: kInviteViaFacebookCellIdentifier)!
             }
-            if (facebookFriend.invited) {
-                cell.setSelectedAppearance()
-            } else {
-                cell.setDeselectedAppearance()
-            }
-            friend = facebookFriend
-            break
         default:
             return cell
         }
@@ -403,8 +387,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         else {
-            let cell = tableView.cellForRow(at: indexPath) as! FacebookFriendCell
-            self.selectedFacebookFriend = fbFriendDictionary[cell.userID]!
             self.inviteFriend()
         }
         
