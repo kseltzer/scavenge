@@ -277,6 +277,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.userID = friend.id
         cell.nameLabel.text = friend.name
+        cell.profileImage.layoutIfNeeded()
+        cell.profileImage.circular()
         cell.profileImage.image = friend.profileImage
         cell.setDeselectedAppearance()
         return cell
