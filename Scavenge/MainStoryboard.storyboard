@@ -1342,12 +1342,12 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="profileImageViewFriend1" destination="eC9-jz-KZf" id="Zu0-rb-91X"/>
-                        <outlet property="profileImageViewFriend2" destination="VQQ-2N-1rB" id="iRz-d5-1YG"/>
-                        <outlet property="profileImageViewFriend3" destination="PSL-zh-cWV" id="Lkv-mD-xQz"/>
-                        <outlet property="profileImageViewFriend4" destination="ece-qn-jEr" id="UwC-1w-QLP"/>
-                        <outlet property="profileImageViewFriend5" destination="5TB-DZ-SHH" id="Ib4-JJ-VPn"/>
-                        <outlet property="profileImageViewUser" destination="h0t-TS-Vom" id="pDP-1f-OsY"/>
+                        <outlet property="profileImageViewFriend1" destination="vG4-zP-z6u" id="Aem-7k-ip4"/>
+                        <outlet property="profileImageViewFriend2" destination="SIJ-5R-UKm" id="NS7-Uo-gdn"/>
+                        <outlet property="profileImageViewFriend3" destination="jHM-bL-Rql" id="7kQ-cS-PF5"/>
+                        <outlet property="profileImageViewFriend4" destination="BaR-DG-A7I" id="aKn-OA-8HB"/>
+                        <outlet property="profileImageViewFriend5" destination="4SY-NO-oa8" id="yZW-n8-qZY"/>
+                        <outlet property="profileImageViewUser" destination="Ym4-wz-kQO" id="UOg-fl-o42"/>
                         <outlet property="profileImagesStackViewBottomConstraint" destination="LzA-uN-whz" id="ZxY-we-zKm"/>
                         <outlet property="profileImagesStackViewLeadingConstraint" destination="oq6-se-Qz5" id="A16-eH-7lc"/>
                         <outlet property="profileImagesStackViewTopConstraint" destination="fTN-fC-hMd" id="h6O-Ty-aCV"/>
