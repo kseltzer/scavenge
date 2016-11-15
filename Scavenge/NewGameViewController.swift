@@ -60,7 +60,7 @@ var fbFriendDictionary = fbFriendDictionaryFromAPI
 let smsInviteBody: String = "Hey! Long time no talk hahaha :) no but seriously I found this really fun app called Scavenge. Kind of a stupid name but it's actually a good game. You should download it so we can play."
 let cannotAddAdditionalPlayersMessage = "ya can't have more than \(MAX_PLAYERS) players\nin a game"
 
-class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, UITextFieldDelegate, UISearchResultsUpdating {
+class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, UITextFieldDelegate, UISearchResultsUpdating, MagnifiedProfileImageViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -80,6 +80,14 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileImagesStackViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImagesStackViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImagesStackViewBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var overlayView: UIView!
+    
+    var magnifiedPlayerName: String?
+    var magnifiedPlayerImage: UIImage?
+    var magnifiedPlayerIndex: Int?
+    
+    var selectedScavengeFriends : [ScavengeFriend] = []
     
     var selectedFriendsHeaderIndices : [Int] = [5, 4, 3, 2, 1]
     var selectedFriendsFirstNames : [String] = []
@@ -373,6 +381,50 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    @IBAction func didTapBottomProfileImage(_ sender: AnyObject) {
+        print("tapped")
+        overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        print("tag: \(sender.tag)")
+        self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)
+    }
+    
+    @IBAction func tappedProfileImage2(_ sender: AnyObject) {
+        magnifiedPlayerImage = profileImageViewFriend1.image
+        overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        print("tag: 2")
+        self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)
+    }
+    
+    @IBAction func tappedProfileImage3(_ sender: AnyObject) {
+        magnifiedPlayerImage = profileImageViewFriend2.image
+        overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        print("tag: 3")
+        self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)
+    }
+    
+    @IBAction func tappedProfileImage4(_ sender: AnyObject) {
+        magnifiedPlayerImage = profileImageViewFriend3.image
+        overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        print("tag: 4)")
+        self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)
+    }
+    
+    @IBAction func tappedProfileImage5(_ sender: AnyObject) {
+        magnifiedPlayerImage = profileImageViewFriend4.image
+        overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        print("tag: 5")
+        self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)
+    }
+    
+    @IBAction func tappedProfileImage6(_ sender: AnyObject) {
+        magnifiedPlayerImage = profileImageViewFriend5.image
+        overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        print("tag: 6")
+        self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)
+    }
+    
+    
+    
     func handleAddRemoveFriend(_ friend : ScavengeFriend, indexPath : IndexPath) -> ScavengeFriend? {
         var scavengeFriend = friend
         if scavengeFriend.addedToGame {                                                     // remove friend
@@ -601,6 +653,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.reloadData()
     }
     
+    // MARK: - MagnifiedProfileImageViewDelegate
+    func hideOverlayView() {
+        overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+    }
+    
+    func xButtonTapped() {
+        print("x button tapped")
+    }
+    
+    func checkmarkButtonTapped() {
+        print("checkmark button tapped")
+    }
+    
     // MARK: - Segue
     @IBAction func startButtonTapped(_ sender: UIBarButtonItem) {
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
@@ -611,4 +676,17 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func willMove(toParentViewController parent: UIViewController?) {
         self.isInitialCellConfiguration = true
     }
+    
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+        if let destinationViewController = segue.destination as? MagnifiedProfileImageViewController {
+            destinationViewController.playerImage = magnifiedPlayerImage
+            destinationViewController.playerName = "Paul Goetz"
+            destinationViewController.delegate = self
+        }
+     }
 }

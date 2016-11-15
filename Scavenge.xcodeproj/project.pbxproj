@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */; };
 		4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1011D11D73BE4E00662E9F /* MenuViewController.swift */; };
 		4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */; };
 		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnifiedProfileImageViewController.swift; sourceTree = "<group>"; };
 		4E033FE11DCD164300824D7E /* Scavenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scavenge.entitlements; sourceTree = "<group>"; };
 		4E1011D11D73BE4E00662E9F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				4EB640811D751B4B00EA308D /* TourViewController.swift */,
 				4EB6408D1D76397700EA308D /* AboutViewController.swift */,
 				4EB6408F1D763AAC00EA308D /* InviteViewController.swift */,
+				4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				4EB6407C1D73D42500EA308D /* HideMenuAnimator.swift in Sources */,
 				4E2277F81D33171800E22436 /* SBarButtonItem.swift in Sources */,
 				4E2705421D4C4FD400052671 /* Friend.swift in Sources */,
+				4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */,
 				4EB6408A1D755A2900EA308D /* MenuButton.swift in Sources */,
 				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
 				4E2277D71D32D29400E22436 /* Constants.swift in Sources */,
