@@ -75,6 +75,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileImageViewFriend4: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend5: ProfileImageView!
     
+    @IBOutlet weak var profileImagesViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profileImagesStackViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profileImagesStackViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profileImagesStackViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profileImagesStackViewBottomConstraint: NSLayoutConstraint!
+    
     var selectedFriendsHeaderIndices : [Int] = [5, 4, 3, 2, 1]
     var selectedFriendsFirstNames : [String] = []
     var selectedFacebookFriendCell : FacebookFriendCell?
@@ -111,6 +117,29 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         titleTextField.delegate = self
         titleTextField.placeholder = gameTitle
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        switch (screenSize.width) {
+        case iPHONE_6, iPHONE_6S, iPHONE_7, iPHONE_7S:
+            profileImagesViewHeightConstraint.constant = 66.0
+            break
+        case iPHONE_SE, iPHONE_5, iPHONE_5S:
+            profileImagesViewHeightConstraint.constant = 58.0
+            profileImagesStackViewLeadingConstraint.constant = 4.0
+            profileImagesStackViewTrailingConstraint.constant = 4.0
+            profileImagesStackViewTopConstraint.constant = 6.0
+            profileImagesStackViewBottomConstraint.constant = 6.0
+            break
+        case iPHONE_6_PLUS, iPHONE_7_PLUS:
+            profileImagesViewHeightConstraint.constant = 68.0
+            profileImagesStackViewLeadingConstraint.constant = 14.0
+            profileImagesStackViewTrailingConstraint.constant = 14.0
+            profileImagesStackViewTopConstraint.constant = 10.0
+            profileImagesStackViewBottomConstraint.constant = 10.0
+            break
+        default:
+            break
+        }
     }
     
     func setupSearchController() {

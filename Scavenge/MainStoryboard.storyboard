@@ -1142,17 +1142,16 @@
                                     <constraint firstAttribute="height" constant="77" id="iCk-bD-Asa"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
-                                <frame key="frameInset" minY="201" width="600" height="399"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.85522942208940833" green="0.94810288714802637" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scavengeFriendCell" rowHeight="54" id="cR7-Sz-a0A" customClass="ScavengeFriendCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cR7-Sz-a0A" id="e1G-rf-7vx">
-                                            <frame key="frameInset" width="600" height="54"/>
+                                            <frame key="frameInset" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-ZW-dc5" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
@@ -1204,10 +1203,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facebookFriendCell" rowHeight="54" id="uO3-q7-OGR" customClass="FacebookFriendCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="82" width="600" height="54"/>
+                                        <rect key="frame" x="0.0" y="82" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uO3-q7-OGR" id="yDf-4N-Xb9">
-                                            <frame key="frameInset" width="600" height="54"/>
+                                            <frame key="frameInset" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frz-On-7KI" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
@@ -1269,6 +1268,52 @@
                                     <constraint firstAttribute="height" constant="44" id="qOP-0u-aiT"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6PM-81-vAs" userLabel="Profile Images View">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="9Ek-ah-ns9" userLabel="Profile Images Stack View">
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="Ym4-wz-kQO" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Ym4-wz-kQO" secondAttribute="height" multiplier="1:1" id="8LV-3L-dnm"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="vG4-zP-z6u" secondAttribute="height" multiplier="1:1" id="UCo-WF-d2d"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="SIJ-5R-UKm" secondAttribute="height" multiplier="1:1" id="Y9S-2Q-EAS"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="jHM-bL-Rql" secondAttribute="height" multiplier="1:1" id="TOb-p7-bNT"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="BaR-DG-A7I" secondAttribute="height" multiplier="1:1" id="i52-DQ-gkW"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="4SY-NO-oa8" secondAttribute="height" multiplier="1:1" id="cDI-Gm-Sj3"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="ByS-tC-9zJ" userLabel="View Height"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Ek-ah-ns9" secondAttribute="bottom" constant="10" id="LzA-uN-whz" userLabel="Bottom Constraint"/>
+                                    <constraint firstItem="9Ek-ah-ns9" firstAttribute="top" secondItem="6PM-81-vAs" secondAttribute="top" constant="10" id="fTN-fC-hMd" userLabel="Top Constraint"/>
+                                    <constraint firstItem="9Ek-ah-ns9" firstAttribute="leading" secondItem="6PM-81-vAs" secondAttribute="leading" constant="14" id="oq6-se-Qz5" userLabel="Leading Constraint"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Ek-ah-ns9" secondAttribute="trailing" constant="14" id="zpo-f6-tnl" userLabel="Trailing Constraint"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1279,7 +1324,10 @@
                             <constraint firstItem="jc8-TR-Mh0" firstAttribute="top" secondItem="mSv-6k-nCZ" secondAttribute="bottom" constant="8" id="Qxf-FB-19R"/>
                             <constraint firstItem="66F-xm-mkX" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="TZ7-qK-Agg"/>
                             <constraint firstItem="66F-xm-mkX" firstAttribute="top" secondItem="jc8-TR-Mh0" secondAttribute="bottom" id="YaX-YI-DXu"/>
+                            <constraint firstAttribute="trailing" secondItem="6PM-81-vAs" secondAttribute="trailing" id="k8V-t3-1YN"/>
+                            <constraint firstItem="6PM-81-vAs" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="oMA-kf-jkY"/>
                             <constraint firstAttribute="trailing" secondItem="jc8-TR-Mh0" secondAttribute="trailing" id="qOd-qy-zCe"/>
+                            <constraint firstAttribute="bottom" secondItem="6PM-81-vAs" secondAttribute="bottom" id="tqB-nx-8rS"/>
                             <constraint firstItem="eX7-wd-3RR" firstAttribute="top" secondItem="66F-xm-mkX" secondAttribute="bottom" id="wvE-Ot-3ou"/>
                             <constraint firstItem="mSv-6k-nCZ" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" constant="8" id="ycB-AB-sIA"/>
                         </constraints>
@@ -1300,6 +1348,11 @@
                         <outlet property="profileImageViewFriend4" destination="ece-qn-jEr" id="UwC-1w-QLP"/>
                         <outlet property="profileImageViewFriend5" destination="5TB-DZ-SHH" id="Ib4-JJ-VPn"/>
                         <outlet property="profileImageViewUser" destination="h0t-TS-Vom" id="pDP-1f-OsY"/>
+                        <outlet property="profileImagesStackViewBottomConstraint" destination="LzA-uN-whz" id="ZxY-we-zKm"/>
+                        <outlet property="profileImagesStackViewLeadingConstraint" destination="oq6-se-Qz5" id="A16-eH-7lc"/>
+                        <outlet property="profileImagesStackViewTopConstraint" destination="fTN-fC-hMd" id="h6O-Ty-aCV"/>
+                        <outlet property="profileImagesStackViewTrailingConstraint" destination="zpo-f6-tnl" id="o8W-pN-Wvm"/>
+                        <outlet property="profileImagesViewHeightConstraint" destination="ByS-tC-9zJ" id="8Wz-xh-GQS"/>
                         <outlet property="searchBarView" destination="jc8-TR-Mh0" id="j7I-S2-NY7"/>
                         <outlet property="searchDisplayController" destination="VEI-4H-SYh" id="EYy-iG-O3w"/>
                         <outlet property="startButton" destination="BKk-Ze-Clt" id="QYd-4l-cbv"/>
@@ -1317,7 +1370,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2013" y="557"/>
+            <point key="canvasLocation" x="2012" y="555.47226386806597"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yqr-Y4-Nv5">
@@ -1348,6 +1401,7 @@
         <image name="fbProfilePic" width="960" height="960"/>
         <image name="kimNegativeState" width="222" height="222"/>
         <image name="paul" width="441" height="441"/>
+        <image name="profilePicNegativeState" width="1290" height="1290"/>
         <image name="sachin" width="1575" height="1575"/>
         <image name="sachinNegativeState" width="222" height="222"/>
         <image name="uncheckedBox" width="626" height="626"/>
