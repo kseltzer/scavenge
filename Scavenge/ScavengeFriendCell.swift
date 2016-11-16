@@ -25,5 +25,9 @@ class ScavengeFriendCell: FriendCell {
         super.setDeselectedAppearance()
         checkmarkBox.image = UIImage(named: "uncheckedBox")
     }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        // overridden so users can't touch and drag on cells to unhighlight them
+    }
 
 }
