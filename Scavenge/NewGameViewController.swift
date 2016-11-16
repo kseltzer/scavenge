@@ -714,10 +714,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         print(selectedScavengeFriends)
     }
     
-    func checkmarkButtonTapped() {
-        print("checkmark button tapped")
-    }
-    
     // MARK: - Segue
     @IBAction func startButtonTapped(_ sender: UIBarButtonItem) {
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)

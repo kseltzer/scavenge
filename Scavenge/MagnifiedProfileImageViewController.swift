@@ -10,7 +10,6 @@ import UIKit
 
 protocol MagnifiedProfileImageViewDelegate {
     func xButtonTapped()
-    func checkmarkButtonTapped()
     func hideOverlayView()
 }
 
@@ -62,8 +61,6 @@ class MagnifiedProfileImageViewController: UIViewController {
     
     @IBAction func checkmarkButtonTapped(_ sender: AnyObject) {
         delegate.hideOverlayView()
-        self.dismiss(animated: true, completion: {() -> Void in
-            self.delegate.checkmarkButtonTapped()
-        })
+        self.dismiss(animated: true, completion: nil)
     }
 }
