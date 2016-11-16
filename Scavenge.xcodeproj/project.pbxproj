@@ -37,10 +37,7 @@
 		4E2278181D41EB5B00E22436 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2278171D41EB5B00E22436 /* NewGameViewController.swift */; };
 		4E22781E1D42030000E22436 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22781D1D42030000E22436 /* FriendCell.swift */; };
 		4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */; };
-		4E27053B1D49DB7600052671 /* FacebookFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */; };
 		4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */; };
-		4E2705401D4B432200052671 /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053F1D4B432200052671 /* FacebookFriend.swift */; };
-		4E2705421D4C4FD400052671 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705411D4C4FD400052671 /* Friend.swift */; };
 		4E6D98431D56CBF9007DEFAB /* VotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D98421D56CBF9007DEFAB /* VotingCell.swift */; };
 		4E6EA4F51D4E93E00022127B /* CameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */; };
 		4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA238491D779BBE00BD278B /* ResultsViewController.swift */; };
@@ -62,7 +59,6 @@
 		4EB640921D77617100EA308D /* RightToLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640911D77617100EA308D /* RightToLeftAnimator.swift */; };
 		4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */; };
 		4EC034AA1D87BBE400C6D346 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC034A91D87BBE400C6D346 /* FBSDKMessengerShareKit.framework */; };
-		4ED06E831D7FA2DB006C4B77 /* FacebookInviteFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED06E821D7FA2DB006C4B77 /* FacebookInviteFriend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,10 +115,7 @@
 		4E2278171D41EB5B00E22436 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		4E22781D1D42030000E22436 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriendCell.swift; sourceTree = "<group>"; };
-		4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriendCell.swift; sourceTree = "<group>"; };
 		4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriend.swift; sourceTree = "<group>"; };
-		4E27053F1D4B432200052671 /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
-		4E2705411D4C4FD400052671 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		4E6D98421D56CBF9007DEFAB /* VotingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingCell.swift; sourceTree = "<group>"; };
 		4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayView.xib; sourceTree = "<group>"; };
 		4EA238491D779BBE00BD278B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +137,6 @@
 		4EB640911D77617100EA308D /* RightToLeftAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeftAnimator.swift; sourceTree = "<group>"; };
 		4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
 		4EC034A91D87BBE400C6D346 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
-		4ED06E821D7FA2DB006C4B77 /* FacebookInviteFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookInviteFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,7 +361,6 @@
 				4E2278151D41E4C500E22436 /* RoundedBorderedView.swift */,
 				4E22781D1D42030000E22436 /* FriendCell.swift */,
 				4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */,
-				4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */,
 				4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */,
 			);
 			name = "Create Game";
@@ -379,9 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */,
-				4E27053F1D4B432200052671 /* FacebookFriend.swift */,
-				4E2705411D4C4FD400052671 /* Friend.swift */,
-				4ED06E821D7FA2DB006C4B77 /* FacebookInviteFriend.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -551,7 +539,6 @@
 			files = (
 				4E2278141D41DE2100E22436 /* ProfileImageView.swift in Sources */,
 				4EB640901D763AAC00EA308D /* InviteViewController.swift in Sources */,
-				4E2705401D4B432200052671 /* FacebookFriend.swift in Sources */,
 				4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */,
 				4EB640781D73C41900EA308D /* MenuHelper.swift in Sources */,
 				4EA238501D7F6E3600BD278B /* InviteCell.swift in Sources */,
@@ -576,20 +563,17 @@
 				4EB640761D73C38F00EA308D /* InteractiveMenuTransition.swift in Sources */,
 				4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */,
 				4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */,
-				4E27053B1D49DB7600052671 /* FacebookFriendCell.swift in Sources */,
 				4E2277E91D32E5DB00E22436 /* SNavigationController.swift in Sources */,
 				4EB6408E1D76397700EA308D /* AboutViewController.swift in Sources */,
 				4E2278071D3748B500E22436 /* PlayingGameViewController.swift in Sources */,
 				4EB6407C1D73D42500EA308D /* HideMenuAnimator.swift in Sources */,
 				4E00865C1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift in Sources */,
 				4E2277F81D33171800E22436 /* SBarButtonItem.swift in Sources */,
-				4E2705421D4C4FD400052671 /* Friend.swift in Sources */,
 				4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */,
 				4EB6408A1D755A2900EA308D /* MenuButton.swift in Sources */,
 				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
 				4E2277D71D32D29400E22436 /* Constants.swift in Sources */,
 				4E22781E1D42030000E22436 /* FriendCell.swift in Sources */,
-				4ED06E831D7FA2DB006C4B77 /* FacebookInviteFriend.swift in Sources */,
 				4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -332,6 +332,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.userID = scavengeFriend.id
         cell.nameLabel.text = scavengeFriend.name
+        cell.profileImage.layoutIfNeeded()
+        cell.profileImage.circular()
         cell.profileImage.image = scavengeFriend.profileImage
         return cell
     }
@@ -343,7 +345,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func showMagnifiedProfileImage(index: Int) {
-        if (selectedScavengeFriends[index] != nil) {
+        if (selectedScavengeFriends[index] != nil && !searchController.isActive) {
             magnifiedPlayerIndex = index
             overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
             self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct ScavengeFriend : Friend
+struct ScavengeFriend
 {
     var name : String
     var id : String

@@ -1129,64 +1129,6 @@
                                             <outlet property="profileImage" destination="CeM-Yr-CeQ" id="QlK-Dn-hOP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facebookFriendCell" rowHeight="54" id="uO3-q7-OGR" customClass="FacebookFriendCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="82" width="375" height="54"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uO3-q7-OGR" id="yDf-4N-Xb9">
-                                            <frame key="frameInset" width="375" height="54"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frz-On-7KI" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="dvh-iD-fhB">
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="dvh-iD-fhB" secondAttribute="height" multiplier="1:1" id="R0a-ts-pMV"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="invite" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAN-3A-U7H">
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="21" id="0tn-Dt-0Ec"/>
-                                                                <constraint firstAttribute="width" constant="50" id="a8a-d1-gu5"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ FirstName LastName }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGA-Q2-3eL">
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="TYI-cM-Dts"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="kGA-Q2-3eL" firstAttribute="centerY" secondItem="frz-On-7KI" secondAttribute="centerY" id="2pj-cR-FdA"/>
-                                                        <constraint firstItem="kGA-Q2-3eL" firstAttribute="leading" secondItem="dvh-iD-fhB" secondAttribute="trailing" constant="16" id="FI8-SS-WVF"/>
-                                                        <constraint firstItem="dvh-iD-fhB" firstAttribute="top" secondItem="frz-On-7KI" secondAttribute="top" constant="4" id="GAx-XR-lMm"/>
-                                                        <constraint firstAttribute="bottom" secondItem="dvh-iD-fhB" secondAttribute="bottom" constant="4" id="SZL-oc-pot"/>
-                                                        <constraint firstAttribute="trailing" secondItem="EAN-3A-U7H" secondAttribute="trailing" constant="16" id="rw9-Dl-AHN"/>
-                                                        <constraint firstItem="dvh-iD-fhB" firstAttribute="leading" secondItem="frz-On-7KI" secondAttribute="leading" constant="8" id="sUv-Jx-qEI"/>
-                                                        <constraint firstItem="EAN-3A-U7H" firstAttribute="leading" secondItem="kGA-Q2-3eL" secondAttribute="trailing" constant="8" id="wcE-Kk-KuL"/>
-                                                        <constraint firstItem="EAN-3A-U7H" firstAttribute="centerY" secondItem="frz-On-7KI" secondAttribute="centerY" id="yVg-p8-TwK"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="frz-On-7KI" firstAttribute="top" secondItem="yDf-4N-Xb9" secondAttribute="top" id="9hE-1B-DfM"/>
-                                                <constraint firstItem="frz-On-7KI" firstAttribute="leading" secondItem="yDf-4N-Xb9" secondAttribute="leading" constant="8" id="Fwy-UM-Irh"/>
-                                                <constraint firstAttribute="trailing" secondItem="frz-On-7KI" secondAttribute="trailing" constant="8" id="HLK-is-hX2"/>
-                                                <constraint firstAttribute="bottom" secondItem="frz-On-7KI" secondAttribute="bottom" constant="8" id="Wsz-I7-L46"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="customView" destination="frz-On-7KI" id="YBX-sS-iZ7"/>
-                                            <outlet property="inviteLabel" destination="EAN-3A-U7H" id="Y8d-2B-g5h"/>
-                                            <outlet property="nameLabel" destination="kGA-Q2-3eL" id="DlA-hJ-MNm"/>
-                                            <outlet property="profileImage" destination="dvh-iD-fhB" id="3RT-OO-me0"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jc8-TR-Mh0" userLabel="Search Bar View">
