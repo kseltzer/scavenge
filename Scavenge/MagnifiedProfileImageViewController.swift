@@ -32,10 +32,21 @@ class MagnifiedProfileImageViewController: UIViewController {
         super.viewDidLoad()
         magnifiedProfileImageView.layer.cornerRadius = 13
         imageView.layoutIfNeeded()
-        imageView.layer.cornerRadius = imageView.frame.height / 2.0
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.borderWidth = 4.0
         imageView.image = playerImage
+        let maskPath = UIBezierPath(arcCenter: CGPoint(x: imageView.bounds.size.width/2, y: imageView.bounds.size.height/2), radius: (imageView.frame.size.width / 2.0) - 0.5, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: false)
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = maskPath.cgPath
+        maskLayer.strokeColor = UIColor.white.cgColor
+        imageView.layer.mask = maskLayer
+        imageView.layer.masksToBounds = true
+        let borderShape = CAShapeLayer()
+        borderShape.frame = imageView.layer.bounds
+        borderShape.path = maskPath.cgPath
+        borderShape.strokeColor = UIColor.white.cgColor
+        borderShape.fillColor = nil
+        borderShape.lineWidth = 4.0
+        imageView.layer.addSublayer(borderShape)
+        
         nameLabel.text = playerName
         checkmarkButton.layoutIfNeeded()
         checkmarkButton.layer.cornerRadius = checkmarkButton.frame.height / 2.0

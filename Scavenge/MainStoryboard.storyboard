@@ -197,7 +197,7 @@
                                                             <frame key="frameInset" minX="8" width="343" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xf-F6-AFG" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Bsu-H2-o6v" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="92" height="58"/>
@@ -346,7 +346,7 @@
                                                             <frame key="frameInset" minX="24" width="327" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vP8-QS-BU9" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="60" height="60"/>
+                                                                    <frame key="frameInset" minY="9" width="60" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Mda-sx-SVD" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="60" height="58"/>
@@ -471,7 +471,7 @@
                                                             <frame key="frameInset" minX="24" width="327" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pkn-we-rbe" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nzS-UO-vLz" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="60" height="58"/>
@@ -596,7 +596,7 @@
                                                             <frame key="frameInset" minX="8" width="343" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yR3-gK-5ze" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-ea-Uej" userLabel="Top Player Images Stack">
                                                                             <frame key="frameInset" minY="16" width="92" height="28"/>
@@ -697,7 +697,7 @@
                                                             <frame key="frameInset" minX="8" width="343" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySn-4k-dgK" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Coe-aT-eEI" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="92" height="58"/>
@@ -855,7 +855,7 @@
                                                             <frame key="frameInset" minX="8" width="343" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNK-Zz-lgv" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="XRj-4v-NRJ" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="92" height="58"/>
