@@ -84,9 +84,19 @@ let CELL_HIGHLIGHTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255
 let CELL_DEFAULT_COLOR = UIColor.white
 
 let kFriendCellIdentifierScavenge = "scavengeFriendCell"
-let kFriendCellIdentifierFacebook = "facebookFriendCell"
 
 // MARK: - String Constants
 let kErrorTitle = "oops!"
 let kSMSFailureMessage = "SMS services are not available on your device. We tried to help you, but you let us down :/"
 let kAcceptFaultErrorMessage = "my bad"
+
+// MARK: - Screen Size Constants
+let iPHONE_5: CGFloat = 320.0
+let iPHONE_5S: CGFloat = 320.0
+let iPHONE_6: CGFloat = 375.0
+let iPHONE_6_PLUS: CGFloat = 414.0
+let iPHONE_6S: CGFloat = 375.0
+let iPHONE_7: CGFloat = 375.0
+let iPHONE_7_PLUS: CGFloat = 414.0
+let iPHONE_7S: CGFloat = 375.0
+let iPHONE_SE: CGFloat = 320.0

@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
-struct ScavengeFriend : Friend
+struct ScavengeFriend
 {
     var name : String
     var id : String
-    var profileImage: UIImage
-    var firstName: String
+    var profileImage : UIImage
+    var firstName : String
     var addedToGame : Bool
-    var headerIndex : Int?    
+    var headerIndex : Int?
+    var indexPath : IndexPath?
 }

@@ -23,9 +23,6 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let searchController = UISearchController(searchResultsController: nil)
     let indexTitles = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "#"];
     var sectionTitles : [String] = []
-    var sectionContents : [[FacebookInviteFriend]] = []
-    var fbFriends : [FacebookInviteFriend] = []
-    var filteredFBFriends : [FacebookInviteFriend] = []
     var invitedFriendsIndices: [IndexPath] = []
     
     override func viewDidLoad() {
@@ -35,66 +32,6 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         setupTableViewIndex()
         setupSearchController()
-        getUserFriends()
-    }
-    
-    func getUserFriends() {
-        let params = ["fields": "id, name, picture"]
-        let request = FBSDKGraphRequest(graphPath: "me/taggable_friends?limit=5000", parameters: params)
-        let connection = FBSDKGraphRequestConnection()
-        connection.add(request, completionHandler: { (connection, result, error) in
-            
-            if error != nil {
-                let errorMessage = error?.localizedDescription
-                print("Error: ", errorMessage)
-            } else if let resultDict = result as? NSDictionary {
-                if let resultArray = resultDict["data"] as? [[String:Any]] {
-                    for friend in resultArray {
-                        if let  name = friend["name"] as? String, let id = friend["id"] as? String {
-                            var hasNegativeStateImage : Bool = false, url : String? = nil
-                            if let pictureDict = friend["picture"] as? NSDictionary {
-                                if let pictureData = pictureDict["data"] as? NSDictionary {
-                                    hasNegativeStateImage = (pictureData["is_silhouette"] as? Bool)!
-                                    url = pictureData["url"] as? String
-                                }
-                            }
-                            let contact = FacebookInviteFriend(name: name, id: id, profileImageURL: url, hasNegativeStateImage: hasNegativeStateImage, invited: false)
-                            self.fbFriends.append(contact)
-                        }
-                    }
-                }
-                self.fbFriends.sort(by: { $0.name < $1.name })
-                self.configureSections()
-            }
-        })
-        
-        connection.start()
-//        request?.start { (connection, result, error) -> Void in
-//            
-//            if error != nil {
-//                let errorMessage = error?.localizedDescription
-//                print("Error: ", errorMessage)
-//            }
-//            else if let resultDict = result as? NSDictionary {
-//                if let resultArray = resultDict["data"] as? NSArray {
-//                    for friend in resultArray {
-//                        if let  name = friend["name"] as? String, let id = friend["id"] as? String {
-//                            var hasNegativeStateImage : Bool = false, url : String? = nil
-//                            if let pictureDict = friend["picture"] as? NSDictionary {
-//                                if let pictureData = pictureDict["data"] as? NSDictionary {
-//                                    hasNegativeStateImage = (pictureData["is_silhouette"] as? Bool)!
-//                                    url = pictureData["url"] as? String
-//                                }
-//                            }
-//                            let contact = FacebookInviteFriend(name: name, id: id, profileImageURL: url, hasNegativeStateImage: hasNegativeStateImage, invited: false)
-//                            self.fbFriends.append(contact)
-//                        }
-//                    }
-//                }
-//                self.fbFriends.sort(by: { $0.name < $1.name })
-//                self.configureSections()
-//            }
-//        }
     }
     
     func setupSearchController() {
@@ -105,39 +42,6 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchBarView.addSubview(searchController.searchBar)
         searchController.loadViewIfNeeded()
         searchController.hidesNavigationBarDuringPresentation = false
-    }
-    
-    func configureSections() {
-        var friendsList : [FacebookInviteFriend] = []
-        sectionTitles = []
-        sectionContents = []
-        
-        if (searchController.isActive && searchController.searchBar.text != "") {
-            friendsList = filteredFBFriends
-        } else {
-            friendsList = fbFriends
-        }
-        
-        var nonAlphabetList : [FacebookInviteFriend] = []
-        for contact in friendsList {
-            if let firstLetterCharacter = contact.name.characters.first {
-                let firstLetterString = String(firstLetterCharacter)
-                if (indexTitles.index(of: firstLetterString) == nil) || (indexTitles.index(of: firstLetterString) == indexTitles.count-1) { // first letter is a #
-                    nonAlphabetList.append(contact)
-                } else if sectionTitles.contains(firstLetterString) {
-                    sectionContents[sectionContents.count-1].append(contact)
-                } else {
-                    sectionTitles.append(firstLetterString)
-                    sectionContents.append([contact])
-                }
-                
-            }
-        }
-        if !nonAlphabetList.isEmpty {
-            sectionTitles.append("#")
-            sectionContents.append(nonAlphabetList)
-        }
-        tableView.reloadData()
     }
     
     func setupTableViewIndex() {
@@ -194,43 +98,11 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
-    }
-    
-    func filterContentForSearchText(_ searchText: String) {
-        filteredFBFriends = []
-        filteredFBFriends = fbFriends.filter { friend in
-            return friend.name.lowercased().contains(searchText.lowercased())
-        }
-        
-        configureSections()
     }
     
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InviteCell
-        let friend = sectionContents[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
-        cell.nameLabel.text = friend.name
-        
-        if let urlString = friend.profileImageURL {
-//            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
-            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-                if let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
-                    DispatchQueue.main.async(execute: {
-                        cell.profileImage.image = UIImage(data: data)
-                    });
-                }
-            }
-        } else {
-            // set cell.profileImage to negativeState
-        }
-        
-        if invitedFriendsIndices.index(of: indexPath) != nil {
-            cell.setSelectedAppearance()
-        } else {
-            cell.setDeselectedAppearance()
-        }
-        
         return cell
     }
     
@@ -251,7 +123,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionContents[section].count
+        return 0
     }
 
     /*
