@@ -17,4 +17,5 @@ struct ScavengeFriend : Friend
     var firstName : String
     var addedToGame : Bool
     var headerIndex : Int?
+    var indexPath : IndexPath?
 }

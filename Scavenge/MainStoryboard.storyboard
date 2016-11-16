@@ -1083,7 +1083,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-ZW-dc5" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="CeM-Yr-CeQ">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="CeM-Yr-CeQ">
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="CeM-Yr-CeQ" secondAttribute="height" multiplier="1:1" id="CQW-Am-URJ"/>
                                                             </constraints>
@@ -1138,7 +1138,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frz-On-7KI" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="dvh-iD-fhB">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="dvh-iD-fhB">
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="dvh-iD-fhB" secondAttribute="height" multiplier="1:1" id="R0a-ts-pMV"/>
                                                             </constraints>
@@ -1204,7 +1204,7 @@
                                                     <constraint firstAttribute="width" secondItem="Ym4-wz-kQO" secondAttribute="height" multiplier="1:1" id="8LV-3L-dnm"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="vG4-zP-z6u" secondAttribute="height" multiplier="1:1" id="UCo-WF-d2d"/>
@@ -1213,7 +1213,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="zLp-W4-fvY" appends="YES" id="yNx-Yg-JaJ"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="sachinNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SIJ-5R-UKm" secondAttribute="height" multiplier="1:1" id="Y9S-2Q-EAS"/>
@@ -1222,7 +1222,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="46c-61-eSY" appends="YES" id="Yc8-ZQ-rpr"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jHM-bL-Rql" secondAttribute="height" multiplier="1:1" id="TOb-p7-bNT"/>
@@ -1231,7 +1231,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="7aH-CO-pIq" appends="YES" id="Am3-lo-uDS"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="sachinNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BaR-DG-A7I" secondAttribute="height" multiplier="1:1" id="i52-DQ-gkW"/>
@@ -1240,7 +1240,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="CGr-9v-Dbh" appends="YES" id="rrv-P2-FEo"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="4SY-NO-oa8" secondAttribute="height" multiplier="1:1" id="cDI-Gm-Sj3"/>
@@ -1499,9 +1499,10 @@
     <resources>
         <image name="aliya" width="960" height="1280"/>
         <image name="fbProfilePic" width="960" height="960"/>
+        <image name="kimNegativeState" width="222" height="222"/>
         <image name="paul" width="441" height="441"/>
-        <image name="profilePicNegativeState" width="1290" height="1290"/>
         <image name="sachin" width="1575" height="1575"/>
+        <image name="sachinNegativeState" width="222" height="222"/>
         <image name="uncheckedBox" width="626" height="626"/>
     </resources>
 </document>

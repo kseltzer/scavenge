@@ -10,9 +10,9 @@ import UIKit
 import MessageUI
 
 let sampleRecents : [ScavengeFriend] = [
-    ScavengeFriend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil),
-    ScavengeFriend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil),
-    ScavengeFriend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil)
+    ScavengeFriend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
+    ScavengeFriend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
+    ScavengeFriend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
 let sampleRecentsIDs = ["1", "2", "3"]
@@ -20,11 +20,11 @@ let sampleScavengeFriendIDs = ["4","5","6","7","8"]
 let sampleFacebookFriendIDs = ["9","10"]
 
 let sampleScavengeFriends : [ScavengeFriend] = [
-    ScavengeFriend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil),
-    ScavengeFriend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil),
-    ScavengeFriend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil),
-    ScavengeFriend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil),
-    ScavengeFriend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil)
+    ScavengeFriend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
+    ScavengeFriend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
+    ScavengeFriend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
+    ScavengeFriend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
+    ScavengeFriend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
 let sampleFacebookFriends : [FacebookFriend] = [
@@ -33,19 +33,19 @@ let sampleFacebookFriends : [FacebookFriend] = [
 ]
 
 let recentsDictionaryFromAPI : [String:ScavengeFriend] = [
-    "1":ScavengeFriend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil),
-    "2":ScavengeFriend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil),
-    "3":ScavengeFriend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil)
+    "1":ScavengeFriend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "2":ScavengeFriend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "3":ScavengeFriend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
 var recentsDictionary = recentsDictionaryFromAPI
 
 let scavengeDictionaryFromAPI : [String:ScavengeFriend] = [
-    "4":ScavengeFriend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil),
-    "5":ScavengeFriend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil),
-    "6": ScavengeFriend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil),
-    "7": ScavengeFriend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil),
-    "8": ScavengeFriend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil)
+    "4":ScavengeFriend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "5":ScavengeFriend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "6": ScavengeFriend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "7": ScavengeFriend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "8": ScavengeFriend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
 var scavengeDictionary = scavengeDictionaryFromAPI
@@ -282,6 +282,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 scavengeFriend = recentsDictionary[sampleRecentsIDs[(indexPath as NSIndexPath).row]]!
             }
             scavengeFriend.addedToGame = false
+            scavengeFriend.indexPath = indexPath
             recentsDictionary[scavengeFriend.id] = scavengeFriend
             friend = scavengeFriend
             break
@@ -294,6 +295,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[(indexPath as NSIndexPath).row]]!
             }
             scavengeFriend.addedToGame = false
+            scavengeFriend.indexPath = indexPath
             scavengeDictionary[scavengeFriend.id] = scavengeFriend
             friend = scavengeFriend
             break
@@ -435,6 +437,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             let headerIndex = selectedFriendsHeaderIndices.popLast()
             scavengeFriend.headerIndex = headerIndex
             scavengeFriend.addedToGame = true
+            scavengeFriend.indexPath = indexPath
             self.addSelectedFriendImageToHeader(scavengeFriend.profileImage, index: headerIndex)
             selectedIndexPaths.append(indexPath)
             selectedFriendsFirstNames.append(scavengeFriend.firstName)
@@ -448,40 +451,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if (titleTextField.isFirstResponder) {
-//            titleTextField.resignFirstResponder()
-//        }
-//        
-//        isInitialCellConfiguration = false
-//        
-//        var scavengeFriend : ScavengeFriend
-//        if ((indexPath as NSIndexPath).section == 0 || (indexPath as NSIndexPath).section == 1) {
-//            let cell = tableView.cellForRow(at: indexPath) as! ScavengeFriendCell
-//            if ((indexPath as NSIndexPath).section == 0) {
-//                scavengeFriend = recentsDictionary[cell.userID]!
-//                if let updatedFriend = handleAddRemoveFriend(scavengeFriend, indexPath: indexPath) {
-//                    recentsDictionary[scavengeFriend.id] = updatedFriend
-//                }
-//            } else if ((indexPath as NSIndexPath).section == 1) {
-//                scavengeFriend = scavengeDictionary[cell.userID]!
-//                if let updatedFriend = handleAddRemoveFriend(scavengeFriend, indexPath: indexPath) {
-//                    scavengeDictionary[scavengeFriend.id] = updatedFriend
-//                }
-//            }
-//        }
-//        else {
-//            let cell = tableView.cellForRow(at: indexPath) as! FacebookFriendCell
-//            self.selectedFacebookFriend = fbFriendDictionary[cell.userID]!
-//            self.inviteFriend()
-//        }
-//        
-//        if (selectedFriendsFirstNames.count >= 2) {
-//            startButton.isEnabled = true
-//        } else {
-//            startButton.isEnabled = false
-//        }
-//        
-//        tableView.reloadData()
         handleSelectedRowAt(indexPath: indexPath)
     }
     
@@ -682,36 +651,21 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func xButtonTapped() {
         if let selectedFriend = selectedScavengeFriends[magnifiedPlayerIndex!] {
-            var nonNilCount = 0
-            var indexCount = 0
-            var indexToRemove = -1
-            for i in selectedScavengeFriends {
-                indexCount += 1
-                if i != nil {
-                    if (indexCount == magnifiedPlayerIndex! + 1) {
-                        indexToRemove = nonNilCount
-                        break
+            if let indexPath = selectedFriend.indexPath {
+                if (tableView.indexPathsForVisibleRows?.contains(indexPath))! {
+                    handleSelectedRowAt(indexPath: indexPath)
+                } else {
+                    if let updatedFriend = handleAddRemoveFriend(selectedFriend, indexPath: indexPath) {
+                        if ((indexPath as NSIndexPath).section == 0) {
+                            recentsDictionary[selectedFriend.id] = updatedFriend
+                        } else if ((indexPath as NSIndexPath).section == 1) {
+                            scavengeDictionary[selectedFriend.id] = updatedFriend
+                        }
+                        tableView.reloadRows(at: [indexPath], with: .automatic)
                     }
-                    nonNilCount += 1
-                }
-            }
-            let indexPath = selectedIndexPaths[indexToRemove]
-            print("index path to remove: \(indexPath)")
-            if (tableView.indexPathsForVisibleRows?.contains(indexPath))! {
-                handleSelectedRowAt(indexPath: indexPath)
-            } else {
-                if let updatedFriend = handleAddRemoveFriend(selectedFriend, indexPath: indexPath) {
-                    if ((indexPath as NSIndexPath).section == 0) {
-                        recentsDictionary[selectedFriend.id] = updatedFriend
-                    } else if ((indexPath as NSIndexPath).section == 1) {
-                        scavengeDictionary[selectedFriend.id] = updatedFriend
-                    }
-                    tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
             }
         }
-//        selectedScavengeFriends[magnifiedPlayerIndex!] = nil
-        print(selectedScavengeFriends)
     }
     
     // MARK: - Segue
@@ -726,22 +680,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? MagnifiedProfileImageViewController {
             if let index = magnifiedPlayerIndex, let magnifiedPlayer = selectedScavengeFriends[index] {
                 destinationViewController.playerImage = magnifiedPlayer.profileImage
                 destinationViewController.playerName = magnifiedPlayer.name
                 destinationViewController.delegate = self
             }
-//            if let index = magnifiedPlayerIndex, magnifiedPlayer = selectedScavengeFriends[magnifiedPlayerIndex] {
-//                destinationViewController.playerImage = magnifiedPlayer.
-//                destinationViewController.playerName = "Paul Goetz"
-//                destinationViewController.delegate = self
-//            }
         }
      }
 }
