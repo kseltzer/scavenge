@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */; };
+		4E00865C1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */; };
 		4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1011D11D73BE4E00662E9F /* MenuViewController.swift */; };
 		4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */; };
 		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnifiedProfileImageViewController.swift; sourceTree = "<group>"; };
+		4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissNewGameProfileImageAnimator.swift; sourceTree = "<group>"; };
 		4E033FE11DCD164300824D7E /* Scavenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scavenge.entitlements; sourceTree = "<group>"; };
 		4E1011D11D73BE4E00662E9F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				4E22781D1D42030000E22436 /* FriendCell.swift */,
 				4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */,
 				4E27053A1D49DB7600052671 /* FacebookFriendCell.swift */,
+				4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */,
 			);
 			name = "Create Game";
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				4EB6408E1D76397700EA308D /* AboutViewController.swift in Sources */,
 				4E2278071D3748B500E22436 /* PlayingGameViewController.swift in Sources */,
 				4EB6407C1D73D42500EA308D /* HideMenuAnimator.swift in Sources */,
+				4E00865C1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift in Sources */,
 				4E2277F81D33171800E22436 /* SBarButtonItem.swift in Sources */,
 				4E2705421D4C4FD400052671 /* Friend.swift in Sources */,
 				4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */,

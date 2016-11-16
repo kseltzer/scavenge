@@ -1408,6 +1408,7 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="yQY-Me-I7I" firstAttribute="centerX" secondItem="XYa-ks-9db" secondAttribute="centerX" id="0Yf-z1-cBp"/>
                                             <constraint firstAttribute="width" constant="240" id="16E-nJ-sV9"/>
@@ -1423,6 +1424,9 @@
                                             <constraint firstAttribute="height" constant="160" id="uhH-M1-lI7"/>
                                             <constraint firstItem="nRB-xj-oBI" firstAttribute="centerX" secondItem="XYa-ks-9db" secondAttribute="centerX" id="wLP-rW-Fs5"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="yJg-4a-A6o" appends="YES" id="Ow6-KD-IKC"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZD0-vQ-2Or" userLabel="Horizontal Separator View">
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1469,6 +1473,11 @@
                         <action selector="backgroundTapped:" destination="k2I-Dy-6kB" id="oJz-NV-oFI"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="yJg-4a-A6o">
+                    <connections>
+                        <action selector="handleGesture:" destination="k2I-Dy-6kB" id="o3h-2I-q7e"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2776.8000000000002" y="554.57271364317842"/>
         </scene>

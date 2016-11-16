@@ -108,6 +108,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     let searchController = UISearchController(searchResultsController: nil)
     
     var isInitialCellConfiguration : Bool = true
+    
+    let interactor = InteractiveMenuTransition()
 
 //    let indexTitles = ["★","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","✉︎"];
 
@@ -686,7 +688,20 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 destinationViewController.playerImage = magnifiedPlayer.profileImage
                 destinationViewController.playerName = magnifiedPlayer.name
                 destinationViewController.delegate = self
+                
+                destinationViewController.transitioningDelegate = self
+                destinationViewController.interactor = interactor
             }
         }
      }
+}
+
+extension NewGameViewController: UIViewControllerTransitioningDelegate {
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissNewGameProfileImageAnimator()
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
 }
