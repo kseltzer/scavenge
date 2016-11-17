@@ -84,6 +84,8 @@ let CELL_HIGHLIGHTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255
 let CELL_DEFAULT_COLOR = UIColor.white
 
 let kFriendCellIdentifierScavenge = "scavengeFriendCell"
+let kInviteCellIdentifierText = "inviteViaTextCell"
+let kInviteCellIdentifierFacebook = "inviteViaFacebookCell"
 
 // MARK: - String Constants
 let kErrorTitle = "oops!"

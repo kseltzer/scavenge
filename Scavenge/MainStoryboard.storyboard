@@ -197,7 +197,7 @@
                                                             <frame key="frameInset" minX="8" width="343" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xf-F6-AFG" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Bsu-H2-o6v" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="92" height="58"/>
@@ -346,7 +346,7 @@
                                                             <frame key="frameInset" minX="24" width="327" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vP8-QS-BU9" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="9" width="60" height="60"/>
+                                                                    <frame key="frameInset" minY="8" width="60" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Mda-sx-SVD" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="60" height="58"/>
@@ -471,7 +471,7 @@
                                                             <frame key="frameInset" minX="24" width="327" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pkn-we-rbe" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nzS-UO-vLz" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="60" height="58"/>
@@ -596,7 +596,7 @@
                                                             <frame key="frameInset" minX="8" width="343" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yR3-gK-5ze" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-ea-Uej" userLabel="Top Player Images Stack">
                                                                             <frame key="frameInset" minY="16" width="92" height="28"/>
@@ -697,7 +697,7 @@
                                                             <frame key="frameInset" minX="8" width="343" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySn-4k-dgK" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Coe-aT-eEI" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="92" height="58"/>
@@ -855,7 +855,7 @@
                                                             <frame key="frameInset" minX="8" width="343" height="77"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNK-Zz-lgv" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="9" width="92" height="60"/>
+                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="XRj-4v-NRJ" userLabel="Player Images Stack">
                                                                             <frame key="frameInset" width="92" height="58"/>
@@ -1127,6 +1127,80 @@
                                             <outlet property="customView" destination="gyw-ZW-dc5" id="bR0-0d-uu3"/>
                                             <outlet property="nameLabel" destination="KLb-iy-7ts" id="Tfn-PA-aye"/>
                                             <outlet property="profileImage" destination="CeM-Yr-CeQ" id="QlK-Dn-hOP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteViaFacebookCell" rowHeight="54" id="XCU-dj-oUH" customClass="InviteViaFacebookCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="82" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XCU-dj-oUH" id="CTF-Gz-vC4">
+                                            <frame key="frameInset" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaU-bm-AfR" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Via Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXs-Rn-fCR">
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.22745098039215686" green="0.32941176470588235" blue="0.64313725490196083" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="AXs-Rn-fCR" firstAttribute="top" secondItem="qaU-bm-AfR" secondAttribute="top" id="4st-6d-HjE"/>
+                                                        <constraint firstAttribute="bottom" secondItem="AXs-Rn-fCR" secondAttribute="bottom" id="e8o-Hv-9JL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AXs-Rn-fCR" secondAttribute="trailing" id="fQN-Cx-XVM"/>
+                                                        <constraint firstItem="AXs-Rn-fCR" firstAttribute="leading" secondItem="qaU-bm-AfR" secondAttribute="leading" id="iQP-4g-VE3"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="qaU-bm-AfR" secondAttribute="trailing" constant="8" id="1sL-wc-xcZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="qaU-bm-AfR" secondAttribute="bottom" constant="8" id="CGw-nI-qZA"/>
+                                                <constraint firstItem="qaU-bm-AfR" firstAttribute="leading" secondItem="CTF-Gz-vC4" secondAttribute="leading" constant="8" id="Ytn-4S-kl2"/>
+                                                <constraint firstItem="qaU-bm-AfR" firstAttribute="top" secondItem="CTF-Gz-vC4" secondAttribute="top" id="xXQ-DG-Btm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.10537041110000001" green="0.1671863153" blue="0.56350160260000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="roundedBorderView" destination="qaU-bm-AfR" id="CRH-sM-Sov"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteViaTextCell" rowHeight="54" id="kcC-j0-xaL" customClass="InviteViaTextCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcC-j0-xaL" id="Fod-yv-Z73">
+                                            <frame key="frameInset" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiW-6Y-Hnc" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Via Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zm-56-zj5">
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.26274509800000001" green="0.89411764709999997" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="5Zm-56-zj5" secondAttribute="trailing" id="gK8-lx-G7u"/>
+                                                        <constraint firstItem="5Zm-56-zj5" firstAttribute="leading" secondItem="LiW-6Y-Hnc" secondAttribute="leading" id="raa-zC-mpu"/>
+                                                        <constraint firstItem="5Zm-56-zj5" firstAttribute="top" secondItem="LiW-6Y-Hnc" secondAttribute="top" id="ulj-zc-aFa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5Zm-56-zj5" secondAttribute="bottom" id="vpN-HG-Kgy"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="LiW-6Y-Hnc" secondAttribute="bottom" constant="8" id="RqW-Jv-IIN"/>
+                                                <constraint firstAttribute="trailing" secondItem="LiW-6Y-Hnc" secondAttribute="trailing" constant="8" id="cQ6-9a-wbE"/>
+                                                <constraint firstItem="LiW-6Y-Hnc" firstAttribute="leading" secondItem="Fod-yv-Z73" secondAttribute="leading" constant="8" id="ndW-uL-ids"/>
+                                                <constraint firstItem="LiW-6Y-Hnc" firstAttribute="top" secondItem="Fod-yv-Z73" secondAttribute="top" id="ycb-0j-0RB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.82745098039999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="roundedBorderView" destination="LiW-6Y-Hnc" id="DBo-RY-eQF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

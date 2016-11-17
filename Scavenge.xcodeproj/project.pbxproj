@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */; };
 		4E00865C1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */; };
+		4E00865E1DDD2EBE00F5AD20 /* InviteViaTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */; };
+		4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */; };
 		4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1011D11D73BE4E00662E9F /* MenuViewController.swift */; };
 		4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */; };
 		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
@@ -81,6 +83,8 @@
 /* Begin PBXFileReference section */
 		4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnifiedProfileImageViewController.swift; sourceTree = "<group>"; };
 		4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissNewGameProfileImageAnimator.swift; sourceTree = "<group>"; };
+		4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViaTextCell.swift; sourceTree = "<group>"; };
+		4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViaFacebookCell.swift; sourceTree = "<group>"; };
 		4E033FE11DCD164300824D7E /* Scavenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scavenge.entitlements; sourceTree = "<group>"; };
 		4E1011D11D73BE4E00662E9F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
@@ -324,6 +328,8 @@
 		4E2277F31D33134700E22436 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */,
+				4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */,
 				4E2277F91D331D2300E22436 /* Slideout Menu */,
 				4E2277D81D32D30300E22436 /* SButton.swift */,
 				4E2277F71D33171800E22436 /* SBarButtonItem.swift */,
@@ -544,6 +550,7 @@
 				4EA238501D7F6E3600BD278B /* InviteCell.swift in Sources */,
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4EB640881D75572300EA308D /* CustomNavigationBar.swift in Sources */,
+				4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
 				4E2277E71D32E56D00E22436 /* MyScavengesViewController.swift in Sources */,
 				4E2277F61D33137F00E22436 /* LoginButton.swift in Sources */,
@@ -563,6 +570,7 @@
 				4EB640761D73C38F00EA308D /* InteractiveMenuTransition.swift in Sources */,
 				4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */,
 				4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */,
+				4E00865E1DDD2EBE00F5AD20 /* InviteViaTextCell.swift in Sources */,
 				4E2277E91D32E5DB00E22436 /* SNavigationController.swift in Sources */,
 				4EB6408E1D76397700EA308D /* AboutViewController.swift in Sources */,
 				4E2278071D3748B500E22436 /* PlayingGameViewController.swift in Sources */,
