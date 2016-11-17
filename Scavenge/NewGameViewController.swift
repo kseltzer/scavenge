@@ -383,9 +383,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             let headerIndex = selectedFriendsHeaderIndices.popLast()
             scavengeFriend.headerIndex = headerIndex
             scavengeFriend.addedToGame = true
-            scavengeFriend.indexPath = indexPath
             self.addSelectedFriendImageToHeader(scavengeFriend.profileImage, index: headerIndex)
-            selectedIndexPaths.append(indexPath)
+            selectedIndexPaths.append(scavengeFriend.indexPath!)
             selectedFriendsFirstNames.append(scavengeFriend.firstName)
             if headerIndex != nil {
                 selectedScavengeFriends[headerIndex! - 1] = scavengeFriend
