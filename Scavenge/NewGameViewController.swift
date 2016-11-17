@@ -172,7 +172,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             return sampleScavengeFriendIDs.count
         case kSectionTitleFriendsNotOnScavenge:
-            return 0 // TODO: - todo: return 2
+            return 2
         default:
             return 0
         }
@@ -242,6 +242,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.section == 2) {
+            if (indexPath.row == 0) {
+                return tableView.dequeueReusableCell(withIdentifier: "inviteViaFacebookCell", for: indexPath) as! InviteViaFacebookCell
+            } else {
+                return tableView.dequeueReusableCell(withIdentifier: "inviteViaTextCell", for: indexPath) as! InviteViaTextCell
+            }
+        }
         if (isInitialCellConfiguration) {
             return self.configureCellInitially(indexPath, section: self.tableView(tableView, titleForHeaderInSection: (indexPath as NSIndexPath).section)!)
         } else {
@@ -276,9 +283,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             scavengeFriend.addedToGame = false
             scavengeFriend.indexPath = indexPath
             scavengeDictionary[scavengeFriend.id] = scavengeFriend
-            break
-        case kSectionTitleFriendsNotOnScavenge:
-            // TODO: - todo: invite via fb and text cells
             break
         default:
             return cell
@@ -323,9 +327,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 cell.setDeselectedAppearance()
             }
-            break
-        case kSectionTitleFriendsNotOnScavenge:
-            // TODO: - todo: invite via fb and text cells
             break
         default:
             return cell
