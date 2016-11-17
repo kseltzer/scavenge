@@ -1144,7 +1144,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.10537041110000001" green="0.1671863153" blue="0.56350160260000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.22745098039215686" green="0.32941176470588235" blue="0.64313725490196083" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="AXs-Rn-fCR" firstAttribute="top" secondItem="qaU-bm-AfR" secondAttribute="top" id="4st-6d-HjE"/>
                                                         <constraint firstAttribute="bottom" secondItem="AXs-Rn-fCR" secondAttribute="bottom" id="e8o-Hv-9JL"/>
@@ -1162,6 +1162,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.10537041110000001" green="0.1671863153" blue="0.56350160260000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="roundedBorderView" destination="qaU-bm-AfR" id="CRH-sM-Sov"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteViaTextCell" rowHeight="54" id="kcC-j0-xaL" customClass="InviteViaTextCell" customModule="Scavenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="136" width="375" height="54"/>
@@ -1178,7 +1181,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.1450980392" green="0.82745098039999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.26274509800000001" green="0.89411764709999997" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="5Zm-56-zj5" secondAttribute="trailing" id="gK8-lx-G7u"/>
                                                         <constraint firstItem="5Zm-56-zj5" firstAttribute="leading" secondItem="LiW-6Y-Hnc" secondAttribute="leading" id="raa-zC-mpu"/>
@@ -1196,6 +1199,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1450980392" green="0.82745098039999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="roundedBorderView" destination="LiW-6Y-Hnc" id="DBo-RY-eQF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

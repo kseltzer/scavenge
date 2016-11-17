@@ -10,15 +10,14 @@ import UIKit
 
 class InviteViaTextCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet weak var roundedBorderView: RoundedBorderedView!
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        if (highlighted) {
+            roundedBorderView.backgroundColor = CELL_HIGHLIGHTED_COLOR
+        } else {
+            roundedBorderView.backgroundColor = UIColor(red:0.33, green:0.89, blue:0.42, alpha:1.0)
+        }
     }
 
 }
