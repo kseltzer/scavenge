@@ -37,8 +37,11 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     var selectedIndex : Int!
     var allImagesCaptured : Bool = false
     var doubleTapGestureRecognizer : UITapGestureRecognizer!
+    var swipeToDismissCameraGestureRecognizer : UIPanGestureRecognizer!
     
     var capturedImages : [UIImage?] = [nil, nil, nil, nil, nil]
+    
+    let interactor = InteractiveTransitionController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +53,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         tableView.dataSource = self
         tableView.rowHeight = 85
         tableView.scrollsToTop = true
+        
+        navigationController?.delegate = self // todo todo todo
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,10 +88,16 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             self.imagePickerController.showsCameraControls = false
             self.imagePickerController.allowsEditing = false
             self.imagePickerController.cameraFlashMode = .auto
+            self.imagePickerController.transitioningDelegate = self // todo todo todo
     
             self.doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.switchDirectionCameraIsFacing))
             self.doubleTapGestureRecognizer.numberOfTapsRequired = 2
             self.imagePickerController.view.addGestureRecognizer(self.doubleTapGestureRecognizer)
+            
+//            self.swipeToDismissGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeToDismissCamera))
+            self.swipeToDismissCameraGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.swipeToDismissCamera(sender:)))
+            self.swipeToDismissCameraGestureRecognizer.maximumNumberOfTouches = 1
+            self.imagePickerController.view.addGestureRecognizer(self.swipeToDismissCameraGestureRecognizer)
             
             DispatchQueue.main.async {
                 Bundle.main.loadNibNamed("CameraOverlayView", owner:self, options:nil)
@@ -286,6 +297,36 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
 
     // MARK: - Navigation
+    func swipeToDismissCamera(sender: UIPanGestureRecognizer) {
+        let percentThreshold:CGFloat = 0.5
+        
+        // convert y-position to downward pull progress (percentage)
+        let translation = sender.translation(in: view)
+        let verticalMovement = translation.y / view.bounds.height
+        let downwardMovement = fmaxf(Float(verticalMovement), 0.0)
+        let downwardMovementPercent = fminf(downwardMovement, 1.0)
+        let progress = CGFloat(downwardMovementPercent)
+        
+        switch sender.state {
+        case .began:
+            interactor.hasStarted = true
+            dismiss(animated: true, completion: nil)
+        case .changed:
+            interactor.shouldFinish = progress > percentThreshold
+            interactor.update(progress)
+        case .cancelled:
+            interactor.hasStarted = false
+            interactor.cancel()
+        case .ended:
+            interactor.hasStarted = false
+            if (interactor.shouldFinish) {
+                setupUIForCapturingImage()
+            }
+            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
+        default:
+            break
+        }
+    }
 
     func goToVotingViewController() {
         let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
@@ -298,4 +339,15 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         // Get the new view controller using segue.destinationViewController.
         // Get the new view controller using segue.destinationViewController.
     }
+}
+
+extension PlayingGameViewController : UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissCameraAnimator()
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
+
 }
