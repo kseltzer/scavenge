@@ -1,18 +1,18 @@
 //
-//  DismissNewGameProfileImageAnimator.swift
+//  DismissCameraAnimator.swift
 //  Scavenge
 //
-//  Created by Kimberly Seltzer on 11/16/16.
+//  Created by Kimberly Seltzer on 11/17/16.
 //  Copyright © 2016 Kim Seltzer. All rights reserved.
 //
 
 import UIKit
 
-class DismissNewGameProfileImageAnimator: NSObject {
-    
+class DismissCameraAnimator: NSObject {
+
 }
 
-extension DismissNewGameProfileImageAnimator : UIViewControllerAnimatedTransitioning {
+extension DismissCameraAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 3.0
     }
@@ -39,6 +39,7 @@ extension DismissNewGameProfileImageAnimator : UIViewControllerAnimatedTransitio
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         )
+        
     }
-
+    
 }

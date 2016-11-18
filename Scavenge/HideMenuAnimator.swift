@@ -11,33 +11,28 @@ import UIKit
 
 class HideMenuAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return MenuHelper.animationDuration
+        return 0.6
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)//,
+            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
             else {
                 return
         }
-        
-        let containerView = transitionContext.containerView
-        let snapshot = containerView.viewWithTag(MenuHelper.snapshotNumber)
+        let screenBounds = UIScreen.main.bounds
+        let bottomLeftCorner = CGPoint(x: 0, y: screenBounds.height)
+        let finalFrame = CGRect(origin: bottomLeftCorner, size: screenBounds.size)
         
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             animations: {
-                snapshot?.frame = CGRect(origin: CGPoint.zero, size: UIScreen.main.bounds.size)
+                fromVC.view.frame = finalFrame
             },
             completion: { _ in
-                let didTransitionComplete = !transitionContext.transitionWasCancelled
-                if didTransitionComplete {
-                    containerView.insertSubview(toVC.view, aboveSubview: fromVC.view)
-                    snapshot?.removeFromSuperview()
-                }
-                transitionContext.completeTransition(didTransitionComplete)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         )
+        
     }
 }

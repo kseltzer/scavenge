@@ -438,7 +438,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             startButton.isEnabled = false
         }
         
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     func addSelectedFriendImageToHeader(_ profileImage: UIImage?, index: Int?) {
@@ -601,7 +601,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                         }
                     }
                 }
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+                tableView.reloadRows(at: [indexPath], with: .none)
             } else {
                 if let updatedFriend = handleAddRemoveFriend(selectedFriend) {
                     scavengeDictionary[selectedFriend.id] = updatedFriend
@@ -638,8 +638,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
 }
 
 extension NewGameViewController: UIViewControllerTransitioningDelegate {
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return DismissNewGameProfileImageAnimator()
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return HideMenuAnimator()
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

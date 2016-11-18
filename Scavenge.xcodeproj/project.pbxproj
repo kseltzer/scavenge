@@ -11,6 +11,7 @@
 		4E00865C1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */; };
 		4E00865E1DDD2EBE00F5AD20 /* InviteViaTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */; };
 		4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */; };
+		4E0086631DDE9F1300F5AD20 /* DismissCameraAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */; };
 		4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1011D11D73BE4E00662E9F /* MenuViewController.swift */; };
 		4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */; };
 		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
@@ -85,6 +86,7 @@
 		4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissNewGameProfileImageAnimator.swift; sourceTree = "<group>"; };
 		4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViaTextCell.swift; sourceTree = "<group>"; };
 		4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViaFacebookCell.swift; sourceTree = "<group>"; };
+		4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissCameraAnimator.swift; sourceTree = "<group>"; };
 		4E033FE11DCD164300824D7E /* Scavenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scavenge.entitlements; sourceTree = "<group>"; };
 		4E1011D11D73BE4E00662E9F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
@@ -172,9 +174,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0086611DDE9EEF00F5AD20 /* Swipe To Dismiss Camera */ = {
+			isa = PBXGroup;
+			children = (
+				4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */,
+			);
+			name = "Swipe To Dismiss Camera";
+			sourceTree = "<group>";
+		};
 		4E1584631D4ED76E00208E3A /* Playing Game */ = {
 			isa = PBXGroup;
 			children = (
+				4E0086611DDE9EEF00F5AD20 /* Swipe To Dismiss Camera */,
 				4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */,
 				4E6D98421D56CBF9007DEFAB /* VotingCell.swift */,
 				4EA2384B1D77A23B00BD278B /* ResultsCell.swift */,
@@ -580,6 +591,7 @@
 				4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */,
 				4EB6408A1D755A2900EA308D /* MenuButton.swift in Sources */,
 				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
+				4E0086631DDE9F1300F5AD20 /* DismissCameraAnimator.swift in Sources */,
 				4E2277D71D32D29400E22436 /* Constants.swift in Sources */,
 				4E22781E1D42030000E22436 /* FriendCell.swift in Sources */,
 				4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */,

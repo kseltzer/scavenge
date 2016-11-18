@@ -86,9 +86,7 @@ class MagnifiedProfileImageViewController: UIViewController {
         switch sender.state {
         case .began:
             interactor.hasStarted = true
-            dismiss(animated: true, completion: {() -> Void in
-                self.delegate.hideOverlayView()
-            })
+            dismiss(animated: true, completion: nil)
         case .changed:
             interactor.shouldFinish = progress > percentThreshold
             interactor.update(progress)
@@ -97,6 +95,9 @@ class MagnifiedProfileImageViewController: UIViewController {
             interactor.cancel()
         case .ended:
             interactor.hasStarted = false
+            if (interactor.shouldFinish) {
+                self.delegate.hideOverlayView()
+            }
             interactor.shouldFinish ? interactor.finish() : interactor.cancel()
         default:
             break
