@@ -269,7 +269,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 scavengeFriend = recentsDictionary[sampleRecentsIDs[(indexPath as NSIndexPath).row]]!
             }
             scavengeFriend.addedToGame = false
-            scavengeFriend.indexPath = indexPath
             recentsDictionary[scavengeFriend.id] = scavengeFriend
             break
         case kSectionTitleFriendsOnScavenge:
@@ -281,11 +280,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[(indexPath as NSIndexPath).row]]!
             }
             scavengeFriend.addedToGame = false
-            scavengeFriend.indexPath = indexPath
             scavengeDictionary[scavengeFriend.id] = scavengeFriend
             break
         default:
             return cell
+        }
+        if (!(searchController.isActive && searchController.searchBar.text != nil)) {
+            scavengeFriend.indexPath = indexPath
         }
         cell.userID = scavengeFriend.id
         cell.nameLabel.text = scavengeFriend.name
@@ -331,6 +332,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             return cell
         }
+        if (!(searchController.isActive && searchController.searchBar.text != nil)) {
+            scavengeFriend.indexPath = indexPath
+        }
         cell.userID = scavengeFriend.id
         cell.nameLabel.text = scavengeFriend.name
         cell.profileImage.layoutIfNeeded()
@@ -353,14 +357,49 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func handleAddRemoveFriend(_ friend : ScavengeFriend, indexPath : IndexPath) -> ScavengeFriend? {
+    func handleAddRemoveFriend(_ friend : ScavengeFriend, indexPath : IndexPath?) -> ScavengeFriend? {
         var scavengeFriend = friend
+        if (indexPath == nil) {
+            if (scavengeFriend.addedToGame) {                                               // remove friend
+                if let hIndex = scavengeFriend.headerIndex {
+                    selectedFriendsHeaderIndices.append(hIndex)
+                    self.removeSelectedFriendImageFromHeader(hIndex)
+                    selectedScavengeFriends[hIndex-1] = nil
+                    scavengeFriend.addedToGame = false
+                }
+                selectedFriendsHeaderIndices.append(scavengeFriend.headerIndex!)
+                self.removeSelectedFriendImageFromHeader(scavengeFriend.headerIndex!)
+                // todo: remove indexPath from selectedIndexPaths
+                if let indexOfFirstName = selectedFriendsFirstNames.index(of: scavengeFriend.firstName) {
+                    selectedFriendsFirstNames.remove(at: indexOfFirstName)
+                    if (selectedFriendsFirstNames.isEmpty) {
+                        gameTitle = "Untitled Game"
+                    } else {
+                        gameTitle = generateGameTitle()
+                    }
+                    titleTextField.placeholder = gameTitle
+                }
+            } else {                                                                        // add friend
+                selectedFriendsHeaderIndices = selectedFriendsHeaderIndices.sorted().reversed()
+                let headerIndex = selectedFriendsHeaderIndices.popLast()
+                scavengeFriend.headerIndex = headerIndex
+                scavengeFriend.addedToGame = true
+                self.addSelectedFriendImageToHeader(scavengeFriend.profileImage, index: headerIndex)
+                selectedFriendsFirstNames.append(scavengeFriend.firstName)
+                if headerIndex != nil {
+                    selectedScavengeFriends[headerIndex! - 1] = scavengeFriend
+                }
+                gameTitle = generateGameTitle()
+                titleTextField.placeholder = gameTitle
+            }
+            return scavengeFriend
+        }
         if scavengeFriend.addedToGame {                                                     // remove friend
             selectedFriendsHeaderIndices.append(scavengeFriend.headerIndex!)
             self.removeSelectedFriendImageFromHeader(scavengeFriend.headerIndex!)
             selectedScavengeFriends[scavengeFriend.headerIndex!-1] = nil
             scavengeFriend.addedToGame = false
-            if let indexOfIndexPath = selectedIndexPaths.index(of: indexPath) {
+            if let indexOfIndexPath = selectedIndexPaths.index(of: indexPath!) {
                 selectedIndexPaths.remove(at: indexOfIndexPath)
             }
             if let indexOfFirstName = selectedFriendsFirstNames.index(of: scavengeFriend.firstName) {
@@ -384,7 +423,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             scavengeFriend.headerIndex = headerIndex
             scavengeFriend.addedToGame = true
             self.addSelectedFriendImageToHeader(scavengeFriend.profileImage, index: headerIndex)
-            selectedIndexPaths.append(scavengeFriend.indexPath!)
+            if scavengeFriend.indexPath != nil {
+                selectedIndexPaths.append(scavengeFriend.indexPath!)
+            } else {
+                selectedIndexPaths.append(indexPath!)
+            }
+//            selectedIndexPaths.append(scavengeFriend.indexPath!)
             selectedFriendsFirstNames.append(scavengeFriend.firstName)
             if headerIndex != nil {
                 selectedScavengeFriends[headerIndex! - 1] = scavengeFriend
@@ -431,7 +475,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             startButton.isEnabled = false
         }
         
-        tableView.reloadData()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func addSelectedFriendImageToHeader(_ profileImage: UIImage?, index: Int?) {
@@ -573,6 +617,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - MagnifiedProfileImageViewDelegate
+    func calculateIndexPath(for scavengeFriendID: String) {
+    }
+    
     func hideOverlayView() {
         overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
     }
@@ -580,6 +627,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     func xButtonTapped() {
         if let selectedFriend = selectedScavengeFriends[magnifiedPlayerIndex!] {
             if let indexPath = selectedFriend.indexPath {
+                print("index path: \(indexPath)")
                 if (tableView.indexPathsForVisibleRows?.contains(indexPath))! {
                     handleSelectedRowAt(indexPath: indexPath)
                 } else {
@@ -591,6 +639,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                         }
                         tableView.reloadRows(at: [indexPath], with: .automatic)
                     }
+                }
+            } else {
+                print("no index path")
+                if let updatedFriend = handleAddRemoveFriend(selectedFriend, indexPath: nil) {
+                    scavengeDictionary[selectedFriend.id] = updatedFriend
+                    tableView.reloadData()
                 }
             }
         }
