@@ -91,7 +91,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var isInitialCellConfiguration : Bool = true
     
-    let interactor = InteractiveMenuTransition()
+    let interactor = InteractiveTransitionController()
 
 //    let indexTitles = ["★","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","✉︎"];
 
@@ -438,7 +438,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             startButton.isEnabled = false
         }
         
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     func addSelectedFriendImageToHeader(_ profileImage: UIImage?, index: Int?) {
@@ -601,7 +601,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                         }
                     }
                 }
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+                tableView.reloadRows(at: [indexPath], with: .none)
             } else {
                 if let updatedFriend = handleAddRemoveFriend(selectedFriend) {
                     scavengeDictionary[selectedFriend.id] = updatedFriend
@@ -638,7 +638,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
 }
 
 extension NewGameViewController: UIViewControllerTransitioningDelegate {
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissNewGameProfileImageAnimator()
     }
     

@@ -15,7 +15,7 @@ let INDEX_HIGHLIGHTED_BACKGROUND_COLOR = UIColor.gray
 
 class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
-    let interactor = InteractiveMenuTransition()
+    let interactor = InteractiveTransitionController()
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var searchBarView: UIView!

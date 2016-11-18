@@ -10,7 +10,7 @@ import UIKit
 
 class TourViewController: UIViewController {
 
-    let interactor = InteractiveMenuTransition()
+    let interactor = InteractiveTransitionController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

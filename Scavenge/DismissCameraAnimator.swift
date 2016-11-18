@@ -1,28 +1,31 @@
 //
-//  DismissNewGameProfileImageAnimator.swift
+//  DismissCameraAnimator.swift
 //  Scavenge
 //
-//  Created by Kimberly Seltzer on 11/16/16.
+//  Created by Kimberly Seltzer on 11/17/16.
 //  Copyright © 2016 Kim Seltzer. All rights reserved.
 //
 
 import UIKit
 
-class DismissNewGameProfileImageAnimator: NSObject {
-    
+class DismissCameraAnimator: NSObject {
+
 }
 
-extension DismissNewGameProfileImageAnimator : UIViewControllerAnimatedTransitioning {
+extension DismissCameraAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return MenuHelper.animationDuration
+        return 3.0
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
         guard
-            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
             else {
                 return
         }
+        containerView.insertSubview(toVC.view, belowSubview: fromVC.view)
         let screenBounds = UIScreen.main.bounds
         let bottomLeftCorner = CGPoint(x: 0, y: screenBounds.height)
         let finalFrame = CGRect(origin: bottomLeftCorner, size: screenBounds.size)
@@ -36,6 +39,7 @@ extension DismissNewGameProfileImageAnimator : UIViewControllerAnimatedTransitio
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         )
+        
     }
-
+    
 }

@@ -1327,7 +1327,7 @@
                         <outlet property="startButton" destination="BKk-Ze-Clt" id="QYd-4l-cbv"/>
                         <outlet property="tableView" destination="66F-xm-mkX" id="c9q-WA-aN3"/>
                         <outlet property="titleTextField" destination="GMn-Pm-aXv" id="HY0-L0-SLx"/>
-                        <segue destination="k2I-Dy-6kB" kind="presentation" identifier="showMagnifiedProfileImageView" modalPresentationStyle="overCurrentContext" id="1qA-3s-sbR"/>
+                        <segue destination="k2I-Dy-6kB" kind="presentation" identifier="showMagnifiedProfileImageView" modalPresentationStyle="overFullScreen" id="1qA-3s-sbR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXF-c1-egz" userLabel="First Responder" sceneMemberID="firstResponder"/>
