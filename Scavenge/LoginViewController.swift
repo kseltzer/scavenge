@@ -55,8 +55,8 @@ class LoginViewController: UIViewController {
     
     func handleLoggedIn() {
         let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
-        let myScavengesViewController = mainStoryboard.instantiateInitialViewController()
-        self.present(myScavengesViewController!, animated: true, completion: nil)
+        let homeViewController = mainStoryboard.instantiateInitialViewController()
+        self.present(homeViewController!, animated: true, completion: nil)
     }
     
     

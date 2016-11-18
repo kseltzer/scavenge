@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -86,11 +87,11 @@
                                         <rect key="frame" x="0.0" y="28" width="244" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4L-2x-9gP" id="ze8-IY-61v">
-                                            <frame key="frameInset" width="244" height="43"/>
+                                            <frame key="frameInset" width="244" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lfs-av-njn">
-                                                    <frame key="frameInset" minX="15" width="214" height="43"/>
+                                                    <frame key="frameInset" minX="15" width="214" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -170,7 +171,7 @@
         <!--Home View Controller-->
         <scene sceneID="04e-hM-u32">
             <objects>
-                <viewController id="dik-UW-LCa" userLabel="Home View Controller" customClass="MyScavengesViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dik-UW-LCa" userLabel="Home View Controller" customClass="HomeViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YLg-4O-keG"/>
                         <viewControllerLayoutGuide type="bottom" id="qol-ra-C7u"/>
@@ -183,654 +184,57 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fivePlayerCell" id="pk1-Ry-JLr" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" id="LZf-GO-GjG" customClass="GameCell" customModule="Scavenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="375" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="pk1-Ry-JLr" id="slo-JF-bXP">
-                                            <frame key="frameInset" width="375" height="65"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cxU-8J-dn4" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="8" width="584" height="77"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wto-VI-i7v" userLabel="Create Game Fields Stack">
-                                                            <frame key="frameInset" minX="8" width="343" height="77"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xf-F6-AFG" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Bsu-H2-o6v" userLabel="Player Images Stack">
-                                                                            <frame key="frameInset" width="92" height="58"/>
-                                                                            <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YYt-cl-C1R" userLabel="Bottom Player Images Stack">
-                                                                                    <frame key="frameInset" width="92" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="VBm-Mu-onr" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="hNe-5b-fYb"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="iqg-98-hti"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="AUo-1A-8RV" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="lBN-eH-5cm"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="nYc-ay-iQC"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="1xi-Tz-Hqv" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="64" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="F2e-dD-Sih"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="NJo-0F-xKu"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-pq-chF">
-                                                                                    <frame key="frameInset" minY="30" width="92" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-vA-04W" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="16" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="Z5U-Cb-A6V"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="aeV-2m-awI"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-FQ-m3L" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="48" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="YOy-kp-4tX"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="cNY-97-vep"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                    <constraints>
-                                                                                        <constraint firstItem="dSc-vA-04W" firstAttribute="top" secondItem="WrO-pq-chF" secondAttribute="top" id="BQ9-7a-hve"/>
-                                                                                        <constraint firstItem="dSc-vA-04W" firstAttribute="leading" secondItem="WrO-pq-chF" secondAttribute="leading" constant="16" id="Mta-wz-q1E"/>
-                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="leading" secondItem="dSc-vA-04W" secondAttribute="leading" constant="4" id="UBV-sv-GaQ"/>
-                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="top" secondItem="WrO-pq-chF" secondAttribute="top" id="gUz-2c-ocD"/>
-                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="top" secondItem="dSc-vA-04W" secondAttribute="bottom" id="nSq-Rr-3Kl"/>
-                                                                                        <constraint firstItem="JbU-FQ-m3L" firstAttribute="leading" secondItem="dSc-vA-04W" secondAttribute="trailing" constant="4" id="slh-BZ-xCM"/>
-                                                                                    </constraints>
-                                                                                    <variation key="default">
-                                                                                        <mask key="constraints">
-                                                                                            <exclude reference="UBV-sv-GaQ"/>
-                                                                                            <exclude reference="nSq-Rr-3Kl"/>
-                                                                                        </mask>
-                                                                                    </variation>
-                                                                                </view>
-                                                                            </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="bottom" secondItem="YYt-cl-C1R" secondAttribute="bottom" id="9vI-m6-sq8"/>
-                                                                                <constraint firstItem="YYt-cl-C1R" firstAttribute="top" secondItem="Bsu-H2-o6v" secondAttribute="top" id="k3a-l1-yEd"/>
-                                                                                <constraint firstItem="YYt-cl-C1R" firstAttribute="leading" secondItem="Bsu-H2-o6v" secondAttribute="leading" id="njb-A3-dbj"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="YYt-cl-C1R" secondAttribute="trailing" id="xly-6R-gVl"/>
-                                                                            </constraints>
-                                                                            <variation key="default">
-                                                                                <mask key="constraints">
-                                                                                    <exclude reference="9vI-m6-sq8"/>
-                                                                                </mask>
-                                                                            </variation>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="Bsu-H2-o6v" firstAttribute="top" secondItem="1xf-F6-AFG" secondAttribute="top" id="3WH-xD-AJ9"/>
-                                                                        <constraint firstItem="Bsu-H2-o6v" firstAttribute="leading" secondItem="1xf-F6-AFG" secondAttribute="leading" id="CsB-hU-f8u"/>
-                                                                        <constraint firstAttribute="width" constant="92" id="JmE-lv-wKI"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="Wpk-AN-Zxp"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="yqB-Mj-prk" userLabel="Game Title Label">
-                                                                    <frame key="frameInset" minX="104" minY="8" width="127" height="61"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0My-ee-VZh" userLabel="Right Text Label">
-                                                                    <frame key="frameInset" minX="243" minY="8" width="100" height="61"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="jPs-pc-xzH"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="0My-ee-VZh" firstAttribute="centerY" secondItem="wto-VI-i7v" secondAttribute="centerY" id="M0M-pc-92N"/>
-                                                                <constraint firstAttribute="bottom" secondItem="yqB-Mj-prk" secondAttribute="bottom" constant="8" id="bpp-2B-AFT"/>
-                                                                <constraint firstItem="yqB-Mj-prk" firstAttribute="top" secondItem="wto-VI-i7v" secondAttribute="top" constant="8" id="dP7-ze-lgZ"/>
-                                                                <constraint firstAttribute="bottom" secondItem="0My-ee-VZh" secondAttribute="bottom" constant="8" id="jze-SF-Xip"/>
-                                                                <constraint firstItem="1xf-F6-AFG" firstAttribute="leading" secondItem="wto-VI-i7v" secondAttribute="leading" constant="8" id="qP6-pQ-oO9"/>
-                                                                <constraint firstItem="0My-ee-VZh" firstAttribute="top" secondItem="wto-VI-i7v" secondAttribute="top" constant="8" id="y2q-Ig-HnQ"/>
-                                                            </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="qP6-pQ-oO9"/>
-                                                                    <exclude reference="M0M-pc-92N"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="77" id="KjX-9a-fFm"/>
-                                                        <constraint firstItem="wto-VI-i7v" firstAttribute="top" secondItem="cxU-8J-dn4" secondAttribute="top" id="Xji-ar-4nD"/>
-                                                        <constraint firstAttribute="trailing" secondItem="wto-VI-i7v" secondAttribute="trailing" constant="8" id="meY-WF-XSY"/>
-                                                        <constraint firstAttribute="bottom" secondItem="wto-VI-i7v" secondAttribute="bottom" id="sN4-6E-X9n"/>
-                                                        <constraint firstItem="wto-VI-i7v" firstAttribute="leading" secondItem="cxU-8J-dn4" secondAttribute="leading" constant="8" id="yqN-fC-HA8"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="cxU-8J-dn4" firstAttribute="leading" secondItem="slo-JF-bXP" secondAttribute="leading" constant="8" id="9GB-iO-DBR"/>
-                                                <constraint firstItem="cxU-8J-dn4" firstAttribute="top" secondItem="slo-JF-bXP" secondAttribute="top" id="thR-JK-inW"/>
-                                                <constraint firstAttribute="bottom" secondItem="cxU-8J-dn4" secondAttribute="bottom" constant="8" id="y3O-aq-HWf"/>
-                                                <constraint firstAttribute="trailing" secondItem="cxU-8J-dn4" secondAttribute="trailing" constant="8" id="ztW-4v-AV6"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fourPlayerCell" id="uMm-Li-MWm" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="157" width="375" height="65"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="uMm-Li-MWm" id="gkl-XD-L0a">
-                                            <frame key="frameInset" width="375" height="65"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xea-zv-1ep" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="8" width="584" height="77"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="33u-yI-ca8" userLabel="Create Game Fields Stack">
-                                                            <frame key="frameInset" minX="24" width="327" height="77"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vP8-QS-BU9" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="60" height="60"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Mda-sx-SVD" userLabel="Player Images Stack">
-                                                                            <frame key="frameInset" width="60" height="58"/>
-                                                                            <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="iG3-Ce-mQt" userLabel="Top Player Images Stack">
-                                                                                    <frame key="frameInset" width="60" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="off-sx-sij" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="3H7-hD-i9r"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="jaT-WO-4Fz"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="7M7-6j-5pz" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="9ne-PD-tgH"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="TPO-lw-orE"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Si3-h8-IaX" userLabel="Bottom Player Images Stack">
-                                                                                    <frame key="frameInset" minY="30" width="60" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="QUM-eb-EfV" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="UFv-4Q-ZbW"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="kmv-0f-c4j"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="U3D-Tb-NNy" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="QYZ-WP-Xw7"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="oxt-AT-rcJ"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                            </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstItem="Si3-h8-IaX" firstAttribute="leading" secondItem="Mda-sx-SVD" secondAttribute="leading" id="AMf-38-GVp"/>
-                                                                                <constraint firstItem="iG3-Ce-mQt" firstAttribute="leading" secondItem="Mda-sx-SVD" secondAttribute="leading" id="V3A-el-omT"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="iG3-Ce-mQt" secondAttribute="trailing" id="Yif-xQ-IuI"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="Si3-h8-IaX" secondAttribute="bottom" id="xg0-hA-2r7"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="Si3-h8-IaX" secondAttribute="trailing" id="y98-V2-Hvx"/>
-                                                                                <constraint firstItem="iG3-Ce-mQt" firstAttribute="top" secondItem="Mda-sx-SVD" secondAttribute="top" id="zlv-7g-RxA"/>
-                                                                            </constraints>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="Mda-sx-SVD" firstAttribute="leading" secondItem="vP8-QS-BU9" secondAttribute="leading" id="1UU-qX-mMu"/>
-                                                                        <constraint firstItem="Mda-sx-SVD" firstAttribute="top" secondItem="vP8-QS-BU9" secondAttribute="top" id="70Y-Mx-RID"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="9hp-hU-bhg"/>
-                                                                        <constraint firstAttribute="width" constant="60" id="TFV-mi-koR"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-ef-xsV" userLabel="Game Title Label">
-                                                                    <frame key="frameInset" minX="72" minY="8" width="143" height="61"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-Lo-F3D" userLabel="Right Text Label">
-                                                                    <frame key="frameInset" minX="227" minY="8" width="100" height="61"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="ZRY-XU-AGU"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="1Cw-ef-xsV" firstAttribute="top" secondItem="33u-yI-ca8" secondAttribute="top" constant="8" id="9rT-jC-0th"/>
-                                                                <constraint firstItem="epC-Lo-F3D" firstAttribute="top" secondItem="33u-yI-ca8" secondAttribute="top" constant="8" id="PUb-FC-KxJ"/>
-                                                                <constraint firstItem="vP8-QS-BU9" firstAttribute="leading" secondItem="33u-yI-ca8" secondAttribute="leading" constant="8" id="Sn3-jr-TYo"/>
-                                                                <constraint firstAttribute="bottom" secondItem="1Cw-ef-xsV" secondAttribute="bottom" constant="8" id="bMM-zB-dFn"/>
-                                                                <constraint firstItem="epC-Lo-F3D" firstAttribute="centerY" secondItem="33u-yI-ca8" secondAttribute="centerY" id="cZf-P1-6sx"/>
-                                                                <constraint firstAttribute="bottom" secondItem="epC-Lo-F3D" secondAttribute="bottom" constant="8" id="qyl-dz-dHu"/>
-                                                            </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="Sn3-jr-TYo"/>
-                                                                    <exclude reference="cZf-P1-6sx"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="33u-yI-ca8" firstAttribute="leading" secondItem="Xea-zv-1ep" secondAttribute="leading" constant="24" id="7NX-Fo-1Yd"/>
-                                                        <constraint firstItem="33u-yI-ca8" firstAttribute="top" secondItem="Xea-zv-1ep" secondAttribute="top" id="7f0-bX-dhi"/>
-                                                        <constraint firstAttribute="height" constant="77" id="Fyi-16-TwV"/>
-                                                        <constraint firstAttribute="trailing" secondItem="33u-yI-ca8" secondAttribute="trailing" constant="8" id="VTy-hO-wym"/>
-                                                        <constraint firstAttribute="bottom" secondItem="33u-yI-ca8" secondAttribute="bottom" id="Wx4-SN-jYq"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Xea-zv-1ep" firstAttribute="leading" secondItem="gkl-XD-L0a" secondAttribute="leading" constant="8" id="6J6-me-idZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="Xea-zv-1ep" secondAttribute="trailing" constant="8" id="XBl-cA-Thc"/>
-                                                <constraint firstAttribute="bottom" secondItem="Xea-zv-1ep" secondAttribute="bottom" constant="8" id="YQu-YW-Xka"/>
-                                                <constraint firstItem="Xea-zv-1ep" firstAttribute="top" secondItem="gkl-XD-L0a" secondAttribute="top" id="ksf-P2-GlJ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="threePlayerCell" id="v2I-Ds-qTe" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="222" width="375" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="v2I-Ds-qTe" id="TWx-Rq-oxn">
-                                            <frame key="frameInset" width="375" height="65"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lup-Ka-LrW" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="8" width="584" height="77"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Acb-hd-JC6" userLabel="Create Game Fields Stack">
-                                                            <frame key="frameInset" minX="24" width="327" height="77"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pkn-we-rbe" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nzS-UO-vLz" userLabel="Player Images Stack">
-                                                                            <frame key="frameInset" width="60" height="58"/>
-                                                                            <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="t8S-U7-tbO" userLabel="Bottom Player Images Stack">
-                                                                                    <frame key="frameInset" width="60" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="VID-Ck-2fo" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="6wt-mv-J41"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="hLn-Iv-Ck5"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-Me-pkc" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="v3J-tk-fkg"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="yKe-A2-sVl"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-CX-oo8">
-                                                                                    <frame key="frameInset" minY="30" width="60" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="JJo-eS-jA7" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="16" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="Cgj-aF-Q5M"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="jOp-If-RlL"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                    <constraints>
-                                                                                        <constraint firstItem="JJo-eS-jA7" firstAttribute="top" secondItem="L9g-CX-oo8" secondAttribute="top" id="Yab-YN-AMY"/>
-                                                                                        <constraint firstItem="JJo-eS-jA7" firstAttribute="leading" secondItem="L9g-CX-oo8" secondAttribute="leading" constant="16" id="lfZ-a6-yYz"/>
-                                                                                    </constraints>
-                                                                                </view>
-                                                                            </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstItem="t8S-U7-tbO" firstAttribute="top" secondItem="nzS-UO-vLz" secondAttribute="top" id="NIy-pS-ZdU"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="t8S-U7-tbO" secondAttribute="trailing" id="QEd-jC-tpG"/>
-                                                                                <constraint firstItem="t8S-U7-tbO" firstAttribute="leading" secondItem="nzS-UO-vLz" secondAttribute="leading" id="b4G-v5-6Zp"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="t8S-U7-tbO" secondAttribute="bottom" id="ynN-XK-hCA"/>
-                                                                            </constraints>
-                                                                            <variation key="default">
-                                                                                <mask key="constraints">
-                                                                                    <exclude reference="ynN-XK-hCA"/>
-                                                                                </mask>
-                                                                            </variation>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="nzS-UO-vLz" firstAttribute="leading" secondItem="Pkn-we-rbe" secondAttribute="leading" id="9r0-ua-idt"/>
-                                                                        <constraint firstItem="nzS-UO-vLz" firstAttribute="top" secondItem="Pkn-we-rbe" secondAttribute="top" id="Yzm-Vd-AO0"/>
-                                                                        <constraint firstAttribute="width" constant="92" id="iNB-10-Bsd"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="jCu-VM-hUy"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-7H-dRf" userLabel="Game Title Label">
-                                                                    <frame key="frameInset" minX="104" minY="8" width="111" height="61"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5G-Bg-aDc" userLabel="Right Text Label">
-                                                                    <frame key="frameInset" minX="227" minY="8" width="100" height="61"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="iwL-ft-Fjl"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="t5G-Bg-aDc" firstAttribute="centerY" secondItem="Acb-hd-JC6" secondAttribute="centerY" id="9C9-AZ-7lQ"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Dkn-7H-dRf" secondAttribute="bottom" constant="8" id="CHI-ae-fqV"/>
-                                                                <constraint firstItem="Pkn-we-rbe" firstAttribute="leading" secondItem="Acb-hd-JC6" secondAttribute="leading" constant="8" id="ecE-vg-PhM"/>
-                                                                <constraint firstItem="Dkn-7H-dRf" firstAttribute="top" secondItem="Acb-hd-JC6" secondAttribute="top" constant="8" id="hwS-HG-c2h"/>
-                                                                <constraint firstAttribute="bottom" secondItem="t5G-Bg-aDc" secondAttribute="bottom" constant="8" id="tiQ-Lj-sa2"/>
-                                                                <constraint firstItem="t5G-Bg-aDc" firstAttribute="top" secondItem="Acb-hd-JC6" secondAttribute="top" constant="8" id="vgx-MQ-3em"/>
-                                                            </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="ecE-vg-PhM"/>
-                                                                    <exclude reference="9C9-AZ-7lQ"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="77" id="3zR-Fb-C6n"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Acb-hd-JC6" secondAttribute="bottom" id="5hl-sd-kOs"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Acb-hd-JC6" secondAttribute="trailing" constant="8" id="JYh-xq-wqa"/>
-                                                        <constraint firstItem="Acb-hd-JC6" firstAttribute="top" secondItem="lup-Ka-LrW" secondAttribute="top" id="gYH-9A-dCq"/>
-                                                        <constraint firstItem="Acb-hd-JC6" firstAttribute="leading" secondItem="lup-Ka-LrW" secondAttribute="leading" constant="24" id="jXz-V7-lWI"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="lup-Ka-LrW" secondAttribute="bottom" constant="8" id="COH-KE-lZg"/>
-                                                <constraint firstItem="lup-Ka-LrW" firstAttribute="top" secondItem="TWx-Rq-oxn" secondAttribute="top" id="Xdt-Ql-jNq"/>
-                                                <constraint firstItem="lup-Ka-LrW" firstAttribute="leading" secondItem="TWx-Rq-oxn" secondAttribute="leading" constant="8" id="dIO-tm-ZaP"/>
-                                                <constraint firstAttribute="trailing" secondItem="lup-Ka-LrW" secondAttribute="trailing" constant="8" id="u7G-bd-Erg"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="3PlayerCell" id="MVJ-uU-4qa" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="287" width="375" height="65"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="MVJ-uU-4qa" id="Zmd-fE-m8N">
-                                            <frame key="frameInset" width="375" height="65"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGZ-2D-ZUQ" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="8" width="584" height="60"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fCw-0Y-BGU" userLabel="Create Game Fields Stack">
-                                                            <frame key="frameInset" minX="8" width="343" height="77"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yR3-gK-5ze" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-ea-Uej" userLabel="Top Player Images Stack">
-                                                                            <frame key="frameInset" minY="16" width="92" height="28"/>
-                                                                            <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="tTa-b5-OoH" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                    <frame key="frameInset" width="28" height="28"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="28" id="VTH-3B-nGS"/>
-                                                                                        <constraint firstAttribute="width" constant="28" id="buE-YP-mAE"/>
-                                                                                    </constraints>
-                                                                                </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="kVF-wP-fhW" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                    <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="28" id="Bmg-20-s8j"/>
-                                                                                        <constraint firstAttribute="width" constant="28" id="hFh-GY-RKa"/>
-                                                                                    </constraints>
-                                                                                </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="u66-dz-oQ7" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                    <frame key="frameInset" minX="64" width="28" height="28"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="28" id="HBi-Pn-ACu"/>
-                                                                                        <constraint firstAttribute="width" constant="28" id="xvc-Ye-qrt"/>
-                                                                                    </constraints>
-                                                                                </imageView>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="trailing" secondItem="Kxr-ea-Uej" secondAttribute="trailing" id="6wJ-k6-1Bq"/>
-                                                                        <constraint firstItem="Kxr-ea-Uej" firstAttribute="leading" secondItem="yR3-gK-5ze" secondAttribute="leading" id="Aa0-R9-WMT"/>
-                                                                        <constraint firstItem="Kxr-ea-Uej" firstAttribute="centerY" secondItem="yR3-gK-5ze" secondAttribute="centerY" id="XzN-QL-Taz"/>
-                                                                        <constraint firstAttribute="width" constant="92" id="cWu-cy-Dyi"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="cyo-xb-LcT"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gz-St-0hh" userLabel="Game Title Label">
-                                                                    <frame key="frameInset" minX="104" minY="8" width="127" height="61"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGD-yi-q6A" userLabel="Right Text Label">
-                                                                    <frame key="frameInset" minX="243" minY="8" width="100" height="61"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="oQ1-rk-bJQ"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="ZGD-yi-q6A" firstAttribute="top" secondItem="fCw-0Y-BGU" secondAttribute="top" constant="8" id="9b7-oL-Fxf"/>
-                                                                <constraint firstAttribute="bottom" secondItem="2gz-St-0hh" secondAttribute="bottom" constant="8" id="Ibe-Vm-Chj"/>
-                                                                <constraint firstItem="ZGD-yi-q6A" firstAttribute="centerY" secondItem="fCw-0Y-BGU" secondAttribute="centerY" id="KO9-4M-3qK"/>
-                                                                <constraint firstAttribute="bottom" secondItem="ZGD-yi-q6A" secondAttribute="bottom" constant="8" id="SpY-IK-8Ua"/>
-                                                                <constraint firstItem="2gz-St-0hh" firstAttribute="top" secondItem="fCw-0Y-BGU" secondAttribute="top" constant="8" id="WGG-Yq-NUL"/>
-                                                                <constraint firstItem="yR3-gK-5ze" firstAttribute="leading" secondItem="fCw-0Y-BGU" secondAttribute="leading" constant="8" id="yV6-f2-lZL"/>
-                                                            </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="yV6-f2-lZL"/>
-                                                                    <exclude reference="KO9-4M-3qK"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="fCw-0Y-BGU" secondAttribute="bottom" id="BAN-oy-nnu"/>
-                                                        <constraint firstAttribute="trailing" secondItem="fCw-0Y-BGU" secondAttribute="trailing" constant="8" id="Ksl-aK-Lz8"/>
-                                                        <constraint firstItem="fCw-0Y-BGU" firstAttribute="top" secondItem="SGZ-2D-ZUQ" secondAttribute="top" id="RB7-2c-CzH"/>
-                                                        <constraint firstItem="fCw-0Y-BGU" firstAttribute="leading" secondItem="SGZ-2D-ZUQ" secondAttribute="leading" constant="8" id="hGR-Kt-8gA"/>
-                                                        <constraint firstAttribute="height" constant="77" id="jjT-o4-2yU"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="SGZ-2D-ZUQ" firstAttribute="top" secondItem="Zmd-fE-m8N" secondAttribute="top" id="Dca-gn-jgi"/>
-                                                <constraint firstAttribute="trailing" secondItem="SGZ-2D-ZUQ" secondAttribute="trailing" constant="8" id="ECX-TD-dhc"/>
-                                                <constraint firstItem="SGZ-2D-ZUQ" firstAttribute="leading" secondItem="Zmd-fE-m8N" secondAttribute="leading" constant="8" id="MmI-UM-SVl"/>
-                                                <constraint firstAttribute="bottom" secondItem="SGZ-2D-ZUQ" secondAttribute="bottom" constant="8" id="tfP-YG-0MV"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="invitationCell" id="8xQ-en-9Bu" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="352" width="375" height="65"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="8xQ-en-9Bu" id="gcs-9X-5kl">
-                                            <frame key="frameInset" width="375" height="65"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ERt-1S-WEu" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="8" width="584" height="60"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="t53-8a-hAb" userLabel="Create Game Fields Stack">
-                                                            <frame key="frameInset" minX="8" width="343" height="77"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySn-4k-dgK" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Coe-aT-eEI" userLabel="Player Images Stack">
-                                                                            <frame key="frameInset" width="92" height="58"/>
-                                                                            <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="M84-Rq-nf3" userLabel="Top Player Images Stack">
-                                                                                    <frame key="frameInset" width="92" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="8R7-Sc-0uJ" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="BtY-Zg-QGO"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="QMD-pg-uER"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="C7v-B0-KdL" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="j18-Ph-AzB"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="lV6-QN-9zN"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="t9j-7b-Fso" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="64" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="Xyo-s5-p0R"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="pXd-YG-wRp"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="QeM-NZ-IJa" userLabel="Bottom Player Images Stack">
-                                                                                    <frame key="frameInset" minY="30" width="92" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="idh-C6-VUW" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="aEB-uo-emN"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="n2m-eL-KsA"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="KSl-bm-kGP" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="S8G-TH-QTh"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="kd9-jf-PQY"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="eRy-2Z-0Ql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="64" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="bc8-hx-Nly"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="s1D-OG-KAU"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                            </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstItem="M84-Rq-nf3" firstAttribute="leading" secondItem="Coe-aT-eEI" secondAttribute="leading" id="5Oo-F1-6Ki"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="M84-Rq-nf3" secondAttribute="trailing" id="606-FZ-Ekg"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="QeM-NZ-IJa" secondAttribute="bottom" id="LFb-GP-0ny"/>
-                                                                                <constraint firstItem="QeM-NZ-IJa" firstAttribute="leading" secondItem="Coe-aT-eEI" secondAttribute="leading" id="MmQ-yE-0Zg"/>
-                                                                                <constraint firstItem="M84-Rq-nf3" firstAttribute="top" secondItem="Coe-aT-eEI" secondAttribute="top" id="XRV-0t-Cq8"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="QeM-NZ-IJa" secondAttribute="trailing" id="mj9-ha-7yN"/>
-                                                                            </constraints>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="Coe-aT-eEI" firstAttribute="top" secondItem="ySn-4k-dgK" secondAttribute="top" id="70J-UV-A33"/>
-                                                                        <constraint firstItem="Coe-aT-eEI" firstAttribute="leading" secondItem="ySn-4k-dgK" secondAttribute="leading" id="BTd-Na-802"/>
-                                                                        <constraint firstAttribute="width" constant="92" id="nJL-kJ-BQN"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="zyE-AP-02m"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="CIU-aO-8NI" userLabel="Game Title Label">
-                                                                    <frame key="frameInset" minX="104" minY="8" width="127" height="61"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fI4-hs-2c0" userLabel="Right Text Label">
-                                                                    <frame key="frameInset" minX="243" minY="8" width="100" height="61"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="LYh-EO-q73"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="ySn-4k-dgK" firstAttribute="leading" secondItem="t53-8a-hAb" secondAttribute="leading" constant="8" id="1GX-Pl-6jw"/>
-                                                                <constraint firstItem="fI4-hs-2c0" firstAttribute="top" secondItem="t53-8a-hAb" secondAttribute="top" constant="8" id="429-cx-ivw"/>
-                                                                <constraint firstItem="CIU-aO-8NI" firstAttribute="top" secondItem="t53-8a-hAb" secondAttribute="top" constant="8" id="GyJ-b1-fl9"/>
-                                                                <constraint firstAttribute="bottom" secondItem="CIU-aO-8NI" secondAttribute="bottom" constant="8" id="NeZ-j5-fRI"/>
-                                                                <constraint firstAttribute="bottom" secondItem="fI4-hs-2c0" secondAttribute="bottom" constant="8" id="W7P-eA-enn"/>
-                                                                <constraint firstItem="fI4-hs-2c0" firstAttribute="centerY" secondItem="t53-8a-hAb" secondAttribute="centerY" id="hmx-Td-vQe"/>
-                                                            </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="1GX-Pl-6jw"/>
-                                                                    <exclude reference="hmx-Td-vQe"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="77" id="Arm-dw-yrK"/>
-                                                        <constraint firstAttribute="trailing" secondItem="t53-8a-hAb" secondAttribute="trailing" constant="8" id="ED7-QQ-R3w"/>
-                                                        <constraint firstAttribute="bottom" secondItem="t53-8a-hAb" secondAttribute="bottom" id="Qnz-sP-vHm"/>
-                                                        <constraint firstItem="t53-8a-hAb" firstAttribute="leading" secondItem="ERt-1S-WEu" secondAttribute="leading" constant="8" id="hC1-Hi-Ubw"/>
-                                                        <constraint firstItem="t53-8a-hAb" firstAttribute="top" secondItem="ERt-1S-WEu" secondAttribute="top" id="mTe-zc-wYR"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="ERt-1S-WEu" secondAttribute="bottom" constant="8" id="BkQ-qL-nHz"/>
-                                                <constraint firstAttribute="trailing" secondItem="ERt-1S-WEu" secondAttribute="trailing" constant="8" id="Qc9-cV-INO"/>
-                                                <constraint firstItem="ERt-1S-WEu" firstAttribute="leading" secondItem="gcs-9X-5kl" secondAttribute="leading" constant="8" id="ZtA-to-f4i"/>
-                                                <constraint firstItem="ERt-1S-WEu" firstAttribute="top" secondItem="gcs-9X-5kl" secondAttribute="top" id="xxB-sr-EfS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteCell" id="LZf-GO-GjG" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="417" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LZf-GO-GjG" id="0Jr-ML-0Hn">
                                             <frame key="frameInset" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1f-4a-lUx" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raccoon" translatesAutoresizingMaskIntoConstraints="NO" id="onU-O6-05M">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="onU-O6-05M" secondAttribute="height" multiplier="1:1" id="vY3-V1-Ahq"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-Wm-ij6">
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="m8n-8R-6dW"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailDisclosure" translatesAutoresizingMaskIntoConstraints="NO" id="TGc-jP-gUK">
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="1QL-fT-a7w"/>
+                                                                <constraint firstAttribute="width" constant="22" id="YYd-Ba-18N"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csT-ji-Szk">
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="rn1-v5-7va"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="TGc-jP-gUK" firstAttribute="centerY" secondItem="e1f-4a-lUx" secondAttribute="centerY" id="5dA-ue-iuP"/>
+                                                        <constraint firstItem="csT-ji-Szk" firstAttribute="leading" secondItem="onU-O6-05M" secondAttribute="trailing" constant="16" id="C1E-w6-KsZ"/>
+                                                        <constraint firstItem="TGc-jP-gUK" firstAttribute="leading" secondItem="csT-ji-Szk" secondAttribute="trailing" constant="8" id="NGX-e8-86R"/>
+                                                        <constraint firstAttribute="bottom" secondItem="onU-O6-05M" secondAttribute="bottom" constant="8" id="aQ8-2u-RW6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="TGc-jP-gUK" secondAttribute="trailing" constant="8" id="kt9-1b-t3n"/>
+                                                        <constraint firstItem="K8V-Wm-ij6" firstAttribute="bottom" secondItem="onU-O6-05M" secondAttribute="centerY" id="kwZ-mL-N3u"/>
+                                                        <constraint firstItem="csT-ji-Szk" firstAttribute="top" secondItem="onU-O6-05M" secondAttribute="centerY" id="rBS-MF-KXO"/>
+                                                        <constraint firstItem="onU-O6-05M" firstAttribute="top" secondItem="e1f-4a-lUx" secondAttribute="top" constant="8" id="rME-M6-VOR"/>
+                                                        <constraint firstItem="K8V-Wm-ij6" firstAttribute="leading" secondItem="onU-O6-05M" secondAttribute="trailing" constant="16" id="uWk-j2-8u5"/>
+                                                        <constraint firstItem="onU-O6-05M" firstAttribute="leading" secondItem="e1f-4a-lUx" secondAttribute="leading" constant="8" id="wQD-9u-tFt"/>
+                                                        <constraint firstItem="TGc-jP-gUK" firstAttribute="leading" secondItem="K8V-Wm-ij6" secondAttribute="trailing" constant="8" id="wkK-gD-hjg"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -840,143 +244,92 @@
                                                 <constraint firstItem="e1f-4a-lUx" firstAttribute="leading" secondItem="0Jr-ML-0Hn" secondAttribute="leading" constant="8" id="z8b-E1-d1p"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gameImageView" destination="onU-O6-05M" id="0Xn-Jc-2rQ"/>
+                                            <outlet property="roundedBorderView" destination="e1f-4a-lUx" id="Ig0-fA-luJ"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" id="tVn-qu-KmI" userLabel="sixPlayerCell" customClass="SBaseTableViewCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="482" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteCell" id="643-rJ-0av" customClass="InvitationCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="157" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="tVn-qu-KmI" id="uaJ-1e-yPl">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="643-rJ-0av" id="Uto-eo-2QE">
                                             <frame key="frameInset" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FNt-NV-DCP" userLabel="Create Game Fields View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="8" width="584" height="60"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s28-Ce-Pwy" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="avl-nq-6qA" userLabel="Create Game Fields Stack">
-                                                            <frame key="frameInset" minX="8" width="343" height="77"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNK-Zz-lgv" userLabel="Player Images View">
-                                                                    <frame key="frameInset" minY="8" width="92" height="60"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="XRj-4v-NRJ" userLabel="Player Images Stack">
-                                                                            <frame key="frameInset" width="92" height="58"/>
-                                                                            <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HjE-7j-oWz" userLabel="Top Player Images Stack">
-                                                                                    <frame key="frameInset" width="92" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="v3F-IN-F7i" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="FEa-SL-aa2"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="QqO-UH-b5C"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-il-o1K" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="RAu-Yb-XdI"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="giT-8w-IzA"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="paul" translatesAutoresizingMaskIntoConstraints="NO" id="1VF-Fp-lSQ" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="64" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="bAS-1R-54Y"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="iHA-7y-IlY"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7OO-38-tBa" userLabel="Bottom Player Images Stack">
-                                                                                    <frame key="frameInset" minY="30" width="92" height="28"/>
-                                                                                    <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="v1u-XK-8Xo" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="height" constant="28" id="Jrb-oO-mdP"/>
-                                                                                                <constraint firstAttribute="width" constant="28" id="vvy-gI-XUa"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="7vo-Eb-Hm8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="32" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="IFJ-c0-zRX"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="diI-OT-1qe"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aliya" translatesAutoresizingMaskIntoConstraints="NO" id="v9L-z9-Wuf" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                                                            <frame key="frameInset" minX="64" width="28" height="28"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="28" id="Khq-1l-tpx"/>
-                                                                                                <constraint firstAttribute="height" constant="28" id="rKt-rl-yYW"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                            </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="trailing" secondItem="HjE-7j-oWz" secondAttribute="trailing" id="4e9-5V-8V9"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="7OO-38-tBa" secondAttribute="trailing" id="4s2-9T-mY7"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="7OO-38-tBa" secondAttribute="bottom" id="QMw-WB-Agh"/>
-                                                                                <constraint firstItem="HjE-7j-oWz" firstAttribute="top" secondItem="XRj-4v-NRJ" secondAttribute="top" id="Rym-kU-ge6"/>
-                                                                                <constraint firstItem="7OO-38-tBa" firstAttribute="leading" secondItem="XRj-4v-NRJ" secondAttribute="leading" id="XTR-ca-9pg"/>
-                                                                                <constraint firstItem="HjE-7j-oWz" firstAttribute="leading" secondItem="XRj-4v-NRJ" secondAttribute="leading" id="xJC-HW-x5T"/>
-                                                                            </constraints>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="XRj-4v-NRJ" firstAttribute="top" secondItem="SNK-Zz-lgv" secondAttribute="top" id="Dit-jq-sI3"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="bbN-Et-I88"/>
-                                                                        <constraint firstAttribute="width" constant="92" id="m9D-Vs-d11"/>
-                                                                        <constraint firstItem="XRj-4v-NRJ" firstAttribute="leading" secondItem="SNK-Zz-lgv" secondAttribute="leading" id="znE-aq-f86"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Game Title }" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-65-hdg" userLabel="Game Title Label">
-                                                                    <frame key="frameInset" minX="104" minY="8" width="127" height="61"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ Some Text }" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3T-ar-8dH" userLabel="Right Text Label">
-                                                                    <frame key="frameInset" minX="243" minY="8" width="100" height="61"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="100" id="Txw-oA-9cU"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raccoon" translatesAutoresizingMaskIntoConstraints="NO" id="yJt-Pm-gNc">
                                                             <constraints>
-                                                                <constraint firstItem="SNK-Zz-lgv" firstAttribute="leading" secondItem="avl-nq-6qA" secondAttribute="leading" constant="8" id="1oo-Im-EQT"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Wmh-65-hdg" secondAttribute="bottom" constant="8" id="7Sb-Z5-LNR"/>
-                                                                <constraint firstItem="F3T-ar-8dH" firstAttribute="centerY" secondItem="avl-nq-6qA" secondAttribute="centerY" id="9IJ-E4-Ohw"/>
-                                                                <constraint firstItem="F3T-ar-8dH" firstAttribute="top" secondItem="avl-nq-6qA" secondAttribute="top" constant="8" id="jsl-EZ-Sd0"/>
-                                                                <constraint firstAttribute="bottom" secondItem="F3T-ar-8dH" secondAttribute="bottom" constant="8" id="leF-wX-mmz"/>
-                                                                <constraint firstItem="Wmh-65-hdg" firstAttribute="top" secondItem="avl-nq-6qA" secondAttribute="top" constant="8" id="uI2-rD-Hkh"/>
+                                                                <constraint firstAttribute="width" secondItem="yJt-Pm-gNc" secondAttribute="height" multiplier="1:1" id="LpF-vy-cd0"/>
                                                             </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="1oo-Im-EQT"/>
-                                                                    <exclude reference="9IJ-E4-Ohw"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </stackView>
+                                                        </imageView>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3U-dZ-Jlg">
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="HgB-28-aCG"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invited By: Kim Seltzer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZE-5m-X0o">
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="mrJ-4m-BU6"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ft1-Ob-4rh">
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="Vtm-bY-91e"/>
+                                                                <constraint firstAttribute="width" constant="30" id="qDN-xJ-umk"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                                            <state key="normal" title="✔">
+                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="titleShadowColor" red="0.06841052484" green="0.51380208329999999" blue="0.32944655490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8s-7w-g8e">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="6u6-3S-00T"/>
+                                                                <constraint firstAttribute="height" constant="30" id="Bs7-GW-1PE"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="TSq-We-JXB"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="XPa-4y-4az"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <color key="tintColor" red="1" green="0.10215320159999999" blue="0.26067378720000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                                            <state key="normal" title="✘">
+                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="titleShadowColor" red="1" green="0.10215320159999999" blue="0.26067378720000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="77" id="67b-yd-FV9"/>
-                                                        <constraint firstItem="avl-nq-6qA" firstAttribute="leading" secondItem="FNt-NV-DCP" secondAttribute="leading" constant="8" id="7Kz-6k-syY"/>
-                                                        <constraint firstAttribute="trailing" secondItem="avl-nq-6qA" secondAttribute="trailing" constant="8" id="C4m-1p-Xk9"/>
-                                                        <constraint firstAttribute="bottom" secondItem="avl-nq-6qA" secondAttribute="bottom" id="d2D-jn-0Ze"/>
-                                                        <constraint firstItem="avl-nq-6qA" firstAttribute="top" secondItem="FNt-NV-DCP" secondAttribute="top" id="o5g-kx-q7W"/>
+                                                        <constraint firstItem="z8s-7w-g8e" firstAttribute="leading" secondItem="bZE-5m-X0o" secondAttribute="trailing" constant="8" id="6V4-3q-GFu"/>
+                                                        <constraint firstItem="yJt-Pm-gNc" firstAttribute="top" secondItem="s28-Ce-Pwy" secondAttribute="top" constant="8" id="F6x-nd-vMU"/>
+                                                        <constraint firstItem="z8s-7w-g8e" firstAttribute="leading" secondItem="L3U-dZ-Jlg" secondAttribute="trailing" constant="8" id="K60-Ea-B62"/>
+                                                        <constraint firstItem="bZE-5m-X0o" firstAttribute="leading" secondItem="yJt-Pm-gNc" secondAttribute="trailing" constant="16" id="M8g-vo-dLX"/>
+                                                        <constraint firstItem="yJt-Pm-gNc" firstAttribute="leading" secondItem="s28-Ce-Pwy" secondAttribute="leading" constant="8" id="SGq-hq-FEc"/>
+                                                        <constraint firstItem="z8s-7w-g8e" firstAttribute="centerY" secondItem="s28-Ce-Pwy" secondAttribute="centerY" id="XjO-mY-UsI"/>
+                                                        <constraint firstItem="ft1-Ob-4rh" firstAttribute="leading" secondItem="z8s-7w-g8e" secondAttribute="trailing" constant="16" id="YVA-eb-CpD"/>
+                                                        <constraint firstItem="bZE-5m-X0o" firstAttribute="top" secondItem="yJt-Pm-gNc" secondAttribute="centerY" id="bZ9-Yn-KKc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ft1-Ob-4rh" secondAttribute="trailing" constant="8" id="gLC-rB-mnv"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yJt-Pm-gNc" secondAttribute="bottom" constant="8" id="hpn-EF-FSg"/>
+                                                        <constraint firstItem="L3U-dZ-Jlg" firstAttribute="bottom" secondItem="yJt-Pm-gNc" secondAttribute="centerY" id="kGq-ld-W97"/>
+                                                        <constraint firstItem="ft1-Ob-4rh" firstAttribute="centerY" secondItem="s28-Ce-Pwy" secondAttribute="centerY" id="m17-8B-Own"/>
+                                                        <constraint firstItem="L3U-dZ-Jlg" firstAttribute="leading" secondItem="yJt-Pm-gNc" secondAttribute="trailing" constant="16" id="qfP-og-pph"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="FNt-NV-DCP" secondAttribute="trailing" constant="8" id="Q5O-GZ-3xT"/>
-                                                <constraint firstItem="FNt-NV-DCP" firstAttribute="leading" secondItem="uaJ-1e-yPl" secondAttribute="leading" constant="8" id="Ua4-05-1DR"/>
-                                                <constraint firstItem="FNt-NV-DCP" firstAttribute="top" secondItem="uaJ-1e-yPl" secondAttribute="top" id="grw-BU-r1L"/>
-                                                <constraint firstAttribute="bottom" secondItem="FNt-NV-DCP" secondAttribute="bottom" constant="8" id="tXL-v9-o2v"/>
+                                                <constraint firstAttribute="bottom" secondItem="s28-Ce-Pwy" secondAttribute="bottom" constant="8" id="20N-Eb-Wml"/>
+                                                <constraint firstAttribute="trailing" secondItem="s28-Ce-Pwy" secondAttribute="trailing" constant="8" id="4Do-92-6Ji"/>
+                                                <constraint firstItem="s28-Ce-Pwy" firstAttribute="leading" secondItem="Uto-eo-2QE" secondAttribute="leading" constant="8" id="A0n-Yx-wdT"/>
+                                                <constraint firstItem="s28-Ce-Pwy" firstAttribute="top" secondItem="Uto-eo-2QE" secondAttribute="top" id="SOV-82-H5r"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1015,7 +368,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="8W9-Ff-FdF" id="V7x-6e-oTH"/>
+                        <outlet property="tableView" destination="8W9-Ff-FdF" id="EWH-IE-NyV"/>
                         <segue destination="Cja-2C-WBn" kind="presentation" identifier="showMenu" id="q6K-O4-tQy"/>
                     </connections>
                 </viewController>
@@ -1032,7 +385,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1333" y="557"/>
+            <point key="canvasLocation" x="1332" y="555.47226386806597"/>
         </scene>
         <!--New Game-->
         <scene sceneID="O0c-Vz-mcP">
@@ -1522,11 +875,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="aliya" width="960" height="1280"/>
+        <image name="detailDisclosure" width="64" height="64"/>
         <image name="fbProfilePic" width="960" height="960"/>
         <image name="kimNegativeState" width="222" height="222"/>
-        <image name="paul" width="441" height="441"/>
-        <image name="sachin" width="1575" height="1575"/>
+        <image name="raccoon" width="1119" height="1119"/>
         <image name="sachinNegativeState" width="222" height="222"/>
         <image name="uncheckedBox" width="626" height="626"/>
     </resources>

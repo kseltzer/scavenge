@@ -23,7 +23,6 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let searchController = UISearchController(searchResultsController: nil)
     let indexTitles = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "#"];
     var sectionTitles : [String] = []
-    var invitedFriendsIndices: [IndexPath] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,19 +90,12 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 0
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        invitedFriendsIndices.append(indexPath)
-        let cell = tableView.cellForRow(at: indexPath) as! InviteCell
-        cell.setSelectedAppearance()
-    }
-    
     func updateSearchResults(for searchController: UISearchController) {
     }
     
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InviteCell
-        return cell
+        return UITableViewCell()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
