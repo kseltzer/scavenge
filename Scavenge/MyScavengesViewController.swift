@@ -69,37 +69,37 @@ class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: SBaseTableViewCell
+        let cell: GameCell!
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
-            cell = tableView.dequeueReusableCell(withIdentifier: "threePlayerCell") as! SBaseTableViewCell
+            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InvitationCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
 //            cell.gameStatusLabel.text = "your turn"
-            break
+            return inviteCell
         case TableViewSection.results.rawValue:
-            cell = tableView.dequeueReusableCell(withIdentifier: "fourPlayerCell") as! SBaseTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
 //            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.activeGames.rawValue:
             return UITableViewCell()
         case TableViewSection.yourMove.rawValue:
-            cell = tableView.dequeueReusableCell(withIdentifier: "threePlayerCell") as! SBaseTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
 //            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.theirMove.rawValue:
-            cell = tableView.dequeueReusableCell(withIdentifier: "fivePlayerCell") as! SBaseTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
 //            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.completedGames.rawValue:
-            cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as! SBaseTableViewCell
 //            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
 //            cell.gameStatusLabel.text = "your turn"
+            cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
             break
         default:
-            return SBaseTableViewCell()
+            return GameCell()
         }
         return cell
     }

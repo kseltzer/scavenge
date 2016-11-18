@@ -12,6 +12,7 @@
 		4E00865E1DDD2EBE00F5AD20 /* InviteViaTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */; };
 		4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */; };
 		4E0086631DDE9F1300F5AD20 /* DismissCameraAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */; };
+		4E0086671DDEE64400F5AD20 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086661DDEE64400F5AD20 /* GameCell.swift */; };
 		4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1011D11D73BE4E00662E9F /* MenuViewController.swift */; };
 		4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */; };
 		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
@@ -41,12 +42,12 @@
 		4E22781E1D42030000E22436 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22781D1D42030000E22436 /* FriendCell.swift */; };
 		4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */; };
 		4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */; };
+		4E6393B21DDF859000A4018D /* InvitationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6393B11DDF859000A4018D /* InvitationCell.swift */; };
 		4E6D98431D56CBF9007DEFAB /* VotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D98421D56CBF9007DEFAB /* VotingCell.swift */; };
 		4E6EA4F51D4E93E00022127B /* CameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */; };
 		4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA238491D779BBE00BD278B /* ResultsViewController.swift */; };
 		4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384B1D77A23B00BD278B /* ResultsCell.swift */; };
 		4EA2384E1D7F4D4900BD278B /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */; };
-		4EA238501D7F6E3600BD278B /* InviteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384F1D7F6E3600BD278B /* InviteCell.swift */; };
 		4EB640761D73C38F00EA308D /* InteractiveTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640751D73C38F00EA308D /* InteractiveTransitionController.swift */; };
 		4EB640781D73C41900EA308D /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640771D73C41900EA308D /* MenuHelper.swift */; };
 		4EB6407A1D73C62900EA308D /* ShowMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */; };
@@ -87,6 +88,7 @@
 		4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViaTextCell.swift; sourceTree = "<group>"; };
 		4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViaFacebookCell.swift; sourceTree = "<group>"; };
 		4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissCameraAnimator.swift; sourceTree = "<group>"; };
+		4E0086661DDEE64400F5AD20 /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		4E033FE11DCD164300824D7E /* Scavenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scavenge.entitlements; sourceTree = "<group>"; };
 		4E1011D11D73BE4E00662E9F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
@@ -122,12 +124,12 @@
 		4E22781D1D42030000E22436 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriendCell.swift; sourceTree = "<group>"; };
 		4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriend.swift; sourceTree = "<group>"; };
+		4E6393B11DDF859000A4018D /* InvitationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationCell.swift; sourceTree = "<group>"; };
 		4E6D98421D56CBF9007DEFAB /* VotingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingCell.swift; sourceTree = "<group>"; };
 		4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayView.xib; sourceTree = "<group>"; };
 		4EA238491D779BBE00BD278B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		4EA2384B1D77A23B00BD278B /* ResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitCell.swift; sourceTree = "<group>"; };
-		4EA2384F1D7F6E3600BD278B /* InviteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteCell.swift; sourceTree = "<group>"; };
 		4EB640751D73C38F00EA308D /* InteractiveTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitionController.swift; sourceTree = "<group>"; };
 		4EB640771D73C41900EA308D /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
 		4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMenuAnimator.swift; sourceTree = "<group>"; };
@@ -190,6 +192,15 @@
 				4E2277F91D331D2300E22436 /* Slideout Menu */,
 			);
 			name = "Animated Transitions";
+			sourceTree = "<group>";
+		};
+		4E0086651DDEE62600F5AD20 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4E0086661DDEE64400F5AD20 /* GameCell.swift */,
+				4E6393B11DDF859000A4018D /* InvitationCell.swift */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		4E1584631D4ED76E00208E3A /* Playing Game */ = {
@@ -261,11 +272,11 @@
 		4E2277D01D32D1CD00E22436 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4E0086651DDEE62600F5AD20 /* Home */,
 				4E2277F31D33134700E22436 /* Shared */,
 				4E1584631D4ED76E00208E3A /* Playing Game */,
 				4E2277F41D33136000E22436 /* Login */,
 				4E22780E1D388B5300E22436 /* Create Game */,
-				4EA2384F1D7F6E3600BD278B /* InviteCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -566,9 +577,9 @@
 				4EB640901D763AAC00EA308D /* InviteViewController.swift in Sources */,
 				4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */,
 				4EB640781D73C41900EA308D /* MenuHelper.swift in Sources */,
-				4EA238501D7F6E3600BD278B /* InviteCell.swift in Sources */,
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4EB640881D75572300EA308D /* CustomNavigationBar.swift in Sources */,
+				4E6393B21DDF859000A4018D /* InvitationCell.swift in Sources */,
 				4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
 				4E2277E71D32E56D00E22436 /* MyScavengesViewController.swift in Sources */,
@@ -603,6 +614,7 @@
 				4E2277D71D32D29400E22436 /* Constants.swift in Sources */,
 				4E22781E1D42030000E22436 /* FriendCell.swift in Sources */,
 				4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */,
+				4E0086671DDEE64400F5AD20 /* GameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
