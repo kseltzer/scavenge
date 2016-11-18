@@ -28,12 +28,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJb-9u-NPD">
-                    <frame key="frameInset" width="600" height="433"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nJb-9u-NPD">
                     <gestureRecognizers/>
                 </imageView>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KVK-l6-Jzq">
-                    <frame key="frameInset" width="600" height="60"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVK-l6-Jzq">
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tv1-FD-dTk">
                             <constraints>
@@ -54,8 +52,7 @@
                                 <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="nfz-qA-AWm"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxI-QU-uzw">
-                            <frame key="frameInset" minX="290" minY="15" width="19" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxI-QU-uzw">
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="DbD-Lt-fzE"/>
                                 <constraint firstAttribute="width" secondItem="vxI-QU-uzw" secondAttribute="height" multiplier="46:73" id="dO2-kN-dgY"/>
@@ -66,8 +63,7 @@
                                 <action selector="flashButtonTapped:" destination="-1" eventType="touchUpInside" id="cbw-u1-gsb"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IB6-Ln-yId">
-                            <frame key="frameInset" minX="546" minY="15" width="42" height="30"/>
+                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IB6-Ln-yId">
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="EU2-AH-O5e"/>
                                 <constraint firstAttribute="width" secondItem="IB6-Ln-yId" secondAttribute="height" multiplier="59:42" id="Jvz-2r-krD"/>
@@ -97,11 +93,9 @@
                         <constraint firstItem="IB6-Ln-yId" firstAttribute="centerY" secondItem="KVK-l6-Jzq" secondAttribute="centerY" id="xTf-cD-uFJ"/>
                     </constraints>
                 </view>
-                <view opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uc1-Nl-gDs" userLabel="BottomView">
-                    <frame key="frameInset" minY="433" width="600" height="167"/>
+                <view opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uc1-Nl-gDs" userLabel="BottomView">
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBx-XR-hsd">
-                            <frame key="frameInset" minX="540" minY="98" width="30" height="34"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBx-XR-hsd">
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="LJu-s7-JK2"/>
                                 <constraint firstAttribute="height" constant="34" id="WC1-f9-T2q"/>
@@ -159,6 +153,7 @@
                     </variation>
                 </view>
             </subviews>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Uc1-Nl-gDs" secondAttribute="trailing" id="138-j2-VgY"/>
                 <constraint firstItem="Uc1-Nl-gDs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5HS-BL-zfc"/>
