@@ -26,7 +26,7 @@
 		4E2277DE1D32D80A00E22436 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2277DB1D32D80A00E22436 /* Bolts.framework */; };
 		4E2277DF1D32D80B00E22436 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2277DC1D32D80A00E22436 /* FBSDKCoreKit.framework */; };
 		4E2277E01D32D80B00E22436 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2277DD1D32D80A00E22436 /* FBSDKLoginKit.framework */; };
-		4E2277E71D32E56D00E22436 /* MyScavengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277E61D32E56D00E22436 /* MyScavengesViewController.swift */; };
+		4E2277E71D32E56D00E22436 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277E61D32E56D00E22436 /* HomeViewController.swift */; };
 		4E2277E91D32E5DB00E22436 /* SNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277E81D32E5DB00E22436 /* SNavigationController.swift */; };
 		4E2277EC1D32F41A00E22436 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2277EB1D32F41A00E22436 /* MainStoryboard.storyboard */; };
 		4E2277F61D33137F00E22436 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277F51D33137F00E22436 /* LoginButton.swift */; };
@@ -108,7 +108,7 @@
 		4E2277DB1D32D80A00E22436 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4E2277DC1D32D80A00E22436 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		4E2277DD1D32D80A00E22436 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		4E2277E61D32E56D00E22436 /* MyScavengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyScavengesViewController.swift; sourceTree = "<group>"; };
+		4E2277E61D32E56D00E22436 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4E2277E81D32E5DB00E22436 /* SNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNavigationController.swift; sourceTree = "<group>"; };
 		4E2277EB1D32F41A00E22436 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4E2277F51D33137F00E22436 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 				4EB9AEB31D56BEAF00F19BB2 /* Shared */,
 				4EB9AEB21D56BE9300F19BB2 /* PlayingGame */,
 				4E2277D31D32D26100E22436 /* LoginViewController.swift */,
-				4E2277E61D32E56D00E22436 /* MyScavengesViewController.swift */,
+				4E2277E61D32E56D00E22436 /* HomeViewController.swift */,
 				4E2278171D41EB5B00E22436 /* NewGameViewController.swift */,
 				4E1011D11D73BE4E00662E9F /* MenuViewController.swift */,
 				4EB640811D751B4B00EA308D /* TourViewController.swift */,
@@ -582,7 +582,7 @@
 				4E6393B21DDF859000A4018D /* InvitationCell.swift in Sources */,
 				4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
-				4E2277E71D32E56D00E22436 /* MyScavengesViewController.swift in Sources */,
+				4E2277E71D32E56D00E22436 /* HomeViewController.swift in Sources */,
 				4E2277F61D33137F00E22436 /* LoginButton.swift in Sources */,
 				4EB640921D77617100EA308D /* RightToLeftAnimator.swift in Sources */,
 				4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */,

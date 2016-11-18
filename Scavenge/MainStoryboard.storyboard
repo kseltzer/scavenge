@@ -171,7 +171,7 @@
         <!--Home View Controller-->
         <scene sceneID="04e-hM-u32">
             <objects>
-                <viewController id="dik-UW-LCa" userLabel="Home View Controller" customClass="MyScavengesViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dik-UW-LCa" userLabel="Home View Controller" customClass="HomeViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YLg-4O-keG"/>
                         <viewControllerLayoutGuide type="bottom" id="qol-ra-C7u"/>
@@ -368,7 +368,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="8W9-Ff-FdF" id="V7x-6e-oTH"/>
+                        <outlet property="tableView" destination="8W9-Ff-FdF" id="EWH-IE-NyV"/>
                         <segue destination="Cja-2C-WBn" kind="presentation" identifier="showMenu" id="q6K-O4-tQy"/>
                     </connections>
                 </viewController>

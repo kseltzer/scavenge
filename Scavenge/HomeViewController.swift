@@ -1,5 +1,5 @@
 //
-//  MyScavengesViewController.swift
+//  HomeViewController.swift
 //  Scavenge
 //
 //  Created by Kimberly Seltzer on 7/10/16.
@@ -22,7 +22,7 @@ enum SectionType {
     case subsection
 }
 
-class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
     let interactor = InteractiveTransitionController()
     

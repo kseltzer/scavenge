@@ -28,7 +28,7 @@ let kPlayingGameStoryboard = "PlayingGameStoryboard"
 
 // MARK: - View Controller Constants
 let kLoginViewController = "LoginViewController"
-let kMyScavengesViewController = "MyScavengesViewController"
+let kHomeViewController = "HomeViewController"
 let kCreateGameViewController = "CreateGameViewController"
 let kPlayingGameViewController = "PlayingGameViewController"
 let kSNavigationController = "SNavigationController"
