@@ -24,7 +24,7 @@ enum SectionType {
 
 class MyScavengesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
 
-    let interactor = InteractiveMenuTransition()
+    let interactor = InteractiveTransitionController()
     
     @IBOutlet weak var tableView: UITableView!
     

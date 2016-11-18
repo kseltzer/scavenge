@@ -1,5 +1,5 @@
 //
-//  InteractiveMenuTransition.swift
+//  InteractiveTransitionController.swift
 //  Scavenge
 //
 //  Created by Kimberly Seltzer on 8/28/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InteractiveMenuTransition: UIPercentDrivenInteractiveTransition {
+class InteractiveTransitionController: UIPercentDrivenInteractiveTransition {
     var hasStarted = false
     var shouldFinish = false
 }

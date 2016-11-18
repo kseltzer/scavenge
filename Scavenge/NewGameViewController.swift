@@ -91,7 +91,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var isInitialCellConfiguration : Bool = true
     
-    let interactor = InteractiveMenuTransition()
+    let interactor = InteractiveTransitionController()
 
 //    let indexTitles = ["★","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","✉︎"];
 
@@ -639,7 +639,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 extension NewGameViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return HideMenuAnimator()
+        return DismissNewGameProfileImageAnimator()
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

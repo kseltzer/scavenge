@@ -10,7 +10,7 @@ import UIKit
 
 class AboutViewController: UIViewController {
     
-    let interactor = InteractiveMenuTransition()
+    let interactor = InteractiveTransitionController()
     let rightToLeftAnimator = RightToLeftAnimator()
     
     override func viewDidLoad() {

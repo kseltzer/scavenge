@@ -17,7 +17,7 @@ class MagnifiedProfileImageViewController: UIViewController {
     
     var delegate: MagnifiedProfileImageViewDelegate!
     
-    var interactor: InteractiveMenuTransition? = nil
+    var interactor: InteractiveTransitionController? = nil
 
     @IBOutlet weak var magnifiedProfileImageView: UIView!
     @IBOutlet weak var imageView: UIImageView!
