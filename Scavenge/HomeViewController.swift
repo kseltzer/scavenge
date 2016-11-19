@@ -22,10 +22,9 @@ enum SectionType {
     case subsection
 }
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate {
 
     let interactor = InteractiveTransitionController()
-    
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func createNewGameButtonTapped(_ sender: UIBarButtonItem) {
@@ -73,29 +72,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
             let inviteCell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InvitationCell
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
-//            cell.gameStatusLabel.text = "your turn"
             return inviteCell
         case TableViewSection.results.rawValue:
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
-//            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.activeGames.rawValue:
             return UITableViewCell()
         case TableViewSection.yourMove.rawValue:
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
-//            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.theirMove.rawValue:
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
-//            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.completedGames.rawValue:
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
-//            cell.gameStatusLabel.text = "your turn"
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
             break
         default:
@@ -199,6 +188,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    // MARK: - Slide On Invite Cells
+    func handleSwipeOnInviteCell(sender: UIPanGestureRecognizer) {
+        let location = sender.location(in: view)
+        if (view.convert(tableView.frame, from: tableView.superview).contains(location)) {
+            let locationInTableView = tableView.convert(location, from: view)
+            let indexPath = tableView.indexPathForRow(at: locationInTableView)
+            if (indexPath?.section == TableViewSection.invites.rawValue) {
+                print("swipe left")
+            }
+        }
+    }
+    
     // MARK: - Slideout Menu
     @IBAction func menuButtonPressed(_ sender: AnyObject) {
         performSegue(withIdentifier: kShowMenuSegue, sender: self)
@@ -207,18 +208,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func handleEdgeGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
         let translation = sender.translation(in: view)
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
-        MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
+            MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
+                self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
         }
     }
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
-        MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
+        if (translation.x < 0) { // left-to-right: handle accept/reject game invite
+            handleSwipeOnInviteCell(sender: sender)
+        } else { // right-to-left: handle open menu
+            let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
+            MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
+                self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
+            }
         }
     }
+    
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ShowMenuAnimator()
