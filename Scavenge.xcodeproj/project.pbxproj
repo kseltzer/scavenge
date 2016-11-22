@@ -48,6 +48,8 @@
 		4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA238491D779BBE00BD278B /* ResultsViewController.swift */; };
 		4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384B1D77A23B00BD278B /* ResultsCell.swift */; };
 		4EA2384E1D7F4D4900BD278B /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */; };
+		4EA9A43A1DE0E8DC00F74D97 /* SwipeableGameInvitationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A4391DE0E8DC00F74D97 /* SwipeableGameInvitationCell.swift */; };
+		4EA9A43C1DE28B4200F74D97 /* GameInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A43B1DE28B4200F74D97 /* GameInvitation.swift */; };
 		4EB640761D73C38F00EA308D /* InteractiveTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640751D73C38F00EA308D /* InteractiveTransitionController.swift */; };
 		4EB640781D73C41900EA308D /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640771D73C41900EA308D /* MenuHelper.swift */; };
 		4EB6407A1D73C62900EA308D /* ShowMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */; };
@@ -130,6 +132,8 @@
 		4EA238491D779BBE00BD278B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		4EA2384B1D77A23B00BD278B /* ResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitCell.swift; sourceTree = "<group>"; };
+		4EA9A4391DE0E8DC00F74D97 /* SwipeableGameInvitationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableGameInvitationCell.swift; sourceTree = "<group>"; };
+		4EA9A43B1DE28B4200F74D97 /* GameInvitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInvitation.swift; sourceTree = "<group>"; };
 		4EB640751D73C38F00EA308D /* InteractiveTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitionController.swift; sourceTree = "<group>"; };
 		4EB640771D73C41900EA308D /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
 		4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMenuAnimator.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			children = (
 				4E0086661DDEE64400F5AD20 /* GameCell.swift */,
 				4E6393B11DDF859000A4018D /* InvitationCell.swift */,
+				4EA9A4391DE0E8DC00F74D97 /* SwipeableGameInvitationCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				4E27053C1D4B3A9800052671 /* Shared */,
+				4EA9A43B1DE28B4200F74D97 /* GameInvitation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				4EB640781D73C41900EA308D /* MenuHelper.swift in Sources */,
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4EB640881D75572300EA308D /* CustomNavigationBar.swift in Sources */,
+				4EA9A43C1DE28B4200F74D97 /* GameInvitation.swift in Sources */,
 				4E6393B21DDF859000A4018D /* InvitationCell.swift in Sources */,
 				4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
@@ -583,6 +590,7 @@
 				4E2277A71D32D0D100E22436 /* Scavenge.xcdatamodeld in Sources */,
 				4EB640761D73C38F00EA308D /* InteractiveTransitionController.swift in Sources */,
 				4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */,
+				4EA9A43A1DE0E8DC00F74D97 /* SwipeableGameInvitationCell.swift in Sources */,
 				4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */,
 				4E00865E1DDD2EBE00F5AD20 /* InviteViaTextCell.swift in Sources */,
 				4E2277E91D32E5DB00E22436 /* SNavigationController.swift in Sources */,

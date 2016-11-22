@@ -22,7 +22,9 @@ enum SectionType {
     case subsection
 }
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate {
+let invitationsDictionary : [String:AnyObject] = [:]
+
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, SwipeableGameInvitationCellProtocol {
 
     let interactor = InteractiveTransitionController()
     @IBOutlet weak var tableView: UITableView!
@@ -71,7 +73,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell: GameCell!
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
-            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InvitationCell
+//            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InvitationCell
+            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "swipeableGameInvitationCell", for: indexPath) as! SwipeableGameInvitationCell
+            inviteCell.delegate = self
             return inviteCell
         case TableViewSection.results.rawValue:
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
@@ -188,16 +192,110 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
     // MARK: - Slide On Invite Cells
-    func handleSwipeOnInviteCell(sender: UIPanGestureRecognizer) {
-        let location = sender.location(in: view)
-        if (view.convert(tableView.frame, from: tableView.superview).contains(location)) {
-            let locationInTableView = tableView.convert(location, from: view)
-            let indexPath = tableView.indexPathForRow(at: locationInTableView)
-            if (indexPath?.section == TableViewSection.invites.rawValue) {
-                print("swipe left")
+    func handleSwipeOnInviteCell(sender: UIPanGestureRecognizer, cell: SwipeableGameInvitationCell) {
+        switch sender.state {
+        case .began:
+            cell.panStartingPoint = sender.translation(in: view)
+            cell.startingTrailingHideButtonsViewConstant = cell.hideButtonsViewTrailingConstraint.constant
+            break
+        case .changed:
+            let currentPoint = sender.translation(in: view)
+            if (cell.panStartingPoint == nil) {
+                cell.panStartingPoint = sender.translation(in: view)
             }
+            let deltaX = currentPoint.x - cell.panStartingPoint!.x
+            let isPanningLeft = (currentPoint.x < cell.panStartingPoint!.x) ? true : false
+            
+            if (!cell.isOpen) { // cell was closed and is now opening
+                cell.isOpen = true
+                if (!isPanningLeft) {
+                    let constant = max(-deltaX, 0)
+                    if (constant == 0) {
+                        cell.resetConstraintConstantsToZero()
+                        cell.isOpen = false
+                    } else {
+                        cell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                } else {
+                    let constant = min(-deltaX, cell.getTotalButtonWidth())
+                    if (constant == cell.getTotalButtonWidth()) {
+                        cell.setConstraintsToShowAllButtons()
+                        cell.isOpen = true
+                    } else {
+                        cell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                }
+            } else {    // cell was at least partially open
+                if (cell.startingTrailingHideButtonsViewConstant == nil) {
+                    cell.startingTrailingHideButtonsViewConstant = cell.hideButtonsViewTrailingConstraint.constant
+                }
+                let adjustment = cell.startingTrailingHideButtonsViewConstant! - deltaX
+                if (!isPanningLeft) {
+                    let constant = max(adjustment, 0)
+                    if (constant == 0) {
+                        cell.resetConstraintConstantsToZero()
+                        cell.isOpen = false
+                    } else {
+                        cell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                } else {
+                    let constant = min(adjustment, cell.getTotalButtonWidth())
+                    if (constant == cell.getTotalButtonWidth()) {
+                        cell.setConstraintsToShowAllButtons()
+                        cell.isOpen = true
+                    } else {
+                        cell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                }
+            }
+            
+            cell.hideButtonsViewLeadingConstraint.constant = -cell.hideButtonsViewTrailingConstraint.constant
+            break
+        case .ended:
+            if (cell.startingTrailingHideButtonsViewConstant == 8) { // cell was opening
+                let twoThirdsOfRightButton = cell.acceptButton.frame.width * 2/3
+                if (cell.hideButtonsViewTrailingConstraint.constant >= twoThirdsOfRightButton) { // open all the way
+                    cell.setConstraintsToShowAllButtons()
+                    cell.isOpen = true
+                } else { // re-close
+                    cell.resetConstraintConstantsToZero()
+                    cell.isOpen = false
+                }
+            } else { // cell was closing
+                let rightButtonPlusHalfOfLeftButton = cell.acceptButton.frame.width + cell.declineButton.frame.width / 2
+                if (cell.hideButtonsViewTrailingConstraint.constant >= rightButtonPlusHalfOfLeftButton) { // re-open all the way
+                    cell.setConstraintsToShowAllButtons()
+                } else { // close
+                    cell.resetConstraintConstantsToZero()
+                    cell.isOpen = false
+                }
+            }
+            break
+        case .cancelled:
+            if (cell.startingTrailingHideButtonsViewConstant == 8) { // cell was closed: reset everything to 0
+                cell.resetConstraintConstantsToZero()
+                cell.isOpen = false
+            } else { // cell was open: reset to the open state
+                cell.setConstraintsToShowAllButtons()
+                cell.isOpen = true
+            }
+            break
+        default:
+            break
         }
+    }
+    
+    func acceptedGameInvite() {
+        print("accepted")
+    }
+    
+    func declinedGameInvite() {
+        print("declined")
     }
     
     // MARK: - Slideout Menu
@@ -215,13 +313,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
-        if (translation.x < 0) { // left-to-right: handle accept/reject game invite
-            handleSwipeOnInviteCell(sender: sender)
-        } else { // right-to-left: handle open menu
-            let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
-            MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-                self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
+        let location = sender.location(in: view)
+        if (view.convert(tableView.frame, from: tableView.superview).contains(location)) {
+            let locationInTableView = tableView.convert(location, from: view)
+            let indexPath = tableView.indexPathForRow(at: locationInTableView)
+            if (indexPath?.section == TableViewSection.invites.rawValue) {
+                if let cell = tableView.cellForRow(at: indexPath!) as? SwipeableGameInvitationCell {
+                    if (cell.isOpen || translation.x < 0) { // cell is swiped open or user swiped to the left
+                        handleSwipeOnInviteCell(sender: sender, cell: cell)
+                        return
+                    }
+                }
             }
+        }
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
+        MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
+            self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
         }
     }
     

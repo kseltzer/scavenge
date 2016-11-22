@@ -333,6 +333,117 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="swipeableGameInvitationCell" id="m3y-AW-LaY" customClass="SwipeableGameInvitationCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="222" width="375" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3y-AW-LaY" id="mgu-T2-BSz">
+                                            <frame key="frameInset" width="375" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5n-p2-Jo3">
+                                                    <color key="backgroundColor" red="0.0" green="0.59183078044295312" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="aO9-v1-333"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="Accept">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="acceptButtonTapped:" destination="m3y-AW-LaY" eventType="touchUpInside" id="kUV-R1-nb7"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBk-KY-qQh">
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="7kv-TA-3Rt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="Decline">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="declineButtonTapped:" destination="m3y-AW-LaY" eventType="touchUpInside" id="Kv0-Bl-l7v"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5C-Ik-LfU" userLabel="Hide Buttons View">
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OzP-KN-dgh" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raccoon" translatesAutoresizingMaskIntoConstraints="NO" id="Vxu-bt-lFu">
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Vxu-bt-lFu" secondAttribute="height" multiplier="1:1" id="yId-Lp-pzV"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgc-Ud-OZ5">
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="xnY-oc-JQC"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailDisclosure" translatesAutoresizingMaskIntoConstraints="NO" id="dgJ-LM-ARA">
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="22" id="PYr-yM-5Lb"/>
+                                                                        <constraint firstAttribute="height" constant="25" id="t2m-H3-Sel"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invited By: Kim Seltzer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEH-tW-652">
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="21" id="Eun-zW-Ppb"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstItem="dgJ-LM-ARA" firstAttribute="centerY" secondItem="OzP-KN-dgh" secondAttribute="centerY" id="2BW-j6-ZoC"/>
+                                                                <constraint firstItem="sgc-Ud-OZ5" firstAttribute="leading" secondItem="Vxu-bt-lFu" secondAttribute="trailing" constant="16" id="5Ul-cO-MLH"/>
+                                                                <constraint firstAttribute="trailing" secondItem="dgJ-LM-ARA" secondAttribute="trailing" constant="8" id="8uP-9K-IZn"/>
+                                                                <constraint firstItem="Vxu-bt-lFu" firstAttribute="leading" secondItem="OzP-KN-dgh" secondAttribute="leading" constant="8" id="Ga7-JA-bBJ"/>
+                                                                <constraint firstItem="cEH-tW-652" firstAttribute="leading" secondItem="Vxu-bt-lFu" secondAttribute="trailing" constant="16" id="J0i-l3-QWr"/>
+                                                                <constraint firstItem="cEH-tW-652" firstAttribute="top" secondItem="Vxu-bt-lFu" secondAttribute="centerY" id="a8X-zy-IGz"/>
+                                                                <constraint firstItem="sgc-Ud-OZ5" firstAttribute="bottom" secondItem="Vxu-bt-lFu" secondAttribute="centerY" id="c9j-s8-cDB"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Vxu-bt-lFu" secondAttribute="bottom" constant="8" id="jfF-hZ-8b2"/>
+                                                                <constraint firstItem="Vxu-bt-lFu" firstAttribute="top" secondItem="OzP-KN-dgh" secondAttribute="top" constant="8" id="n9v-YI-zdc"/>
+                                                                <constraint firstItem="dgJ-LM-ARA" firstAttribute="leading" secondItem="cEH-tW-652" secondAttribute="trailing" constant="8" id="seW-Ev-Sd2"/>
+                                                                <constraint firstItem="dgJ-LM-ARA" firstAttribute="leading" secondItem="sgc-Ud-OZ5" secondAttribute="trailing" constant="8" id="xhj-KO-Omz"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="OzP-KN-dgh" firstAttribute="leading" secondItem="k5C-Ik-LfU" secondAttribute="leading" id="1iF-01-7jM"/>
+                                                        <constraint firstItem="OzP-KN-dgh" firstAttribute="top" secondItem="k5C-Ik-LfU" secondAttribute="top" id="HEq-g1-nk3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="OzP-KN-dgh" secondAttribute="bottom" id="Z4R-9E-0Zx"/>
+                                                        <constraint firstAttribute="trailing" secondItem="OzP-KN-dgh" secondAttribute="trailing" id="wES-WV-VZn"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="k5C-Ik-LfU" firstAttribute="leading" secondItem="mgu-T2-BSz" secondAttribute="leading" constant="8" id="9vR-dQ-RyO"/>
+                                                <constraint firstItem="k5C-Ik-LfU" firstAttribute="top" secondItem="mgu-T2-BSz" secondAttribute="top" id="GzO-Hr-E2r"/>
+                                                <constraint firstItem="a5n-p2-Jo3" firstAttribute="top" secondItem="mgu-T2-BSz" secondAttribute="top" id="Hra-ei-pqM"/>
+                                                <constraint firstItem="a5n-p2-Jo3" firstAttribute="leading" secondItem="tBk-KY-qQh" secondAttribute="trailing" id="Pfc-eT-ave"/>
+                                                <constraint firstAttribute="bottom" secondItem="tBk-KY-qQh" secondAttribute="bottom" constant="8" id="RJr-CT-Yor"/>
+                                                <constraint firstItem="tBk-KY-qQh" firstAttribute="top" secondItem="mgu-T2-BSz" secondAttribute="top" id="ROT-LO-B3s"/>
+                                                <constraint firstAttribute="bottom" secondItem="a5n-p2-Jo3" secondAttribute="bottom" constant="8" id="UkJ-qn-AgL"/>
+                                                <constraint firstAttribute="trailing" secondItem="a5n-p2-Jo3" secondAttribute="trailing" id="qr9-4K-vu4"/>
+                                                <constraint firstAttribute="bottom" secondItem="k5C-Ik-LfU" secondAttribute="bottom" constant="8" id="sPl-G8-bB8"/>
+                                                <constraint firstAttribute="trailing" secondItem="k5C-Ik-LfU" secondAttribute="trailing" constant="8" id="uGq-h2-6jk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="acceptButton" destination="a5n-p2-Jo3" id="1ar-lL-4fz"/>
+                                            <outlet property="declineButton" destination="tBk-KY-qQh" id="2aJ-Bh-Mhx"/>
+                                            <outlet property="gameTitleLabel" destination="sgc-Ud-OZ5" id="Gaf-DM-Qlj"/>
+                                            <outlet property="hideButtonsView" destination="k5C-Ik-LfU" id="ElM-Cr-4Zi"/>
+                                            <outlet property="hideButtonsViewLeadingConstraint" destination="9vR-dQ-RyO" id="igE-rp-UIy"/>
+                                            <outlet property="hideButtonsViewTrailingConstraint" destination="uGq-h2-6jk" id="XGz-Qv-7c1"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <sections/>
                             </tableView>
