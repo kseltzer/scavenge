@@ -29,6 +29,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     let interactor = InteractiveTransitionController()
     @IBOutlet weak var tableView: UITableView!
     
+    var activeInvitationCell : SwipeableGameInvitationCell? = nil
+    
     @IBAction func createNewGameButtonTapped(_ sender: UIBarButtonItem) {
         let createGameStoryboard = UIStoryboard(name: kCreateGameStoryboard, bundle: nil)
         let createGameViewController = createGameStoryboard.instantiateInitialViewController()
@@ -202,88 +204,109 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         case .began:
             cell.panStartingPoint = sender.translation(in: view)
             cell.startingTrailingHideButtonsViewConstant = cell.hideButtonsViewTrailingConstraint.constant
+            activeInvitationCell = cell
             break
         case .changed:
-            let currentPoint = sender.translation(in: view)
-            if (cell.panStartingPoint == nil) {
-                cell.panStartingPoint = sender.translation(in: view)
+            let activeCell : SwipeableGameInvitationCell!
+            if (activeInvitationCell != nil) {
+                activeCell = activeInvitationCell
+            } else {
+                activeCell = cell
             }
-            let deltaX = currentPoint.x - cell.panStartingPoint!.x
-            let isPanningLeft = (currentPoint.x < cell.panStartingPoint!.x) ? true : false
+            let currentPoint = sender.translation(in: view)
+            if (activeCell.panStartingPoint == nil) {
+                activeCell.panStartingPoint = sender.translation(in: view)
+            }
+            let deltaX = currentPoint.x - activeCell.panStartingPoint!.x
+            let isPanningLeft = (currentPoint.x < activeCell.panStartingPoint!.x) ? true : false
             
-            if (!cell.isOpen) { // cell was closed and is now opening
-                cell.isOpen = true
+            if (!activeCell.isOpen) { // cell was closed and is now opening
+                activeCell.isOpen = true
                 if (!isPanningLeft) {
                     let constant = max(-deltaX, 0)
                     if (constant == 0) {
-                        cell.resetConstraintConstantsToZero()
-                        cell.isOpen = false
+                        activeCell.resetConstraintConstantsToZero()
+                        activeCell.isOpen = false
                     } else {
-                        cell.hideButtonsViewTrailingConstraint.constant = constant
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 } else {
-                    let constant = min(-deltaX, cell.getTotalButtonWidth())
-                    if (constant == cell.getTotalButtonWidth()) {
-                        cell.setConstraintsToShowAllButtons()
-                        cell.isOpen = true
+                    let constant = min(-deltaX, activeCell.getTotalButtonWidth())
+                    if (constant == activeCell.getTotalButtonWidth()) {
+                        activeCell.setConstraintsToShowAllButtons()
+                        activeCell.isOpen = true
                     } else {
-                        cell.hideButtonsViewTrailingConstraint.constant = constant
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 }
             } else {    // cell was at least partially open
-                if (cell.startingTrailingHideButtonsViewConstant == nil) {
-                    cell.startingTrailingHideButtonsViewConstant = cell.hideButtonsViewTrailingConstraint.constant
+                if (activeCell.startingTrailingHideButtonsViewConstant == nil) {
+                    activeCell.startingTrailingHideButtonsViewConstant = activeCell.hideButtonsViewTrailingConstraint.constant
                 }
-                let adjustment = cell.startingTrailingHideButtonsViewConstant! - deltaX
+                let adjustment = activeCell.startingTrailingHideButtonsViewConstant! - deltaX
                 if (!isPanningLeft) {
                     let constant = max(adjustment, 0)
                     if (constant == 0) {
-                        cell.resetConstraintConstantsToZero()
-                        cell.isOpen = false
+                        activeCell.resetConstraintConstantsToZero()
+                        activeCell.isOpen = false
                     } else {
-                        cell.hideButtonsViewTrailingConstraint.constant = constant
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 } else {
-                    let constant = min(adjustment, cell.getTotalButtonWidth())
-                    if (constant == cell.getTotalButtonWidth()) {
-                        cell.setConstraintsToShowAllButtons()
-                        cell.isOpen = true
+                    let constant = min(adjustment, activeCell.getTotalButtonWidth())
+                    if (constant == activeCell.getTotalButtonWidth()) {
+                        activeCell.setConstraintsToShowAllButtons()
+                        activeCell.isOpen = true
                     } else {
-                        cell.hideButtonsViewTrailingConstraint.constant = constant
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 }
             }
             
-            cell.hideButtonsViewLeadingConstraint.constant = -cell.hideButtonsViewTrailingConstraint.constant
+            activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant
             break
         case .ended:
-            if (cell.startingTrailingHideButtonsViewConstant == 8) { // cell was opening
+            let activeCell : SwipeableGameInvitationCell!
+            if (activeInvitationCell != nil) {
+                activeCell = activeInvitationCell
+            } else {
+                activeCell = cell
+            }
+            if (activeCell.startingTrailingHideButtonsViewConstant == 8) { // cell was opening
                 let twoThirdsOfRightButton = cell.acceptButton.frame.width * 2/3
-                if (cell.hideButtonsViewTrailingConstraint.constant >= twoThirdsOfRightButton) { // open all the way
-                    cell.setConstraintsToShowAllButtons()
-                    cell.isOpen = true
+                if (activeCell.hideButtonsViewTrailingConstraint.constant >= twoThirdsOfRightButton) { // open all the way
+                    activeCell.setConstraintsToShowAllButtons()
+                    activeCell.isOpen = true
                 } else { // re-close
-                    cell.resetConstraintConstantsToZero()
-                    cell.isOpen = false
+                    activeCell.resetConstraintConstantsToZero()
+                    activeCell.isOpen = false
                 }
             } else { // cell was closing
-                let rightButtonPlusHalfOfLeftButton = cell.acceptButton.frame.width + cell.declineButton.frame.width / 2
-                if (cell.hideButtonsViewTrailingConstraint.constant >= rightButtonPlusHalfOfLeftButton) { // re-open all the way
-                    cell.setConstraintsToShowAllButtons()
+                let rightButtonPlusHalfOfLeftButton = activeCell.acceptButton.frame.width + activeCell.declineButton.frame.width / 2
+                if (activeCell.hideButtonsViewTrailingConstraint.constant >= rightButtonPlusHalfOfLeftButton) { // re-open all the way
+                    activeCell.setConstraintsToShowAllButtons()
                 } else { // close
-                    cell.resetConstraintConstantsToZero()
-                    cell.isOpen = false
+                    activeCell.resetConstraintConstantsToZero()
+                    activeCell.isOpen = false
                 }
             }
+            activeInvitationCell = nil
             break
         case .cancelled:
-            if (cell.startingTrailingHideButtonsViewConstant == 8) { // cell was closed: reset everything to 0
-                cell.resetConstraintConstantsToZero()
-                cell.isOpen = false
-            } else { // cell was open: reset to the open state
-                cell.setConstraintsToShowAllButtons()
-                cell.isOpen = true
+            let activeCell : SwipeableGameInvitationCell!
+            if (activeInvitationCell != nil) {
+                activeCell = activeInvitationCell
+            } else {
+                activeCell = cell
             }
+            if (activeCell.startingTrailingHideButtonsViewConstant == 8) { // cell was closed: reset everything to 0
+                activeCell.resetConstraintConstantsToZero()
+                activeCell.isOpen = false
+            } else { // cell was open: reset to the open state
+                activeCell.setConstraintsToShowAllButtons()
+                activeCell.isOpen = true
+            }
+            activeInvitationCell = nil
             break
         default:
             break
@@ -312,6 +335,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
+        if let activeCell = activeInvitationCell {
+            handleSwipeOnInviteCell(sender: sender, cell: activeCell)
+            return
+        }
         let translation = sender.translation(in: view)
         let location = sender.location(in: view)
         if (view.convert(tableView.frame, from: tableView.superview).contains(location)) {

@@ -44,8 +44,6 @@ class SwipeableGameInvitationCell: UITableViewCell {
     }
     
     func resetConstraintConstantsToZero() {
-        // TODO: notify delegate
-        
         if (startingTrailingHideButtonsViewConstant == 0 && hideButtonsViewTrailingConstraint.constant == 0) { // already closed, no bounce necessary
             return
         }
@@ -64,8 +62,6 @@ class SwipeableGameInvitationCell: UITableViewCell {
     }
     
     func setConstraintsToShowAllButtons() {
-        // TODO: notify delegate
-        
         if (startingTrailingHideButtonsViewConstant == getTotalButtonWidth() && hideButtonsViewTrailingConstraint.constant == getTotalButtonWidth()) {
             return
         }
@@ -74,8 +70,8 @@ class SwipeableGameInvitationCell: UITableViewCell {
         hideButtonsViewTrailingConstraint.constant = getTotalButtonWidth() + kBounceValue
         
         updateConstraintsIfNeeded { (finished) in
-            self.hideButtonsViewLeadingConstraint.constant = -self.getTotalButtonWidth() + 1
-            self.hideButtonsViewTrailingConstraint.constant = self.getTotalButtonWidth() - 1
+            self.hideButtonsViewLeadingConstraint.constant = -self.getTotalButtonWidth() + 2
+            self.hideButtonsViewTrailingConstraint.constant = self.getTotalButtonWidth() - 2
             
             self.updateConstraintsIfNeeded(with: { (finished) in
                 self.startingTrailingHideButtonsViewConstant = self.hideButtonsViewTrailingConstraint.constant
