@@ -171,9 +171,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
+            if let invitationCell = tableView.cellForRow(at: indexPath) as? SwipeableGameInvitationCell {
+                if (invitationCell.isOpen) {
+                    invitationCell.resetConstraintConstantsToZero()
+                    invitationCell.isOpen = false
+                } else {
+                    invitationCell.setConstraintsToShowAllButtons()
+                    invitationCell.isOpen = true
+                }
+            }
             break
         case TableViewSection.results.rawValue, TableViewSection.completedGames.rawValue:
             let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
