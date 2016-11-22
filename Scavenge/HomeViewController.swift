@@ -177,9 +177,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if (invitationCell.isOpen) {
                     invitationCell.resetConstraintConstantsToZero()
                     invitationCell.isOpen = false
+                    invitationCell.acceptButton.isUserInteractionEnabled = false
                 } else {
                     invitationCell.setConstraintsToShowAllButtons()
                     invitationCell.isOpen = true
+                    invitationCell.acceptButton.isUserInteractionEnabled = true
                 }
             }
             break
@@ -230,11 +232,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if (!activeCell.isOpen) { // cell was closed and is now opening
                 activeCell.isOpen = true
+                activeCell.acceptButton.isUserInteractionEnabled = true
                 if (!isPanningLeft) {
                     let constant = max(-deltaX, 0)
                     if (constant == 0) {
                         activeCell.resetConstraintConstantsToZero()
                         activeCell.isOpen = false
+                        activeCell.acceptButton.isUserInteractionEnabled = false
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
@@ -243,6 +247,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if (constant == activeCell.getTotalButtonWidth()) {
                         activeCell.setConstraintsToShowAllButtons()
                         activeCell.isOpen = true
+                        activeCell.acceptButton.isUserInteractionEnabled = true
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
@@ -257,6 +262,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if (constant == 0) {
                         activeCell.resetConstraintConstantsToZero()
                         activeCell.isOpen = false
+                        activeCell.acceptButton.isUserInteractionEnabled = false
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
@@ -265,6 +271,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if (constant == activeCell.getTotalButtonWidth()) {
                         activeCell.setConstraintsToShowAllButtons()
                         activeCell.isOpen = true
+                        activeCell.acceptButton.isUserInteractionEnabled = true
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
@@ -285,9 +292,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if (activeCell.hideButtonsViewTrailingConstraint.constant >= twoThirdsOfRightButton) { // open all the way
                     activeCell.setConstraintsToShowAllButtons()
                     activeCell.isOpen = true
+                    activeCell.acceptButton.isUserInteractionEnabled = true
                 } else { // re-close
                     activeCell.resetConstraintConstantsToZero()
                     activeCell.isOpen = false
+                    activeCell.acceptButton.isUserInteractionEnabled = false
                 }
             } else { // cell was closing
                 let rightButtonPlusHalfOfLeftButton = activeCell.acceptButton.frame.width + activeCell.declineButton.frame.width / 2
@@ -296,6 +305,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } else { // close
                     activeCell.resetConstraintConstantsToZero()
                     activeCell.isOpen = false
+                    activeCell.acceptButton.isUserInteractionEnabled = false
                 }
             }
             activeInvitationCell = nil
@@ -310,9 +320,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if (activeCell.startingTrailingHideButtonsViewConstant == 8) { // cell was closed: reset everything to 0
                 activeCell.resetConstraintConstantsToZero()
                 activeCell.isOpen = false
+                activeCell.acceptButton.isUserInteractionEnabled = false
             } else { // cell was open: reset to the open state
                 activeCell.setConstraintsToShowAllButtons()
                 activeCell.isOpen = true
+                activeCell.acceptButton.isUserInteractionEnabled = true
             }
             activeInvitationCell = nil
             break
@@ -349,6 +361,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         let translation = sender.translation(in: view)
         let location = sender.location(in: view)
+        print("location: \(location)")
+        print("screen size: \(UIScreen.main.bounds.width)")
         if (view.convert(tableView.frame, from: tableView.superview).contains(location)) {
             let locationInTableView = tableView.convert(location, from: view)
             let indexPath = tableView.indexPathForRow(at: locationInTableView)
@@ -361,6 +375,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }
+//        if (location.x >= (UIScreen.main.bounds.width - 25)) {
+//            return
+//        }
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
             self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
