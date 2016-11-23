@@ -24,12 +24,12 @@ enum SectionType {
 
 let invitationsDictionary : [String:AnyObject] = [:]
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, SwipeableGameInvitationCellProtocol {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, InvitationCellProtocol {
 
     let interactor = InteractiveTransitionController()
     @IBOutlet weak var tableView: UITableView!
     
-    var activeInvitationCell : SwipeableGameInvitationCell? = nil
+    var activeInvitationCell : InvitationCell? = nil
     
     @IBAction func createNewGameButtonTapped(_ sender: UIBarButtonItem) {
         let createGameStoryboard = UIStoryboard(name: kCreateGameStoryboard, bundle: nil)
@@ -75,7 +75,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell: GameCell!
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
-            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "swipeableGameInvitationCell", for: indexPath) as! SwipeableGameInvitationCell
+            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "invitationCell", for: indexPath) as! InvitationCell
             inviteCell.delegate = self
             return inviteCell
         case TableViewSection.results.rawValue:
@@ -172,7 +172,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
-            if let invitationCell = tableView.cellForRow(at: indexPath) as? SwipeableGameInvitationCell {
+            if let invitationCell = tableView.cellForRow(at: indexPath) as? InvitationCell {
                 if (invitationCell.isOpen) {
                     invitationCell.resetConstraintConstantsToZero()
                     invitationCell.isOpen = false
@@ -208,7 +208,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // MARK: - Slide On Invite Cells
-    func handleSwipeOnInviteCell(sender: UIPanGestureRecognizer, cell: SwipeableGameInvitationCell) {
+    func handleSwipeOnInviteCell(sender: UIPanGestureRecognizer, cell: InvitationCell) {
         switch sender.state {
         case .began:
             cell.panStartingPoint = sender.translation(in: view)
@@ -216,7 +216,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             activeInvitationCell = cell
             break
         case .changed:
-            let activeCell : SwipeableGameInvitationCell!
+            let activeCell : InvitationCell!
             if (activeInvitationCell != nil) {
                 activeCell = activeInvitationCell
             } else {
@@ -281,7 +281,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant
             break
         case .ended:
-            let activeCell : SwipeableGameInvitationCell!
+            let activeCell : InvitationCell!
             if (activeInvitationCell != nil) {
                 activeCell = activeInvitationCell
             } else {
@@ -311,7 +311,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             activeInvitationCell = nil
             break
         case .cancelled:
-            let activeCell : SwipeableGameInvitationCell!
+            let activeCell : InvitationCell!
             if (activeInvitationCell != nil) {
                 activeCell = activeInvitationCell
             } else {
@@ -365,7 +365,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let locationInTableView = tableView.convert(location, from: view)
             let indexPath = tableView.indexPathForRow(at: locationInTableView)
             if (indexPath?.section == TableViewSection.invites.rawValue) {
-                if let cell = tableView.cellForRow(at: indexPath!) as? SwipeableGameInvitationCell {
+                if let cell = tableView.cellForRow(at: indexPath!) as? InvitationCell {
                     if (cell.isOpen || translation.x < 0) { // cell is swiped open or user swiped to the left
                         handleSwipeOnInviteCell(sender: sender, cell: cell)
                         return

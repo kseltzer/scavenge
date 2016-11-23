@@ -1,5 +1,5 @@
 //
-//  SwipeableGameInvitationCell.swift
+//  InvitationCell.swift
 //  Scavenge
 //
 //  Created by Kimberly Seltzer on 11/19/16.
@@ -10,13 +10,13 @@ import UIKit
 
 let kBounceValue : CGFloat = 8.0
 
-protocol SwipeableGameInvitationCellProtocol {
+protocol InvitationCellProtocol {
     func acceptedGameInvite()
     func declinedGameInvite()
 }
 
-class SwipeableGameInvitationCell: UITableViewCell {
-    var delegate : SwipeableGameInvitationCellProtocol!
+class InvitationCell: UITableViewCell {
+    var delegate : InvitationCellProtocol!
     var isOpen : Bool = false
     
     var panStartingPoint : CGPoint?

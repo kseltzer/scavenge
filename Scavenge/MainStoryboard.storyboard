@@ -333,7 +333,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="swipeableGameInvitationCell" id="m3y-AW-LaY" customClass="SwipeableGameInvitationCell" customModule="Scavenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="invitationCell" id="m3y-AW-LaY" customClass="InvitationCell" customModule="Scavenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="222" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3y-AW-LaY" id="mgu-T2-BSz">
@@ -496,7 +496,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1332" y="555.47226386806597"/>
+            <point key="canvasLocation" x="1333" y="636"/>
         </scene>
         <!--New Game-->
         <scene sceneID="O0c-Vz-mcP">
