@@ -22,11 +22,14 @@ enum SectionType {
     case subsection
 }
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
+let invitationsDictionary : [String:AnyObject] = [:]
+
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, InvitationCellProtocol {
 
     let interactor = InteractiveTransitionController()
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    var activeInvitationCell : InvitationCell? = nil
     
     @IBAction func createNewGameButtonTapped(_ sender: UIBarButtonItem) {
         let createGameStoryboard = UIStoryboard(name: kCreateGameStoryboard, bundle: nil)
@@ -72,30 +75,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell: GameCell!
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
-            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InvitationCell
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
-//            cell.gameStatusLabel.text = "your turn"
+            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "invitationCell", for: indexPath) as! InvitationCell
+            inviteCell.delegate = self
             return inviteCell
         case TableViewSection.results.rawValue:
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
-//            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.activeGames.rawValue:
             return UITableViewCell()
         case TableViewSection.yourMove.rawValue:
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
-//            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.theirMove.rawValue:
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya Move"
-//            cell.gameStatusLabel.text = "your turn"
             break
         case TableViewSection.completedGames.rawValue:
-//            cell.gameTitleLabel.text = "Kim, Sachin, Aliya"
-//            cell.gameStatusLabel.text = "your turn"
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
             break
         default:
@@ -176,9 +170,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
+            if let invitationCell = tableView.cellForRow(at: indexPath) as? InvitationCell {
+                if (invitationCell.isOpen) {
+                    invitationCell.resetConstraintConstantsToZero()
+                    invitationCell.isOpen = false
+                    invitationCell.acceptButton.isUserInteractionEnabled = false
+                } else {
+                    invitationCell.setConstraintsToShowAllButtons()
+                    invitationCell.isOpen = true
+                    invitationCell.acceptButton.isUserInteractionEnabled = true
+                }
+            }
             break
         case TableViewSection.results.rawValue, TableViewSection.completedGames.rawValue:
             let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
@@ -199,6 +203,144 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    // MARK: - Slide On Invite Cells
+    func handleSwipeOnInviteCell(sender: UIPanGestureRecognizer, cell: InvitationCell) {
+        switch sender.state {
+        case .began:
+            cell.panStartingPoint = sender.translation(in: view)
+            cell.startingTrailingHideButtonsViewConstant = cell.hideButtonsViewTrailingConstraint.constant
+            activeInvitationCell = cell
+            break
+        case .changed:
+            let activeCell : InvitationCell!
+            if (activeInvitationCell != nil) {
+                activeCell = activeInvitationCell
+            } else {
+                activeCell = cell
+            }
+            let currentPoint = sender.translation(in: view)
+            if (activeCell.panStartingPoint == nil) {
+                activeCell.panStartingPoint = sender.translation(in: view)
+            }
+            let deltaX = currentPoint.x - activeCell.panStartingPoint!.x
+            let isPanningLeft = (currentPoint.x < activeCell.panStartingPoint!.x) ? true : false
+            
+            if (!activeCell.isOpen) { // cell was closed and is now opening
+                activeCell.isOpen = true
+                activeCell.acceptButton.isUserInteractionEnabled = true
+                if (isPanningLeft) {
+                    let constant = min(-deltaX, activeCell.getTotalButtonWidth())
+                    if (constant == activeCell.getTotalButtonWidth()) {
+                        activeCell.setConstraintsToShowAllButtons()
+                        activeCell.isOpen = true
+                        activeCell.acceptButton.isUserInteractionEnabled = true
+                    } else {
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                } else {
+                    let constant = max(-deltaX, 0)
+                    if (constant == 0) {
+                        activeCell.resetConstraintConstantsToZero()
+                        activeCell.isOpen = false
+                        activeCell.acceptButton.isUserInteractionEnabled = false
+                    } else {
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                }
+            } else {    // cell was at least partially open
+                if (activeCell.startingTrailingHideButtonsViewConstant == nil) {
+                    activeCell.startingTrailingHideButtonsViewConstant = activeCell.hideButtonsViewTrailingConstraint.constant
+                }
+                let adjustment = activeCell.startingTrailingHideButtonsViewConstant! - deltaX
+                if (isPanningLeft) {
+                    let constant = min(adjustment, activeCell.getTotalButtonWidth())
+                    if (constant == activeCell.getTotalButtonWidth()) {
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
+                        activeCell.setConstraintsToShowAllButtons()
+                        activeCell.isOpen = true
+                        activeCell.acceptButton.isUserInteractionEnabled = true
+                    } else {
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                } else {
+                    let constant = max(adjustment, 0)
+                    if (constant == 0) {
+                        activeCell.resetConstraintConstantsToZero()
+                        activeCell.isOpen = false
+                        activeCell.acceptButton.isUserInteractionEnabled = false
+                    } else {
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                }
+            }
+            
+            activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant
+            break
+        case .ended:
+            let activeCell : InvitationCell!
+            if (activeInvitationCell != nil) {
+                activeCell = activeInvitationCell
+            } else {
+                activeCell = cell
+            }
+            if (activeCell.startingTrailingHideButtonsViewConstant == 8) { // cell was opening
+                let twoThirdsOfRightButton = cell.acceptButton.frame.width * 2/3
+                if (activeCell.hideButtonsViewTrailingConstraint.constant >= twoThirdsOfRightButton) { // open all the way
+                    activeCell.setConstraintsToShowAllButtons()
+                    activeCell.isOpen = true
+                    activeCell.acceptButton.isUserInteractionEnabled = true
+                } else { // re-close
+                    activeCell.resetConstraintConstantsToZero()
+                    activeCell.isOpen = false
+                    activeCell.acceptButton.isUserInteractionEnabled = false
+                }
+            } else { // cell was closing
+                let rightButtonPlusHalfOfLeftButton = activeCell.acceptButton.frame.width + activeCell.declineButton.frame.width / 2
+                if (activeCell.hideButtonsViewTrailingConstraint.constant >= rightButtonPlusHalfOfLeftButton) { // re-open all the way
+                    activeCell.setConstraintsToShowAllButtons()
+                } else { // close
+                    activeCell.resetConstraintConstantsToZero()
+                    activeCell.isOpen = false
+                    activeCell.acceptButton.isUserInteractionEnabled = false
+                }
+            }
+            activeInvitationCell = nil
+            break
+        case .cancelled:
+            let activeCell : InvitationCell!
+            if (activeInvitationCell != nil) {
+                activeCell = activeInvitationCell
+            } else {
+                activeCell = cell
+            }
+            if (activeCell.startingTrailingHideButtonsViewConstant == 8) { // cell was closed: reset everything to 0
+                activeCell.resetConstraintConstantsToZero()
+                activeCell.isOpen = false
+                activeCell.acceptButton.isUserInteractionEnabled = false
+            } else { // cell was open: reset to the open state
+                activeCell.setConstraintsToShowAllButtons()
+                activeCell.isOpen = true
+                activeCell.acceptButton.isUserInteractionEnabled = true
+            }
+            activeInvitationCell = nil
+            break
+        default:
+            break
+        }
+    }
+    
+    func acceptedGameInvite() {
+        print("accepted")
+    }
+    
+    func declinedGameInvite() {
+        print("declined")
+    }
+    
     // MARK: - Slideout Menu
     @IBAction func menuButtonPressed(_ sender: AnyObject) {
         performSegue(withIdentifier: kShowMenuSegue, sender: self)
@@ -207,18 +349,36 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func handleEdgeGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
         let translation = sender.translation(in: view)
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
-        MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
-            self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
+            MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
+                self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
         }
     }
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
+        if let activeCell = activeInvitationCell {
+            handleSwipeOnInviteCell(sender: sender, cell: activeCell)
+            return
+        }
         let translation = sender.translation(in: view)
+        let location = sender.location(in: view)
+        if (view.convert(tableView.frame, from: tableView.superview).contains(location)) {
+            let locationInTableView = tableView.convert(location, from: view)
+            let indexPath = tableView.indexPathForRow(at: locationInTableView)
+            if (indexPath?.section == TableViewSection.invites.rawValue) {
+                if let cell = tableView.cellForRow(at: indexPath!) as? InvitationCell {
+                    if (cell.isOpen || translation.x < 0) { // cell is swiped open or user swiped to the left
+                        handleSwipeOnInviteCell(sender: sender, cell: cell)
+                        return
+                    }
+                }
+            }
+        }
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
             self.performSegue(withIdentifier: kShowMenuSegue, sender: self)
         }
     }
+    
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ShowMenuAnimator()
