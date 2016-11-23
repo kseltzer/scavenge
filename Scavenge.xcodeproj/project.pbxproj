@@ -42,7 +42,6 @@
 		4E22781E1D42030000E22436 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22781D1D42030000E22436 /* FriendCell.swift */; };
 		4E2705391D49DB6900052671 /* ScavengeFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */; };
 		4E27053E1D4B3AB200052671 /* ScavengeFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */; };
-		4E6393B21DDF859000A4018D /* InvitationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6393B11DDF859000A4018D /* InvitationCell.swift */; };
 		4E6D98431D56CBF9007DEFAB /* VotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D98421D56CBF9007DEFAB /* VotingCell.swift */; };
 		4E6EA4F51D4E93E00022127B /* CameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */; };
 		4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA238491D779BBE00BD278B /* ResultsViewController.swift */; };
@@ -126,7 +125,6 @@
 		4E22781D1D42030000E22436 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		4E2705381D49DB6900052671 /* ScavengeFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriendCell.swift; sourceTree = "<group>"; };
 		4E27053D1D4B3AB200052671 /* ScavengeFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengeFriend.swift; sourceTree = "<group>"; };
-		4E6393B11DDF859000A4018D /* InvitationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationCell.swift; sourceTree = "<group>"; };
 		4E6D98421D56CBF9007DEFAB /* VotingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingCell.swift; sourceTree = "<group>"; };
 		4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayView.xib; sourceTree = "<group>"; };
 		4EA238491D779BBE00BD278B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				4E0086661DDEE64400F5AD20 /* GameCell.swift */,
-				4E6393B11DDF859000A4018D /* InvitationCell.swift */,
 				4EA9A4391DE0E8DC00F74D97 /* SwipeableGameInvitationCell.swift */,
 			);
 			name = Home;
@@ -570,7 +567,6 @@
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4EB640881D75572300EA308D /* CustomNavigationBar.swift in Sources */,
 				4EA9A43C1DE28B4200F74D97 /* GameInvitation.swift in Sources */,
-				4E6393B21DDF859000A4018D /* InvitationCell.swift in Sources */,
 				4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
 				4E2277E71D32E56D00E22436 /* HomeViewController.swift in Sources */,

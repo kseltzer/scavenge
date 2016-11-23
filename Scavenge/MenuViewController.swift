@@ -48,7 +48,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     var interactor: InteractiveTransitionController? = nil
+    
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
+        print("bounds: ", view.bounds)
         let translation = sender.translation(in: view)
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .left)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {

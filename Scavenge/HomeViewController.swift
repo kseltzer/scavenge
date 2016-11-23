@@ -75,7 +75,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell: GameCell!
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
-//            let inviteCell = tableView.dequeueReusableCell(withIdentifier: "inviteCell", for: indexPath) as! InvitationCell
             let inviteCell = tableView.dequeueReusableCell(withIdentifier: "swipeableGameInvitationCell", for: indexPath) as! SwipeableGameInvitationCell
             inviteCell.delegate = self
             return inviteCell
@@ -233,21 +232,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if (!activeCell.isOpen) { // cell was closed and is now opening
                 activeCell.isOpen = true
                 activeCell.acceptButton.isUserInteractionEnabled = true
-                if (!isPanningLeft) {
-                    let constant = max(-deltaX, 0)
-                    if (constant == 0) {
-                        activeCell.resetConstraintConstantsToZero()
-                        activeCell.isOpen = false
-                        activeCell.acceptButton.isUserInteractionEnabled = false
-                    } else {
-                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
-                    }
-                } else {
+                if (isPanningLeft) {
                     let constant = min(-deltaX, activeCell.getTotalButtonWidth())
                     if (constant == activeCell.getTotalButtonWidth()) {
                         activeCell.setConstraintsToShowAllButtons()
                         activeCell.isOpen = true
                         activeCell.acceptButton.isUserInteractionEnabled = true
+                    } else {
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                } else {
+                    let constant = max(-deltaX, 0)
+                    if (constant == 0) {
+                        activeCell.resetConstraintConstantsToZero()
+                        activeCell.isOpen = false
+                        activeCell.acceptButton.isUserInteractionEnabled = false
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
@@ -257,21 +256,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     activeCell.startingTrailingHideButtonsViewConstant = activeCell.hideButtonsViewTrailingConstraint.constant
                 }
                 let adjustment = activeCell.startingTrailingHideButtonsViewConstant! - deltaX
-                if (!isPanningLeft) {
+                if (isPanningLeft) {
+                    let constant = min(adjustment, activeCell.getTotalButtonWidth())
+                    if (constant == activeCell.getTotalButtonWidth()) {
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
+                        activeCell.setConstraintsToShowAllButtons()
+                        activeCell.isOpen = true
+                        activeCell.acceptButton.isUserInteractionEnabled = true
+                    } else {
+                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
+                    }
+                } else {
                     let constant = max(adjustment, 0)
                     if (constant == 0) {
                         activeCell.resetConstraintConstantsToZero()
                         activeCell.isOpen = false
                         activeCell.acceptButton.isUserInteractionEnabled = false
-                    } else {
-                        activeCell.hideButtonsViewTrailingConstraint.constant = constant
-                    }
-                } else {
-                    let constant = min(adjustment, activeCell.getTotalButtonWidth())
-                    if (constant == activeCell.getTotalButtonWidth()) {
-                        activeCell.setConstraintsToShowAllButtons()
-                        activeCell.isOpen = true
-                        activeCell.acceptButton.isUserInteractionEnabled = true
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
@@ -361,8 +361,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         let translation = sender.translation(in: view)
         let location = sender.location(in: view)
-        print("location: \(location)")
-        print("screen size: \(UIScreen.main.bounds.width)")
         if (view.convert(tableView.frame, from: tableView.superview).contains(location)) {
             let locationInTableView = tableView.convert(location, from: view)
             let indexPath = tableView.indexPathForRow(at: locationInTableView)
@@ -375,9 +373,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }
-//        if (location.x >= (UIScreen.main.bounds.width - 25)) {
-//            return
-//        }
         let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         MenuHelper.mapGestureStateToInteractor(sender.state, progress: progress, interactor: interactor) {
             self.performSegue(withIdentifier: kShowMenuSegue, sender: self)

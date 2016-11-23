@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kBounceValue : CGFloat = 20.0
+let kBounceValue : CGFloat = 8.0
 
 protocol SwipeableGameInvitationCellProtocol {
     func acceptedGameInvite()
@@ -49,7 +49,7 @@ class SwipeableGameInvitationCell: UITableViewCell {
         }
         
         hideButtonsViewTrailingConstraint.constant = -kBounceValue
-        hideButtonsViewLeadingConstraint.constant = kBounceValue
+        hideButtonsViewLeadingConstraint.constant = 16 //kBounceValue
         
         updateConstraintsIfNeeded { (finished) in
             self.hideButtonsViewTrailingConstraint.constant = 8
