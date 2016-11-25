@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */; };
 		4E00865C1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */; };
-		4E00865E1DDD2EBE00F5AD20 /* InviteViaTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */; };
-		4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */; };
 		4E0086631DDE9F1300F5AD20 /* DismissCameraAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */; };
 		4E0086671DDEE64400F5AD20 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086661DDEE64400F5AD20 /* GameCell.swift */; };
 		4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1011D11D73BE4E00662E9F /* MenuViewController.swift */; };
@@ -49,6 +47,7 @@
 		4EA2384E1D7F4D4900BD278B /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */; };
 		4EA9A43A1DE0E8DC00F74D97 /* InvitationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A4391DE0E8DC00F74D97 /* InvitationCell.swift */; };
 		4EA9A43C1DE28B4200F74D97 /* GameInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A43B1DE28B4200F74D97 /* GameInvitation.swift */; };
+		4EA9A4401DE8AC8000F74D97 /* InviteFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A43F1DE8AC8000F74D97 /* InviteFriendsCell.swift */; };
 		4EB640761D73C38F00EA308D /* InteractiveTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640751D73C38F00EA308D /* InteractiveTransitionController.swift */; };
 		4EB640781D73C41900EA308D /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640771D73C41900EA308D /* MenuHelper.swift */; };
 		4EB6407A1D73C62900EA308D /* ShowMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */; };
@@ -86,8 +85,6 @@
 /* Begin PBXFileReference section */
 		4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnifiedProfileImageViewController.swift; sourceTree = "<group>"; };
 		4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissNewGameProfileImageAnimator.swift; sourceTree = "<group>"; };
-		4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViaTextCell.swift; sourceTree = "<group>"; };
-		4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViaFacebookCell.swift; sourceTree = "<group>"; };
 		4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissCameraAnimator.swift; sourceTree = "<group>"; };
 		4E0086661DDEE64400F5AD20 /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		4E033FE11DCD164300824D7E /* Scavenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scavenge.entitlements; sourceTree = "<group>"; };
@@ -132,6 +129,7 @@
 		4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitCell.swift; sourceTree = "<group>"; };
 		4EA9A4391DE0E8DC00F74D97 /* InvitationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationCell.swift; sourceTree = "<group>"; };
 		4EA9A43B1DE28B4200F74D97 /* GameInvitation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInvitation.swift; sourceTree = "<group>"; };
+		4EA9A43F1DE8AC8000F74D97 /* InviteFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsCell.swift; sourceTree = "<group>"; };
 		4EB640751D73C38F00EA308D /* InteractiveTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransitionController.swift; sourceTree = "<group>"; };
 		4EB640771D73C41900EA308D /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
 		4EB640791D73C62900EA308D /* ShowMenuAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMenuAnimator.swift; sourceTree = "<group>"; };
@@ -348,14 +346,13 @@
 		4E2277F31D33134700E22436 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				4E00865D1DDD2EBE00F5AD20 /* InviteViaTextCell.swift */,
-				4E00865F1DDD2ED700F5AD20 /* InviteViaFacebookCell.swift */,
 				4E2277D81D32D30300E22436 /* SButton.swift */,
 				4E2277F71D33171800E22436 /* SBarButtonItem.swift */,
 				4E2277FE1D33290800E22436 /* SBaseTableViewCell.swift */,
 				4E2278131D41DE2100E22436 /* ProfileImageView.swift */,
 				4EB640871D75572300EA308D /* CustomNavigationBar.swift */,
 				4EB640891D755A2900EA308D /* MenuButton.swift */,
+				4EA9A43F1DE8AC8000F74D97 /* InviteFriendsCell.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -567,7 +564,6 @@
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4EB640881D75572300EA308D /* CustomNavigationBar.swift in Sources */,
 				4EA9A43C1DE28B4200F74D97 /* GameInvitation.swift in Sources */,
-				4E0086601DDD2ED700F5AD20 /* InviteViaFacebookCell.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
 				4E2277E71D32E56D00E22436 /* HomeViewController.swift in Sources */,
 				4E2277F61D33137F00E22436 /* LoginButton.swift in Sources */,
@@ -588,7 +584,6 @@
 				4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */,
 				4EA9A43A1DE0E8DC00F74D97 /* InvitationCell.swift in Sources */,
 				4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */,
-				4E00865E1DDD2EBE00F5AD20 /* InviteViaTextCell.swift in Sources */,
 				4E2277E91D32E5DB00E22436 /* SNavigationController.swift in Sources */,
 				4EB6408E1D76397700EA308D /* AboutViewController.swift in Sources */,
 				4E2278071D3748B500E22436 /* PlayingGameViewController.swift in Sources */,
@@ -596,6 +591,7 @@
 				4E00865C1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift in Sources */,
 				4E2277F81D33171800E22436 /* SBarButtonItem.swift in Sources */,
 				4E00865A1DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift in Sources */,
+				4EA9A4401DE8AC8000F74D97 /* InviteFriendsCell.swift in Sources */,
 				4EB6408A1D755A2900EA308D /* MenuButton.swift in Sources */,
 				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
 				4E0086631DDE9F1300F5AD20 /* DismissCameraAnimator.swift in Sources */,

@@ -87,11 +87,11 @@
                                         <rect key="frame" x="0.0" y="28" width="244" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4L-2x-9gP" id="ze8-IY-61v">
-                                            <frame key="frameInset" width="244" height="43.5"/>
+                                            <frame key="frameInset" width="244" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lfs-av-njn">
-                                                    <frame key="frameInset" minX="15" width="214" height="43.5"/>
+                                                    <frame key="frameInset" minX="15" width="214" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -593,78 +593,40 @@
                                             <outlet property="profileImage" destination="CeM-Yr-CeQ" id="QlK-Dn-hOP"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteViaFacebookCell" rowHeight="54" id="XCU-dj-oUH" customClass="InviteViaFacebookCell" customModule="Scavenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteFriendsCell" rowHeight="54" id="dfO-ww-rfZ" customClass="InviteFriendsCell" customModule="Scavenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="82" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XCU-dj-oUH" id="CTF-Gz-vC4">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dfO-ww-rfZ" id="Yx4-tu-h6J">
                                             <frame key="frameInset" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaU-bm-AfR" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZ8-Of-pIl" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Via Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXs-Rn-fCR">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-Cf-p98">
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.22745098039215686" green="0.32941176470588235" blue="0.64313725490196083" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="AXs-Rn-fCR" firstAttribute="top" secondItem="qaU-bm-AfR" secondAttribute="top" id="4st-6d-HjE"/>
-                                                        <constraint firstAttribute="bottom" secondItem="AXs-Rn-fCR" secondAttribute="bottom" id="e8o-Hv-9JL"/>
-                                                        <constraint firstAttribute="trailing" secondItem="AXs-Rn-fCR" secondAttribute="trailing" id="fQN-Cx-XVM"/>
-                                                        <constraint firstItem="AXs-Rn-fCR" firstAttribute="leading" secondItem="qaU-bm-AfR" secondAttribute="leading" id="iQP-4g-VE3"/>
+                                                        <constraint firstItem="zhE-Cf-p98" firstAttribute="leading" secondItem="eZ8-Of-pIl" secondAttribute="leading" id="6rS-Bt-f9J"/>
+                                                        <constraint firstItem="zhE-Cf-p98" firstAttribute="top" secondItem="eZ8-Of-pIl" secondAttribute="top" id="8kv-KL-O5Z"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zhE-Cf-p98" secondAttribute="bottom" id="Egu-Ll-pVp"/>
+                                                        <constraint firstAttribute="trailing" secondItem="zhE-Cf-p98" secondAttribute="trailing" id="xwi-95-Gpd"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="qaU-bm-AfR" secondAttribute="trailing" constant="8" id="1sL-wc-xcZ"/>
-                                                <constraint firstAttribute="bottom" secondItem="qaU-bm-AfR" secondAttribute="bottom" constant="8" id="CGw-nI-qZA"/>
-                                                <constraint firstItem="qaU-bm-AfR" firstAttribute="leading" secondItem="CTF-Gz-vC4" secondAttribute="leading" constant="8" id="Ytn-4S-kl2"/>
-                                                <constraint firstItem="qaU-bm-AfR" firstAttribute="top" secondItem="CTF-Gz-vC4" secondAttribute="top" id="xXQ-DG-Btm"/>
+                                                <constraint firstAttribute="bottom" secondItem="eZ8-Of-pIl" secondAttribute="bottom" constant="8" id="2eb-8l-qoc"/>
+                                                <constraint firstItem="eZ8-Of-pIl" firstAttribute="leading" secondItem="Yx4-tu-h6J" secondAttribute="leading" constant="8" id="D8P-mM-fF5"/>
+                                                <constraint firstAttribute="trailing" secondItem="eZ8-Of-pIl" secondAttribute="trailing" constant="8" id="ht7-bA-uvm"/>
+                                                <constraint firstItem="eZ8-Of-pIl" firstAttribute="top" secondItem="Yx4-tu-h6J" secondAttribute="top" id="wD1-Pm-hMD"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.10537041110000001" green="0.1671863153" blue="0.56350160260000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="roundedBorderView" destination="qaU-bm-AfR" id="CRH-sM-Sov"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteViaTextCell" rowHeight="54" id="kcC-j0-xaL" customClass="InviteViaTextCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="136" width="375" height="54"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcC-j0-xaL" id="Fod-yv-Z73">
-                                            <frame key="frameInset" width="375" height="54"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiW-6Y-Hnc" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Via Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zm-56-zj5">
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.26274509800000001" green="0.89411764709999997" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="5Zm-56-zj5" secondAttribute="trailing" id="gK8-lx-G7u"/>
-                                                        <constraint firstItem="5Zm-56-zj5" firstAttribute="leading" secondItem="LiW-6Y-Hnc" secondAttribute="leading" id="raa-zC-mpu"/>
-                                                        <constraint firstItem="5Zm-56-zj5" firstAttribute="top" secondItem="LiW-6Y-Hnc" secondAttribute="top" id="ulj-zc-aFa"/>
-                                                        <constraint firstAttribute="bottom" secondItem="5Zm-56-zj5" secondAttribute="bottom" id="vpN-HG-Kgy"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="LiW-6Y-Hnc" secondAttribute="bottom" constant="8" id="RqW-Jv-IIN"/>
-                                                <constraint firstAttribute="trailing" secondItem="LiW-6Y-Hnc" secondAttribute="trailing" constant="8" id="cQ6-9a-wbE"/>
-                                                <constraint firstItem="LiW-6Y-Hnc" firstAttribute="leading" secondItem="Fod-yv-Z73" secondAttribute="leading" constant="8" id="ndW-uL-ids"/>
-                                                <constraint firstItem="LiW-6Y-Hnc" firstAttribute="top" secondItem="Fod-yv-Z73" secondAttribute="top" id="ycb-0j-0RB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.1450980392" green="0.82745098039999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="roundedBorderView" destination="LiW-6Y-Hnc" id="DBo-RY-eQF"/>
+                                            <outlet property="roundedBorderView" destination="eZ8-Of-pIl" id="O5W-6I-L8t"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

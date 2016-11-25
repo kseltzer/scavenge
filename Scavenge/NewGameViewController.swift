@@ -171,7 +171,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             return sampleScavengeFriendIDs.count
         case kSectionTitleFriendsNotOnScavenge:
-            return 2
+            return 1
         default:
             return 0
         }
@@ -242,11 +242,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 2) {
-            if (indexPath.row == 0) {
-                return tableView.dequeueReusableCell(withIdentifier: "inviteViaFacebookCell", for: indexPath) as! InviteViaFacebookCell
-            } else {
-                return tableView.dequeueReusableCell(withIdentifier: "inviteViaTextCell", for: indexPath) as! InviteViaTextCell
-            }
+            return tableView.dequeueReusableCell(withIdentifier: "inviteFriendsCell", for: indexPath) as! InviteFriendsCell
         }
         if (isInitialCellConfiguration) {
             return self.configureCellInitially(indexPath, section: self.tableView(tableView, titleForHeaderInSection: (indexPath as NSIndexPath).section)!)
@@ -429,7 +425,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         else {
-            self.inviteFriend()
+            self.inviteFriends()
         }
         
         if (selectedFriendsFirstNames.count >= 2) {
@@ -539,19 +535,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         controller.dismiss(animated: true, completion: nil)
     }
     
-    func inviteFriend() {
-        if !MFMessageComposeViewController.canSendText() {
-            let alertController = UIAlertController(title: kErrorTitle, message: kSMSFailureMessage, preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: kAcceptFaultErrorMessage, style: .default, handler: nil)
-            alertController.addAction(defaultAction)
-            self.present(alertController, animated: true, completion: nil)
-        } else {
-            let composeVC = MFMessageComposeViewController()
-            composeVC.messageComposeDelegate = self
-            composeVC.recipients = []
-            composeVC.body = smsInviteBody
-            self.present(composeVC, animated: true, completion: nil)
-        }
+    func inviteFriends() {
+        let inviteMessage = [smsInviteBody]
+        let activityViewController = UIActivityViewController(activityItems: inviteMessage, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        activityViewController.excludedActivityTypes = [.assignToContact, .addToReadingList, .openInIBooks, .postToVimeo, .saveToCameraRoll, .print]
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     // MARK: - UISearchResultsUpdating Protocol
