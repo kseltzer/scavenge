@@ -242,7 +242,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 2) {
-            return tableView.dequeueReusableCell(withIdentifier: "inviteFriendsCell", for: indexPath) as! InviteFriendsCell
+            return tableView.dequeueReusableCell(withIdentifier: "inviteFriendsCell") as! InviteFriendsCell
         }
         if (isInitialCellConfiguration) {
             return self.configureCellInitially(indexPath, section: self.tableView(tableView, titleForHeaderInSection: (indexPath as NSIndexPath).section)!)
