@@ -40,46 +40,30 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsr-Jk-PWb">
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVK-EK-b6u">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="oaY-tU-B9h"/>
+                                    <constraint firstAttribute="height" constant="21" id="HaH-bw-nEG"/>
+                                    <constraint firstAttribute="width" constant="42" id="m6J-ch-dxM"/>
                                 </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gOr-Tb-l3m">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Kde-9R-aZy" secondAttribute="trailing" id="0nT-1d-T75"/>
                             <constraint firstItem="Kde-9R-aZy" firstAttribute="top" secondItem="3mY-4O-2mu" secondAttribute="bottom" id="1DH-pX-BRm"/>
-                            <constraint firstItem="gOr-Tb-l3m" firstAttribute="leading" secondItem="0PY-xX-1GO" secondAttribute="leading" id="3yd-4h-Ee4"/>
-                            <constraint firstItem="Xsr-Jk-PWb" firstAttribute="top" secondItem="Kde-9R-aZy" secondAttribute="bottom" id="C0V-IL-85Y"/>
-                            <constraint firstAttribute="trailing" secondItem="Xsr-Jk-PWb" secondAttribute="trailing" id="IxN-OJ-hsp"/>
+                            <constraint firstItem="UVK-EK-b6u" firstAttribute="centerY" secondItem="0PY-xX-1GO" secondAttribute="centerY" id="7o1-W6-5B9"/>
+                            <constraint firstItem="UVK-EK-b6u" firstAttribute="centerX" secondItem="0PY-xX-1GO" secondAttribute="centerX" id="EBY-A7-bih"/>
                             <constraint firstItem="Kde-9R-aZy" firstAttribute="leading" secondItem="0PY-xX-1GO" secondAttribute="leading" id="NTI-Sf-r2O"/>
-                            <constraint firstItem="gOr-Tb-l3m" firstAttribute="top" secondItem="Xsr-Jk-PWb" secondAttribute="bottom" id="SDh-cz-Iay"/>
-                            <constraint firstItem="Gec-iL-4Wa" firstAttribute="top" secondItem="gOr-Tb-l3m" secondAttribute="bottom" id="Xco-Oh-V8p"/>
-                            <constraint firstItem="gOr-Tb-l3m" firstAttribute="top" secondItem="Xsr-Jk-PWb" secondAttribute="bottom" id="ce7-pU-kI0"/>
-                            <constraint firstAttribute="trailing" secondItem="gOr-Tb-l3m" secondAttribute="trailing" id="ijV-M1-Kxz"/>
-                            <constraint firstItem="Xsr-Jk-PWb" firstAttribute="leading" secondItem="0PY-xX-1GO" secondAttribute="leading" id="nJi-RI-5rB"/>
-                            <constraint firstItem="gOr-Tb-l3m" firstAttribute="top" secondItem="Kde-9R-aZy" secondAttribute="bottom" id="yZl-Ia-fWu"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="yZl-Ia-fWu"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="NLa-7g-ub7" appends="YES" id="YAu-0n-u7A"/>
                             <outletCollection property="gestureRecognizers" destination="a6k-ob-bIB" appends="YES" id="Uyq-cO-3ab"/>
                         </connections>
                     </view>
-                    <connections>
-                        <outlet property="searchBarView" destination="Xsr-Jk-PWb" id="MQ0-YZ-Dmy"/>
-                        <outlet property="tableView" destination="gOr-Tb-l3m" id="l0q-3j-Vpe"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKh-dO-IUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="NLa-7g-ub7">
@@ -94,7 +78,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="495" y="335"/>
+            <point key="canvasLocation" x="493.60000000000002" y="334.18290854572717"/>
         </scene>
     </scenes>
 </document>
