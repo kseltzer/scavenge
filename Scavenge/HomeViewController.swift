@@ -8,6 +8,12 @@
 
 import UIKit
 
+///////////////////////////////////
+/////////// DUMMY DATA ////////////
+let invitationsArrayFromAPI : [GameInvitation] = [GameInvitation(id: "123", gameTitle: "Fun Game", gameImage: UIImage(named: "raccoon")!, invitedBy: "Mahir Shah"), GameInvitation(id: "123", gameTitle: "The American Six", gameImage: UIImage(named: "raccoon")!, invitedBy: "Ian Abramson"), GameInvitation(id: "123", gameTitle: "Stupid Idiots", gameImage: UIImage(named: "raccoon")!, invitedBy: "Aliya Kamalova")]
+///////// END DUMMY DATA //////////
+///////////////////////////////////
+
 enum TableViewSection : Int {
     case invites = 0
     case results = 1
@@ -22,14 +28,16 @@ enum SectionType {
     case subsection
 }
 
-let invitationsDictionary : [String:AnyObject] = [:]
-
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, InvitationCellProtocol {
 
     let interactor = InteractiveTransitionController()
+    
     @IBOutlet weak var tableView: UITableView!
     
+    var invitationsArray : [GameInvitation] = invitationsArrayFromAPI
+    
     var activeInvitationCell : InvitationCell? = nil
+    var declinedInvitationData : (invitation: GameInvitation, row: Int)? = nil
     
     @IBAction func createNewGameButtonTapped(_ sender: UIBarButtonItem) {
         let createGameStoryboard = UIStoryboard(name: kCreateGameStoryboard, bundle: nil)
@@ -55,7 +63,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case TableViewSection.invites.rawValue:
-            return 3
+            return invitationsArray.count
         case TableViewSection.results.rawValue:
             return 1
         case TableViewSection.activeGames.rawValue:
@@ -76,6 +84,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
             let inviteCell = tableView.dequeueReusableCell(withIdentifier: "invitationCell", for: indexPath) as! InvitationCell
+            let index = indexPath.row
+            inviteCell.gameTitleLabel.text = invitationsArray[index].gameTitle
+            inviteCell.gameImageView.image = invitationsArray[index].gameImage
+            inviteCell.invitedByLabel.text = invitationsArray[index].invitedBy
             inviteCell.delegate = self
             return inviteCell
         case TableViewSection.results.rawValue:
@@ -93,7 +105,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
             break
         default:
-            return GameCell()
+            return UITableViewCell()
         }
         return cell
     }
@@ -101,6 +113,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch (section) {
         case TableViewSection.invites.rawValue:
+            if (invitationsArray.isEmpty) {
+                return nil
+            }
             return "Invites"
         case TableViewSection.results.rawValue:
             return "Results"
@@ -233,8 +248,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 activeCell.isOpen = true
                 activeCell.acceptButton.isUserInteractionEnabled = true
                 if (isPanningLeft) {
-                    let constant = min(-deltaX, activeCell.getTotalButtonWidth())
-                    if (constant == activeCell.getTotalButtonWidth()) {
+                    let constant = min(-deltaX, activeCell.getTotalButtonWidth()-2)
+                    if (constant == activeCell.getTotalButtonWidth()-2) {
                         activeCell.setConstraintsToShowAllButtons()
                         activeCell.isOpen = true
                         activeCell.acceptButton.isUserInteractionEnabled = true
@@ -257,8 +272,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 let adjustment = activeCell.startingTrailingHideButtonsViewConstant! - deltaX
                 if (isPanningLeft) {
-                    let constant = min(adjustment, activeCell.getTotalButtonWidth())
-                    if (constant == activeCell.getTotalButtonWidth()) {
+                    let constant = min(adjustment, activeCell.getTotalButtonWidth()-2)
+                    if (constant == activeCell.getTotalButtonWidth()-2) {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                         activeCell.setConstraintsToShowAllButtons()
                         activeCell.isOpen = true
@@ -277,7 +292,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            
             activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant
             break
         case .ended:
@@ -333,12 +347,47 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func acceptedGameInvite() {
-        print("accepted")
+    func acceptedGameInvite(cell: InvitationCell) {
+        removeInvitationFromTableView(for: cell, withAnimation: .left, andColor: cell.acceptButton.backgroundColor)
     }
     
-    func declinedGameInvite() {
-        print("declined")
+    func declinedGameInvite(cell: InvitationCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            declinedInvitationData = (invitationsArray[indexPath.row], indexPath.row)
+        }
+        removeInvitationFromTableView(for: cell, withAnimation: .right, andColor: cell.declineButton.backgroundColor)
+    }
+    
+    func removeInvitationFromTableView(for cell: InvitationCell, withAnimation animation: UITableViewRowAnimation, andColor color: UIColor?) {
+        if let backgroundColor = color {
+            cell.roundedBorderView.backgroundColor = backgroundColor
+            cell.acceptButton.backgroundColor = backgroundColor
+            cell.declineButton.backgroundColor = backgroundColor
+        }
+        if let indexPath = tableView.indexPath(for: cell) {
+            invitationsArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: animation)
+        }
+        if let declinedInvitation = declinedInvitationData {
+            let invitedBy = declinedInvitation.invitation.invitedBy
+            let alertController = UIAlertController(title: nil, message: "You just declined a game invitation from \(invitedBy)", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { (undoAction) in
+                let insultAlertController = UIAlertController(title: nil, message: "Oh wow, \(invitedBy) must be a total loser", preferredStyle: .alert)
+                let agreeAction = UIAlertAction(title: "hah, true", style: .default, handler: nil)
+                insultAlertController.addAction(agreeAction)
+                self.present(insultAlertController, animated: true, completion: { Void in
+                    self.declinedInvitationData = nil
+                })
+            })
+            let undoAction = UIAlertAction(title: "Undo", style: .default, handler: { (undoAction) in
+                self.invitationsArray.insert(declinedInvitation.invitation, at: declinedInvitation.row)
+                self.tableView.reloadSections([TableViewSection.invites.rawValue], with: .automatic)
+                self.declinedInvitationData = nil
+            })
+            alertController.addAction(undoAction)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Slideout Menu

@@ -350,7 +350,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="acceptButtonTapped:" destination="m3y-AW-LaY" eventType="touchUpInside" id="kUV-R1-nb7"/>
+                                                        <action selector="acceptButtonTapped:" destination="m3y-AW-LaY" eventType="touchUpInside" id="Tud-X0-ZEF"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBk-KY-qQh">
@@ -438,10 +438,13 @@
                                         <connections>
                                             <outlet property="acceptButton" destination="a5n-p2-Jo3" id="1ar-lL-4fz"/>
                                             <outlet property="declineButton" destination="tBk-KY-qQh" id="2aJ-Bh-Mhx"/>
+                                            <outlet property="gameImageView" destination="Vxu-bt-lFu" id="lzu-8H-McN"/>
                                             <outlet property="gameTitleLabel" destination="sgc-Ud-OZ5" id="Gaf-DM-Qlj"/>
                                             <outlet property="hideButtonsView" destination="k5C-Ik-LfU" id="ElM-Cr-4Zi"/>
                                             <outlet property="hideButtonsViewLeadingConstraint" destination="9vR-dQ-RyO" id="igE-rp-UIy"/>
                                             <outlet property="hideButtonsViewTrailingConstraint" destination="uGq-h2-6jk" id="XGz-Qv-7c1"/>
+                                            <outlet property="invitedByLabel" destination="cEH-tW-652" id="PRG-H9-BI6"/>
+                                            <outlet property="roundedBorderView" destination="OzP-KN-dgh" id="M9R-cz-hCa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -496,7 +499,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1333" y="636"/>
+            <point key="canvasLocation" x="1332" y="635.53223388305855"/>
         </scene>
         <!--New Game-->
         <scene sceneID="O0c-Vz-mcP">
