@@ -39,6 +39,12 @@ class InvitationCell: UITableViewCell {
     @IBOutlet weak var hideButtonsViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideButtonsViewLeadingConstraint: NSLayoutConstraint!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layoutIfNeeded()
+        gameImageView.layer.cornerRadius =  gameImageView.frame.size.height * 3/4
+    }
+    
     @IBAction func acceptButtonTapped(_ sender: AnyObject) {
         if (isOpen) {
             delegate.acceptedGameInvite(cell: self)
