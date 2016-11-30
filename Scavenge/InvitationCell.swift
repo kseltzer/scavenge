@@ -9,10 +9,13 @@
 import UIKit
 
 let kBounceValue : CGFloat = 8.0
+let acceptColor = UIColor(red: 23/255, green: 163/255, blue: 84/255, alpha: 1.0)
+let declineColor = UIColor.red
+let defaultViewBackgroundColor = UIColor.white
 
 protocol InvitationCellProtocol {
-    func acceptedGameInvite()
-    func declinedGameInvite()
+    func acceptedGameInvite(cell: InvitationCell)
+    func declinedGameInvite(cell: InvitationCell)
 }
 
 class InvitationCell: UITableViewCell {
@@ -24,32 +27,41 @@ class InvitationCell: UITableViewCell {
     
     @IBOutlet weak var acceptButton : UIButton!
     @IBOutlet weak var declineButton : UIButton!
+    
     @IBOutlet weak var gameTitleLabel : UILabel!
+    @IBOutlet weak var gameImageView: UIImageView!
+    @IBOutlet weak var invitedByLabel: UILabel!
     
     @IBOutlet weak var hideButtonsView: UIView!
+    @IBOutlet weak var roundedBorderView: RoundedBorderedView!
+    
     
     @IBOutlet weak var hideButtonsViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideButtonsViewLeadingConstraint: NSLayoutConstraint!
     
     @IBAction func acceptButtonTapped(_ sender: AnyObject) {
-        delegate.acceptedGameInvite()
+        if (isOpen) {
+            delegate.acceptedGameInvite(cell: self)
+        }
     }
     
     @IBAction func declineButtonTapped(_ sender: AnyObject) {
-        delegate.declinedGameInvite()
+        delegate.declinedGameInvite(cell: self)
     }
     
     func getTotalButtonWidth() -> CGFloat {
         return acceptButton.frame.width + declineButton.frame.width
     }
     
-    func resetConstraintConstantsToZero() {
-        if (startingTrailingHideButtonsViewConstant == 0 && hideButtonsViewTrailingConstraint.constant == 0) { // already closed, no bounce necessary
+    func resetConstraintConstantsToZero(animated: Bool) {
+        if (startingTrailingHideButtonsViewConstant == 8 && hideButtonsViewTrailingConstraint.constant == 8) { // already closed, no bounce necessary
             return
         }
         
-        hideButtonsViewTrailingConstraint.constant = -kBounceValue
-        hideButtonsViewLeadingConstraint.constant = 16 //kBounceValue
+        if (animated) {
+            hideButtonsViewTrailingConstraint.constant = -kBounceValue
+            hideButtonsViewLeadingConstraint.constant = 2 * kBounceValue
+        }
         
         updateConstraintsIfNeeded { (finished) in
             self.hideButtonsViewTrailingConstraint.constant = 8
@@ -61,13 +73,15 @@ class InvitationCell: UITableViewCell {
         }
     }
     
-    func setConstraintsToShowAllButtons() {
-        if (startingTrailingHideButtonsViewConstant == getTotalButtonWidth() && hideButtonsViewTrailingConstraint.constant == getTotalButtonWidth()) {
+    func setConstraintsToShowAllButtons(animated: Bool) {
+        if (startingTrailingHideButtonsViewConstant == getTotalButtonWidth()-2 && hideButtonsViewTrailingConstraint.constant == getTotalButtonWidth()-2) { // already open
             return
         }
         
-        hideButtonsViewLeadingConstraint.constant = -getTotalButtonWidth() - kBounceValue
-        hideButtonsViewTrailingConstraint.constant = getTotalButtonWidth() + kBounceValue
+        if (animated) {
+            hideButtonsViewLeadingConstraint.constant = -getTotalButtonWidth() - kBounceValue
+            hideButtonsViewTrailingConstraint.constant = getTotalButtonWidth() + kBounceValue
+        }
         
         updateConstraintsIfNeeded { (finished) in
             self.hideButtonsViewLeadingConstraint.constant = -self.getTotalButtonWidth() + 2
@@ -85,6 +99,23 @@ class InvitationCell: UITableViewCell {
         UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseOut, animations: {
             self.layoutIfNeeded()
             }, completion: completion)
+        
+    }
+    
+    func resetAppearanceIfNeeded() {
+        if (roundedBorderView.backgroundColor != defaultViewBackgroundColor) {
+            roundedBorderView.backgroundColor = defaultViewBackgroundColor
+            acceptButton.backgroundColor = acceptColor
+            declineButton.backgroundColor = declineColor
+            resetConstraintConstantsToZero(animated: false)
+            isOpen = false
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        resetAppearanceIfNeeded()
+    }
+    
+}
 
