@@ -57,6 +57,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var iconSelectionView: UIView!
     @IBOutlet weak var startButton: UIBarButtonItem!
     
     @IBOutlet weak var searchBarView: UIView!
@@ -474,6 +475,33 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
+    // MARK: - Icon Selection
+    @IBAction func iconButtonTapped(_ sender: Any) {
+        if (iconSelectionView.isHidden) {
+            self.iconSelectionView.isHidden = false
+            UIView.animate(withDuration: 0.6, delay: 0.1, options: .curveEaseOut, animations: {
+                self.iconSelectionView.alpha = 1.0
+            }, completion: nil)
+            overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        } else {
+            UIView.animate(withDuration: 0.6, delay: 0.1, options: .curveEaseOut, animations: {
+                self.iconSelectionView.alpha = 0.0
+            }, completion: { (finished) in
+                self.iconSelectionView.isHidden = true
+                self.hideOverlayView()
+            })
+        }
+    }
+    
+    @IBAction func selectedNewGameIcon(_ sender: UIButton) {
+        if let _ = sender.currentImage {
+            print("there is image")
+        }
+        self.iconSelectionView.isHidden = true
+        hideOverlayView()
+    }
+    
+    
     
     // MARK: - UITextFieldDelegate
     func generateGameTitle() -> String {

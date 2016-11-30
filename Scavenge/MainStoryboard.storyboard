@@ -454,36 +454,38 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSv-6k-nCZ" userLabel="Create Game Fields View">
                                 <rect key="frame" x="4" y="68" width="363" height="70"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raccoon_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rDk-mY-kTi">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xp-Cs-vB0" userLabel="Icon Button">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="rDk-mY-kTi" secondAttribute="height" multiplier="1:1" id="zwB-8C-m9C"/>
+                                            <constraint firstAttribute="width" secondItem="8Xp-Cs-vB0" secondAttribute="height" multiplier="1:1" id="Nwd-j3-IJR"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" image="raccoon_icon"/>
+                                        <connections>
+                                            <action selector="iconButtonTapped:" destination="jKf-zi-WjN" eventType="touchUpInside" id="DB5-1k-826"/>
+                                        </connections>
+                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game Title" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-Pm-aXv">
                                         <rect key="frame" x="78" y="12" width="285" height="23"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give your new game a title and icon (optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85C-Pn-aCI" userLabel="Instructions Label">
-                                        <rect key="frame" x="79" y="35" width="284" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="bEj-4p-SEU"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give your new game a title and icon (optional)" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85C-Pn-aCI" userLabel="Instructions Label">
+                                        <rect key="frame" x="79" y="35" width="284" height="27"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="rDk-mY-kTi" firstAttribute="centerY" secondItem="mSv-6k-nCZ" secondAttribute="centerY" id="DA9-AQ-WNd"/>
-                                    <constraint firstItem="GMn-Pm-aXv" firstAttribute="leading" secondItem="rDk-mY-kTi" secondAttribute="trailing" constant="8" id="Dgh-mc-Wjc"/>
-                                    <constraint firstItem="85C-Pn-aCI" firstAttribute="leading" secondItem="rDk-mY-kTi" secondAttribute="trailing" constant="9" id="Hre-jM-Pr9"/>
-                                    <constraint firstItem="rDk-mY-kTi" firstAttribute="leading" secondItem="mSv-6k-nCZ" secondAttribute="leading" id="Vrs-xn-ANZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="85C-Pn-aCI" secondAttribute="bottom" constant="8" id="7CP-un-fhw"/>
+                                    <constraint firstItem="8Xp-Cs-vB0" firstAttribute="centerY" secondItem="mSv-6k-nCZ" secondAttribute="centerY" id="9gW-KE-ccF"/>
+                                    <constraint firstItem="8Xp-Cs-vB0" firstAttribute="centerY" secondItem="GMn-Pm-aXv" secondAttribute="bottom" id="FLd-4s-Opc"/>
+                                    <constraint firstItem="8Xp-Cs-vB0" firstAttribute="leading" secondItem="mSv-6k-nCZ" secondAttribute="leading" id="GAe-Um-nSA"/>
+                                    <constraint firstItem="GMn-Pm-aXv" firstAttribute="leading" secondItem="8Xp-Cs-vB0" secondAttribute="trailing" constant="8" id="TdV-tE-ogb"/>
                                     <constraint firstAttribute="trailing" secondItem="85C-Pn-aCI" secondAttribute="trailing" id="ap2-HV-Jtd"/>
-                                    <constraint firstItem="GMn-Pm-aXv" firstAttribute="bottom" secondItem="rDk-mY-kTi" secondAttribute="centerY" id="fZQ-Zf-FfX"/>
+                                    <constraint firstItem="8Xp-Cs-vB0" firstAttribute="top" secondItem="mSv-6k-nCZ" secondAttribute="top" id="f5c-TG-4Jg"/>
+                                    <constraint firstItem="85C-Pn-aCI" firstAttribute="leading" secondItem="8Xp-Cs-vB0" secondAttribute="trailing" constant="9" id="gjZ-nO-S9D"/>
                                     <constraint firstAttribute="height" constant="70" id="iCk-bD-Asa"/>
-                                    <constraint firstItem="rDk-mY-kTi" firstAttribute="top" secondItem="mSv-6k-nCZ" secondAttribute="top" id="nKf-Vj-Zrw"/>
                                     <constraint firstAttribute="trailing" secondItem="GMn-Pm-aXv" secondAttribute="trailing" id="sM6-KB-Tso"/>
                                     <constraint firstItem="85C-Pn-aCI" firstAttribute="top" secondItem="GMn-Pm-aXv" secondAttribute="bottom" id="vq0-7N-cG5"/>
                                 </constraints>
@@ -677,6 +679,103 @@
                             <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6k-fq-UWv" userLabel="Overlay View">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </view>
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxT-md-yxB" userLabel="Icon Selection View">
+                                <rect key="frame" x="3" y="67" width="226" height="226"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HjC-rb-6v3" userLabel="Verttical Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="226" height="226"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="otE-mj-XKK" userLabel="Horiz Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="226" height="72.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDO-rm-pIB" userLabel="Icon 1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="72.5"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Qtf-uH-a8o"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-rK-XWs" userLabel="Icon 2">
+                                                        <rect key="frame" x="76.5" y="0.0" width="73" height="72.5"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="R3B-MM-AJl"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Df-Fui" userLabel="Icon 3">
+                                                        <rect key="frame" x="153.5" y="0.0" width="72.5" height="72.5"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="SBB-bB-yaR"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fMi-Ht-Eac" userLabel="Horiz Stack View">
+                                                <rect key="frame" x="0.0" y="76.5" width="226" height="73"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX2-7B-Kl7" userLabel="Icon 4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="73"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="DlR-sw-PmX"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQV-pz-Hmo" userLabel="Icon 5">
+                                                        <rect key="frame" x="76.5" y="0.0" width="73" height="73"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="fLl-45-RGr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGR-P4-wGL" userLabel="Icon 6">
+                                                        <rect key="frame" x="153.5" y="0.0" width="72.5" height="73"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="KQB-hH-6Yk"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-mX-jIy" userLabel="Horiz Stack View">
+                                                <rect key="frame" x="0.0" y="153.5" width="226" height="72.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilu-hf-MOd" userLabel="Icon 7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="72.5"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="PGY-NF-gfy"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCv-GH-6m6" userLabel="Icon 8">
+                                                        <rect key="frame" x="76.5" y="0.0" width="73" height="72.5"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Ghb-bL-NaL"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4y-On-Wwj" userLabel="Icon 9">
+                                                        <rect key="frame" x="153.5" y="0.0" width="72.5" height="72.5"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <connections>
+                                                            <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="1w9-xL-4de"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HjC-rb-6v3" secondAttribute="bottom" id="14V-JS-HvQ"/>
+                                    <constraint firstItem="HjC-rb-6v3" firstAttribute="leading" secondItem="uxT-md-yxB" secondAttribute="leading" id="8AV-ST-fed"/>
+                                    <constraint firstAttribute="height" constant="226" id="FCb-dW-Di1"/>
+                                    <constraint firstItem="HjC-rb-6v3" firstAttribute="top" secondItem="uxT-md-yxB" secondAttribute="top" id="HRK-rm-gZS"/>
+                                    <constraint firstAttribute="width" constant="226" id="Vuk-t5-CAA"/>
+                                    <constraint firstAttribute="trailing" secondItem="HjC-rb-6v3" secondAttribute="trailing" id="vbd-3g-Y0l"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -686,11 +785,13 @@
                             <constraint firstItem="I6k-fq-UWv" firstAttribute="top" secondItem="8iZ-SD-Nmf" secondAttribute="bottom" id="A7U-BZ-HDU"/>
                             <constraint firstAttribute="trailing" secondItem="mSv-6k-nCZ" secondAttribute="trailing" constant="8" id="AgC-5x-fu1"/>
                             <constraint firstAttribute="trailing" secondItem="I6k-fq-UWv" secondAttribute="trailing" id="GPO-lQ-Nfr"/>
+                            <constraint firstItem="uxT-md-yxB" firstAttribute="top" secondItem="8iZ-SD-Nmf" secondAttribute="bottom" constant="3" id="Jbc-fJ-IzG"/>
                             <constraint firstItem="jc8-TR-Mh0" firstAttribute="top" secondItem="mSv-6k-nCZ" secondAttribute="bottom" id="Qxf-FB-19R"/>
                             <constraint firstItem="I6k-fq-UWv" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="RMx-M8-Iai"/>
                             <constraint firstItem="66F-xm-mkX" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="TZ7-qK-Agg"/>
                             <constraint firstItem="66F-xm-mkX" firstAttribute="top" secondItem="jc8-TR-Mh0" secondAttribute="bottom" id="YaX-YI-DXu"/>
                             <constraint firstAttribute="bottom" secondItem="I6k-fq-UWv" secondAttribute="bottom" id="ZOu-2A-Dxj"/>
+                            <constraint firstItem="uxT-md-yxB" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leadingMargin" constant="-13" id="ZjR-lR-8Ik"/>
                             <constraint firstAttribute="trailing" secondItem="6PM-81-vAs" secondAttribute="trailing" id="k8V-t3-1YN"/>
                             <constraint firstItem="6PM-81-vAs" firstAttribute="top" secondItem="66F-xm-mkX" secondAttribute="bottom" id="lYl-bf-HLo"/>
                             <constraint firstItem="6PM-81-vAs" firstAttribute="leading" secondItem="lmT-nF-yse" secondAttribute="leading" id="oMA-kf-jkY"/>
@@ -709,6 +810,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="iconSelectionView" destination="uxT-md-yxB" id="9Qs-8O-96T"/>
                         <outlet property="overlayView" destination="I6k-fq-UWv" id="aF2-I0-IWn"/>
                         <outlet property="profileImageViewFriend1" destination="vG4-zP-z6u" id="Aem-7k-ip4"/>
                         <outlet property="profileImageViewFriend2" destination="SIJ-5R-UKm" id="NS7-Uo-gdn"/>
