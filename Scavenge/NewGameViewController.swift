@@ -91,7 +91,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var filteredRecentsIDs : [String] = []
     var filteredScavengeFriendsIDs : [String] = []
     
-    var gameTitle : String = "Untitled Game"
+    var gameTitle : String = "Game Title"
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -356,7 +356,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let indexOfFirstName = selectedFriendsFirstNames.index(of: scavengeFriend.firstName) {
                 selectedFriendsFirstNames.remove(at: indexOfFirstName)
                 if (selectedFriendsFirstNames.isEmpty) {
-                    gameTitle = "Untitled Game"
+                    gameTitle = "Game Title"
                 } else {
                     gameTitle = generateGameTitle()
                 }
@@ -477,7 +477,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - UITextFieldDelegate
     func generateGameTitle() -> String {
-        return selectedFriendsFirstNames.joined(separator: ", ")
+        return "Scavenge with \(selectedFriendsFirstNames.joined(separator: ", "))"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -491,7 +491,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.placeholder = "Game Title"
         tableView.isUserInteractionEnabled = false
     }
     
