@@ -189,11 +189,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         case TableViewSection.invites.rawValue:
             if let invitationCell = tableView.cellForRow(at: indexPath) as? InvitationCell {
                 if (invitationCell.isOpen) {
-                    invitationCell.resetConstraintConstantsToZero()
+                    invitationCell.resetConstraintConstantsToZero(animated: true)
                     invitationCell.isOpen = false
                     invitationCell.acceptButton.isUserInteractionEnabled = false
                 } else {
-                    invitationCell.setConstraintsToShowAllButtons()
+                    invitationCell.setConstraintsToShowAllButtons(animated: true)
                     invitationCell.isOpen = true
                     invitationCell.acceptButton.isUserInteractionEnabled = true
                 }
@@ -250,16 +250,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if (isPanningLeft) {
                     let constant = min(-deltaX, activeCell.getTotalButtonWidth()-2)
                     if (constant == activeCell.getTotalButtonWidth()-2) {
-                        activeCell.setConstraintsToShowAllButtons()
+                        activeCell.setConstraintsToShowAllButtons(animated: false)
                         activeCell.isOpen = true
                         activeCell.acceptButton.isUserInteractionEnabled = true
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 } else {
-                    let constant = max(-deltaX, 0)
-                    if (constant == 0) {
-                        activeCell.resetConstraintConstantsToZero()
+                    let constant = max(-deltaX, 8)
+                    if (constant == 8) {
+                        activeCell.resetConstraintConstantsToZero(animated: false)
                         activeCell.isOpen = false
                         activeCell.acceptButton.isUserInteractionEnabled = false
                     } else {
@@ -275,16 +275,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let constant = min(adjustment, activeCell.getTotalButtonWidth()-2)
                     if (constant == activeCell.getTotalButtonWidth()-2) {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
-                        activeCell.setConstraintsToShowAllButtons()
+                        activeCell.setConstraintsToShowAllButtons(animated: false)
                         activeCell.isOpen = true
                         activeCell.acceptButton.isUserInteractionEnabled = true
+                        return
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 } else {
-                    let constant = max(adjustment, 0)
-                    if (constant == 0) {
-                        activeCell.resetConstraintConstantsToZero()
+                    let constant = max(adjustment, 8)
+                    if (constant == 8) {
+                        activeCell.resetConstraintConstantsToZero(animated: false)
                         activeCell.isOpen = false
                         activeCell.acceptButton.isUserInteractionEnabled = false
                     } else {
@@ -292,7 +293,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant
+            activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant + 16
             break
         case .ended:
             let activeCell : InvitationCell!
@@ -304,20 +305,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if (activeCell.startingTrailingHideButtonsViewConstant == 8) { // cell was opening
                 let twoThirdsOfRightButton = cell.acceptButton.frame.width * 2/3
                 if (activeCell.hideButtonsViewTrailingConstraint.constant >= twoThirdsOfRightButton) { // open all the way
-                    activeCell.setConstraintsToShowAllButtons()
+                    activeCell.setConstraintsToShowAllButtons(animated: false)
                     activeCell.isOpen = true
                     activeCell.acceptButton.isUserInteractionEnabled = true
                 } else { // re-close
-                    activeCell.resetConstraintConstantsToZero()
+                    activeCell.resetConstraintConstantsToZero(animated: false)
                     activeCell.isOpen = false
                     activeCell.acceptButton.isUserInteractionEnabled = false
                 }
             } else { // cell was closing
                 let rightButtonPlusHalfOfLeftButton = activeCell.acceptButton.frame.width + activeCell.declineButton.frame.width / 2
                 if (activeCell.hideButtonsViewTrailingConstraint.constant >= rightButtonPlusHalfOfLeftButton) { // re-open all the way
-                    activeCell.setConstraintsToShowAllButtons()
+                    activeCell.setConstraintsToShowAllButtons(animated: false)
                 } else { // close
-                    activeCell.resetConstraintConstantsToZero()
+                    activeCell.resetConstraintConstantsToZero(animated: false)
                     activeCell.isOpen = false
                     activeCell.acceptButton.isUserInteractionEnabled = false
                 }
@@ -332,11 +333,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 activeCell = cell
             }
             if (activeCell.startingTrailingHideButtonsViewConstant == 8) { // cell was closed: reset everything to 0
-                activeCell.resetConstraintConstantsToZero()
+                activeCell.resetConstraintConstantsToZero(animated: true)
                 activeCell.isOpen = false
                 activeCell.acceptButton.isUserInteractionEnabled = false
             } else { // cell was open: reset to the open state
-                activeCell.setConstraintsToShowAllButtons()
+                activeCell.setConstraintsToShowAllButtons(animated: true)
                 activeCell.isOpen = true
                 activeCell.acceptButton.isUserInteractionEnabled = true
             }
@@ -372,7 +373,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let invitedBy = declinedInvitation.invitation.invitedBy
             let alertController = UIAlertController(title: nil, message: "You just declined a game invitation from \(invitedBy)", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { (undoAction) in
-                let insultAlertController = UIAlertController(title: nil, message: "Oh wow, \(invitedBy) must be a total loser", preferredStyle: .alert)
+                let insultAlertController = UIAlertController(title: nil, message: "Oh wow, \(invitedBy) must really suck", preferredStyle: .alert)
                 let agreeAction = UIAlertAction(title: "hah, true", style: .default, handler: nil)
                 insultAlertController.addAction(agreeAction)
                 self.present(insultAlertController, animated: true, completion: { Void in

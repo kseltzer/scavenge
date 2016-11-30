@@ -40,7 +40,9 @@ class InvitationCell: UITableViewCell {
     @IBOutlet weak var hideButtonsViewLeadingConstraint: NSLayoutConstraint!
     
     @IBAction func acceptButtonTapped(_ sender: AnyObject) {
-        delegate.acceptedGameInvite(cell: self)
+        if (isOpen) {
+            delegate.acceptedGameInvite(cell: self)
+        }
     }
     
     @IBAction func declineButtonTapped(_ sender: AnyObject) {
@@ -51,13 +53,15 @@ class InvitationCell: UITableViewCell {
         return acceptButton.frame.width + declineButton.frame.width
     }
     
-    func resetConstraintConstantsToZero() {
-        if (startingTrailingHideButtonsViewConstant == 0 && hideButtonsViewTrailingConstraint.constant == 0) { // already closed, no bounce necessary
+    func resetConstraintConstantsToZero(animated: Bool) {
+        if (startingTrailingHideButtonsViewConstant == 8 && hideButtonsViewTrailingConstraint.constant == 8) { // already closed, no bounce necessary
             return
         }
         
-        hideButtonsViewTrailingConstraint.constant = -kBounceValue
-        hideButtonsViewLeadingConstraint.constant = 2 * kBounceValue
+        if (animated) {
+            hideButtonsViewTrailingConstraint.constant = -kBounceValue
+            hideButtonsViewLeadingConstraint.constant = 2 * kBounceValue
+        }
         
         updateConstraintsIfNeeded { (finished) in
             self.hideButtonsViewTrailingConstraint.constant = 8
@@ -69,13 +73,15 @@ class InvitationCell: UITableViewCell {
         }
     }
     
-    func setConstraintsToShowAllButtons() {
-        if (startingTrailingHideButtonsViewConstant == getTotalButtonWidth()-2 && hideButtonsViewTrailingConstraint.constant == getTotalButtonWidth()-2) {
+    func setConstraintsToShowAllButtons(animated: Bool) {
+        if (startingTrailingHideButtonsViewConstant == getTotalButtonWidth()-2 && hideButtonsViewTrailingConstraint.constant == getTotalButtonWidth()-2) { // already open
             return
         }
         
-        hideButtonsViewLeadingConstraint.constant = -getTotalButtonWidth() - kBounceValue
-        hideButtonsViewTrailingConstraint.constant = getTotalButtonWidth() + kBounceValue
+        if (animated) {
+            hideButtonsViewLeadingConstraint.constant = -getTotalButtonWidth() - kBounceValue
+            hideButtonsViewTrailingConstraint.constant = getTotalButtonWidth() + kBounceValue
+        }
         
         updateConstraintsIfNeeded { (finished) in
             self.hideButtonsViewLeadingConstraint.constant = -self.getTotalButtonWidth() + 2
@@ -93,6 +99,7 @@ class InvitationCell: UITableViewCell {
         UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseOut, animations: {
             self.layoutIfNeeded()
             }, completion: completion)
+        
     }
     
     func resetAppearanceIfNeeded() {
@@ -100,7 +107,7 @@ class InvitationCell: UITableViewCell {
             roundedBorderView.backgroundColor = defaultViewBackgroundColor
             acceptButton.backgroundColor = acceptColor
             declineButton.backgroundColor = declineColor
-            resetConstraintConstantsToZero()
+            resetConstraintConstantsToZero(animated: false)
             isOpen = false
         }
     }
