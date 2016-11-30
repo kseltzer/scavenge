@@ -15,6 +15,8 @@ class GameCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        layoutIfNeeded()
+        gameImageView!.layer.cornerRadius =  gameImageView!.frame.size.height * 3/4 //30
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
