@@ -57,6 +57,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var iconSelectionView: UIView!
     @IBOutlet weak var startButton: UIBarButtonItem!
     
@@ -478,30 +479,35 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Icon Selection
     @IBAction func iconButtonTapped(_ sender: Any) {
         if (iconSelectionView.isHidden) {
-            self.iconSelectionView.isHidden = false
-            UIView.animate(withDuration: 0.6, delay: 0.1, options: .curveEaseOut, animations: {
-                self.iconSelectionView.alpha = 1.0
-            }, completion: nil)
-            overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+            animateShowIconSelectionView()
         } else {
-            UIView.animate(withDuration: 0.6, delay: 0.1, options: .curveEaseOut, animations: {
-                self.iconSelectionView.alpha = 0.0
-            }, completion: { (finished) in
-                self.iconSelectionView.isHidden = true
-                self.hideOverlayView()
-            })
+            animateHideIconSelectionView()
         }
     }
     
     @IBAction func selectedNewGameIcon(_ sender: UIButton) {
-        if let _ = sender.currentImage {
-            print("there is image")
+        if let newIcon = sender.currentImage {
+            iconButton.setImage(newIcon, for: .normal)
         }
-        self.iconSelectionView.isHidden = true
-        hideOverlayView()
+        animateHideIconSelectionView()
     }
     
+    func animateShowIconSelectionView() {
+        self.iconSelectionView.isHidden = false
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: .beginFromCurrentState, animations: {
+            self.iconSelectionView.alpha = 1.0
+            self.overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        }, completion: nil)
+    }
     
+    func animateHideIconSelectionView() {
+        UIView.animate(withDuration: 0.1, delay: 0.1, options: .beginFromCurrentState, animations: {
+            self.iconSelectionView.alpha = 0.0
+            self.hideOverlayView()
+        }, completion: { (finished) in
+            self.iconSelectionView.isHidden = true
+        })
+    }
     
     // MARK: - UITextFieldDelegate
     func generateGameTitle() -> String {
