@@ -42,7 +42,7 @@ class InvitationCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         layoutIfNeeded()
-        gameImageView.layer.cornerRadius =  gameImageView.frame.size.height * 3/4 //30
+        gameImageView.layer.cornerRadius =  gameImageView.frame.size.height * 3/4
     }
     
     @IBAction func acceptButtonTapped(_ sender: AnyObject) {
