@@ -57,6 +57,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var iconButton: UIButton!
+    @IBOutlet weak var iconSelectionView: UIView!
     @IBOutlet weak var startButton: UIBarButtonItem!
     
     @IBOutlet weak var searchBarView: UIView!
@@ -91,7 +93,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var filteredRecentsIDs : [String] = []
     var filteredScavengeFriendsIDs : [String] = []
     
-    var gameTitle : String = "Untitled Game"
+    var gameTitle : String = "Game Title"
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -136,6 +138,15 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             break
         }
+        
+        
+        let path = UIBezierPath(roundedRect:iconSelectionView.bounds,
+                                byRoundingCorners:[.topRight, .bottomLeft, .bottomRight],
+                                cornerRadii: CGSize(width: 40.0, height:  5.0))
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        iconSelectionView.layer.mask = maskLayer
     }
     
     func setupSearchController() {
@@ -146,6 +157,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchBarView.addSubview(searchController.searchBar)
         searchController.loadViewIfNeeded()
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.autocapitalizationType = .words
     }
     
     // MARK: - UITableViewDelegate
@@ -356,7 +368,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let indexOfFirstName = selectedFriendsFirstNames.index(of: scavengeFriend.firstName) {
                 selectedFriendsFirstNames.remove(at: indexOfFirstName)
                 if (selectedFriendsFirstNames.isEmpty) {
-                    gameTitle = "Untitled Game"
+                    gameTitle = "Game Title"
                 } else {
                     gameTitle = generateGameTitle()
                 }
@@ -474,10 +486,50 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
+    // MARK: - Icon Selection
+    @IBAction func iconButtonTapped(_ sender: Any) {
+        if (iconSelectionView.isHidden) {
+            animateShowIconSelectionView()
+        } else {
+            animateHideIconSelectionView()
+        }
+    }
+    
+    @IBAction func selectedNewGameIcon(_ sender: UIButton) {
+        if let newIcon = sender.currentImage {
+            iconButton.setImage(newIcon, for: .normal)
+        }
+        animateHideIconSelectionView()
+    }
+    
+    func animateShowIconSelectionView() {
+        iconSelectionView.isHidden = false
+        searchController.isActive = false
+        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
+            self.iconSelectionView.alpha = 1.0
+            self.overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+        }, completion: { (finished) in
+            self.overlayView.isUserInteractionEnabled = true
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.animateHideIconSelectionView))
+            self.overlayView.addGestureRecognizer(tapGesture)
+        })
+    }
+    
+    func animateHideIconSelectionView() {
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseOut, animations: {
+            self.iconSelectionView.alpha = 0.0
+            self.hideOverlayView()
+        }, completion: { (finished) in
+            self.iconSelectionView.isHidden = true
+            self.overlayView.isUserInteractionEnabled = false
+        })
+    }
+    
+    
     
     // MARK: - UITextFieldDelegate
     func generateGameTitle() -> String {
-        return selectedFriendsFirstNames.joined(separator: ", ")
+        return "Scavenge with \(selectedFriendsFirstNames.joined(separator: ", "))"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -491,7 +543,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.placeholder = "Game Title"
         tableView.isUserInteractionEnabled = false
     }
     
