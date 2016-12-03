@@ -381,7 +381,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 })
             })
             let undoAction = UIAlertAction(title: "Undo", style: .default, handler: { (undoAction) in
-                self.invitationsArray.insert(declinedInvitation.invitation, at: declinedInvitation.row)
+                self.invitationsArray.insert(declinedInvitation.invitation, at: 0)
                 self.tableView.reloadSections([TableViewSection.invites.rawValue], with: .automatic)
                 self.declinedInvitationData = nil
             })
