@@ -138,6 +138,15 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         default:
             break
         }
+        
+        
+        let path = UIBezierPath(roundedRect:iconSelectionView.bounds,
+                                byRoundingCorners:[.topRight, .bottomLeft, .bottomRight],
+                                cornerRadii: CGSize(width: 40.0, height:  5.0))
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        iconSelectionView.layer.mask = maskLayer
     }
     
     func setupSearchController() {
@@ -148,6 +157,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchBarView.addSubview(searchController.searchBar)
         searchController.loadViewIfNeeded()
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.autocapitalizationType = .words
     }
     
     // MARK: - UITableViewDelegate
@@ -493,21 +503,29 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func animateShowIconSelectionView() {
-        self.iconSelectionView.isHidden = false
-        UIView.animate(withDuration: 0.2, delay: 0.1, options: .beginFromCurrentState, animations: {
+        iconSelectionView.isHidden = false
+        searchController.isActive = false
+        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
             self.iconSelectionView.alpha = 1.0
             self.overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
-        }, completion: nil)
+        }, completion: { (finished) in
+            self.overlayView.isUserInteractionEnabled = true
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.animateHideIconSelectionView))
+            self.overlayView.addGestureRecognizer(tapGesture)
+        })
     }
     
     func animateHideIconSelectionView() {
-        UIView.animate(withDuration: 0.1, delay: 0.1, options: .beginFromCurrentState, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseOut, animations: {
             self.iconSelectionView.alpha = 0.0
             self.hideOverlayView()
         }, completion: { (finished) in
             self.iconSelectionView.isHidden = true
+            self.overlayView.isUserInteractionEnabled = false
         })
     }
+    
+    
     
     // MARK: - UITextFieldDelegate
     func generateGameTitle() -> String {
