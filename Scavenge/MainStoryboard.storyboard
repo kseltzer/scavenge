@@ -94,11 +94,11 @@
                                         <rect key="frame" x="0.0" y="28" width="244" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4L-2x-9gP" id="ze8-IY-61v">
-                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lfs-av-njn">
-                                                    <rect key="frame" x="15" y="0.0" width="214" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="214" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -823,6 +823,7 @@
                         <outlet property="profileImagesStackViewLeadingConstraint" destination="oq6-se-Qz5" id="A16-eH-7lc"/>
                         <outlet property="profileImagesStackViewTopConstraint" destination="fTN-fC-hMd" id="h6O-Ty-aCV"/>
                         <outlet property="profileImagesStackViewTrailingConstraint" destination="zpo-f6-tnl" id="o8W-pN-Wvm"/>
+                        <outlet property="profileImagesView" destination="6PM-81-vAs" id="mda-08-U18"/>
                         <outlet property="profileImagesViewHeightConstraint" destination="ByS-tC-9zJ" id="8Wz-xh-GQS"/>
                         <outlet property="searchBarView" destination="jc8-TR-Mh0" id="j7I-S2-NY7"/>
                         <outlet property="searchDisplayController" destination="VEI-4H-SYh" id="EYy-iG-O3w"/>

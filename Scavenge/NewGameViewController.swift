@@ -11,41 +11,41 @@ import MessageUI
 
 enum TableViewFriendsSection : Int {
     case recents = 0
-    case scavengeFriends = 1
+    case friends = 1
     case inviteFriends = 2
 }
 
-let sampleRecents : [ScavengeFriend] = [
-    ScavengeFriend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
+let dummyRecents : [Friend] = [
+    Friend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
-let sampleRecentsIDs = ["1", "2", "3"]
-let sampleScavengeFriendIDs = ["4","5","6","7","8"]
+let dummyRecentsIDs = ["1", "2", "3"]
+let dummyFriendIDs = ["4","5","6","7","8"]
 
-let sampleScavengeFriends : [ScavengeFriend] = [
-    ScavengeFriend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
+let dummyFriends : [Friend] = [
+    Friend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
-let recentsDictionaryFromAPI : [String:ScavengeFriend] = [
-    "1":ScavengeFriend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "2":ScavengeFriend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "3":ScavengeFriend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
+let recentsDictionaryFromAPI : [String:Friend] = [
+    "1":Friend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "2":Friend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "3":Friend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
 var recentsDictionary = recentsDictionaryFromAPI
 
-let scavengeDictionaryFromAPI : [String:ScavengeFriend] = [
-    "4":ScavengeFriend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "5":ScavengeFriend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "6": ScavengeFriend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "7": ScavengeFriend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "8": ScavengeFriend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
+let scavengeDictionaryFromAPI : [String:Friend] = [
+    "4":Friend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "5":Friend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "6": Friend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "7": Friend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
+    "8": Friend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
 var scavengeDictionary = scavengeDictionaryFromAPI
@@ -53,7 +53,7 @@ var scavengeDictionary = scavengeDictionaryFromAPI
 let inviteBody: String = "Hey! Long time no talk hahaha :) no but seriously I found this really fun app called Scavenge. Kind of a stupid name but it's actually a good game. You should download it so we can play."
 let cannotAddAdditionalPlayersMessage = "ya can't have more than \(MAX_PLAYERS) players\nin a game"
 
-class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchResultsUpdating, MagnifiedProfileImageViewDelegate {
+class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, MagnifiedProfileImageViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -63,6 +63,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var searchBarView: UIView!
     
+    @IBOutlet weak var profileImagesView: UIView!
     @IBOutlet weak var profileImageViewUser: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend1: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend2: ProfileImageView!
@@ -82,16 +83,16 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var magnifiedPlayerImage: UIImage?
     var magnifiedPlayerIndex: Int?
     
-    var selectedScavengeFriends : [ScavengeFriend?] = [nil, nil, nil, nil, nil]
+    var selectedFriends : [Friend?] = [nil, nil, nil, nil, nil]
     
     var selectedFriendsHeaderIndices : [Int] = [5, 4, 3, 2, 1]
     var selectedFriendsFirstNames : [String] = []
     
-    var filteredRecents : [ScavengeFriend] = []
-    var filteredScavengeFriends : [ScavengeFriend] = []
+    var filteredRecents : [Friend] = []
+    var filteredFriends : [Friend] = []
     
     var filteredRecentsIDs : [String] = []
-    var filteredScavengeFriendsIDs : [String] = []
+    var filteredFriendsIDs : [String] = []
     
     var gameTitle : String = "Game Title"
     
@@ -155,10 +156,30 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         searchBarView.addSubview(searchController.searchBar)
+        searchController.searchBar.delegate = self
         searchController.loadViewIfNeeded()
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .words
+        searchController.delegate = self
     }
+    
+    func hideProfileImagesView() {
+        self.profileImagesViewHeightConstraint.constant = 0.0
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: {Void in
+//            self.searchController.isActive = true
+        })
+    }
+    
+//    func didPresentSearchController(_ searchController: UISearchController) {
+////        searchController.searchBar.becomeFirstResponder()
+//    }
+//    
+//    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+//        hideProfileImagesView()
+//        return true
+//    }
     
     // MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -175,12 +196,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if (searchController.isActive && searchController.searchBar.text != "") {
                     return filteredRecentsIDs.count
                 }
-                return sampleRecentsIDs.count
-            case TableViewFriendsSection.scavengeFriends.rawValue:
+                return dummyRecentsIDs.count
+            case TableViewFriendsSection.friends.rawValue:
                 if (searchController.isActive && searchController.searchBar.text != "") {
-                    return filteredScavengeFriendsIDs.count
+                    return filteredFriendsIDs.count
                 }
-                return sampleScavengeFriendIDs.count
+                return dummyFriendIDs.count
             case TableViewFriendsSection.inviteFriends.rawValue:
                 return 1
             default:
@@ -198,7 +219,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             return recentsDictionary.isEmpty ? nil : kSectionTitleRecents
         case 1:
             if (searchController.isActive && searchController.searchBar.text != "") {
-                return filteredScavengeFriendsIDs.isEmpty ? nil : kSectionTitleFriendsOnScavenge
+                return filteredFriendsIDs.isEmpty ? nil : kSectionTitleFriendsOnScavenge
             }
             return scavengeDictionary.isEmpty ? nil : kSectionTitleFriendsOnScavenge
         case 2:
@@ -216,7 +237,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             sectionTitle = kSectionTitleRecents
             topPadding = 3
             break
-        case TableViewFriendsSection.scavengeFriends.rawValue:
+        case TableViewFriendsSection.friends.rawValue:
             sectionTitle = kSectionTitleFriendsOnScavenge
             topPadding = 0
             break
@@ -251,96 +272,96 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func configureCellInitially(_ indexPath: IndexPath, section: TableViewFriendsSection) -> FriendCell {
         var cell : FriendCell = FriendCell()
-        var scavengeFriend : ScavengeFriend!
+        var friend : Friend!
         switch (section) {
         case .recents:
             cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifier, for: indexPath) as! FriendCell
             if searchController.isActive && searchController.searchBar.text != "" {
                 let id = filteredRecentsIDs[(indexPath as NSIndexPath).row]
-                scavengeFriend = recentsDictionary[id]!
+                friend = recentsDictionary[id]!
             } else {
-                scavengeFriend = recentsDictionary[sampleRecentsIDs[(indexPath as NSIndexPath).row]]!
+                friend = recentsDictionary[dummyRecentsIDs[(indexPath as NSIndexPath).row]]!
             }
-            scavengeFriend.addedToGame = false
+            friend.addedToGame = false
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
-                scavengeFriend.indexPath = indexPath
+                friend.indexPath = indexPath
             }
-            recentsDictionary[scavengeFriend.id] = scavengeFriend
+            recentsDictionary[friend.id] = friend
             break
-        case .scavengeFriends:
+        case .friends:
             cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifier, for: indexPath) as! FriendCell
             if searchController.isActive && searchController.searchBar.text != "" {
-                let id = filteredScavengeFriendsIDs[(indexPath as NSIndexPath).row]
-                scavengeFriend = scavengeDictionary[id]!
+                let id = filteredFriendsIDs[(indexPath as NSIndexPath).row]
+                friend = scavengeDictionary[id]!
             } else {
-                scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[(indexPath as NSIndexPath).row]]!
+                friend = scavengeDictionary[dummyFriendIDs[(indexPath as NSIndexPath).row]]!
             }
-            scavengeFriend.addedToGame = false
+            friend.addedToGame = false
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
-                scavengeFriend.indexPath = indexPath
+                friend.indexPath = indexPath
             }
-            scavengeDictionary[scavengeFriend.id] = scavengeFriend
+            scavengeDictionary[friend.id] = friend
             break
         default:
             return cell
         }
-        cell.userID = scavengeFriend.id
-        cell.nameLabel.text = scavengeFriend.name
+        cell.userID = friend.id
+        cell.nameLabel.text = friend.name
         cell.profileImage.layoutIfNeeded()
         cell.profileImage.circular()
-        cell.profileImage.image = scavengeFriend.profileImage
+        cell.profileImage.image = friend.profileImage
         cell.setDeselectedAppearance()
         return cell
     }
     
     func configureCell(_ indexPath: IndexPath, section: TableViewFriendsSection) -> FriendCell {
         var cell : FriendCell = FriendCell()
-        var scavengeFriend : ScavengeFriend!
+        var friend : Friend!
         switch (section) {
         case .recents:
             cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifier, for: indexPath) as! FriendCell
             if searchController.isActive && searchController.searchBar.text != "" {
                 let id = filteredRecentsIDs[(indexPath as NSIndexPath).row]
-                scavengeFriend = recentsDictionary[id]!
+                friend = recentsDictionary[id]!
             } else {
-                scavengeFriend = recentsDictionary[sampleRecentsIDs[(indexPath as NSIndexPath).row]]!
+                friend = recentsDictionary[dummyRecentsIDs[(indexPath as NSIndexPath).row]]!
             }
-            if (scavengeFriend.addedToGame) {
+            if (friend.addedToGame) {
                 cell.setSelectedAppearance()
             } else {
                 cell.setDeselectedAppearance()
             }
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
-                scavengeFriend.indexPath = indexPath
-                recentsDictionary[scavengeFriend.id] = scavengeFriend
+                friend.indexPath = indexPath
+                recentsDictionary[friend.id] = friend
             }
             break
-        case .scavengeFriends:
+        case .friends:
             cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifier, for: indexPath) as! FriendCell
             if searchController.isActive && searchController.searchBar.text != "" {
-                let id = filteredScavengeFriendsIDs[(indexPath as NSIndexPath).row]
-                scavengeFriend = scavengeDictionary[id]!
+                let id = filteredFriendsIDs[(indexPath as NSIndexPath).row]
+                friend = scavengeDictionary[id]!
             } else {
-                scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[(indexPath as NSIndexPath).row]]!
+                friend = scavengeDictionary[dummyFriendIDs[(indexPath as NSIndexPath).row]]!
             }
-            if (scavengeFriend.addedToGame) {
+            if (friend.addedToGame) {
                 cell.setSelectedAppearance()
             } else {
                 cell.setDeselectedAppearance()
             }
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
-                scavengeFriend.indexPath = indexPath
-                scavengeDictionary[scavengeFriend.id] = scavengeFriend
+                friend.indexPath = indexPath
+                scavengeDictionary[friend.id] = friend
             }
             break
         default:
             return cell
         }
-        cell.userID = scavengeFriend.id
-        cell.nameLabel.text = scavengeFriend.name
+        cell.userID = friend.id
+        cell.nameLabel.text = friend.name
         cell.profileImage.layoutIfNeeded()
         cell.profileImage.circular()
-        cell.profileImage.image = scavengeFriend.profileImage
+        cell.profileImage.image = friend.profileImage
         return cell
     }
     
@@ -351,21 +372,21 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func showMagnifiedProfileImage(index: Int) {
-        if (selectedScavengeFriends[index] != nil && !searchController.isActive) {
+        if (selectedFriends[index] != nil && !searchController.isActive) {
             magnifiedPlayerIndex = index
             overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
             self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)
         }
     }
     
-    func handleAddRemoveFriend(_ friend : ScavengeFriend) -> ScavengeFriend? {
-        var scavengeFriend = friend
-        if scavengeFriend.addedToGame {                                                             // remove friend
-            selectedFriendsHeaderIndices.append(scavengeFriend.headerIndex!)
-            self.removeSelectedFriendImageFromHeader(scavengeFriend.headerIndex!)
-            selectedScavengeFriends[scavengeFriend.headerIndex!-1] = nil
-            scavengeFriend.addedToGame = false
-            if let indexOfFirstName = selectedFriendsFirstNames.index(of: scavengeFriend.firstName) {
+    func handleAddRemoveFriend(_ friend : Friend) -> Friend? {
+        var friend = friend
+        if friend.addedToGame {                                                             // remove friend
+            selectedFriendsHeaderIndices.append(friend.headerIndex!)
+            self.removeSelectedFriendImageFromHeader(friend.headerIndex!)
+            selectedFriends[friend.headerIndex!-1] = nil
+            friend.addedToGame = false
+            if let indexOfFirstName = selectedFriendsFirstNames.index(of: friend.firstName) {
                 selectedFriendsFirstNames.remove(at: indexOfFirstName)
                 if (selectedFriendsFirstNames.isEmpty) {
                     gameTitle = "Game Title"
@@ -383,17 +404,17 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {                                                                                    // add friend
             selectedFriendsHeaderIndices = selectedFriendsHeaderIndices.sorted().reversed()
             let headerIndex = selectedFriendsHeaderIndices.popLast()
-            scavengeFriend.headerIndex = headerIndex
-            scavengeFriend.addedToGame = true
-            self.addSelectedFriendImageToHeader(scavengeFriend.profileImage, index: headerIndex)
-            selectedFriendsFirstNames.append(scavengeFriend.firstName)
+            friend.headerIndex = headerIndex
+            friend.addedToGame = true
+            self.addSelectedFriendImageToHeader(friend.profileImage, index: headerIndex)
+            selectedFriendsFirstNames.append(friend.firstName)
             if headerIndex != nil {
-                selectedScavengeFriends[headerIndex! - 1] = scavengeFriend
+                selectedFriends[headerIndex! - 1] = friend
             }
             gameTitle = generateGameTitle()
             titleTextField.placeholder = gameTitle
         }
-        return scavengeFriend
+        return friend
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -415,7 +436,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 recentsDictionary[friend.id] = updatedFriend
             }
             break
-        case TableViewFriendsSection.scavengeFriends.rawValue:
+        case TableViewFriendsSection.friends.rawValue:
             let cell = tableView.cellForRow(at: indexPath) as! FriendCell
             let friend = scavengeDictionary[cell.userID]!
             if let updatedFriend = handleAddRemoveFriend(friend) {
@@ -575,19 +596,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             filteredRecentsIDs.append(friend.id)
         }
     
-        filteredScavengeFriendsIDs = []
-        filteredScavengeFriends = scavengeDictionary.values.filter { friend in
+        filteredFriendsIDs = []
+        filteredFriends = scavengeDictionary.values.filter { friend in
             return friend.name.lowercased().contains(searchText.lowercased())
         }
-        for friend in filteredScavengeFriends {
-            filteredScavengeFriendsIDs.append(friend.id)
+        for friend in filteredFriends {
+            filteredFriendsIDs.append(friend.id)
         }
         
         tableView.reloadData()
     }
     
     // MARK: - MagnifiedProfileImageViewDelegate
-    func calculateIndexPath(for scavengeFriendID: String) {
+    func calculateIndexPath(for friendID: String) {
     }
     
     func hideOverlayView() {
@@ -595,7 +616,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func xButtonTapped() {
-        if let selectedFriend = selectedScavengeFriends[magnifiedPlayerIndex!] {
+        if let selectedFriend = selectedFriends[magnifiedPlayerIndex!] {
             if let indexPath = selectedFriend.indexPath {
                 if (tableView.indexPathsForVisibleRows?.contains(indexPath))! {
                     handleSelectedRowAt(indexPath: indexPath)
@@ -632,7 +653,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
      // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? MagnifiedProfileImageViewController {
-            if let index = magnifiedPlayerIndex, let magnifiedPlayer = selectedScavengeFriends[index] {
+            if let index = magnifiedPlayerIndex, let magnifiedPlayer = selectedFriends[index] {
                 destinationViewController.playerImage = magnifiedPlayer.profileImage
                 destinationViewController.playerName = magnifiedPlayer.name
                 destinationViewController.delegate = self

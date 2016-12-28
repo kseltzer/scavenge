@@ -8,7 +8,7 @@
 
 import UIKit
 
-let sampleTopics = ["The Epitome of Disappointment", "So Crazy It Just Might Work", "Public Selfie", "The Perfect Balance Between Business and Casual", "Sachin's Worst Nightmare"]
+let dummyTopics = ["The Epitome of Disappointment", "So Crazy It Just Might Work", "Public Selfie", "The Perfect Balance Between Business and Casual", "Sachin's Worst Nightmare"]
 
 class PlayingGameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -252,7 +252,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         if ((indexPath as NSIndexPath).row != NUM_GAME_QUESTIONS) {
             selectedIndex = (indexPath as NSIndexPath).row
             tableView.deselectRow(at: indexPath, animated: true)
-            self.attemptShowImagePicker(sampleTopics[(indexPath as NSIndexPath).row])
+            self.attemptShowImagePicker(dummyTopics[(indexPath as NSIndexPath).row])
         }
     }
     
@@ -292,7 +292,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func configureTopicCellForIndexPath(_ cell: PlayingGameTopicCell, indexPath: IndexPath) -> PlayingGameTopicCell {
-        cell.topicLabel.text = sampleTopics[(indexPath as NSIndexPath).row]
+        cell.topicLabel.text = dummyTopics[(indexPath as NSIndexPath).row]
         return cell
     }
 

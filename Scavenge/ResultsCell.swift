@@ -14,8 +14,8 @@ protocol ResultsCellDelegate {
 
 class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     
-    let numPlayers = 5 // TODO: get data from backend
-
+    var numPlayers: Int = 0
+    
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -25,9 +25,8 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+                
         scrollView.delegate = self
-
         self.setupUIScrollView()
     }
 
@@ -38,6 +37,7 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     func setupUIScrollView() {
         let screenSize: CGRect = UIScreen.main.bounds
         let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
+        let playerLabelHeight: CGFloat = 20
         let imageViewWidth = (screenSize.width - (leadingSpace + trailingSpace)) / 2.5
         let imageViewHeight = imageViewWidth * IMAGE_RATIO
         let scrollViewWidth = (imageViewWidth * CGFloat(numPlayers)) + (8 * CGFloat(numPlayers))
@@ -54,7 +54,7 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
             imageViewTopic.image = photoSubmission
             scrollView.addSubview(imageViewTopic)
             
-            let playerLabel = UILabel(frame: CGRect(x: x, y: y + imageViewHeight + 16, width: imageViewWidth, height: 20))
+            let playerLabel = UILabel(frame: CGRect(x: x, y: y + imageViewHeight + 16, width: imageViewWidth, height: playerLabelHeight))
             let submittedBy = "Kim Seltzer" // TODO: get data from backend
             playerLabel.text = "by: \(submittedBy)"
             playerLabel.font = RESULTS_TABLE_VIEW_SUBSECTION_FONT

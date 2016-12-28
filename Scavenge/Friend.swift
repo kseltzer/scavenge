@@ -1,5 +1,5 @@
 //
-//  ScavengeFriend.swift
+//  Friend.swift
 //  Scavenge
 //
 //  Created by Kimberly Seltzer on 7/29/16.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct ScavengeFriend
+struct Friend
 {
     var name : String
     var id : String
