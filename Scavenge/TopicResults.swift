@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct TopicResult {
-    var topic: String
+struct TopicResults {
+    // array of images, ordered by most to least votes
     var submissions: [TopicSubmission]
-    var winningSubmission: TopicSubmission?
 }

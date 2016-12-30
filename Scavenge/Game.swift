@@ -18,6 +18,6 @@ struct Game {
     var numPlayers: Int
     var winner: Player?
     var status: GameStatus
-    var results: [TopicResult]
+    var results: [TopicResults]
     var topicStrings: [String]
 }

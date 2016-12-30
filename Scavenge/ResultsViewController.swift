@@ -8,11 +8,11 @@
 
 import UIKit
 
-let dummyPlayer1 = Player(id: "1", firstName: "Kim", name: "Kim Seltzer")
-let dummyPlayer2 = Player(id: "2", firstName: "Aliya", name: "Aliya Kamalova")
-let dummyPlayer3 = Player(id: "3", firstName: "Mahir", name: "Mahir Shah")
-let dummyPlayer4 = Player(id: "4", firstName: "Sachin", name: "Sachin Medhekar")
-let dummyPlayer5 = Player(id: "5", firstName: "Ian", name: "Ian Abramson")
+let dummyPlayer1 = Player(id: "1", firstName: "Kim", name: "Kim Seltzer", profileImage: UIImage(named: "fbProfilePic")!)
+let dummyPlayer2 = Player(id: "2", firstName: "Aliya", name: "Aliya Kamalova", profileImage: UIImage(named: "aliya")!)
+let dummyPlayer3 = Player(id: "3", firstName: "Mahir", name: "Mahir Shah", profileImage: UIImage(named: "profilePicNegativeState")!)
+let dummyPlayer4 = Player(id: "4", firstName: "Sachin", name: "Sachin Medhekar", profileImage: UIImage(named: "sachin")!)
+let dummyPlayer5 = Player(id: "5", firstName: "Ian", name: "Ian Abramson", profileImage: UIImage(named: "profilePicNegativeState")!)
 
 let dummySubmission1 = TopicSubmission(image: UIImage(named: "aliya")!, submittedBy: dummyPlayer1, numVotes: 3)
 let dummySubmission2 = TopicSubmission(image: UIImage(named: "paul")!, submittedBy: dummyPlayer2, numVotes: 0)
@@ -20,13 +20,14 @@ let dummySubmission3 = TopicSubmission(image: UIImage(named: "sachin")!, submitt
 let dummySubmission4 = TopicSubmission(image: UIImage(named: "fbProfilePic")!, submittedBy: dummyPlayer4, numVotes: 1)
 let dummySubmission5 = TopicSubmission(image: UIImage(named: "raccoon")!, submittedBy: dummyPlayer5, numVotes: 0)
 
-let dummyResultsData: [TopicResult] = [TopicResult(topic: "Unconventionally Ugly", submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5], winningSubmission: nil)]
+let dummyResultsData: [TopicResults] = [TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5])]
 
-let dummyGameData = Game(players: [dummyPlayer1, dummyPlayer2, dummyPlayer3], numPlayers: 5, winner: dummyPlayer4, status: .completed, results: dummyResultsData, topicStrings: ["Unconventionally Ugly", "So Crazy It Just Might Work", "Nostalgia", "WTF", "Haunted As Shit"])
+let dummyGameData = Game(players: [dummyPlayer1, dummyPlayer2, dummyPlayer3], numPlayers: 5, winner: dummyPlayer2, status: .completed, results: dummyResultsData, topicStrings: ["Unconventionally Ugly", "So Crazy It Just Might Work", "Nostalgia", "WTF", "Haunted As Shit"])
 
 class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ResultsCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var winnerImageView: ProfileImageView!
     
     var screenSize : CGRect!
     var cellWidth : CGFloat!
@@ -40,13 +41,14 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         screenSize = UIScreen.main.bounds
         cellWidth = screenSize.width - 16
         
-        let topPadding : CGFloat = 8, bottomPadding : CGFloat = 8, playerLabelHeightAndPadding : CGFloat = 36
+        let topPadding : CGFloat = 8, bottomPadding : CGFloat = 8, playerLabelHeightAndPadding : CGFloat = 20
         
         let imageViewHeight = cellWidth * (8 / 7) / 2.5
         let cellHeight = imageViewHeight + topPadding + bottomPadding + playerLabelHeightAndPadding
         tableView.rowHeight = cellHeight
         tableView.scrollsToTop = true
         
+        winnerImageView.image = dummyGameData.winner?.profileImage
         setupScrollViewOffsets()
     }
     
@@ -71,15 +73,16 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.delegate = self
         cell.index = (indexPath as NSIndexPath).section
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
+        cell.configureCell(numPlayers: dummyGameData.numPlayers, results: dummyGameData.results[indexPath.section])
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: 20))
+        let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: 22))
         sectionHeaderView.backgroundColor = UIColor.white
-        let topicLabel = UILabel(frame: CGRect(x: 8, y: 0, width: cellWidth, height: 20))
-        topicLabel.text = dummyGameData.topicStrings[section] // TODO: get data from backend
-        topicLabel.font = TABLE_VIEW_SUBSECTION_FONT
+        let topicLabel = UILabel(frame: CGRect(x: 8, y: 0, width: cellWidth, height: 22))
+        topicLabel.text = dummyGameData.topicStrings[section]
+        topicLabel.font = RESULTS_TABLE_VIEW_SECTION_FONT
         sectionHeaderView.addSubview(topicLabel)
         return sectionHeaderView
     }
@@ -97,15 +100,4 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func updateScrollPositionForIndexPath(scrollPosition: CGFloat, index: Int) {
         scrollViewOffsets[index] = scrollPosition
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

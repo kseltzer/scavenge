@@ -14,8 +14,6 @@ protocol ResultsCellDelegate {
 
 class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     
-    var numPlayers: Int = 0
-    
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -25,16 +23,15 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-                
+        
         scrollView.delegate = self
-        self.setupUIScrollView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
-    func setupUIScrollView() {
+    func configureCell(numPlayers: Int, results: TopicResults) {
         let screenSize: CGRect = UIScreen.main.bounds
         let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
         let playerLabelHeight: CGFloat = 20
@@ -46,23 +43,25 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
         
         var x: CGFloat = 0
         let y: CGFloat = 0
-        
-        for _ in 0 ..< numPlayers {
-            let imageViewTopic = UIImageView(frame: CGRect(x: x, y: y, width: imageViewWidth, height: imageViewHeight))
-            imageViewTopic.contentMode = .scaleAspectFill
-            let photoSubmission = UIImage(named: "aliya") // TODO: get data from backend
-            imageViewTopic.image = photoSubmission
-            scrollView.addSubview(imageViewTopic)
+
+        for index in 0 ..< numPlayers {
+            let imageView = UIImageView(frame: CGRect(x: x, y: y, width: imageViewWidth, height: imageViewHeight))
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            let submission = results.submissions[index]
+            imageView.image = submission.image
+            scrollView.addSubview(imageView)
             
-            let playerLabel = UILabel(frame: CGRect(x: x, y: y + imageViewHeight + 16, width: imageViewWidth, height: playerLabelHeight))
-            let submittedBy = "Kim Seltzer" // TODO: get data from backend
-            playerLabel.text = "by: \(submittedBy)"
+            let playerLabel = UILabel(frame: CGRect(x: x, y: y + imageViewHeight, width: imageViewWidth, height: playerLabelHeight))
+            playerLabel.text = "by: \(submission.submittedBy.name)"
             playerLabel.font = RESULTS_TABLE_VIEW_SUBSECTION_FONT
             scrollView.addSubview(playerLabel)
             
             let votesLabel = UILabel(frame: CGRect(x: x + 4, y: y, width: imageViewWidth, height: 20))
-            let numVotes = 3 // TODO: get data from backend
-            votesLabel.text = "\(numVotes) votes"
+            votesLabel.text = "\(submission.numVotes) vote"
+            if (submission.numVotes != 1) {
+                votesLabel.text = "\(votesLabel.text!)s"
+            }
             votesLabel.font = TABLE_VIEW_SUBSECTION_FONT
             scrollView.addSubview(votesLabel)
             
