@@ -7,13 +7,21 @@
 //
 
 import Foundation
+import UIKit
 
 enum GameStatus {
-    case active
+    case invite
+    case results
+    case yourMove
+    case theirMove
     case completed
 }
 
 struct Game {
+    var id: Int
+    var title: String
+    var icon: UIImage // todo: change to URL
+    var creator: Player
     var players: [Player]
     var numPlayers: Int
     var winner: Player?

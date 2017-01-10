@@ -12,7 +12,7 @@ import UIKit
 struct Friend
 {
     var name : String
-    var id : String
+    var id : Int
     var profileImage : UIImage
     var firstName : String
     var addedToGame : Bool

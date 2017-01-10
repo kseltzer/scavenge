@@ -16,9 +16,9 @@ let MAX_PLAYERS : Int = 6
 
 // MARK: - Session Constants
 let KEY_UID = "uid"
-let KEY_PROFILE_IMAGE = "profile_image"
 let KEY_FIRST_NAME = "first_name"
 let KEY_LAST_NAME = "last_name"
+var userProfileImage: UIImage? = nil
 
 // MARK: - Storyboard Constants
 let kLoginStoryboard = "LoginStoryboard"

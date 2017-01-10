@@ -12,6 +12,8 @@ class GameCell: UITableViewCell {
 
     @IBOutlet weak var roundedBorderView: RoundedBorderedView!
     @IBOutlet weak var gameImageView: UIImageView?
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var gameTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

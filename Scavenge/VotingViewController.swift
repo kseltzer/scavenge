@@ -86,7 +86,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.submitButton.isEnabled = true
                 cell.submitButton.alpha = 1.0
             } else {
-            cell.submitButton.isEnabled = true //TODO: set to false; currently set to true for testing purposes only
+            cell.submitButton.isEnabled = false
                 cell.submitButton.alpha = 0.6
             }
         return cell

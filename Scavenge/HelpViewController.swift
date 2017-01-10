@@ -1,5 +1,5 @@
 //
-//  TourViewController.swift
+//  HelpViewController.swift
 //  Scavenge
 //
 //  Created by Kimberly Seltzer on 8/29/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TourViewController: UIViewController {
+class HelpViewController: UIViewController {
 
     let interactor = InteractiveTransitionController()
     
@@ -16,22 +16,11 @@ class TourViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 // MARK: - Slideout Menu
 
-extension TourViewController: UIViewControllerTransitioningDelegate {
+extension HelpViewController: UIViewControllerTransitioningDelegate {
    
     @IBAction func handleEdgeGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
         let translation = sender.translation(in: view)
@@ -69,7 +58,7 @@ extension TourViewController: UIViewControllerTransitioningDelegate {
         if let destinationViewController = segue.destination as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
-            destinationViewController.currentScreen = .Tour
+            destinationViewController.currentScreen = .Help
         }
     }
 }

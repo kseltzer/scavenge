@@ -12,6 +12,7 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var fbLoginButton: LoginButton!
     @IBAction func fbLoginButtonPressed (_ sender: UIButton!) {
         self.attemptLoginWithFacebook()
     }
@@ -21,6 +22,8 @@ class LoginViewController: UIViewController {
         
         if UserDefaults.standard.value(forKey: KEY_UID) != nil {
             self.handleLoggedIn()
+        } else {
+            fbLoginButton.isHidden = false
         }
     }
 

@@ -11,8 +11,7 @@ import UIKit
 
 struct GameInvitation
 {
-    var id : String
     var gameTitle : String
     var gameImage : UIImage
-    var invitedBy : String
+    var invitedBy : Player
 }

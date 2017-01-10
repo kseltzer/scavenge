@@ -15,37 +15,39 @@ enum TableViewFriendsSection : Int {
     case inviteFriends = 2
 }
 
+var shouldShowKeyboard = false
+
 let dummyRecents : [Friend] = [
-    Friend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
-    Friend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
-    Friend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
+    Friend(name: "Kim Seltzer", id: 1, profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Aliya Kamalova", id: 2, profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Charlie Bucket", id: 3, profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
-let dummyRecentsIDs = ["1", "2", "3"]
-let dummyFriendIDs = ["4","5","6","7","8"]
+let dummyRecentsIDs = [1,2,3]
+let dummyFriendIDs = [4, 5, 6, 7, 8]
 
 let dummyFriends : [Friend] = [
-    Friend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
-    Friend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
-    Friend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
-    Friend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
-    Friend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
+    Friend(name: "Charlotte York", id: 4, profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Olivia Rothschild", id: 5, profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Paul Goetz", id: 6, profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "David Seltzer", id: 7, profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
+    Friend(name: "Sachin Medhekar", id: 8, profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
-let recentsDictionaryFromAPI : [String:Friend] = [
-    "1":Friend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "2":Friend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "3":Friend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
+let recentsDictionaryFromAPI : [Int:Friend] = [
+    1:Friend(name: "Kim Seltzer", id: 1, profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
+    2:Friend(name: "Aliya Kamalova", id: 2, profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
+    3:Friend(name: "Charlie Bucket", id: 3, profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
 var recentsDictionary = recentsDictionaryFromAPI
 
-let scavengeDictionaryFromAPI : [String:Friend] = [
-    "4":Friend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "5":Friend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "6": Friend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "7": Friend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "8": Friend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
+let scavengeDictionaryFromAPI : [Int:Friend] = [
+    4:Friend(name: "Charlotte York", id: 4, profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
+    5:Friend(name: "Olivia Rothschild", id: 5, profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
+    6: Friend(name: "Paul Goetz", id: 6, profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
+    7: Friend(name: "David Seltzer", id: 7, profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
+    8: Friend(name: "Sachin Medhekar", id: 8, profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
 ]
 
 var scavengeDictionary = scavengeDictionaryFromAPI
@@ -71,6 +73,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileImageViewFriend4: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend5: ProfileImageView!
     
+    var profileImagesViewHeightContstraintOriginalConstant: CGFloat!
     @IBOutlet weak var profileImagesViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImagesStackViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImagesStackViewTrailingConstraint: NSLayoutConstraint!
@@ -91,8 +94,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var filteredRecents : [Friend] = []
     var filteredFriends : [Friend] = []
     
-    var filteredRecentsIDs : [String] = []
-    var filteredFriendsIDs : [String] = []
+    var filteredRecentsIDs : [Int] = []
+    var filteredFriendsIDs : [Int] = []
     
     var gameTitle : String = "Game Title"
     
@@ -148,6 +151,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         iconSelectionView.layer.mask = maskLayer
+        
+        profileImagesViewHeightContstraintOriginalConstant = profileImagesViewHeightConstraint.constant
     }
     
     func setupSearchController() {
@@ -164,22 +169,34 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func hideProfileImagesView() {
-        self.profileImagesViewHeightConstraint.constant = 0.0
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
+            self.profileImagesViewHeightConstraint.constant = 0.0
             self.view.layoutIfNeeded()
         }, completion: {Void in
-//            self.searchController.isActive = true
+            self.searchController.searchBar.becomeFirstResponder()
+            shouldShowKeyboard = true
+            let _ = self.searchBarShouldBeginEditing(self.searchController.searchBar)
         })
     }
     
-//    func didPresentSearchController(_ searchController: UISearchController) {
-////        searchController.searchBar.becomeFirstResponder()
-//    }
-//    
-//    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-//        hideProfileImagesView()
-//        return true
-//    }
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        if !shouldShowKeyboard {
+            hideProfileImagesView()
+        }
+        return shouldShowKeyboard
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        shouldShowKeyboard = false
+        return true
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        UIView.animate(withDuration: 0.15, delay: 0.2, options: .curveLinear, animations: {
+            self.profileImagesViewHeightConstraint.constant = self.profileImagesViewHeightContstraintOriginalConstant
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
     
     // MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -564,6 +581,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = "Game Title"
         tableView.isUserInteractionEnabled = false
     }
     

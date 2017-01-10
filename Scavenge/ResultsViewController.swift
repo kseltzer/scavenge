@@ -8,11 +8,11 @@
 
 import UIKit
 
-let dummyPlayer1 = Player(id: "1", firstName: "Kim", name: "Kim Seltzer", profileImage: UIImage(named: "fbProfilePic")!)
-let dummyPlayer2 = Player(id: "2", firstName: "Aliya", name: "Aliya Kamalova", profileImage: UIImage(named: "aliya")!)
-let dummyPlayer3 = Player(id: "3", firstName: "Mahir", name: "Mahir Shah", profileImage: UIImage(named: "profilePicNegativeState")!)
-let dummyPlayer4 = Player(id: "4", firstName: "Sachin", name: "Sachin Medhekar", profileImage: UIImage(named: "sachin")!)
-let dummyPlayer5 = Player(id: "5", firstName: "Ian", name: "Ian Abramson", profileImage: UIImage(named: "profilePicNegativeState")!)
+let dummyPlayer1 = Player(id: 1, firstName: "Kim", name: "Kim Seltzer", profileImage: UIImage(named: "fbProfilePic")!)
+let dummyPlayer2 = Player(id: 2, firstName: "Aliya", name: "Aliya Kamalova", profileImage: UIImage(named: "aliya")!)
+let dummyPlayer3 = Player(id: 3, firstName: "Mahir", name: "Mahir Shah", profileImage: UIImage(named: "profilePicNegativeState")!)
+let dummyPlayer4 = Player(id: 4, firstName: "Sachin", name: "Sachin Medhekar", profileImage: UIImage(named: "sachin")!)
+let dummyPlayer5 = Player(id: 5, firstName: "Ian", name: "Ian Abramson", profileImage: UIImage(named: "profilePicNegativeState")!)
 
 let dummySubmission1 = TopicSubmission(image: UIImage(named: "aliya")!, submittedBy: dummyPlayer1, numVotes: 3)
 let dummySubmission2 = TopicSubmission(image: UIImage(named: "paul")!, submittedBy: dummyPlayer2, numVotes: 0)
@@ -22,7 +22,7 @@ let dummySubmission5 = TopicSubmission(image: UIImage(named: "raccoon")!, submit
 
 let dummyResultsData: [TopicResults] = [TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5])]
 
-let dummyGameData = Game(players: [dummyPlayer1, dummyPlayer2, dummyPlayer3], numPlayers: 5, winner: dummyPlayer2, status: .completed, results: dummyResultsData, topicStrings: ["Unconventionally Ugly", "So Crazy It Just Might Work", "Nostalgia", "WTF", "Haunted As Shit"])
+let dummyGameData = Game(id: 1, title: "Best Friends!", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3], numPlayers: 5, winner: dummyPlayer2, status: .completed, results: dummyResultsData, topicStrings: ["Unconventionally Ugly", "So Crazy It Just Might Work", "Nostalgia", "WTF", "Haunted As Shit"])
 
 class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ResultsCellDelegate {
 
@@ -43,7 +43,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let topPadding : CGFloat = 8, bottomPadding : CGFloat = 8, playerLabelHeightAndPadding : CGFloat = 20
         
-        let imageViewHeight = cellWidth * (8 / 7) / 2.5
+        let imageViewHeight = cellWidth * IMAGE_RATIO / 2.5
         let cellHeight = imageViewHeight + topPadding + bottomPadding + playerLabelHeightAndPadding
         tableView.rowHeight = cellHeight
         tableView.scrollsToTop = true

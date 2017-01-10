@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct TopicSubmission {
-    var image: UIImage // Todo: URL
+    var image: UIImage // todo: change to URL
     var submittedBy: Player
     var numVotes: Int
 }

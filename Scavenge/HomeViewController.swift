@@ -9,8 +9,35 @@
 import UIKit
 
 ///////////////////////////////////
-/////////// DUMMY DATA ////////////
-let invitationsArrayFromAPI : [GameInvitation] = [GameInvitation(id: "123", gameTitle: "Fun Game", gameImage: UIImage(named: "raccoon")!, invitedBy: "Mahir Shah"), GameInvitation(id: "123", gameTitle: "The American Six", gameImage: UIImage(named: "raccoon")!, invitedBy: "Ian Abramson"), GameInvitation(id: "123", gameTitle: "Stupid Idiots", gameImage: UIImage(named: "raccoon")!, invitedBy: "Aliya Kamalova")]
+//////// START DUMMY DATA /////////
+let invitationsArrayFromAPI: [GameInvitation] = [GameInvitation(gameTitle: "Fun Game", gameImage: UIImage(named: "raccoon_icon")!, invitedBy: dummyPlayer1), GameInvitation(gameTitle: "Stupid Idiots", gameImage: UIImage(named: "raccoon")!, invitedBy: dummyPlayer3)]
+
+// invites
+let dummyGame1 = Game(id: 1, title: "Scavenge with Kim, Mahir", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer3], numPlayers: 2, winner: nil, status: .invite, results: [], topicStrings: dummyTopics)
+let dummyGame2 = Game(id: 2, title: "Buddies", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4], numPlayers: 2, winner: nil, status: .invite, results: [], topicStrings: dummyTopics)
+
+// results
+let dummyGame3 = Game(id: 3, title: "Fuckers", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer5, dummyPlayer5], numPlayers: 3, winner: nil, status: .results, results: [], topicStrings: dummyTopics)
+
+// your move
+let dummyGame4 = Game(id: 4, title: "Scavenge with Kim, Aliya, Mahir, Sachin, Ian", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4, dummyPlayer5], numPlayers: 5, winner: nil, status: .yourMove, results: [], topicStrings: dummyTopics)
+
+// their move
+let dummyGame5 = Game(id: 5, title: "Dumb Idiots", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4, dummyPlayer2, dummyPlayer3], numPlayers: 4, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
+let dummyGame6 = Game(id: 6, title: "Some Game Title", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4, dummyPlayer3], numPlayers: 3, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
+let dummyGame7 = Game(id: 7, title: "Apt 9", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer5, dummyPlayer4], numPlayers: 3, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
+let dummyGame8 = Game(id: 8, title: "Our Boyfriends", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4], numPlayers: 4, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
+let dummyGame9 = Game(id: 9, title: "Family", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4, dummyPlayer3], numPlayers: 3, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
+
+// completed
+let dummyGame10 = Game(id: 10, title: "Some Longer Game Title Than Others", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer2, dummyPlayer4, dummyPlayer3], numPlayers: 4, winner: dummyPlayer3, status: .completed, results: [], topicStrings: dummyTopics)
+
+let gamesDictionaryFromAPI: [GameStatus:[Game]] = [  .invite:[dummyGame1, dummyGame2],
+                                                     .results: [dummyGame3],
+                                                     .yourMove: [dummyGame4],
+                                                     .theirMove:[dummyGame5, dummyGame6, dummyGame7, dummyGame8, dummyGame9],
+                                                     .completed: [dummyGame10]]
+
 ///////// END DUMMY DATA //////////
 ///////////////////////////////////
 
@@ -39,6 +66,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var activeInvitationCell : InvitationCell? = nil
     var declinedInvitationData : (invitation: GameInvitation, row: Int)? = nil
     
+    var gamesInvites: [Game]!
+    var gamesResults: [Game]!
+    var gamesYourMove: [Game]!
+    var gamesTheirMove: [Game]!
+    var gamesCompleted: [Game]!
+    
     @IBAction func createNewGameButtonTapped(_ sender: UIBarButtonItem) {
         let createGameStoryboard = UIStoryboard(name: kCreateGameStoryboard, bundle: nil)
         let createGameViewController = createGameStoryboard.instantiateInitialViewController()
@@ -54,6 +87,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         navigationItem.backBarButtonItem = customBackBarItem()
         navigationController?.navigationBar.tintColor = UIColor.white
+        
+        gamesInvites = gamesDictionaryFromAPI[.invite]
+        gamesResults = gamesDictionaryFromAPI[.results]
+        gamesYourMove = gamesDictionaryFromAPI[.yourMove]
+        gamesTheirMove = gamesDictionaryFromAPI[.theirMove]
+        gamesCompleted = gamesDictionaryFromAPI[.completed]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,15 +104,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         case TableViewSection.invites.rawValue:
             return invitationsArray.count
         case TableViewSection.results.rawValue:
-            return 1
+            return gamesResults.count
         case TableViewSection.activeGames.rawValue:
             return 0
         case TableViewSection.yourMove.rawValue:
-            return 1
+            return gamesYourMove.count
         case TableViewSection.theirMove.rawValue:
-            return 1
+            return gamesTheirMove.count
         case TableViewSection.completedGames.rawValue:
-            return 3
+            return gamesCompleted.count
         default:
             return 0
         }
@@ -81,32 +120,39 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GameCell!
+        var game: Game
         switch ((indexPath as NSIndexPath).section) {
         case TableViewSection.invites.rawValue:
+            game = gamesInvites[indexPath.row]
             let inviteCell = tableView.dequeueReusableCell(withIdentifier: "invitationCell", for: indexPath) as! InvitationCell
-            let index = indexPath.row
-            inviteCell.gameTitleLabel.text = invitationsArray[index].gameTitle
-            inviteCell.gameImageView.image = invitationsArray[index].gameImage
-            inviteCell.invitedByLabel.text = invitationsArray[index].invitedBy
+            inviteCell.gameTitleLabel.text = game.title
+            inviteCell.gameImageView.image = game.icon
+            inviteCell.invitedByLabel.text = "invited by: \(game.creator.name)"
             inviteCell.delegate = self
             return inviteCell
         case TableViewSection.results.rawValue:
+            game = gamesResults[indexPath.row]
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
             break
         case TableViewSection.activeGames.rawValue:
             return UITableViewCell()
         case TableViewSection.yourMove.rawValue:
+            game = gamesYourMove[indexPath.row]
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
             break
         case TableViewSection.theirMove.rawValue:
+            game = gamesTheirMove[indexPath.row]
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
             break
         case TableViewSection.completedGames.rawValue:
+            game = gamesCompleted[indexPath.row]
             cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! GameCell
             break
         default:
             return UITableViewCell()
         }
+        cell.gameTitleLabel.text = game.title
+        cell.gameImageView?.image = game.icon
         return cell
     }
     
@@ -371,9 +417,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         if let declinedInvitation = declinedInvitationData {
             let invitedBy = declinedInvitation.invitation.invitedBy
-            let alertController = UIAlertController(title: nil, message: "You just declined a game invitation from \(invitedBy)", preferredStyle: .alert)
+            let alertController = UIAlertController(title: nil, message: "You just declined a game invitation from \(invitedBy.name)", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { (undoAction) in
-                let insultAlertController = UIAlertController(title: nil, message: "Oh wow, \(invitedBy) must really suck", preferredStyle: .alert)
+                let insultAlertController = UIAlertController(title: nil, message: "Oh wow, \(invitedBy.name) must really suck", preferredStyle: .alert)
                 let agreeAction = UIAlertAction(title: "hah, true", style: .default, handler: nil)
                 insultAlertController.addAction(agreeAction)
                 self.present(insultAlertController, animated: true, completion: { Void in

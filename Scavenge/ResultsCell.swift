@@ -57,12 +57,19 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
             playerLabel.font = RESULTS_TABLE_VIEW_SUBSECTION_FONT
             scrollView.addSubview(playerLabel)
             
+            var votesLabelBackgroundWidth: CGFloat = 52
             let votesLabel = UILabel(frame: CGRect(x: x + 4, y: y, width: imageViewWidth, height: 20))
             votesLabel.text = "\(submission.numVotes) vote"
             if (submission.numVotes != 1) {
                 votesLabel.text = "\(votesLabel.text!)s"
+                votesLabelBackgroundWidth = 60
             }
             votesLabel.font = TABLE_VIEW_SUBSECTION_FONT
+            
+            let votesLabelBackground = UIView(frame: CGRect(x: x, y: y, width: votesLabelBackgroundWidth, height: 20))
+            votesLabelBackground.backgroundColor = UIColor(colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+
+            scrollView.addSubview(votesLabelBackground)
             scrollView.addSubview(votesLabel)
             
             x += (imageViewWidth + 8)

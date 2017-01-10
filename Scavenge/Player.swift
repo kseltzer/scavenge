@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct Player {
-    var id: String
+    var id: Int
     var firstName: String
     var name: String
     var profileImage: UIImage // todo: change to URL

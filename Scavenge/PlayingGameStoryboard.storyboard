@@ -159,8 +159,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-8I-W8o">
-                                                    <rect key="frame" x="280.5" y="363" width="39" height="37"/>
+                                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-8I-W8o">
+                                                    <rect key="frame" x="152" y="363" width="71" height="37"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="37" id="65J-sC-mmp"/>
                                                     </constraints>
@@ -245,13 +245,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPU-oD-Dhk">
-                                <rect key="frame" x="149" y="28" width="78" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPU-oD-Dhk">
+                                <rect key="frame" x="148.5" y="28" width="78" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="g6I-zt-F0N"/>
                                     <constraint firstAttribute="width" constant="78" id="rfJ-8G-7Zl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -290,7 +290,7 @@
                                     <constraint firstAttribute="height" constant="1" id="Gql-wr-fRk"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="pM2-ry-Qt0" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="pM2-ry-Qt0" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                 <rect key="frame" x="128" y="57" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="FmH-SU-pPa"/>
@@ -324,6 +324,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sachin" width="1575" height="1575"/>
+        <image name="profilePicNegativeState" width="1290" height="1290"/>
     </resources>
 </document>
