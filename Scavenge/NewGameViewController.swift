@@ -104,7 +104,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var isInitialCellConfiguration : Bool = true
     
     let interactor = InteractiveTransitionController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -535,7 +535,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func selectedNewGameIcon(_ sender: UIButton) {
         if let newIcon = sender.currentImage {
-            iconButton.setImage(newIcon, for: .normal)
+            iconButton.imageView?.image = newIcon
         }
         animateHideIconSelectionView()
     }
@@ -543,24 +543,31 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     func animateShowIconSelectionView() {
         iconSelectionView.isHidden = false
         searchController.isActive = false
-        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
+        let frame = iconSelectionView.frame
+        self.iconSelectionView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.0)
+        self.iconSelectionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        self.iconSelectionView.frame = frame
+
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
+            self.iconSelectionView.transform = CGAffineTransform.identity
             self.iconSelectionView.alpha = 1.0
             self.overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
         }, completion: { (finished) in
-            self.overlayView.isUserInteractionEnabled = true
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.animateHideIconSelectionView))
             self.overlayView.addGestureRecognizer(tapGesture)
+            self.overlayView.isUserInteractionEnabled = true
         })
     }
     
     func animateHideIconSelectionView() {
-        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseOut, animations: {
-            self.iconSelectionView.alpha = 0.0
+        UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseIn, animations: {
+            self.iconSelectionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             self.hideOverlayView()
-        }, completion: { (finished) in
+        }) { (finished) in
+            self.iconSelectionView.alpha = 0.0
             self.iconSelectionView.isHidden = true
             self.overlayView.isUserInteractionEnabled = false
-        })
+        }
     }
     
     

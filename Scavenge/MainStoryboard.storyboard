@@ -692,7 +692,7 @@
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDO-rm-pIB" userLabel="Icon 1">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="foot_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Qtf-uH-a8o"/>
                                                         </connections>
@@ -725,7 +725,7 @@
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQV-pz-Hmo" userLabel="Icon 5">
                                                         <rect key="frame" x="72.5" y="0.0" width="65" height="65"/>
-                                                        <state key="normal" title="Button" image="foot_icon"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="fLl-45-RGr"/>
                                                         </connections>
