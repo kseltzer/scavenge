@@ -351,7 +351,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if (activeCell.startingTrailingHideButtonsViewConstant == 8) { // cell was opening
                 let twoThirdsOfRightButton = cell.acceptButton.frame.width * 2/3
                 if (activeCell.hideButtonsViewTrailingConstraint.constant >= twoThirdsOfRightButton) { // open all the way
-                    activeCell.setConstraintsToShowAllButtons(animated: false)
+                    activeCell.setConstraintsToShowAllButtons(animated: true)
                     activeCell.isOpen = true
                     activeCell.acceptButton.isUserInteractionEnabled = true
                 } else { // re-close
@@ -362,7 +362,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else { // cell was closing
                 let rightButtonPlusHalfOfLeftButton = activeCell.acceptButton.frame.width + activeCell.declineButton.frame.width / 2
                 if (activeCell.hideButtonsViewTrailingConstraint.constant >= rightButtonPlusHalfOfLeftButton) { // re-open all the way
-                    activeCell.setConstraintsToShowAllButtons(animated: false)
+                    activeCell.setConstraintsToShowAllButtons(animated: true)
                 } else { // close
                     activeCell.resetConstraintConstantsToZero(animated: false)
                     activeCell.isOpen = false

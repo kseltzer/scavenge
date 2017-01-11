@@ -548,7 +548,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.iconSelectionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         self.iconSelectionView.frame = frame
 
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.17, delay: 0.0, options: .curveEaseIn, animations: {
             self.iconSelectionView.transform = CGAffineTransform.identity
             self.iconSelectionView.alpha = 1.0
             self.overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
@@ -560,7 +560,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func animateHideIconSelectionView() {
-        UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.17, delay: 0.0, options: .curveEaseIn, animations: {
             self.iconSelectionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             self.hideOverlayView()
         }) { (finished) in
