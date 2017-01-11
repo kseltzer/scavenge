@@ -87,15 +87,15 @@ class InvitationCell: UITableViewCell {
         if (animated) {
             hideButtonsViewLeadingConstraint.constant = -getTotalButtonWidth() - kBounceValue
             hideButtonsViewTrailingConstraint.constant = getTotalButtonWidth() + kBounceValue
-        }
         
-        updateConstraintsIfNeeded { (finished) in
-            self.hideButtonsViewLeadingConstraint.constant = -self.getTotalButtonWidth() + 2
-            self.hideButtonsViewTrailingConstraint.constant = self.getTotalButtonWidth() - 2
-            
-            self.updateConstraintsIfNeeded(with: { (finished) in
-                self.startingTrailingHideButtonsViewConstant = self.hideButtonsViewTrailingConstraint.constant
-            })
+            updateConstraintsIfNeeded { (finished) in
+                self.hideButtonsViewLeadingConstraint.constant = -self.getTotalButtonWidth() + 2
+                self.hideButtonsViewTrailingConstraint.constant = self.getTotalButtonWidth() - 2
+                
+                self.updateConstraintsIfNeeded(with: { (finished) in
+                    self.startingTrailingHideButtonsViewConstant = self.hideButtonsViewTrailingConstraint.constant
+                })
+            }
         }
         
         startingTrailingHideButtonsViewConstant = hideButtonsViewTrailingConstraint.constant
