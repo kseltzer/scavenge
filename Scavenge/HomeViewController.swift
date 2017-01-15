@@ -302,7 +302,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
-                } else {
+                } else { // panning right
                     let constant = max(-deltaX, 8)
                     if (constant == 8) {
                         activeCell.resetConstraintConstantsToZero(animated: false)
@@ -328,9 +328,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     } else {
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
-                } else {
+                } else { // panning right
                     let constant = max(adjustment, 8)
-                    if (constant == 8) {
+                    if (activeCell.hideButtonsViewTrailingConstraint.constant == 8) {
                         activeCell.resetConstraintConstantsToZero(animated: false)
                         activeCell.isOpen = false
                         activeCell.acceptButton.isUserInteractionEnabled = false
@@ -355,7 +355,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     activeCell.isOpen = true
                     activeCell.acceptButton.isUserInteractionEnabled = true
                 } else { // re-close
-                    activeCell.resetConstraintConstantsToZero(animated: false)
+                    activeCell.resetConstraintConstantsToZero(animated: true)
                     activeCell.isOpen = false
                     activeCell.acceptButton.isUserInteractionEnabled = false
                 }
@@ -364,7 +364,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if (activeCell.hideButtonsViewTrailingConstraint.constant >= rightButtonPlusHalfOfLeftButton) { // re-open all the way
                     activeCell.setConstraintsToShowAllButtons(animated: true)
                 } else { // close
-                    activeCell.resetConstraintConstantsToZero(animated: false)
+                    activeCell.resetConstraintConstantsToZero(animated: true)
                     activeCell.isOpen = false
                     activeCell.acceptButton.isUserInteractionEnabled = false
                 }
