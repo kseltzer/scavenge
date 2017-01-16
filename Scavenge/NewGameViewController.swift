@@ -17,7 +17,6 @@ enum TableViewFriendsSection : Int {
 
 var shouldShowKeyboard = false
 
-
 ///////////////////////////////////
 //////// START DUMMY DATA /////////
 let dummyJson : [String:Any] = [
@@ -57,49 +56,6 @@ let dummyJson : [String:Any] = [
     ]
 ]
 
-let dummyRecents : [Player] = [
-    dummyPlayer1,
-    dummyPlayer2,
-    dummyPlayer3
-]
-
-let dummyRecentsIDs = [1,2,3]
-let dummyFriendIDs = [4,5,6,7,8]
-
-let dummyFriends : [Player] = [
-    dummyPlayer4,
-    dummyPlayer5,
-    dummyPlayer6,
-    dummyPlayer7,
-    dummyPlayer8
-]
-
-let recentsDictionaryFromAPI : [Int:Player] = [
-    1:dummyPlayer1,
-    2:dummyPlayer2,
-    3:dummyPlayer3
-]
-
-//var recentsDictionary = recentsDictionaryFromAPI
-
-var recentsDictionary: [Int:Player] = [:]
-var recentsIDs: [Int] = []
-
-var friendsDictionary: [Int:Player] = [:]
-var friendsIDs: [Int] = []
-
-let friendsDictionaryFromAPI : [Int:Player] = [
-    4:dummyPlayer4,
-    5:dummyPlayer5,
-    6:dummyPlayer6,
-    7:dummyPlayer7,
-    8:dummyPlayer8
-]
-
-let json : [TableViewFriendsSection:[Int:Player]] = [
-    .recents: [1:dummyPlayer1, 2: dummyPlayer2, 3:dummyPlayer3],
-    .friends: [4:dummyPlayer4, 5:dummyPlayer5, 6:dummyPlayer6, 7:dummyPlayer7, 8:dummyPlayer8]
-]
 ///////// END DUMMY DATA //////////
 ///////////////////////////////////
 
@@ -132,6 +88,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileImagesStackViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var overlayView: UIView!
+    
+    
+    var recentsDictionary: [Int:Player] = [:]
+    var recentsIDs: [Int] = []
+    
+    var friendsDictionary: [Int:Player] = [:]
+    var friendsIDs: [Int] = []
     
     var magnifiedPlayerName: String?
     var magnifiedPlayerImage: UIImage?
@@ -208,6 +171,51 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         downloadFriendsJSON()
     }
     
+    // MARK: - Manage JSON
+    func downloadFriendsJSON() {
+        recentsDictionary = [:]
+        friendsDictionary = [:]
+        recentsIDs = []
+        friendsIDs = []
+        
+        let data: Data? = Data() // todo, set to actual json data
+        let json = dummyJson // todo, delete this line
+        do {
+            if let data = data,
+                //                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? Array<Any>, // todo, uncomment this line
+                let recents = json["recents"] as? [[String:AnyObject]],
+                let friends = json["friends"] as? [[String:AnyObject]] {
+                
+                for player in recents {
+                    if let id = player["id"] as? Int,
+                        let firstName = player["firstName"] as? String,
+                        let name = player["name"] as? String,
+                        let profileImageName = player["profileImage"] as? String,
+                        let profileImage = UIImage(named: profileImageName) {
+                        recentsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // todo, replace profile image with url
+                        recentsIDs.append(id)
+                    }
+                }
+                
+                for player in friends {
+                    if let id = player["id"] as? Int,
+                        let firstName = player["firstName"] as? String,
+                        let name = player["name"] as? String,
+                        let profileImageName = player["profileImage"] as? String,
+                        let profileImage = UIImage(named: profileImageName) {
+                        friendsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // todo, replace profile image with url
+                        friendsIDs.append(id)
+                    }
+                }
+                
+                tableView.reloadData()
+            }
+        } catch {
+            print("json serialization failed")
+        }
+        
+    }
+    
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -221,6 +229,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.delegate = self
     }
     
+    // MARK: - UISearchBarDelegate
     func hideProfileImagesView() {
         UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
             self.profileImagesViewHeightConstraint.constant = 0.0
@@ -244,6 +253,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         return true
     }
     
+    // MARK: - UISearchControllerDelegate
     func didDismissSearchController(_ searchController: UISearchController) {
         UIView.animate(withDuration: 0.15, delay: 0.2, options: .curveLinear, animations: {
             self.profileImagesViewHeightConstraint.constant = self.profileImagesViewHeightContstraintOriginalConstant
@@ -619,8 +629,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
-    
     // MARK: - UITextFieldDelegate
     func generateGameTitle() -> String {
         return "Scavenge with \(selectedFriendsFirstNames.joined(separator: ", "))"
@@ -647,7 +655,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - Invite Friends
-    
     func inviteFriends() {
         let inviteMessage = [inviteBody]
         let activityViewController = UIActivityViewController(activityItems: inviteMessage, applicationActivities: nil)
@@ -724,7 +731,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.isInitialCellConfiguration = true
     }
     
-     // MARK: - Navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? MagnifiedProfileImageViewController {
             if let index = magnifiedPlayerIndex, let magnifiedPlayer = selectedFriends[index] {
@@ -737,58 +744,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
      }
-    
-    // MARK: - Delete This
-    
-    func downloadFriendsJSON() {
-        recentsDictionary = [:]
-        friendsDictionary = [:]
-        recentsIDs = []
-        friendsIDs = []
-        
-        let data: Data? = Data() // todo, json data
-        let json = dummyJson // todo, delete this line
-        do {
-            if let data = data,
-//                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? Array<Any>,
-                let recents = json["recents"] as? [[String:AnyObject]],
-                let friends = json["friends"] as? [[String:AnyObject]] {
-        
-                for player in recents {
-                    if let id = player["id"] as? Int,
-                        let firstName = player["firstName"] as? String,
-                        let name = player["name"] as? String,
-                        let profileImageName = player["profileImage"] as? String,
-                        let profileImage = UIImage(named: profileImageName) {
-                        recentsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // todo, replace profile image with url
-                        recentsIDs.append(id)
-                    }
-                }
-                
-                for player in friends {
-                    if let id = player["id"] as? Int,
-                        let firstName = player["firstName"] as? String,
-                        let name = player["name"] as? String,
-                        let profileImageName = player["profileImage"] as? String,
-                        let profileImage = UIImage(named: profileImageName) {
-                        friendsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // todo, replace profile image with url
-                        friendsIDs.append(id)
-                    }
-                }
-                print(json)
-                print(friendsIDs)
-                
-                if (recentsDictionary.count == recents.count && friendsDictionary.count == friends.count) {
-                    tableView.reloadData()
-                }
-            }
-        } catch {
-            print("json serialization failed")
-        }
-        
-    }
 }
 
+// MARK: - Detailed Player View Animation
 extension NewGameViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissNewGameProfileImageAnimator()
