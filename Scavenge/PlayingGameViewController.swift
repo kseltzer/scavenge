@@ -188,21 +188,20 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func flashButtonTapped(_ sender: AnyObject) {
-        print("flash: ")
         imagePickerController.showsCameraControls = true // workaround for cameraflashmode bug in iOS 10
         switch (imagePickerController.cameraFlashMode) {
         case .off:
-            cameraFlashButton.setImage(UIImage(named: "flashOnButton"), for: UIControlState())
+            cameraFlashButton.setImage(UIImage(named: kFlashOnButtonImageName), for: UIControlState())
             imagePickerController.cameraFlashMode = .on
             print("turning flash on")
             break
         case .on:
-            cameraFlashButton.setImage(UIImage(named: "flashAutoButton"), for: UIControlState())
+            cameraFlashButton.setImage(UIImage(named: kFlashAutoButtonImageName), for: UIControlState())
             imagePickerController.cameraFlashMode = .auto
             print("turning flash on auto")
             break
         case .auto:
-            cameraFlashButton.setImage(UIImage(named: "flashOffButton"), for: UIControlState())
+            cameraFlashButton.setImage(UIImage(named: kFlashOffButtonImageName), for: UIControlState())
             imagePickerController.cameraFlashMode = .off
             print("turning flash off")
             break
@@ -247,7 +246,6 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
 
     // MARK :- UITableViewDelegate
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ((indexPath as NSIndexPath).row != NUM_GAME_QUESTIONS) {
             selectedIndex = (indexPath as NSIndexPath).row

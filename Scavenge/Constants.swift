@@ -69,8 +69,8 @@ let kSubsectionTitleTheirMove = "their move"
 let kSectionTitleCompletedGames = "Completed Games"
 
 let kSectionTitleRecents = "Recents"
-let kSectionTitleFriendsOnScavenge = "Friends On Scavenge"
-let kSectionTitleFriendsNotOnScavenge = "Friends Not On Scavenge"
+let kSectionTitleFriendsOnScavenge = "Friends"
+let kSectionTitleFriendsNotOnScavenge = "Invite"
 
 // MARK: - Menu Customization
 let MENU_OPTION_TEXT_DEFAULT_COLOR = UIColor.groupTableViewBackground
@@ -109,3 +109,14 @@ let JSON_KEY_FIRST_NAME = "firstName"
 let JSON_KEY_NAME = "name"
 let JSON_KEY_PROFILE_IMAGE = "profileImage"
 let JSON_KEY_ID = "id"
+
+// MARK: - Image Constants
+let kNegativeStateProfileImageKim = "negativeStateKim"
+let kNegativeStateProfileImageAliya = "negativeStateSachin" // todo, change to "negativeStateAliya"
+let kNegativeStateProfileImageMahir = "negativeStateKim" // todo, change to "negativeStateMahir"
+let kNegativeStateProfileImageSachin = "negativeStateSachin"
+let kNegativeStateProfileImageIan = "negativeStateKim" // todo, change to "negativeStateIan"
+
+let kFlashOnButtonImageName = "flashOnButton"
+let kFlashOffButtonImageName = "flashOffButton"
+let kFlashAutoButtonImageName = "flashAutoButton"

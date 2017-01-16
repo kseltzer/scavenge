@@ -90,15 +90,15 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.50788509406066862" green="0.51680224430282184" blue="0.55835336538461533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" textLabel="Lfs-av-njn" style="IBUITableViewCellStyleDefault" id="I4L-2x-9gP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuCell" textLabel="Lfs-av-njn" style="IBUITableViewCellStyleDefault" id="I4L-2x-9gP">
                                         <rect key="frame" x="0.0" y="28" width="244" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4L-2x-9gP" id="ze8-IY-61v">
-                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lfs-av-njn">
-                                                    <rect key="frame" x="15" y="0.0" width="214" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="214" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -616,7 +616,7 @@
                                                     <constraint firstAttribute="width" secondItem="Ym4-wz-kQO" secondAttribute="height" multiplier="1:1" id="8LV-3L-dnm"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="60" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -626,7 +626,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="KKo-0o-Pcz" appends="YES" id="ZVt-7i-5a7"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="sachinNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="120.5" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -636,7 +636,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="1Zi-vr-SV8" appends="YES" id="9aa-66-5XQ"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="180.5" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -646,7 +646,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="2Cz-tQ-4gH" appends="YES" id="VVt-bA-kBU"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="sachinNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="241" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -656,7 +656,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="XuZ-xT-QTZ" appends="YES" id="hCE-6j-vak"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="301" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -1038,10 +1038,10 @@
         <image name="detailDisclosure" width="64" height="64"/>
         <image name="fbProfilePic" width="960" height="960"/>
         <image name="foot_icon" width="80" height="80"/>
-        <image name="kimNegativeState" width="222" height="222"/>
+        <image name="negativeStateKim" width="222" height="222"/>
+        <image name="negativeStateSachin" width="222" height="222"/>
         <image name="raccoon" width="1119" height="1119"/>
         <image name="raccoon_icon" width="80" height="80"/>
-        <image name="sachinNegativeState" width="222" height="222"/>
         <image name="uncheckedBox" width="626" height="626"/>
     </resources>
 </document>

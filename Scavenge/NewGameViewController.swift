@@ -52,6 +52,30 @@ let dummyJson : [String:Any] = [
             "firstName": "Ian",
             "name": "Ian Abramson",
             "profileImage": "ian"  // todo, change image name to image url
+        ],
+        [
+            "id": 6,
+            "firstName": "Paul",
+            "name": "Paul Goetz",
+            "profileImage": "paul"  // todo, change image name to image url
+        ],
+        [
+            "id": 7,
+            "firstName": "Jenny",
+            "name": "Jenny Seltzer",
+            "profileImage": "jenny"  // todo, change image name to image url
+        ],
+        [
+            "id": 8,
+            "firstName": "David",
+            "name": "David Seltzer",
+            "profileImage": "david"  // todo, change image name to image url
+        ],
+        [
+            "id": 9,
+            "firstName": "Jimmy",
+            "name": "Jimmy Brooks",
+            "profileImage": "profilePicNegativeState"  // todo, change image name to image url
         ]
     ]
 ]
@@ -183,14 +207,14 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         do {
             if let data = data,
                 //                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? Array<Any>, // todo, uncomment this line
-                let recents = json["recents"] as? [[String:AnyObject]],
-                let friends = json["friends"] as? [[String:AnyObject]] {
+                let recents = json[JSON_KEY_RECENTS] as? [[String:AnyObject]],
+                let friends = json[JSON_KEY_FRIENDS] as? [[String:AnyObject]] {
                 
                 for player in recents {
-                    if let id = player["id"] as? Int,
-                        let firstName = player["firstName"] as? String,
-                        let name = player["name"] as? String,
-                        let profileImageName = player["profileImage"] as? String,
+                    if let id = player[JSON_KEY_ID] as? Int,
+                        let firstName = player[JSON_KEY_FIRST_NAME] as? String,
+                        let name = player[JSON_KEY_NAME] as? String,
+                        let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
                         let profileImage = UIImage(named: profileImageName) {
                         recentsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // todo, replace profile image with url
                         recentsIDs.append(id)
@@ -198,10 +222,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
                 for player in friends {
-                    if let id = player["id"] as? Int,
-                        let firstName = player["firstName"] as? String,
-                        let name = player["name"] as? String,
-                        let profileImageName = player["profileImage"] as? String,
+                    if let id = player[JSON_KEY_ID] as? Int,
+                        let firstName = player[JSON_KEY_FIRST_NAME] as? String,
+                        let name = player[JSON_KEY_NAME] as? String,
+                        let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
                         let profileImage = UIImage(named: profileImageName) {
                         friendsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // todo, replace profile image with url
                         friendsIDs.append(id)
@@ -214,19 +238,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("json serialization failed")
         }
         
-    }
-    
-    func setupSearchController() {
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
-        definesPresentationContext = true
-        searchBarView.addSubview(searchController.searchBar)
-        searchController.searchBar.delegate = self
-        searchController.loadViewIfNeeded()
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.autocapitalizationType = .words
-        searchController.delegate = self
     }
     
     // MARK: - UISearchBarDelegate
@@ -261,6 +272,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }, completion: nil)
     }
     
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        searchBarView.addSubview(searchController.searchBar)
+        searchController.searchBar.delegate = self
+        searchController.loadViewIfNeeded()
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.autocapitalizationType = .words
+        searchController.delegate = self
+    }
+
     // MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -563,19 +587,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let headerProfilePhotoIndex = index {
             switch (headerProfilePhotoIndex) {
             case 1:
-                profileImageViewFriend1.image = UIImage(named: "kimNegativeState")
+                profileImageViewFriend1.image = UIImage(named: kNegativeStateProfileImageKim)
                 break
             case 2:
-                profileImageViewFriend2.image = UIImage(named: "sachinNegativeState")
+                profileImageViewFriend2.image = UIImage(named: kNegativeStateProfileImageAliya)
                 break
             case 3:
-                profileImageViewFriend3.image = UIImage(named: "kimNegativeState")
+                profileImageViewFriend3.image = UIImage(named: kNegativeStateProfileImageMahir)
                 break
             case 4:
-                profileImageViewFriend4.image = UIImage(named: "sachinNegativeState")
+                profileImageViewFriend4.image = UIImage(named: kNegativeStateProfileImageSachin)
                 break
             case 5:
-                profileImageViewFriend5.image = UIImage(named: "kimNegativeState")
+                profileImageViewFriend5.image = UIImage(named: kNegativeStateProfileImageIan)
                 break
             default:
                 break
@@ -746,8 +770,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
      }
 }
 
-// MARK: - Detailed Player View Animation
 extension NewGameViewController: UIViewControllerTransitioningDelegate {
+    
+    // MARK: - Detailed Player View Animation
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissNewGameProfileImageAnimator()
     }

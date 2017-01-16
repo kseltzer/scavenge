@@ -59,7 +59,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Table View
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell")
         cell?.backgroundColor = UIColor.clear
         let option = menuOptionForRow((indexPath as NSIndexPath).row)
         if option == currentScreen {

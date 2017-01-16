@@ -72,7 +72,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsCell") as! ResultsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell") as! ResultsCell
         cell.delegate = self
         cell.index = (indexPath as NSIndexPath).section
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
