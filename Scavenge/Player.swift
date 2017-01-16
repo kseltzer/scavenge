@@ -14,4 +14,14 @@ struct Player {
     var firstName: String
     var name: String
     var profileImage: UIImage // todo: change to URL
+    var addedToGame : Bool = false
+    var headerIndex : Int? = nil
+    var indexPath : IndexPath? = nil
+    
+    init(id: Int, firstName: String, name: String, profileImage: UIImage /* todo: change to URL */) {
+        self.id = id
+        self.firstName = firstName
+        self.name = name
+        self.profileImage = profileImage
+    }
 }

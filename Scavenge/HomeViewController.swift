@@ -17,7 +17,7 @@ let dummyGame1 = Game(id: 1, title: "Scavenge with Kim, Mahir", icon: UIImage(na
 let dummyGame2 = Game(id: 2, title: "Buddies", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4], numPlayers: 2, winner: nil, status: .invite, results: [], topicStrings: dummyTopics)
 
 // results
-let dummyGame3 = Game(id: 3, title: "Fuckers", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer5, dummyPlayer5], numPlayers: 3, winner: nil, status: .results, results: [], topicStrings: dummyTopics)
+let dummyGame3 = Game(id: 3, title: "Boo Crew", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer5, dummyPlayer5], numPlayers: 3, winner: nil, status: .results, results: [], topicStrings: dummyTopics)
 
 // your move
 let dummyGame4 = Game(id: 4, title: "Scavenge with Kim, Aliya, Mahir, Sachin, Ian", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4, dummyPlayer5], numPlayers: 5, winner: nil, status: .yourMove, results: [], topicStrings: dummyTopics)
