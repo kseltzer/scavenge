@@ -11,9 +11,9 @@ import UIKit
 
 struct Player {
     var id: Int
-    var firstName: String
     var name: String
-    var profileImage: UIImage // todo: change to URL
+    var firstName: String = ""
+    var profileImage: UIImage? = nil // todo: change to URL
     var addedToGame : Bool = false
     var headerIndex : Int? = nil
     var indexPath : IndexPath? = nil
@@ -23,5 +23,10 @@ struct Player {
         self.firstName = firstName
         self.name = name
         self.profileImage = profileImage
+    }
+    
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
     }
 }

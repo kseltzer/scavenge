@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-enum GameStatus {
-    case invite
-    case results
-    case yourMove
-    case theirMove
-    case completed
+enum GameStatus: String {
+    case invite = "invite"
+    case results = "results"
+    case yourMove = "yourMove"
+    case theirMove = "theirMove"
+    case completed = "completed"
 }
 
 struct Game {
@@ -22,10 +22,32 @@ struct Game {
     var title: String
     var icon: UIImage // todo: change to URL
     var creator: Player
-    var players: [Player]
-    var numPlayers: Int
-    var winner: Player?
     var status: GameStatus
-    var results: [TopicResults]
-    var topicStrings: [String]
+    var players: [Player] = []
+    var numPlayers: Int = 0
+    var winner: Player? = nil
+    var results: [TopicResults] = []
+    var topicStrings: [String] = []
+    
+    init(id: Int, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus) {
+        self.id = id
+        self.title = title
+        self.icon = icon
+        self.creator = creator
+        self.status = status
+    }
+    
+    init(id: Int, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus, players: [Player], numPlayers: Int, winner: Player?, results: [TopicResults], topicStrings: [String]) {
+        self.id = id
+        self.title = title
+        self.icon = icon
+        self.creator = creator
+        self.status = status
+        self.players = players
+        self.numPlayers = numPlayers
+        self.winner = winner
+        self.results = results
+        self.topicStrings = topicStrings
+    }
 }
+

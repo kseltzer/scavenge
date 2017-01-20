@@ -17,76 +17,76 @@ enum TableViewFriendsSection : Int {
 
 var shouldShowKeyboard = false
 
-///////////////////////////////////
-//////// START DUMMY DATA /////////
-let dummyJson : [String:Any] = [
-    "recents": [
-        [
-            "id": 1,
-            "firstName": "Kim",
-            "name": "Kim Seltzer",
-            "profileImage": "fbProfilePic" // todo, change image name to image url
-        ],
-        [
-            "id": 2,
-            "firstName": "Aliya",
-            "name": "Aliya Kamalova",
-            "profileImage": "aliya"  // todo, change image name to image url
-        ],
-        [
-            "id": 3,
-            "firstName": "Mahir",
-            "name": "Mahir Shah",
-            "profileImage": "mahir"  // todo, change image name to image url
-        ]
-    ],
-    "friends": [
-        [
-            "id": 4,
-            "firstName": "Sachin",
-            "name": "Sachin Medhekar",
-            "profileImage": "sachin"  // todo, change image name to image url
-        ],
-        [
-            "id": 5,
-            "firstName": "Ian",
-            "name": "Ian Abramson",
-            "profileImage": "ian"  // todo, change image name to image url
-        ],
-        [
-            "id": 6,
-            "firstName": "Paul",
-            "name": "Paul Goetz",
-            "profileImage": "paul"  // todo, change image name to image url
-        ],
-        [
-            "id": 7,
-            "firstName": "Jenny",
-            "name": "Jenny Seltzer",
-            "profileImage": "jenny"  // todo, change image name to image url
-        ],
-        [
-            "id": 8,
-            "firstName": "David",
-            "name": "David Seltzer",
-            "profileImage": "david"  // todo, change image name to image url
-        ],
-        [
-            "id": 9,
-            "firstName": "Jimmy",
-            "name": "Jimmy Brooks",
-            "profileImage": "profilePicNegativeState"  // todo, change image name to image url
-        ]
-    ]
-]
-
-///////// END DUMMY DATA //////////
-///////////////////////////////////
-
 let inviteBody: String = "Hey! Long time no talk hahaha :) no but seriously I found this really fun app called Scavenge. Kind of a stupid name but it's actually a good game. You should download it so we can play."
 let cannotAddAdditionalPlayersMessage = "ya can't have more than \(MAX_PLAYERS) players\nin a game"
 
 class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, MagnifiedProfileImageViewDelegate {
+    
+    ///////////////////////////////////
+    //////// START DUMMY DATA /////////
+    let dummyJson : [String:Any] = [
+        "recents": [
+            [
+                "id": 1,
+                "firstName": "Kim",
+                "name": "Kim Seltzer",
+                "profileImage": "fbProfilePic" // todo, change image name to image url
+            ],
+            [
+                "id": 2,
+                "firstName": "Aliya",
+                "name": "Aliya Kamalova",
+                "profileImage": "aliya"  // todo, change image name to image url
+            ],
+            [
+                "id": 3,
+                "firstName": "Mahir",
+                "name": "Mahir Shah",
+                "profileImage": "mahir"  // todo, change image name to image url
+            ]
+        ],
+        "friends": [
+            [
+                "id": 4,
+                "firstName": "Sachin",
+                "name": "Sachin Medhekar",
+                "profileImage": "sachin"  // todo, change image name to image url
+            ],
+            [
+                "id": 5,
+                "firstName": "Ian",
+                "name": "Ian Abramson",
+                "profileImage": "ian"  // todo, change image name to image url
+            ],
+            [
+                "id": 6,
+                "firstName": "Paul",
+                "name": "Paul Goetz",
+                "profileImage": "paul"  // todo, change image name to image url
+            ],
+            [
+                "id": 7,
+                "firstName": "Jenny",
+                "name": "Jenny Seltzer",
+                "profileImage": "jenny"  // todo, change image name to image url
+            ],
+            [
+                "id": 8,
+                "firstName": "David",
+                "name": "David Seltzer",
+                "profileImage": "david"  // todo, change image name to image url
+            ],
+            [
+                "id": 9,
+                "firstName": "Jimmy",
+                "name": "Jimmy Brooks",
+                "profileImage": "profilePicNegativeState"  // todo, change image name to image url
+            ]
+        ]
+    ]
+    ///////// END DUMMY DATA //////////
+    ///////////////////////////////////
+
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!

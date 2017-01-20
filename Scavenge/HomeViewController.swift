@@ -1,3 +1,4 @@
+
 //
 //  HomeViewController.swift
 //  Scavenge
@@ -13,24 +14,24 @@ import UIKit
 let invitationsArrayFromAPI: [GameInvitation] = [GameInvitation(gameTitle: "Fun Game", gameImage: UIImage(named: "raccoon_icon")!, invitedBy: dummyPlayer1), GameInvitation(gameTitle: "Stupid Idiots", gameImage: UIImage(named: "raccoon")!, invitedBy: dummyPlayer3)]
 
 // invites
-let dummyGame1 = Game(id: 1, title: "Scavenge with Kim, Mahir", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer3], numPlayers: 2, winner: nil, status: .invite, results: [], topicStrings: dummyTopics)
-let dummyGame2 = Game(id: 2, title: "Buddies", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4], numPlayers: 2, winner: nil, status: .invite, results: [], topicStrings: dummyTopics)
+let dummyGame1 = Game(id: 1, title: "Scavenge with Kim, Mahir", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, status: .invite, players: [dummyPlayer1, dummyPlayer3], numPlayers: 2, winner: nil, results: [], topicStrings: dummyTopics)
+let dummyGame2 = Game(id: 2, title: "Buddies", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, status: .invite, players: [dummyPlayer1, dummyPlayer4], numPlayers: 2, winner: nil, results: [], topicStrings: dummyTopics)
 
 // results
-let dummyGame3 = Game(id: 3, title: "Boo Crew", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer5, dummyPlayer5], numPlayers: 3, winner: nil, status: .results, results: [], topicStrings: dummyTopics)
+let dummyGame3 = Game(id: 3, title: "Boo Crew", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, status: .results, players: [dummyPlayer1, dummyPlayer5, dummyPlayer6], numPlayers: 3, winner: nil, results: [], topicStrings: dummyTopics)
 
 // your move
-let dummyGame4 = Game(id: 4, title: "Scavenge with Kim, Aliya, Mahir, Sachin, Ian", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4, dummyPlayer5], numPlayers: 5, winner: nil, status: .yourMove, results: [], topicStrings: dummyTopics)
+let dummyGame4 = Game(id: 4, title: "Scavenge with Kim, Aliya, Mahir, Sachin, Ian", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, status: .yourMove, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4, dummyPlayer5], numPlayers: 5, winner: nil, results: [], topicStrings: dummyTopics)
 
 // their move
-let dummyGame5 = Game(id: 5, title: "Dumb Idiots", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4, dummyPlayer2, dummyPlayer3], numPlayers: 4, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
-let dummyGame6 = Game(id: 6, title: "Some Game Title", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4, dummyPlayer3], numPlayers: 3, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
-let dummyGame7 = Game(id: 7, title: "Apt 9", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer5, dummyPlayer4], numPlayers: 3, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
-let dummyGame8 = Game(id: 8, title: "Our Boyfriends", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4], numPlayers: 4, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
-let dummyGame9 = Game(id: 9, title: "Family", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer4, dummyPlayer3], numPlayers: 3, winner: nil, status: .theirMove, results: [], topicStrings: dummyTopics)
+let dummyGame5 = Game(id: 5, title: "Dumb Idiots", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, status: .theirMove, players: [dummyPlayer1, dummyPlayer4, dummyPlayer2, dummyPlayer3], numPlayers: 4, winner: nil, results: [], topicStrings: dummyTopics)
+let dummyGame6 = Game(id: 6, title: "Some Game Title", icon: UIImage(named: "raccoon_icon")!, creator: dummyPlayer3, status: .theirMove, players: [dummyPlayer1, dummyPlayer4, dummyPlayer3], numPlayers: 3, winner: nil, results: [], topicStrings: dummyTopics)
+let dummyGame7 = Game(id: 7, title: "Apt 9", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, status: .theirMove, players: [dummyPlayer1, dummyPlayer5, dummyPlayer4], numPlayers: 3, winner: nil, results: [], topicStrings: dummyTopics)
+let dummyGame8 = Game(id: 8, title: "Our Boyfriends", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, status: .theirMove, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4], numPlayers: 4, winner: nil, results: [], topicStrings: dummyTopics)
+let dummyGame9 = Game(id: 9, title: "Family", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, status: .theirMove, players: [dummyPlayer1, dummyPlayer4, dummyPlayer3], numPlayers: 3, winner: nil, results: [], topicStrings: dummyTopics)
 
 // completed
-let dummyGame10 = Game(id: 10, title: "Some Longer Game Title Than Others", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, players: [dummyPlayer1, dummyPlayer2, dummyPlayer4, dummyPlayer3], numPlayers: 4, winner: dummyPlayer3, status: .completed, results: [], topicStrings: dummyTopics)
+let dummyGame10 = Game(id: 10, title: "Some Longer Game Title Than Others", icon: UIImage(named: "foot_icon")!, creator: dummyPlayer3, status: .completed, players: [dummyPlayer1, dummyPlayer2, dummyPlayer4, dummyPlayer3], numPlayers: 4, winner: dummyPlayer3, results: [], topicStrings: dummyTopics)
 
 let gamesDictionaryFromAPI: [GameStatus:[Game]] = [  .invite:[dummyGame1, dummyGame2],
                                                      .results: [dummyGame3],
@@ -57,6 +58,262 @@ enum SectionType {
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, InvitationCellProtocol {
 
+    ///////////////////////////////////
+    //////// START DUMMY DATA /////////
+    let dummyJson: [String:Any] = [
+        "invites": [
+            [ // dummy game 1
+                "id": 1,
+                "title": "Scavenge With Aliya, Mahir",
+                "icon": "foot_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    2,
+                    3
+                ],
+                "numPlayers": 3,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "invite",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ],
+            [ // dummy game 2
+                "id": 2,
+                "title": "Buddies",
+                "icon": "raccoon_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    3,
+                    4
+                ],
+                "numPlayers": 3,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "invite",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ]
+        ],
+        "results": [
+            [ // dummy game 3
+                "id": 3,
+                "title": "Boo Crew",
+                "icon": "foot_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    5,
+                    6,
+                    7
+                ],
+                "numPlayers": 4,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "results",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ]
+        ],
+        "yourMove": [
+            [ // dummy game 4
+                "id": 4,
+                "title": "Scavenge with Kim, Aliya, Mahir, Sachin, Ian",
+                "icon": "raccoon_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    5,
+                    6,
+                    7
+                ],
+                "numPlayers": 4,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "results",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ],
+            [ // dummy game 5
+                "id": 5,
+                "title": "Dumb Idiots",
+                "icon": "raccoon_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    5,
+                    6,
+                    7
+                ],
+                "numPlayers": 4,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "results",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ]
+        ],
+        "theirMove": [
+            [ // dummy game 6
+                "id": 6,
+                "title": "Some Game Title",
+                "icon": "foot_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    5,
+                    6,
+                    7
+                ],
+                "numPlayers": 4,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "results",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ],
+            [ // dummy game 7
+                "id": 7,
+                "title": "Apt 9",
+                "icon": "raccoon_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    5,
+                    6,
+                    7
+                ],
+                "numPlayers": 4,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "results",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ],
+            [ // dummy game 8
+                "id": 8,
+                "title": "Our Boyfriends",
+                "icon": "foot_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    5,
+                    6,
+                    7
+                ],
+                "numPlayers": 4,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "results",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ],
+            [ // dummy game 9
+                "id": 9,
+                "title": "Steve White",
+                "icon": "raccoon_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    5,
+                    6,
+                    7
+                ],
+                "numPlayers": 4,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "results",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ]
+        ],
+        "completed": [
+            [ // dummy game 10
+                "id": 10,
+                "title": "Family",
+                "icon": "foot_icon",
+                "creatorID": 3,
+                "creatorName": "Mahir Shah",
+                "players": [
+                    1,
+                    5,
+                    6,
+                    7
+                ],
+                "numPlayers": 4,
+                "winner": NSNull(), // todo, change to actual json: null
+                "status": "results",
+                "results": [],
+                "topicStrings": [
+                    "The Epitome of Disappointment",
+                    "So Crazy It Just Might Work",
+                    "Public Selfie",
+                    "The Perfect Balance Between Business and Casual",
+                    "Sachin's Worst Nightmare"
+                ]
+            ]
+        ]
+    ]
+    ///////// END DUMMY DATA //////////
+    ///////////////////////////////////
+
+    
     let interactor = InteractiveTransitionController()
     
     @IBOutlet weak var tableView: UITableView!
@@ -93,8 +350,88 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         gamesYourMove = gamesDictionaryFromAPI[.yourMove]
         gamesTheirMove = gamesDictionaryFromAPI[.theirMove]
         gamesCompleted = gamesDictionaryFromAPI[.completed]
+        
+        downloadFriendsJSON()
     }
     
+    // MARK: - Manage JSON
+    func downloadFriendsJSON() {
+//        gamesInvites = []
+        gamesResults = []
+        gamesYourMove = []
+        gamesTheirMove = []
+        gamesCompleted = []
+        
+        let data: Data? = Data() // todo, set to actual json data
+        let json = dummyJson // todo, delete this line
+        do {
+            if let data = data,
+                //                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? Array<Any>, // todo, uncomment this line
+                let invites = json["invites"] as? [[String:AnyObject]],
+                let results = json["results"] as? [[String:AnyObject]],
+                let yourMove = json["yourMove"] as? [[String:AnyObject]],
+                let theirMove = json["theirMove"] as? [[String:AnyObject]],
+                let completed = json["completed"] as? [[String:AnyObject]] {
+                
+                for game in invites {
+                    if let _ = game[JSON_KEY_ID] as? Int {
+                        
+                    }
+                }
+                
+                for game in results {
+                    if let id = game[JSON_KEY_ID] as? Int,
+                        let title = game["title"] as? String,
+                        let icon = game["icon"] as? String, // todo, change to URL
+                        let creatorID = game["creatorID"] as? Int,
+                        let creatorName = game["creatorName"] as? String,
+                        let status = game["status"] as? String {
+                        gamesResults.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
+                    }
+                }
+                
+                for game in yourMove {
+                    if let id = game[JSON_KEY_ID] as? Int,
+                        let title = game["title"] as? String,
+                        let icon = game["icon"] as? String, // todo, change to URL
+                        let creatorID = game["creatorID"] as? Int,
+                        let creatorName = game["creatorName"] as? String,
+                        let status = game["status"] as? String {
+                        gamesYourMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
+                    }
+                }
+                
+                for game in theirMove {
+                    if let id = game[JSON_KEY_ID] as? Int,
+                        let title = game["title"] as? String,
+                        let icon = game["icon"] as? String, // todo, change to URL
+                        let creatorID = game["creatorID"] as? Int,
+                        let creatorName = game["creatorName"] as? String,
+                        let status = game["status"] as? String {
+                        gamesTheirMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
+                    }
+                }
+                
+                for game in completed {
+                    if let id = game[JSON_KEY_ID] as? Int,
+                        let title = game["title"] as? String,
+                        let icon = game["icon"] as? String, // todo, change to URL
+                        let creatorID = game["creatorID"] as? Int,
+                        let creatorName = game["creatorName"] as? String,
+                        let status = game["status"] as? String {
+                        gamesCompleted.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
+                    }
+                }
+                
+                tableView.reloadData()
+            }
+        } catch {
+            print("json serialization failed")
+        }
+        
+    }
+    
+    // MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 6
     }
