@@ -12,6 +12,18 @@ let dummyTopics = ["The Epitome of Disappointment", "So Crazy It Just Might Work
 
 class PlayingGameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    var topics: [String] = ["","","","",""]
+    
+    let dummyJson: [String:Any] = [
+        "topics": [
+                "Public Selfie",
+                "The Epitome of Disappointment",
+                "So Crazy It Just Might Work",
+                "The Perfect Balance Between Business and Casual",
+                "Sachin's Worst Nightmare"
+        ]
+    ]
+    
     let cameraNotAvailableErrorMsg = "ya need a camera to play Scavenge, and this device doesn't have one"
     
     @IBOutlet weak var overlayView: UIView!
@@ -54,11 +66,26 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         tableView.rowHeight = 85
         tableView.scrollsToTop = true
         
-        navigationController?.delegate = self // todo todo todo
+//        navigationController?.delegate = self // todo todo todo
+        downloadJSON()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // MARK: - Manage JSON
+    func downloadJSON() {
+        topics = ["","","","",""]
+        
+        let data: Data? = Data() // todo, set to actual json data
+        let json = dummyJson // todo, delete this line
+        do {
+            if let data = data,
+                //                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? Array<Any>, // todo, uncomment this line
+            let topics = json["topics"] as? [String] {
+                self.topics = topics
+                tableView.reloadData()
+            }
+        } catch {
+            print("json serialization failed")
+        }
     }
     
     // MARK: - UIImagePickerControllerDelegate
@@ -94,7 +121,6 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             self.doubleTapGestureRecognizer.numberOfTapsRequired = 2
             self.imagePickerController.view.addGestureRecognizer(self.doubleTapGestureRecognizer)
             
-//            self.swipeToDismissGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeToDismissCamera))
             self.swipeToDismissCameraGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.swipeToDismissCamera(sender:)))
             self.swipeToDismissCameraGestureRecognizer.maximumNumberOfTouches = 1
             self.imagePickerController.view.addGestureRecognizer(self.swipeToDismissCameraGestureRecognizer)
@@ -188,7 +214,6 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func flashButtonTapped(_ sender: AnyObject) {
-        imagePickerController.showsCameraControls = true // workaround for cameraflashmode bug in iOS 10
         switch (imagePickerController.cameraFlashMode) {
         case .off:
             cameraFlashButton.setImage(UIImage(named: kFlashOnButtonImageName), for: UIControlState())
@@ -206,7 +231,6 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             print("turning flash off")
             break
         }
-        imagePickerController.showsCameraControls = false // workaround for cameraflashmode bug in iOS 10
     }
     
     func switchDirectionCameraIsFacing() {
@@ -222,7 +246,6 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     // MARK: - Bottom Bar Actions
-    
     @IBAction func captureImageTapped(_ sender: AnyObject) {
         imagePickerController.takePicture()
     }
@@ -250,7 +273,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         if ((indexPath as NSIndexPath).row != NUM_GAME_QUESTIONS) {
             selectedIndex = (indexPath as NSIndexPath).row
             tableView.deselectRow(at: indexPath, animated: true)
-            self.attemptShowImagePicker(dummyTopics[(indexPath as NSIndexPath).row])
+            self.attemptShowImagePicker(topics[(indexPath as NSIndexPath).row])
         }
     }
     
@@ -290,7 +313,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func configureTopicCellForIndexPath(_ cell: PlayingGameTopicCell, indexPath: IndexPath) -> PlayingGameTopicCell {
-        cell.topicLabel.text = dummyTopics[(indexPath as NSIndexPath).row]
+        cell.topicLabel.text = topics[(indexPath as NSIndexPath).row]
         return cell
     }
 

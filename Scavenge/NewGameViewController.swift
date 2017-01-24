@@ -22,72 +22,6 @@ let cannotAddAdditionalPlayersMessage = "ya can't have more than \(MAX_PLAYERS) 
 
 class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, MagnifiedProfileImageViewDelegate {
     
-    ///////////////////////////////////
-    //////// START DUMMY DATA /////////
-    let dummyJson : [String:Any] = [
-        "recents": [
-            [
-                "id": 1,
-                "firstName": "Kim",
-                "name": "Kim Seltzer",
-                "profileImage": "fbProfilePic" // todo, change image name to image url
-            ],
-            [
-                "id": 2,
-                "firstName": "Aliya",
-                "name": "Aliya Kamalova",
-                "profileImage": "aliya"  // todo, change image name to image url
-            ],
-            [
-                "id": 3,
-                "firstName": "Mahir",
-                "name": "Mahir Shah",
-                "profileImage": "mahir"  // todo, change image name to image url
-            ]
-        ],
-        "friends": [
-            [
-                "id": 4,
-                "firstName": "Sachin",
-                "name": "Sachin Medhekar",
-                "profileImage": "sachin"  // todo, change image name to image url
-            ],
-            [
-                "id": 5,
-                "firstName": "Ian",
-                "name": "Ian Abramson",
-                "profileImage": "ian"  // todo, change image name to image url
-            ],
-            [
-                "id": 6,
-                "firstName": "Paul",
-                "name": "Paul Goetz",
-                "profileImage": "paul"  // todo, change image name to image url
-            ],
-            [
-                "id": 7,
-                "firstName": "Jenny",
-                "name": "Jenny Seltzer",
-                "profileImage": "jenny"  // todo, change image name to image url
-            ],
-            [
-                "id": 8,
-                "firstName": "David",
-                "name": "David Seltzer",
-                "profileImage": "david"  // todo, change image name to image url
-            ],
-            [
-                "id": 9,
-                "firstName": "Jimmy",
-                "name": "Jimmy Brooks",
-                "profileImage": "profilePicNegativeState"  // todo, change image name to image url
-            ]
-        ]
-    ]
-    ///////// END DUMMY DATA //////////
-    ///////////////////////////////////
-
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var iconButton: UIButton!
@@ -143,6 +77,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let interactor = InteractiveTransitionController()
     
+    var iconSelectionViewFrame: CGRect!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -190,11 +126,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         maskLayer.path = path.cgPath
         iconSelectionView.layer.mask = maskLayer
         
+        iconSelectionViewFrame = iconSelectionView.frame
+        
         profileImagesViewHeightContstraintOriginalConstant = profileImagesViewHeightConstraint.constant
         
         downloadFriendsJSON()
     }
-    
+
     // MARK: - Manage JSON
     func downloadFriendsJSON() {
         recentsDictionary = [:]
@@ -202,11 +140,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         recentsIDs = []
         friendsIDs = []
         
-        let data: Data? = Data() // todo, set to actual json data
-        let json = dummyJson // todo, delete this line
         do {
-            if let data = data,
-                //                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? Array<Any>, // todo, uncomment this line
+            if let filePath = Bundle.main.path(forResource: "friends", ofType: "json"),
+                let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data
+                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
                 let recents = json[JSON_KEY_RECENTS] as? [[String:AnyObject]],
                 let friends = json[JSON_KEY_FRIENDS] as? [[String:AnyObject]] {
                 
@@ -216,7 +153,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                         let name = player[JSON_KEY_NAME] as? String,
                         let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
                         let profileImage = UIImage(named: profileImageName) {
-                        recentsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // todo, replace profile image with url
+                        recentsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // TODO: replace profile image with url
                         recentsIDs.append(id)
                     }
                 }
@@ -227,7 +164,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                         let name = player[JSON_KEY_NAME] as? String,
                         let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
                         let profileImage = UIImage(named: profileImageName) {
-                        friendsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // todo, replace profile image with url
+                        friendsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // TODO: replace profile image with url
                         friendsIDs.append(id)
                     }
                 }
@@ -235,9 +172,14 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 tableView.reloadData()
             }
         } catch {
+            let alertController = UIAlertController(title: "uh oh!", message: "Error loading data.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert) in
+                _ = self.navigationController?.popViewController(animated: true)
+            })
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
             print("json serialization failed")
         }
-        
     }
     
     // MARK: - UISearchBarDelegate
@@ -248,7 +190,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }, completion: {Void in
             self.searchController.searchBar.becomeFirstResponder()
             shouldShowKeyboard = true
-            let _ = self.searchBarShouldBeginEditing(self.searchController.searchBar)
+            _ = self.searchBarShouldBeginEditing(self.searchController.searchBar)
         })
     }
     
@@ -626,10 +568,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     func animateShowIconSelectionView() {
         iconSelectionView.isHidden = false
         searchController.isActive = false
-        let frame = iconSelectionView.frame
+        
         self.iconSelectionView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.0)
         self.iconSelectionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-        self.iconSelectionView.frame = frame
+        if let frame = iconSelectionViewFrame {
+            iconSelectionView.frame = frame
+        }
 
         UIView.animate(withDuration: 0.17, delay: 0.0, options: .curveEaseIn, animations: {
             self.iconSelectionView.transform = CGAffineTransform.identity
