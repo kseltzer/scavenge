@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+// MARK: - Colors
+let COLOR_MINT_GREEN = UIColor(red: 190/255, green: 255/255, blue: 227/255, alpha: 1.0) /* mint green */
+let COLOR_PEACH = UIColor(red: 244/255, green: 167/255, blue: 140/255, alpha: 1.0) /* peach */
+let COLOR_BROWN = UIColor(red: 236/255, green: 203/255, blue: 140/255, alpha: 1.0) /* orangish-brown */
+let COLOR_YELLOW = UIColor(red: 246/255, green: 246/255, blue: 167/255, alpha: 1.0) /* light yellow */
+let COLOR_GREEN = UIColor(red: 117/255, green: 221/255, blue: 202/255, alpha: 1.0) /* greenish-blue */
+
 // MARK: - Game Play Constants
 let NUM_GAME_QUESTIONS = 5
 let IMAGE_RATIO : CGFloat = 8 / 7
@@ -18,7 +25,10 @@ let MAX_PLAYERS : Int = 6
 let KEY_UID = "uid"
 let KEY_FIRST_NAME = "first_name"
 let KEY_LAST_NAME = "last_name"
+
+// MARK: - Session Variables
 var userProfileImage: UIImage? = nil
+var currentUserID: Int!
 
 // MARK: - Storyboard Constants
 let kLoginStoryboard = "LoginStoryboard"
@@ -39,34 +49,33 @@ let kVotingViewController = "VotingViewController"
 let kShowMenuSegue = "showMenu"
 
 // MARK: - Navigation Bar Constants
-let NAVIGATION_BAR_TINT_COLOR = UIColor(red: 108/255, green: 122/255, blue: 137/255, alpha: 1.0)
-let NAVIGATION_BAR_TEXT_COLOR = UIColor.white
-let NAVIGATION_BAR_FONT = UIFont(name: "Helvetica Neue", size: 20.0)
+let NAVIGATION_BAR_TINT_COLOR = UIColor.black
+let NAVIGATION_BAR_TEXT_COLOR = UIColor.black
+let NAVIGATION_BAR_FONT = UIFont(name: "Avenir-Black", size: 26.0)
 
 // MARK: - Button Constants
-let BUTTON_DEFAULT_BACKGROUND_COLOR = UIColor(red: 244/255.0, green: 81/255.0, blue: 30/255.0, alpha: 1.0)
+let BUTTON_DEFAULT_BACKGROUND_COLOR = COLOR_PEACH
 let BUTTON_FACEBOOK_BACKGROUND_COLOR = UIColor(red: 30/255.0, green: 136/255.0, blue: 229/255.0, alpha: 1.0)
 let BUTTON_TEXT_COLOR_NORMAL = UIColor(red: 243/255.0, green: 243/255.0, blue: 243/255.0, alpha: 1.0)
 let BUTTON_TEXT_COLOR_DISABLED = UIColor.lightGray
-let BUTTON_TEXT_FONT = UIFont(name: "Helvetica Neue", size: 18.0)
-let BUTTON_TEXT_FONT_ITALIC = UIFont(name: "HelveticaNeue-Italic ", size: 12.0)
-let BAR_BUTTON_TEXT_COLOR = UIColor.white
+let BUTTON_TEXT_FONT = UIFont(name: "AvenirNext-Bold", size: 18.0)
+let BAR_BUTTON_TEXT_COLOR = UIColor.black
 
 // MARK: - Table View Constants
-let TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue-Medium", size: 22.0)
-let TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 16.0)
+let TABLE_VIEW_SECTION_FONT = UIFont(name: "AvenirNext-Heavy", size: 22.0)
+let TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "AvenirNext-Heavy", size: 16.0)
 
-let VOTING_TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue", size: 20.0)
-let RESULTS_TABLE_VIEW_SECTION_FONT = UIFont(name: "HelveticaNeue", size: 18.0)
-let RESULTS_TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "HelveticaNeue-Light", size: 12.0)
+let VOTING_TABLE_VIEW_SECTION_FONT = UIFont(name: "AvenirNext-Heavy", size: 20.0)
+let RESULTS_TABLE_VIEW_SECTION_FONT = UIFont(name: "AvenirNext-Heavy", size: 18.0)
+let RESULTS_TABLE_VIEW_SUBSECTION_FONT = UIFont(name: "AvenirNext-Bold", size: 12.0)
 let RESULTS_TABLE_VIEW_SECTION_HEIGHT : CGFloat = 28
 
-let kSectionTitleInvites = "Invites"
-let kSectionTitleResults = "Results"
-let kSectionTitleActiveGames = "Active Games"
+let kSectionTitleInvites = "INVITES"
+let kSectionTitleResults = "RESULTS"
+let kSectionTitleActiveGames = "ACTIVE GAMES"
 let kSubsectionTitleYourMove = "your move"
 let kSubsectionTitleTheirMove = "their move"
-let kSectionTitleCompletedGames = "Completed Games"
+let kSectionTitleCompletedGames = "COMPLETED GAMES"
 
 let kSectionTitleRecents = "Recents"
 let kSectionTitleFriendsOnScavenge = "Friends"
@@ -88,7 +97,6 @@ let kFriendCellIdentifier = "friendCell"
 
 // MARK: - String Constants
 let kErrorTitle = "oops!"
-let kSMSFailureMessage = "SMS services are not available on your device. We tried to help you, but you let us down :/"
 let kAcceptFaultErrorMessage = "my bad"
 
 // MARK: - Screen Size Constants
@@ -109,6 +117,8 @@ let JSON_KEY_FIRST_NAME = "firstName"
 let JSON_KEY_NAME = "name"
 let JSON_KEY_PROFILE_IMAGE = "profileImage"
 let JSON_KEY_ID = "id"
+let JSON_KEY_TITLE = "title"
+let JSON_KEY_TOPICS = "topics"
 
 // MARK: - Image Constants
 let kNegativeStateProfileImageKim = "negativeStateKim"

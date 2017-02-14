@@ -8,22 +8,9 @@
 
 import UIKit
 
-let dummyTopics = ["The Epitome of Disappointment", "So Crazy It Just Might Work", "Public Selfie", "The Perfect Balance Between Business and Casual", "Sachin's Worst Nightmare"]
-
 class PlayingGameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var topics: [String] = ["","","","",""]
-    
-    let dummyJson: [String:Any] = [
-        "topics": [
-                "Public Selfie",
-                "The Epitome of Disappointment",
-                "So Crazy It Just Might Work",
-                "The Perfect Balance Between Business and Casual",
-                "Sachin's Worst Nightmare"
-        ]
-    ]
-    
     let cameraNotAvailableErrorMsg = "ya need a camera to play Scavenge, and this device doesn't have one"
     
     @IBOutlet weak var overlayView: UIView!
@@ -44,6 +31,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitButton: SButton!
     
+    var currentGame: Game? = nil
+        
     var imagePickerController : UIImagePickerController!
     var capturedImage : UIImage?
     var selectedIndex : Int!
@@ -66,25 +55,18 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         tableView.rowHeight = 85
         tableView.scrollsToTop = true
         
-//        navigationController?.delegate = self // todo todo todo
-        downloadJSON()
+        setupGameData()
     }
     
-    // MARK: - Manage JSON
-    func downloadJSON() {
-        topics = ["","","","",""]
-        
-        let data: Data? = Data() // todo, set to actual json data
-        let json = dummyJson // todo, delete this line
-        do {
-            if let data = data,
-                //                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? Array<Any>, // todo, uncomment this line
-            let topics = json["topics"] as? [String] {
-                self.topics = topics
-                tableView.reloadData()
+    func setupGameData() {
+        if let currentGame = currentGame {
+            navigationItem.title = currentGame.title
+            topics = currentGame.topics
+            if let unsubmittedResponses = currentGame.unsubmittedResponses[currentUserID] {
+                capturedImages = unsubmittedResponses
             }
-        } catch {
-            print("json serialization failed")
+            
+            tableView.reloadData()
         }
     }
     

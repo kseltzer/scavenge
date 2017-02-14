@@ -47,6 +47,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var overlayView: UIView!
     
+    var currentGame: Game? = nil
     
     var recentsDictionary: [Int:Player] = [:]
     var recentsIDs: [Int] = []
@@ -133,7 +134,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         downloadFriendsJSON()
     }
 
-    // MARK: - Manage JSON
+    // MARK: - Communicate With Backend
     func downloadFriendsJSON() {
         recentsDictionary = [:]
         friendsDictionary = [:]
@@ -141,7 +142,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         friendsIDs = []
         
         do {
-            if let filePath = Bundle.main.path(forResource: "friends", ofType: "json"),
+            if let filePath = Bundle.main.path(forResource: "friends", ofType: "json"), // TODO: delete this line
                 let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data
                 let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
                 let recents = json[JSON_KEY_RECENTS] as? [[String:AnyObject]],
@@ -171,6 +172,30 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 tableView.reloadData()
             }
+        } catch {
+            let alertController = UIAlertController(title: "uh oh!", message: "Error loading data.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert) in
+                _ = self.navigationController?.popViewController(animated: true)
+            })
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            print("json serialization failed")
+        }
+    }
+    
+    // TODO: todo: implement to send create game request to backend, send response to destination view controller
+    func createGame() {
+        
+        // the following code parses the json response from creating a game
+        do {
+            if let filePath = Bundle.main.path(forResource: "game", ofType: "json"), // TODO: delete this line
+                let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data (containing the response from creating a game)
+                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
+                let id = json[JSON_KEY_ID] as? Int,
+                let title = json[JSON_KEY_TITLE] as? String,
+                let topics = json[JSON_KEY_TOPICS] as? [String] {
+                    self.currentGame = Game(id: id, title: title, topics: topics)
+                }
         } catch {
             let alertController = UIAlertController(title: "uh oh!", message: "Error loading data.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert) in
@@ -690,9 +715,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - Segue
     @IBAction func startButtonTapped(_ sender: UIBarButtonItem) {
-        let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
-        let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
-        navigationController?.replaceStackWithViewController(destinationViewController: playingGameViewController!)
+        let queue = DispatchQueue(label: "createGameQueue")
+        queue.async(qos: .userInitiated) {
+            let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
+            let playingGameViewController = playingGameStoryboard.instantiateInitialViewController() as? PlayingGameViewController
+            self.createGame()
+            
+            DispatchQueue.main.async {
+                if let currentGame = self.currentGame {
+                    playingGameViewController?.currentGame = currentGame
+                }
+                self.navigationController?.replaceStackWithViewController(destinationViewController: playingGameViewController!)
+            }
+        }
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {

@@ -25,7 +25,7 @@ let dummySubmission5 = TopicSubmission(image: UIImage(named: "raccoon")!, submit
 
 let dummyResultsData: [TopicResults] = [TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5])]
 
-let dummyGameData = Game(id: 1, title: "Best Friends!", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, status: .completed, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3], numPlayers: 5, winner: dummyPlayer2, results: dummyResultsData, topicStrings: ["Unconventionally Ugly", "So Crazy It Just Might Work", "Nostalgia", "WTF", "Haunted As Shit"])
+let dummyGameData = Game(id: 1, title: "Best Friends!", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, status: .completed, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4, dummyPlayer5], winner: dummyPlayer2, results: dummyResultsData, topics: ["Unconventionally Ugly", "So Crazy It Just Might Work", "Nostalgia", "WTF", "Haunted As Shit"])
 
 class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ResultsCellDelegate {
 
@@ -84,7 +84,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: 22))
         sectionHeaderView.backgroundColor = UIColor.white
         let topicLabel = UILabel(frame: CGRect(x: 8, y: 0, width: cellWidth, height: 22))
-        topicLabel.text = dummyGameData.topicStrings[section]
+        topicLabel.text = dummyGameData.topics[section]
         topicLabel.font = RESULTS_TABLE_VIEW_SECTION_FONT
         sectionHeaderView.addSubview(topicLabel)
         return sectionHeaderView

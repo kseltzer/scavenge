@@ -179,7 +179,7 @@
         <!--Home View Controller-->
         <scene sceneID="04e-hM-u32">
             <objects>
-                <viewController id="dik-UW-LCa" userLabel="Home View Controller" customClass="HomeViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dik-UW-LCa" userLabel="Home View Controller" customClass="HomeViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YLg-4O-keG"/>
                         <viewControllerLayoutGuide type="bottom" id="qol-ra-C7u"/>
@@ -189,8 +189,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8W9-Ff-FdF">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.74509803919999995" green="1" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" id="LZf-GO-GjG" customClass="GameCell" customModule="Scavenge" customModuleProvider="target">
@@ -214,7 +214,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="m8n-8R-6dW"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -230,8 +230,8 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="rn1-v5-7va"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                                                            <color key="textColor" red="0.45882352939999999" green="0.86666666670000003" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -251,6 +251,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.74509803919999995" green="1" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="e1f-4a-lUx" secondAttribute="bottom" constant="8" id="0Rl-67-XdO"/>
                                                 <constraint firstItem="e1f-4a-lUx" firstAttribute="top" secondItem="0Jr-ML-0Hn" secondAttribute="top" id="XY2-NF-5nR"/>
@@ -274,11 +275,11 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5n-p2-Jo3">
                                                     <rect key="frame" x="285" y="0.0" width="90" height="57"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.59183078044295312" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.45882352939999999" green="0.86666666670000003" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="aO9-v1-333"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <state key="normal" title="Accept">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -288,11 +289,11 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBk-KY-qQh">
                                                     <rect key="frame" x="195" y="0.0" width="90" height="57"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.95686274510000002" green="0.65490196079999996" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="7kv-TA-3Rt"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <state key="normal" title="Decline">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -317,7 +318,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="xnY-oc-JQC"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -333,8 +334,8 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Eun-zW-Ppb"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                                                                    <color key="textColor" red="0.45882352941176469" green="0.8666666666666667" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -362,6 +363,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.74509803919999995" green="1" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="k5C-Ik-LfU" firstAttribute="leading" secondItem="mgu-T2-BSz" secondAttribute="leading" constant="8" id="9vR-dQ-RyO"/>
                                                 <constraint firstItem="k5C-Ik-LfU" firstAttribute="top" secondItem="mgu-T2-BSz" secondAttribute="top" id="GzO-Hr-E2r"/>
@@ -391,9 +393,10 @@
                                 <sections/>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" red="0.74509803919999995" green="1" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="8W9-Ff-FdF" firstAttribute="top" secondItem="IdH-KX-O9N" secondAttribute="top" id="M9v-SK-Mb3"/>
+                            <constraint firstItem="8W9-Ff-FdF" firstAttribute="top" secondItem="YLg-4O-keG" secondAttribute="bottom" id="YYy-Km-w99"/>
                             <constraint firstAttribute="trailing" secondItem="8W9-Ff-FdF" secondAttribute="trailing" id="Ye2-q5-h7o"/>
                             <constraint firstItem="8W9-Ff-FdF" firstAttribute="leading" secondItem="IdH-KX-O9N" secondAttribute="leading" id="fSC-eN-ZjF"/>
                             <constraint firstItem="qol-ra-C7u" firstAttribute="top" secondItem="8W9-Ff-FdF" secondAttribute="bottom" id="hxW-QH-XQQ"/>
@@ -409,7 +412,7 @@
                             <outletCollection property="gestureRecognizers" destination="7oc-l5-gBj" appends="YES" id="tMB-sR-lqP"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="{ Scavenge Logo }" id="aeh-vV-kcq">
+                    <navigationItem key="navigationItem" title="Scavenge" id="aeh-vV-kcq">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="hJe-aQ-I0C" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target">
                             <connections>
                                 <action selector="menuButtonPressed:" destination="dik-UW-LCa" id="OMV-ge-ImV"/>
@@ -439,7 +442,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1332" y="555"/>
+            <point key="canvasLocation" x="1332" y="554.57271364317842"/>
         </scene>
         <!--New Game-->
         <scene sceneID="O0c-Vz-mcP">
@@ -805,6 +808,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="New Game" id="jQK-5z-HtD">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Start" id="BKk-Ze-Clt">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="startButtonTapped:" destination="jKf-zi-WjN" id="Aw0-cl-NZj"/>
                             </connections>

@@ -9,8 +9,8 @@
 import UIKit
 
 let kBounceValue : CGFloat = 8.0
-let acceptColor = UIColor(red: 23/255, green: 163/255, blue: 84/255, alpha: 1.0)
-let declineColor = UIColor.red
+let acceptColor = COLOR_GREEN
+let declineColor = COLOR_PEACH
 let defaultViewBackgroundColor = UIColor.white
 
 protocol InvitationCellProtocol {

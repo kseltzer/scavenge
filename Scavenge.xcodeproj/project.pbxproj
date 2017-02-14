@@ -42,6 +42,7 @@
 		4E6EA4F51D4E93E00022127B /* CameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */; };
 		4E82140C1E37FDDB00C2222B /* friends.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E82140B1E37FDDB00C2222B /* friends.json */; };
 		4E82140E1E3805BD00C2222B /* games.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E82140D1E3805BD00C2222B /* games.json */; };
+		4E8214101E3815EB00C2222B /* game.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E82140F1E3815EB00C2222B /* game.json */; };
 		4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA238491D779BBE00BD278B /* ResultsViewController.swift */; };
 		4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384B1D77A23B00BD278B /* ResultsCell.swift */; };
 		4EA2384E1D7F4D4900BD278B /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */; };
@@ -128,6 +129,7 @@
 		4E6EA4F41D4E93E00022127B /* CameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayView.xib; sourceTree = "<group>"; };
 		4E82140B1E37FDDB00C2222B /* friends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends.json; sourceTree = "<group>"; };
 		4E82140D1E3805BD00C2222B /* games.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = games.json; sourceTree = "<group>"; };
+		4E82140F1E3815EB00C2222B /* game.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game.json; sourceTree = "<group>"; };
 		4EA238491D779BBE00BD278B /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		4EA2384B1D77A23B00BD278B /* ResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitCell.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			children = (
 				4E82140B1E37FDDB00C2222B /* friends.json */,
 				4E82140D1E3805BD00C2222B /* games.json */,
+				4E82140F1E3815EB00C2222B /* game.json */,
 				4E2277AD1D32D0D100E22436 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -535,6 +538,7 @@
 				4E2277A91D32D0D100E22436 /* Assets.xcassets in Resources */,
 				4E2277EC1D32F41A00E22436 /* MainStoryboard.storyboard in Resources */,
 				4E6EA4F51D4E93E00022127B /* CameraOverlayView.xib in Resources */,
+				4E8214101E3815EB00C2222B /* game.json in Resources */,
 				4EB640861D75425C00EA308D /* AboutStoryboard.storyboard in Resources */,
 				4EB6407E1D75198200EA308D /* HelpStoryboard.storyboard in Resources */,
 				4E2278121D41D4AA00E22436 /* LoginStoryboard.storyboard in Resources */,
