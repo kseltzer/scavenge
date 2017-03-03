@@ -10,8 +10,8 @@ import UIKit
 
 let kBounceValue : CGFloat = 8.0
 let acceptColor = COLOR_GREEN
-let declineColor = COLOR_PEACH
-let defaultViewBackgroundColor = UIColor.white
+let declineColor = COLOR_RED
+let defaultViewBackgroundColor = CELL_DEFAULT_COLOR_HOME
 
 protocol InvitationCellProtocol {
     func acceptedGameInvite(cell: InvitationCell)
@@ -35,7 +35,6 @@ class InvitationCell: UITableViewCell {
     @IBOutlet weak var hideButtonsView: UIView!
     @IBOutlet weak var roundedBorderView: RoundedBorderedView!
     
-    
     @IBOutlet weak var hideButtonsViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideButtonsViewLeadingConstraint: NSLayoutConstraint!
     
@@ -43,6 +42,7 @@ class InvitationCell: UITableViewCell {
         super.awakeFromNib()
         layoutIfNeeded()
         gameImageView.layer.cornerRadius =  gameImageView.frame.size.height * 3/4
+        roundedBorderView.backgroundColor = defaultViewBackgroundColor
     }
     
     @IBAction func acceptButtonTapped(_ sender: AnyObject) {

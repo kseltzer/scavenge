@@ -25,7 +25,7 @@ class GameCell: UITableViewCell {
         if (highlighted) {
             roundedBorderView.backgroundColor = CELL_HIGHLIGHTED_COLOR
         } else {
-            roundedBorderView.backgroundColor = UIColor.white
+            roundedBorderView.backgroundColor = CELL_DEFAULT_COLOR_HOME
         }
     }
     

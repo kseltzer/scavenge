@@ -6,12 +6,6 @@
             "name": "Aliya Kamalova",
             "profileImage": "aliya"
         },
-		{
-			"id": 1,
-			"firstName": "Kim",
-			"name": "Kim Seltzer",
-			"profileImage": "fbProfilePic"
-		},
         {
 			"id": 3,
 			"firstName": "Mahir",

@@ -13,6 +13,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     var topics: [String] = ["","","","",""]
     let cameraNotAvailableErrorMsg = "ya need a camera to play Scavenge, and this device doesn't have one"
     
+    let cameraViewBackgroundColor = COLOR_LIGHT_BROWN
+    
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var topView: UIView!
@@ -48,7 +50,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = customBackBarItem()
-        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = NAVIGATION_BAR_TINT_COLOR
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -110,8 +112,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             DispatchQueue.main.async {
                 Bundle.main.loadNibNamed("CameraOverlayView", owner:self, options:nil)
                 self.overlayView.frame = self.imagePickerController.cameraOverlayView!.frame
-                self.topView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
-                self.bottomView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
+                self.topView.backgroundColor = self.cameraViewBackgroundColor
+                self.bottomView.backgroundColor = self.cameraViewBackgroundColor
                 self.selectCapturedImageButton.isHidden = true
                 self.topicLabel.text = topic
                 self.imagePickerController.cameraOverlayView = self.overlayView

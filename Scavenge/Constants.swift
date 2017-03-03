@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
-
+//225,154,106
 // MARK: - Colors
-let COLOR_MINT_GREEN = UIColor(red: 190/255, green: 255/255, blue: 227/255, alpha: 1.0) /* mint green */
-let COLOR_PEACH = UIColor(red: 244/255, green: 167/255, blue: 140/255, alpha: 1.0) /* peach */
+let COLOR_LIGHT_BROWN = UIColor(red: 216/255, green: 185/255, blue: 131/255, alpha: 1.0) /* #D8B983 */
+let COLOR_RED = UIColor(red: 223/255, green: 87/255, blue: 100/255, alpha: 1.0) /* peach */
 let COLOR_BROWN = UIColor(red: 236/255, green: 203/255, blue: 140/255, alpha: 1.0) /* orangish-brown */
 let COLOR_YELLOW = UIColor(red: 246/255, green: 246/255, blue: 167/255, alpha: 1.0) /* light yellow */
-let COLOR_GREEN = UIColor(red: 117/255, green: 221/255, blue: 202/255, alpha: 1.0) /* greenish-blue */
+let COLOR_GREEN = UIColor(red: 87/255, green: 223/255, blue: 210/255, alpha: 1.0) /* greenish-blue */
+
 
 // MARK: - Game Play Constants
 let NUM_GAME_QUESTIONS = 5
@@ -54,7 +55,7 @@ let NAVIGATION_BAR_TEXT_COLOR = UIColor.black
 let NAVIGATION_BAR_FONT = UIFont(name: "Avenir-Black", size: 26.0)
 
 // MARK: - Button Constants
-let BUTTON_DEFAULT_BACKGROUND_COLOR = COLOR_PEACH
+let BUTTON_DEFAULT_BACKGROUND_COLOR = COLOR_RED
 let BUTTON_FACEBOOK_BACKGROUND_COLOR = UIColor(red: 30/255.0, green: 136/255.0, blue: 229/255.0, alpha: 1.0)
 let BUTTON_TEXT_COLOR_NORMAL = UIColor(red: 243/255.0, green: 243/255.0, blue: 243/255.0, alpha: 1.0)
 let BUTTON_TEXT_COLOR_DISABLED = UIColor.lightGray
@@ -86,12 +87,11 @@ let MENU_OPTION_TEXT_DEFAULT_COLOR = UIColor.groupTableViewBackground
 let MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR = UIColor.lightGray
 
 // MARK: - Cell Customization
-let CELL_COMPLETED_GAME_BACKGROUND_COLOR = UIColor.lightGray
-let CELL_ACTIVE_GAME_BACKGROUND_COLOR = UIColor.groupTableViewBackground
-
 let CELL_SELECTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)
 let CELL_HIGHLIGHTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)
-let CELL_DEFAULT_COLOR = UIColor.white
+let CELL_DEFAULT_COLOR = UIColor(red: 224/255, green: 198/255, blue: 149/255, alpha: 1.0)
+
+let CELL_DEFAULT_COLOR_HOME = COLOR_LIGHT_BROWN
 
 let kFriendCellIdentifier = "friendCell"
 

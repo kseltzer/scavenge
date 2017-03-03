@@ -50,14 +50,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 85
-        tableView.backgroundColor = COLOR_MINT_GREEN
         
         navigationItem.backBarButtonItem = customBackBarItem()
-        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = NAVIGATION_BAR_TINT_COLOR
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.backgroundColor = COLOR_MINT_GREEN
         navigationController?.navigationBar.isTranslucent = true
         
         downloadJSON()
@@ -282,8 +280,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         let sectionTitleView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: height))
-        sectionTitleView.backgroundColor = COLOR_MINT_GREEN
-        
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.frame.width, height: height))
         label.text = title
         label.font = font

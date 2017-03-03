@@ -91,6 +91,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         setupSearchController()
         
         navigationItem.backBarButtonItem = customBackBarItem()
+        navigationController?.navigationBar.tintColor = NAVIGATION_BAR_TINT_COLOR
         
         titleTextField.delegate = self
         titleTextField.placeholder = gameTitle
