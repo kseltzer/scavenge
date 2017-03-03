@@ -15,7 +15,7 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var nameLabel : UILabel!
     @IBOutlet weak var checkmarkBox: UIImageView!
     
-    var userID : String!
+    var userID : Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()

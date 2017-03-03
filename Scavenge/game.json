@@ -1,0 +1,23 @@
+{
+	"id": 1,
+	"title": "Buncha Idiots",
+	"icon": "foot_icon",
+	"creatorID": 3,
+	"creatorName": "Mahir Shah",
+	"players": [
+		1,
+		2,
+		3
+	],
+	"numPlayers": 3,
+	"winner": null,
+	"status": "invite",
+	"results": [],
+	"topics": [
+		"The Epitome of Disappointment",
+		"So Crazy It Just Might Work",
+		"Public Selfie",
+		"The Perfect Balance Between Business and Casual",
+		"Aliya's Worst Nightmare"
+	]
+}

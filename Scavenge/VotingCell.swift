@@ -51,7 +51,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
             let imageViewTopic = UIImageView(frame: CGRect(x: x, y: y, width: imageViewWidth, height: imageViewHeight))
             imageViewTopic.contentMode = .scaleAspectFill
             imageViewTopic.clipsToBounds = true
-            imageViewTopic.image = sampleContentImagesFromBackend[i]
+            imageViewTopic.image = dummyContentImagesFromBackend[i]
             imageViewTopic.isUserInteractionEnabled = true
             let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
             doubleTapGestureRecognizer.numberOfTapsRequired = 2

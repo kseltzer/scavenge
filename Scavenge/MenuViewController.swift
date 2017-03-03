@@ -11,7 +11,7 @@ import UIKit
 enum MenuOption : String {
     case Home = "Home"
     case Invite = "Invite"
-    case Tour = "Tour"
+    case Help = "Help"
     case About = "About"
     case Feedback = "Feedback"
     case Logout = "Logout"
@@ -24,7 +24,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     
-    let menuOptions : [MenuOption] = [.Home, .Invite, .Tour, .About, .Feedback, .Logout]
+    let menuOptions : [MenuOption] = [.Home, .Invite, .Help, .About, .Feedback, .Logout]
     var currentScreen : MenuOption?
     
     override func viewDidLoad() {
@@ -59,7 +59,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Table View
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell")
         cell?.backgroundColor = UIColor.clear
         let option = menuOptionForRow((indexPath as NSIndexPath).row)
         if option == currentScreen {
@@ -79,7 +79,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         let menuOption = menuOptionForRow((indexPath as NSIndexPath).row)
         switch menuOption {
-            case .Home, .Invite, .Tour, .About:
+            case .Home, .Invite, .Help, .About:
                 self.performSegue(withIdentifier: "show\(menuOption.rawValue)", sender: self)
                 break
             case .Feedback:

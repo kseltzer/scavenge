@@ -11,49 +11,16 @@ import MessageUI
 
 enum TableViewFriendsSection : Int {
     case recents = 0
-    case scavengeFriends = 1
+    case friends = 1
     case inviteFriends = 2
 }
 
-let sampleRecents : [ScavengeFriend] = [
-    ScavengeFriend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
-]
-
-let sampleRecentsIDs = ["1", "2", "3"]
-let sampleScavengeFriendIDs = ["4","5","6","7","8"]
-
-let sampleScavengeFriends : [ScavengeFriend] = [
-    ScavengeFriend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
-    ScavengeFriend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
-]
-
-let recentsDictionaryFromAPI : [String:ScavengeFriend] = [
-    "1":ScavengeFriend(name: "Kim Seltzer", id: "1", profileImage: UIImage(named: "fbProfilePic")!, firstName: "Kim", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "2":ScavengeFriend(name: "Aliya Kamalova", id: "2", profileImage: UIImage(named: "aliya")!, firstName: "Aliya", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "3":ScavengeFriend(name: "Charlie Bucket", id: "3", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlie", addedToGame: false, headerIndex: nil, indexPath: nil)
-]
-
-var recentsDictionary = recentsDictionaryFromAPI
-
-let scavengeDictionaryFromAPI : [String:ScavengeFriend] = [
-    "4":ScavengeFriend(name: "Charlotte York", id: "4", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Charlotte", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "5":ScavengeFriend(name: "Olivia Rothschild", id: "5", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "Olivia", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "6": ScavengeFriend(name: "Paul Goetz", id: "6", profileImage: UIImage(named: "paul")!, firstName: "Paul", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "7": ScavengeFriend(name: "David Seltzer", id: "7", profileImage: UIImage(named: "profilePicNegativeState")!, firstName: "David", addedToGame: false, headerIndex: nil, indexPath: nil),
-    "8": ScavengeFriend(name: "Sachin Medhekar", id: "8", profileImage: UIImage(named: "sachin")!, firstName: "Sachin", addedToGame: false, headerIndex: nil, indexPath: nil)
-]
-
-var scavengeDictionary = scavengeDictionaryFromAPI
+var shouldShowKeyboard = false
 
 let inviteBody: String = "Hey! Long time no talk hahaha :) no but seriously I found this really fun app called Scavenge. Kind of a stupid name but it's actually a good game. You should download it so we can play."
 let cannotAddAdditionalPlayersMessage = "ya can't have more than \(MAX_PLAYERS) players\nin a game"
 
-class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchResultsUpdating, MagnifiedProfileImageViewDelegate {
+class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, MagnifiedProfileImageViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -63,6 +30,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var searchBarView: UIView!
     
+    @IBOutlet weak var profileImagesView: UIView!
     @IBOutlet weak var profileImageViewUser: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend1: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend2: ProfileImageView!
@@ -70,6 +38,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileImageViewFriend4: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend5: ProfileImageView!
     
+    var profileImagesViewHeightContstraintOriginalConstant: CGFloat!
     @IBOutlet weak var profileImagesViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImagesStackViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImagesStackViewTrailingConstraint: NSLayoutConstraint!
@@ -78,20 +47,28 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var overlayView: UIView!
     
+    var currentGame: Game? = nil
+    
+    var recentsDictionary: [Int:Player] = [:]
+    var recentsIDs: [Int] = []
+    
+    var friendsDictionary: [Int:Player] = [:]
+    var friendsIDs: [Int] = []
+    
     var magnifiedPlayerName: String?
     var magnifiedPlayerImage: UIImage?
     var magnifiedPlayerIndex: Int?
     
-    var selectedScavengeFriends : [ScavengeFriend?] = [nil, nil, nil, nil, nil]
+    var selectedFriends : [Player?] = [nil, nil, nil, nil, nil]
     
     var selectedFriendsHeaderIndices : [Int] = [5, 4, 3, 2, 1]
     var selectedFriendsFirstNames : [String] = []
     
-    var filteredRecents : [ScavengeFriend] = []
-    var filteredScavengeFriends : [ScavengeFriend] = []
+    var filteredRecents : [Player] = []
+    var filteredFriends : [Player] = []
     
-    var filteredRecentsIDs : [String] = []
-    var filteredScavengeFriendsIDs : [String] = []
+    var filteredRecentsIDs : [Int] = []
+    var filteredFriendsIDs : [Int] = []
     
     var gameTitle : String = "Game Title"
     
@@ -100,7 +77,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var isInitialCellConfiguration : Bool = true
     
     let interactor = InteractiveTransitionController()
-
+    
+    var iconSelectionViewFrame: CGRect!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -112,6 +91,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         setupSearchController()
         
         navigationItem.backBarButtonItem = customBackBarItem()
+        navigationController?.navigationBar.tintColor = NAVIGATION_BAR_TINT_COLOR
         
         titleTextField.delegate = self
         titleTextField.placeholder = gameTitle
@@ -147,6 +127,117 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         iconSelectionView.layer.mask = maskLayer
+        
+        iconSelectionViewFrame = iconSelectionView.frame
+        
+        profileImagesViewHeightContstraintOriginalConstant = profileImagesViewHeightConstraint.constant
+        
+        downloadFriendsJSON()
+    }
+
+    // MARK: - Communicate With Backend
+    func downloadFriendsJSON() {
+        recentsDictionary = [:]
+        friendsDictionary = [:]
+        recentsIDs = []
+        friendsIDs = []
+        
+        do {
+            if let filePath = Bundle.main.path(forResource: "friends", ofType: "json"), // TODO: delete this line
+                let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data
+                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
+                let recents = json[JSON_KEY_RECENTS] as? [[String:AnyObject]],
+                let friends = json[JSON_KEY_FRIENDS] as? [[String:AnyObject]] {
+                
+                for player in recents {
+                    if let id = player[JSON_KEY_ID] as? Int,
+                        let firstName = player[JSON_KEY_FIRST_NAME] as? String,
+                        let name = player[JSON_KEY_NAME] as? String,
+                        let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
+                        let profileImage = UIImage(named: profileImageName) {
+                        recentsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // TODO: replace profile image with url
+                        recentsIDs.append(id)
+                    }
+                }
+                
+                for player in friends {
+                    if let id = player[JSON_KEY_ID] as? Int,
+                        let firstName = player[JSON_KEY_FIRST_NAME] as? String,
+                        let name = player[JSON_KEY_NAME] as? String,
+                        let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
+                        let profileImage = UIImage(named: profileImageName) {
+                        friendsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // TODO: replace profile image with url
+                        friendsIDs.append(id)
+                    }
+                }
+                
+                tableView.reloadData()
+            }
+        } catch {
+            let alertController = UIAlertController(title: "uh oh!", message: "Error loading data.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert) in
+                _ = self.navigationController?.popViewController(animated: true)
+            })
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            print("json serialization failed")
+        }
+    }
+    
+    // TODO: todo: implement to send create game request to backend, send response to destination view controller
+    func createGame() {
+        
+        // the following code parses the json response from creating a game
+        do {
+            if let filePath = Bundle.main.path(forResource: "game", ofType: "json"), // TODO: delete this line
+                let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data (containing the response from creating a game)
+                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
+                let id = json[JSON_KEY_ID] as? Int,
+                let title = json[JSON_KEY_TITLE] as? String,
+                let topics = json[JSON_KEY_TOPICS] as? [String] {
+                    self.currentGame = Game(id: id, title: title, topics: topics)
+                }
+        } catch {
+            let alertController = UIAlertController(title: "uh oh!", message: "Error loading data.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert) in
+                _ = self.navigationController?.popViewController(animated: true)
+            })
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            print("json serialization failed")
+        }
+    }
+    
+    // MARK: - UISearchBarDelegate
+    func hideProfileImagesView() {
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
+            self.profileImagesViewHeightConstraint.constant = 0.0
+            self.view.layoutIfNeeded()
+        }, completion: {Void in
+            self.searchController.searchBar.becomeFirstResponder()
+            shouldShowKeyboard = true
+            _ = self.searchBarShouldBeginEditing(self.searchController.searchBar)
+        })
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        if !shouldShowKeyboard {
+            hideProfileImagesView()
+        }
+        return shouldShowKeyboard
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        shouldShowKeyboard = false
+        return true
+    }
+    
+    // MARK: - UISearchControllerDelegate
+    func didDismissSearchController(_ searchController: UISearchController) {
+        UIView.animate(withDuration: 0.15, delay: 0.2, options: .curveLinear, animations: {
+            self.profileImagesViewHeightConstraint.constant = self.profileImagesViewHeightContstraintOriginalConstant
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func setupSearchController() {
@@ -155,18 +246,16 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         searchBarView.addSubview(searchController.searchBar)
+        searchController.searchBar.delegate = self
         searchController.loadViewIfNeeded()
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .words
+        searchController.delegate = self
     }
-    
+
     // MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,12 +264,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if (searchController.isActive && searchController.searchBar.text != "") {
                     return filteredRecentsIDs.count
                 }
-                return sampleRecentsIDs.count
-            case TableViewFriendsSection.scavengeFriends.rawValue:
+                return recentsIDs.count
+            case TableViewFriendsSection.friends.rawValue:
                 if (searchController.isActive && searchController.searchBar.text != "") {
-                    return filteredScavengeFriendsIDs.count
+                    return filteredFriendsIDs.count
                 }
-                return sampleScavengeFriendIDs.count
+                return friendsIDs.count
             case TableViewFriendsSection.inviteFriends.rawValue:
                 return 1
             default:
@@ -198,9 +287,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             return recentsDictionary.isEmpty ? nil : kSectionTitleRecents
         case 1:
             if (searchController.isActive && searchController.searchBar.text != "") {
-                return filteredScavengeFriendsIDs.isEmpty ? nil : kSectionTitleFriendsOnScavenge
+                return filteredFriendsIDs.isEmpty ? nil : kSectionTitleFriendsOnScavenge
             }
-            return scavengeDictionary.isEmpty ? nil : kSectionTitleFriendsOnScavenge
+            return friendsDictionary.isEmpty ? nil : kSectionTitleFriendsOnScavenge
         case 2:
             return kSectionTitleFriendsNotOnScavenge
         default:
@@ -216,7 +305,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             sectionTitle = kSectionTitleRecents
             topPadding = 3
             break
-        case TableViewFriendsSection.scavengeFriends.rawValue:
+        case TableViewFriendsSection.friends.rawValue:
             sectionTitle = kSectionTitleFriendsOnScavenge
             topPadding = 0
             break
@@ -251,96 +340,96 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func configureCellInitially(_ indexPath: IndexPath, section: TableViewFriendsSection) -> FriendCell {
         var cell : FriendCell = FriendCell()
-        var scavengeFriend : ScavengeFriend!
+        var friend : Player!
         switch (section) {
         case .recents:
             cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifier, for: indexPath) as! FriendCell
             if searchController.isActive && searchController.searchBar.text != "" {
                 let id = filteredRecentsIDs[(indexPath as NSIndexPath).row]
-                scavengeFriend = recentsDictionary[id]!
+                friend = recentsDictionary[id]!
             } else {
-                scavengeFriend = recentsDictionary[sampleRecentsIDs[(indexPath as NSIndexPath).row]]!
+                friend = recentsDictionary[recentsIDs[(indexPath.row)]]!
             }
-            scavengeFriend.addedToGame = false
+            friend.addedToGame = false
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
-                scavengeFriend.indexPath = indexPath
+                friend.indexPath = indexPath
             }
-            recentsDictionary[scavengeFriend.id] = scavengeFriend
+            recentsDictionary[friend.id] = friend
             break
-        case .scavengeFriends:
+        case .friends:
             cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifier, for: indexPath) as! FriendCell
             if searchController.isActive && searchController.searchBar.text != "" {
-                let id = filteredScavengeFriendsIDs[(indexPath as NSIndexPath).row]
-                scavengeFriend = scavengeDictionary[id]!
+                let id = filteredFriendsIDs[(indexPath as NSIndexPath).row]
+                friend = friendsDictionary[id]!
             } else {
-                scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[(indexPath as NSIndexPath).row]]!
+                friend = friendsDictionary[friendsIDs[indexPath.row]]!
             }
-            scavengeFriend.addedToGame = false
+            friend.addedToGame = false
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
-                scavengeFriend.indexPath = indexPath
+                friend.indexPath = indexPath
             }
-            scavengeDictionary[scavengeFriend.id] = scavengeFriend
+            friendsDictionary[friend.id] = friend
             break
         default:
             return cell
         }
-        cell.userID = scavengeFriend.id
-        cell.nameLabel.text = scavengeFriend.name
+        cell.userID = friend.id
+        cell.nameLabel.text = friend.name
         cell.profileImage.layoutIfNeeded()
         cell.profileImage.circular()
-        cell.profileImage.image = scavengeFriend.profileImage
+        cell.profileImage.image = friend.profileImage
         cell.setDeselectedAppearance()
         return cell
     }
     
     func configureCell(_ indexPath: IndexPath, section: TableViewFriendsSection) -> FriendCell {
         var cell : FriendCell = FriendCell()
-        var scavengeFriend : ScavengeFriend!
+        var friend : Player!
         switch (section) {
         case .recents:
             cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifier, for: indexPath) as! FriendCell
             if searchController.isActive && searchController.searchBar.text != "" {
                 let id = filteredRecentsIDs[(indexPath as NSIndexPath).row]
-                scavengeFriend = recentsDictionary[id]!
+                friend = recentsDictionary[id]!
             } else {
-                scavengeFriend = recentsDictionary[sampleRecentsIDs[(indexPath as NSIndexPath).row]]!
+                friend = recentsDictionary[recentsIDs[indexPath.row]]
             }
-            if (scavengeFriend.addedToGame) {
+            if (friend.addedToGame) {
                 cell.setSelectedAppearance()
             } else {
                 cell.setDeselectedAppearance()
             }
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
-                scavengeFriend.indexPath = indexPath
-                recentsDictionary[scavengeFriend.id] = scavengeFriend
+                friend.indexPath = indexPath
+                recentsDictionary[friend.id] = friend
             }
             break
-        case .scavengeFriends:
+        case .friends:
             cell = tableView.dequeueReusableCell(withIdentifier: kFriendCellIdentifier, for: indexPath) as! FriendCell
             if searchController.isActive && searchController.searchBar.text != "" {
-                let id = filteredScavengeFriendsIDs[(indexPath as NSIndexPath).row]
-                scavengeFriend = scavengeDictionary[id]!
+                let id = filteredFriendsIDs[(indexPath as NSIndexPath).row]
+                friend = friendsDictionary[id]!
             } else {
-                scavengeFriend = scavengeDictionary[sampleScavengeFriendIDs[(indexPath as NSIndexPath).row]]!
+                friend = friendsDictionary[friendsIDs[indexPath.row]]!
             }
-            if (scavengeFriend.addedToGame) {
+            if (friend.addedToGame) {
                 cell.setSelectedAppearance()
             } else {
                 cell.setDeselectedAppearance()
             }
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
-                scavengeFriend.indexPath = indexPath
-                scavengeDictionary[scavengeFriend.id] = scavengeFriend
+                friend.indexPath = indexPath
+                friendsDictionary[friend.id] = friend
             }
             break
         default:
             return cell
         }
-        cell.userID = scavengeFriend.id
-        cell.nameLabel.text = scavengeFriend.name
+        cell.userID = friend.id
+        cell.nameLabel.text = friend.name
         cell.profileImage.layoutIfNeeded()
         cell.profileImage.circular()
-        cell.profileImage.image = scavengeFriend.profileImage
+        cell.profileImage.image = friend.profileImage
         return cell
     }
     
@@ -351,21 +440,21 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func showMagnifiedProfileImage(index: Int) {
-        if (selectedScavengeFriends[index] != nil && !searchController.isActive) {
+        if (selectedFriends[index] != nil && !searchController.isActive) {
             magnifiedPlayerIndex = index
             overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
             self.performSegue(withIdentifier: "showMagnifiedProfileImageView", sender: self)
         }
     }
     
-    func handleAddRemoveFriend(_ friend : ScavengeFriend) -> ScavengeFriend? {
-        var scavengeFriend = friend
-        if scavengeFriend.addedToGame {                                                             // remove friend
-            selectedFriendsHeaderIndices.append(scavengeFriend.headerIndex!)
-            self.removeSelectedFriendImageFromHeader(scavengeFriend.headerIndex!)
-            selectedScavengeFriends[scavengeFriend.headerIndex!-1] = nil
-            scavengeFriend.addedToGame = false
-            if let indexOfFirstName = selectedFriendsFirstNames.index(of: scavengeFriend.firstName) {
+    func handleAddRemoveFriend(_ friend : Player) -> Player? {
+        var friend = friend
+        if friend.addedToGame {                                                             // remove friend
+            selectedFriendsHeaderIndices.append(friend.headerIndex!)
+            self.removeSelectedFriendImageFromHeader(friend.headerIndex!)
+            selectedFriends[friend.headerIndex!-1] = nil
+            friend.addedToGame = false
+            if let indexOfFirstName = selectedFriendsFirstNames.index(of: friend.firstName) {
                 selectedFriendsFirstNames.remove(at: indexOfFirstName)
                 if (selectedFriendsFirstNames.isEmpty) {
                     gameTitle = "Game Title"
@@ -383,17 +472,17 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {                                                                                    // add friend
             selectedFriendsHeaderIndices = selectedFriendsHeaderIndices.sorted().reversed()
             let headerIndex = selectedFriendsHeaderIndices.popLast()
-            scavengeFriend.headerIndex = headerIndex
-            scavengeFriend.addedToGame = true
-            self.addSelectedFriendImageToHeader(scavengeFriend.profileImage, index: headerIndex)
-            selectedFriendsFirstNames.append(scavengeFriend.firstName)
+            friend.headerIndex = headerIndex
+            friend.addedToGame = true
+            self.addSelectedFriendImageToHeader(friend.profileImage, index: headerIndex)
+            selectedFriendsFirstNames.append(friend.firstName)
             if headerIndex != nil {
-                selectedScavengeFriends[headerIndex! - 1] = scavengeFriend
+                selectedFriends[headerIndex! - 1] = friend
             }
             gameTitle = generateGameTitle()
             titleTextField.placeholder = gameTitle
         }
-        return scavengeFriend
+        return friend
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -415,11 +504,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 recentsDictionary[friend.id] = updatedFriend
             }
             break
-        case TableViewFriendsSection.scavengeFriends.rawValue:
+        case TableViewFriendsSection.friends.rawValue:
             let cell = tableView.cellForRow(at: indexPath) as! FriendCell
-            let friend = scavengeDictionary[cell.userID]!
+            let friend = friendsDictionary[cell.userID]!
             if let updatedFriend = handleAddRemoveFriend(friend) {
-                scavengeDictionary[friend.id] = updatedFriend
+                friendsDictionary[friend.id] = updatedFriend
             }
             break
         case TableViewFriendsSection.inviteFriends.rawValue:
@@ -466,19 +555,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let headerProfilePhotoIndex = index {
             switch (headerProfilePhotoIndex) {
             case 1:
-                profileImageViewFriend1.image = UIImage(named: "kimNegativeState")
+                profileImageViewFriend1.image = UIImage(named: kNegativeStateProfileImageKim)
                 break
             case 2:
-                profileImageViewFriend2.image = UIImage(named: "sachinNegativeState")
+                profileImageViewFriend2.image = UIImage(named: kNegativeStateProfileImageAliya)
                 break
             case 3:
-                profileImageViewFriend3.image = UIImage(named: "kimNegativeState")
+                profileImageViewFriend3.image = UIImage(named: kNegativeStateProfileImageMahir)
                 break
             case 4:
-                profileImageViewFriend4.image = UIImage(named: "sachinNegativeState")
+                profileImageViewFriend4.image = UIImage(named: kNegativeStateProfileImageSachin)
                 break
             case 5:
-                profileImageViewFriend5.image = UIImage(named: "kimNegativeState")
+                profileImageViewFriend5.image = UIImage(named: kNegativeStateProfileImageIan)
                 break
             default:
                 break
@@ -497,7 +586,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func selectedNewGameIcon(_ sender: UIButton) {
         if let newIcon = sender.currentImage {
-            iconButton.setImage(newIcon, for: .normal)
+            iconButton.imageView?.image = newIcon
         }
         animateHideIconSelectionView()
     }
@@ -505,27 +594,34 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     func animateShowIconSelectionView() {
         iconSelectionView.isHidden = false
         searchController.isActive = false
-        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
+        
+        self.iconSelectionView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.0)
+        self.iconSelectionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        if let frame = iconSelectionViewFrame {
+            iconSelectionView.frame = frame
+        }
+
+        UIView.animate(withDuration: 0.17, delay: 0.0, options: .curveEaseIn, animations: {
+            self.iconSelectionView.transform = CGAffineTransform.identity
             self.iconSelectionView.alpha = 1.0
             self.overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
         }, completion: { (finished) in
-            self.overlayView.isUserInteractionEnabled = true
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.animateHideIconSelectionView))
             self.overlayView.addGestureRecognizer(tapGesture)
+            self.overlayView.isUserInteractionEnabled = true
         })
     }
     
     func animateHideIconSelectionView() {
-        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseOut, animations: {
-            self.iconSelectionView.alpha = 0.0
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
+            self.iconSelectionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             self.hideOverlayView()
-        }, completion: { (finished) in
+        }) { (finished) in
+            self.iconSelectionView.alpha = 0.0
             self.iconSelectionView.isHidden = true
             self.overlayView.isUserInteractionEnabled = false
-        })
+        }
     }
-    
-    
     
     // MARK: - UITextFieldDelegate
     func generateGameTitle() -> String {
@@ -543,6 +639,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = "Game Title"
         tableView.isUserInteractionEnabled = false
     }
     
@@ -552,7 +649,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - Invite Friends
-    
     func inviteFriends() {
         let inviteMessage = [inviteBody]
         let activityViewController = UIActivityViewController(activityItems: inviteMessage, applicationActivities: nil)
@@ -575,19 +671,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             filteredRecentsIDs.append(friend.id)
         }
     
-        filteredScavengeFriendsIDs = []
-        filteredScavengeFriends = scavengeDictionary.values.filter { friend in
+        filteredFriendsIDs = []
+        filteredFriends = friendsDictionary.values.filter { friend in
             return friend.name.lowercased().contains(searchText.lowercased())
         }
-        for friend in filteredScavengeFriends {
-            filteredScavengeFriendsIDs.append(friend.id)
+        for friend in filteredFriends {
+            filteredFriendsIDs.append(friend.id)
         }
         
         tableView.reloadData()
     }
     
     // MARK: - MagnifiedProfileImageViewDelegate
-    func calculateIndexPath(for scavengeFriendID: String) {
+    func calculateIndexPath(for friendID: String) {
     }
     
     func hideOverlayView() {
@@ -595,7 +691,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func xButtonTapped() {
-        if let selectedFriend = selectedScavengeFriends[magnifiedPlayerIndex!] {
+        if let selectedFriend = selectedFriends[magnifiedPlayerIndex!] {
             if let indexPath = selectedFriend.indexPath {
                 if (tableView.indexPathsForVisibleRows?.contains(indexPath))! {
                     handleSelectedRowAt(indexPath: indexPath)
@@ -604,14 +700,14 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                         if ((indexPath as NSIndexPath).section == 0) {
                             recentsDictionary[selectedFriend.id] = updatedFriend
                         } else if ((indexPath as NSIndexPath).section == 1) {
-                            scavengeDictionary[selectedFriend.id] = updatedFriend
+                            friendsDictionary[selectedFriend.id] = updatedFriend
                         }
                     }
                 }
                 tableView.reloadRows(at: [indexPath], with: .none)
             } else {
                 if let updatedFriend = handleAddRemoveFriend(selectedFriend) {
-                    scavengeDictionary[selectedFriend.id] = updatedFriend
+                    friendsDictionary[selectedFriend.id] = updatedFriend
                     tableView.reloadData()
                 }
             }
@@ -620,19 +716,29 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - Segue
     @IBAction func startButtonTapped(_ sender: UIBarButtonItem) {
-        let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
-        let playingGameViewController = playingGameStoryboard.instantiateInitialViewController()
-        navigationController?.replaceStackWithViewController(destinationViewController: playingGameViewController!)
+        let queue = DispatchQueue(label: "createGameQueue")
+        queue.async(qos: .userInitiated) {
+            let playingGameStoryboard = UIStoryboard(name: kPlayingGameStoryboard, bundle: nil)
+            let playingGameViewController = playingGameStoryboard.instantiateInitialViewController() as? PlayingGameViewController
+            self.createGame()
+            
+            DispatchQueue.main.async {
+                if let currentGame = self.currentGame {
+                    playingGameViewController?.currentGame = currentGame
+                }
+                self.navigationController?.replaceStackWithViewController(destinationViewController: playingGameViewController!)
+            }
+        }
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {
         self.isInitialCellConfiguration = true
     }
     
-     // MARK: - Navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? MagnifiedProfileImageViewController {
-            if let index = magnifiedPlayerIndex, let magnifiedPlayer = selectedScavengeFriends[index] {
+            if let index = magnifiedPlayerIndex, let magnifiedPlayer = selectedFriends[index] {
                 destinationViewController.playerImage = magnifiedPlayer.profileImage
                 destinationViewController.playerName = magnifiedPlayer.name
                 destinationViewController.delegate = self
@@ -645,6 +751,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
 }
 
 extension NewGameViewController: UIViewControllerTransitioningDelegate {
+    
+    // MARK: - Detailed Player View Animation
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissNewGameProfileImageAnimator()
     }

@@ -8,11 +8,12 @@
 
 import UIKit
 
-let sampleTopics = ["The Epitome of Disappointment", "So Crazy It Just Might Work", "Public Selfie", "The Perfect Balance Between Business and Casual", "Sachin's Worst Nightmare"]
-
 class PlayingGameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    var topics: [String] = ["","","","",""]
     let cameraNotAvailableErrorMsg = "ya need a camera to play Scavenge, and this device doesn't have one"
+    
+    let cameraViewBackgroundColor = COLOR_LIGHT_BROWN
     
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -32,6 +33,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitButton: SButton!
     
+    var currentGame: Game? = nil
+        
     var imagePickerController : UIImagePickerController!
     var capturedImage : UIImage?
     var selectedIndex : Int!
@@ -47,18 +50,26 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = customBackBarItem()
-        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = NAVIGATION_BAR_TINT_COLOR
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 85
         tableView.scrollsToTop = true
         
-        navigationController?.delegate = self // todo todo todo
+        setupGameData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func setupGameData() {
+        if let currentGame = currentGame {
+            navigationItem.title = currentGame.title
+            topics = currentGame.topics
+            if let unsubmittedResponses = currentGame.unsubmittedResponses[currentUserID] {
+                capturedImages = unsubmittedResponses
+            }
+            
+            tableView.reloadData()
+        }
     }
     
     // MARK: - UIImagePickerControllerDelegate
@@ -94,7 +105,6 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             self.doubleTapGestureRecognizer.numberOfTapsRequired = 2
             self.imagePickerController.view.addGestureRecognizer(self.doubleTapGestureRecognizer)
             
-//            self.swipeToDismissGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeToDismissCamera))
             self.swipeToDismissCameraGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.swipeToDismissCamera(sender:)))
             self.swipeToDismissCameraGestureRecognizer.maximumNumberOfTouches = 1
             self.imagePickerController.view.addGestureRecognizer(self.swipeToDismissCameraGestureRecognizer)
@@ -102,8 +112,8 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             DispatchQueue.main.async {
                 Bundle.main.loadNibNamed("CameraOverlayView", owner:self, options:nil)
                 self.overlayView.frame = self.imagePickerController.cameraOverlayView!.frame
-                self.topView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
-                self.bottomView.backgroundColor = NAVIGATION_BAR_TINT_COLOR
+                self.topView.backgroundColor = self.cameraViewBackgroundColor
+                self.bottomView.backgroundColor = self.cameraViewBackgroundColor
                 self.selectCapturedImageButton.isHidden = true
                 self.topicLabel.text = topic
                 self.imagePickerController.cameraOverlayView = self.overlayView
@@ -188,26 +198,23 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func flashButtonTapped(_ sender: AnyObject) {
-        print("flash: ")
-        imagePickerController.showsCameraControls = true // workaround for cameraflashmode bug in iOS 10
         switch (imagePickerController.cameraFlashMode) {
         case .off:
-            cameraFlashButton.setImage(UIImage(named: "flashOnButton"), for: UIControlState())
+            cameraFlashButton.setImage(UIImage(named: kFlashOnButtonImageName), for: UIControlState())
             imagePickerController.cameraFlashMode = .on
             print("turning flash on")
             break
         case .on:
-            cameraFlashButton.setImage(UIImage(named: "flashAutoButton"), for: UIControlState())
+            cameraFlashButton.setImage(UIImage(named: kFlashAutoButtonImageName), for: UIControlState())
             imagePickerController.cameraFlashMode = .auto
             print("turning flash on auto")
             break
         case .auto:
-            cameraFlashButton.setImage(UIImage(named: "flashOffButton"), for: UIControlState())
+            cameraFlashButton.setImage(UIImage(named: kFlashOffButtonImageName), for: UIControlState())
             imagePickerController.cameraFlashMode = .off
             print("turning flash off")
             break
         }
-        imagePickerController.showsCameraControls = false // workaround for cameraflashmode bug in iOS 10
     }
     
     func switchDirectionCameraIsFacing() {
@@ -223,7 +230,6 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     // MARK: - Bottom Bar Actions
-    
     @IBAction func captureImageTapped(_ sender: AnyObject) {
         imagePickerController.takePicture()
     }
@@ -247,12 +253,11 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
 
     // MARK :- UITableViewDelegate
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ((indexPath as NSIndexPath).row != NUM_GAME_QUESTIONS) {
             selectedIndex = (indexPath as NSIndexPath).row
             tableView.deselectRow(at: indexPath, animated: true)
-            self.attemptShowImagePicker(sampleTopics[(indexPath as NSIndexPath).row])
+            self.attemptShowImagePicker(topics[(indexPath as NSIndexPath).row])
         }
     }
     
@@ -285,14 +290,14 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
             cell.submitButton.isEnabled = true
             cell.submitButton.alpha = 1.0
         } else {
-            cell.submitButton.isEnabled = true // TODO: replace true with false
+            cell.submitButton.isEnabled = false
             cell.submitButton.alpha = 0.6
         }
         return cell
     }
     
     func configureTopicCellForIndexPath(_ cell: PlayingGameTopicCell, indexPath: IndexPath) -> PlayingGameTopicCell {
-        cell.topicLabel.text = sampleTopics[(indexPath as NSIndexPath).row]
+        cell.topicLabel.text = topics[(indexPath as NSIndexPath).row]
         return cell
     }
 

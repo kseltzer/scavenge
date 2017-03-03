@@ -12,6 +12,7 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var fbLoginButton: LoginButton!
     @IBAction func fbLoginButtonPressed (_ sender: UIButton!) {
         self.attemptLoginWithFacebook()
     }
@@ -20,10 +21,16 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if UserDefaults.standard.value(forKey: KEY_UID) != nil {
+            // TODO: change currentUserID to UserDefaults.standard.value(forKey: KEY_UID)
+            // this can't be done until the login function is changed to logging in via the Scavenge backend, therefore correctly returning an Int as the user ID, rather than a string like it is now (because now it's just using the FB access token as an ID, later will use a Scavenge-generated ID)
+            currentUserID = 1
             self.handleLoggedIn()
+        } else {
+            fbLoginButton.isHidden = false
         }
     }
 
+    // TODO: change logging in with facebook to logging in via Scavenge backend, use that response to set currentUserID global var
     func attemptLoginWithFacebook() {
         let fbLoginManager = FBSDKLoginManager()
         fbLoginManager.logIn(withReadPermissions: ["public_profile", "user_friends"], from: self, handler: { (fbResult, error) ->

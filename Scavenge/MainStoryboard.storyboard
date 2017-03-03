@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9EV-vy-12j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9EV-vy-12j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -13,10 +13,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TourStoryboard-->
+        <!--HelpStoryboard-->
         <scene sceneID="xE9-5d-sj9">
             <objects>
-                <viewControllerPlaceholder storyboardName="TourStoryboard" id="RbZ-Hg-mcN" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="HelpStoryboard" id="RbZ-Hg-mcN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGG-AD-f48" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1817" y="-306"/>
@@ -90,15 +90,15 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.50788509406066862" green="0.51680224430282184" blue="0.55835336538461533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" textLabel="Lfs-av-njn" style="IBUITableViewCellStyleDefault" id="I4L-2x-9gP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuCell" textLabel="Lfs-av-njn" style="IBUITableViewCellStyleDefault" id="I4L-2x-9gP">
                                         <rect key="frame" x="0.0" y="28" width="244" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4L-2x-9gP" id="ze8-IY-61v">
-                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lfs-av-njn">
-                                                    <rect key="frame" x="15" y="0.0" width="214" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="214" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -161,7 +161,7 @@
                         <outlet property="lastNameLabel" destination="0QI-UZ-7ea" id="qi2-nn-xx0"/>
                         <outlet property="profileImageView" destination="oVh-Bq-3US" id="j6l-Am-xfM"/>
                         <outlet property="tableView" destination="hrb-fO-CNx" id="kUL-gZ-B5O"/>
-                        <segue destination="RbZ-Hg-mcN" kind="presentation" identifier="showTour" id="Mhu-KX-uXL"/>
+                        <segue destination="RbZ-Hg-mcN" kind="presentation" identifier="showHelp" id="Mhu-KX-uXL"/>
                         <segue destination="sJG-Et-qLp" kind="presentation" identifier="showInvite" id="gNU-ET-IWu"/>
                         <segue destination="4hY-v4-QbR" kind="presentation" identifier="showAbout" id="D1o-cW-r8m"/>
                         <segue destination="9EV-vy-12j" kind="presentation" identifier="showHome" id="EHD-Md-T2h"/>
@@ -179,7 +179,7 @@
         <!--Home View Controller-->
         <scene sceneID="04e-hM-u32">
             <objects>
-                <viewController id="dik-UW-LCa" userLabel="Home View Controller" customClass="HomeViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dik-UW-LCa" userLabel="Home View Controller" customClass="HomeViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YLg-4O-keG"/>
                         <viewControllerLayoutGuide type="bottom" id="qol-ra-C7u"/>
@@ -188,19 +188,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8W9-Ff-FdF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-Gq-BJQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.79607843140000001" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8W9-Ff-FdF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" id="LZf-GO-GjG" customClass="GameCell" customModule="Scavenge" customModuleProvider="target">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" id="LZf-GO-GjG" customClass="GameCell" customModule="Scavenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LZf-GO-GjG" id="0Jr-ML-0Hn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1f-4a-lUx" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1f-4a-lUx" userLabel="Custom Cell View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="0.0" width="359" height="57"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raccoon" translatesAutoresizingMaskIntoConstraints="NO" id="onU-O6-05M">
@@ -209,12 +213,12 @@
                                                                 <constraint firstAttribute="width" secondItem="onU-O6-05M" secondAttribute="height" multiplier="1:1" id="vY3-V1-Ahq"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-Wm-ij6">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-Wm-ij6">
                                                             <rect key="frame" x="65" y="4" width="256" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="m8n-8R-6dW"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -230,12 +234,12 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="rn1-v5-7va"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="TGc-jP-gUK" firstAttribute="centerY" secondItem="e1f-4a-lUx" secondAttribute="centerY" id="5dA-ue-iuP"/>
                                                         <constraint firstItem="csT-ji-Szk" firstAttribute="leading" secondItem="onU-O6-05M" secondAttribute="trailing" constant="16" id="C1E-w6-KsZ"/>
@@ -258,12 +262,15 @@
                                                 <constraint firstItem="e1f-4a-lUx" firstAttribute="leading" secondItem="0Jr-ML-0Hn" secondAttribute="leading" constant="8" id="z8b-E1-d1p"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="gameImageView" destination="onU-O6-05M" id="0Xn-Jc-2rQ"/>
+                                            <outlet property="gameTitleLabel" destination="K8V-Wm-ij6" id="7bQ-7U-Shs"/>
                                             <outlet property="roundedBorderView" destination="e1f-4a-lUx" id="Ig0-fA-luJ"/>
+                                            <outlet property="subtitleLabel" destination="csT-ji-Szk" id="Llv-Kc-rdk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="invitationCell" id="m3y-AW-LaY" customClass="InvitationCell" customModule="Scavenge" customModuleProvider="target">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="invitationCell" id="m3y-AW-LaY" customClass="InvitationCell" customModule="Scavenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="93" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3y-AW-LaY" id="mgu-T2-BSz">
@@ -272,11 +279,11 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5n-p2-Jo3">
                                                     <rect key="frame" x="285" y="0.0" width="90" height="57"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.59183078044295312" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.3411764705882353" green="0.87450980392156863" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="aO9-v1-333"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <state key="normal" title="Accept">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -286,11 +293,11 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBk-KY-qQh">
                                                     <rect key="frame" x="195" y="0.0" width="90" height="57"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.87450980392156863" green="0.3411764705882353" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="7kv-TA-3Rt"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <state key="normal" title="Decline">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -310,13 +317,12 @@
                                                                         <constraint firstAttribute="width" secondItem="Vxu-bt-lFu" secondAttribute="height" multiplier="1:1" id="yId-Lp-pzV"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgc-Ud-OZ5">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgc-Ud-OZ5">
                                                                     <rect key="frame" x="65" y="4" width="256" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="xnY-oc-JQC"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailDisclosure" translatesAutoresizingMaskIntoConstraints="NO" id="dgJ-LM-ARA">
@@ -331,7 +337,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Eun-zW-Ppb"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -352,6 +358,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="OzP-KN-dgh" firstAttribute="leading" secondItem="k5C-Ik-LfU" secondAttribute="leading" id="1iF-01-7jM"/>
                                                         <constraint firstItem="OzP-KN-dgh" firstAttribute="top" secondItem="k5C-Ik-LfU" secondAttribute="top" id="HEq-g1-nk3"/>
@@ -360,6 +367,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="k5C-Ik-LfU" firstAttribute="leading" secondItem="mgu-T2-BSz" secondAttribute="leading" constant="8" id="9vR-dQ-RyO"/>
                                                 <constraint firstItem="k5C-Ik-LfU" firstAttribute="top" secondItem="mgu-T2-BSz" secondAttribute="top" id="GzO-Hr-E2r"/>
@@ -373,6 +381,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="k5C-Ik-LfU" secondAttribute="trailing" constant="8" id="uGq-h2-6jk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="acceptButton" destination="a5n-p2-Jo3" id="1ar-lL-4fz"/>
                                             <outlet property="declineButton" destination="tBk-KY-qQh" id="2aJ-Bh-Mhx"/>
@@ -391,11 +400,15 @@
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="8W9-Ff-FdF" firstAttribute="top" secondItem="IdH-KX-O9N" secondAttribute="top" id="M9v-SK-Mb3"/>
+                            <constraint firstItem="qol-ra-C7u" firstAttribute="top" secondItem="VgJ-Gq-BJQ" secondAttribute="bottom" id="1O3-tQ-6nu"/>
+                            <constraint firstItem="VgJ-Gq-BJQ" firstAttribute="leading" secondItem="IdH-KX-O9N" secondAttribute="leading" id="Q3U-gQ-DFu"/>
+                            <constraint firstItem="8W9-Ff-FdF" firstAttribute="top" secondItem="YLg-4O-keG" secondAttribute="bottom" id="YYy-Km-w99"/>
                             <constraint firstAttribute="trailing" secondItem="8W9-Ff-FdF" secondAttribute="trailing" id="Ye2-q5-h7o"/>
                             <constraint firstItem="8W9-Ff-FdF" firstAttribute="leading" secondItem="IdH-KX-O9N" secondAttribute="leading" id="fSC-eN-ZjF"/>
                             <constraint firstItem="qol-ra-C7u" firstAttribute="top" secondItem="8W9-Ff-FdF" secondAttribute="bottom" id="hxW-QH-XQQ"/>
                             <constraint firstItem="8W9-Ff-FdF" firstAttribute="top" secondItem="YLg-4O-keG" secondAttribute="bottom" id="kri-lR-9Ob"/>
+                            <constraint firstAttribute="trailing" secondItem="VgJ-Gq-BJQ" secondAttribute="trailing" id="pLR-Ua-6aW"/>
+                            <constraint firstItem="VgJ-Gq-BJQ" firstAttribute="top" secondItem="IdH-KX-O9N" secondAttribute="top" id="zf0-Hg-MTU"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -407,7 +420,7 @@
                             <outletCollection property="gestureRecognizers" destination="7oc-l5-gBj" appends="YES" id="tMB-sR-lqP"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="{ Scavenge Logo }" id="aeh-vV-kcq">
+                    <navigationItem key="navigationItem" title="Scavenge" id="aeh-vV-kcq">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="hJe-aQ-I0C" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target">
                             <connections>
                                 <action selector="menuButtonPressed:" destination="dik-UW-LCa" id="OMV-ge-ImV"/>
@@ -437,7 +450,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1332" y="555"/>
+            <point key="canvasLocation" x="1332" y="554.57271364317842"/>
         </scene>
         <!--New Game-->
         <scene sceneID="O0c-Vz-mcP">
@@ -469,7 +482,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give your new game a title and icon (optional)" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85C-Pn-aCI" userLabel="Instructions Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give your game a title and icon (optional)" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85C-Pn-aCI" userLabel="Instructions Label">
                                         <rect key="frame" x="75" y="35" width="288" height="27"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -490,7 +503,7 @@
                                     <constraint firstItem="85C-Pn-aCI" firstAttribute="top" secondItem="GMn-Pm-aXv" secondAttribute="bottom" id="vq0-7N-cG5"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
                                 <rect key="frame" x="0.0" y="182" width="375" height="419"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -614,7 +627,7 @@
                                                     <constraint firstAttribute="width" secondItem="Ym4-wz-kQO" secondAttribute="height" multiplier="1:1" id="8LV-3L-dnm"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="60" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -624,7 +637,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="KKo-0o-Pcz" appends="YES" id="ZVt-7i-5a7"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="sachinNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="120.5" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -634,7 +647,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="1Zi-vr-SV8" appends="YES" id="9aa-66-5XQ"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="180.5" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -644,7 +657,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="2Cz-tQ-4gH" appends="YES" id="VVt-bA-kBU"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="sachinNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="241" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -654,7 +667,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="XuZ-xT-QTZ" appends="YES" id="hCE-6j-vak"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="kimNegativeState" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="301" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -690,7 +703,7 @@
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDO-rm-pIB" userLabel="Icon 1">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="foot_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Qtf-uH-a8o"/>
                                                         </connections>
@@ -723,7 +736,7 @@
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQV-pz-Hmo" userLabel="Icon 5">
                                                         <rect key="frame" x="72.5" y="0.0" width="65" height="65"/>
-                                                        <state key="normal" title="Button" image="foot_icon"/>
+                                                        <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="fLl-45-RGr"/>
                                                         </connections>
@@ -803,6 +816,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="New Game" id="jQK-5z-HtD">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Start" id="BKk-Ze-Clt">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="startButtonTapped:" destination="jKf-zi-WjN" id="Aw0-cl-NZj"/>
                             </connections>
@@ -823,6 +837,7 @@
                         <outlet property="profileImagesStackViewLeadingConstraint" destination="oq6-se-Qz5" id="A16-eH-7lc"/>
                         <outlet property="profileImagesStackViewTopConstraint" destination="fTN-fC-hMd" id="h6O-Ty-aCV"/>
                         <outlet property="profileImagesStackViewTrailingConstraint" destination="zpo-f6-tnl" id="o8W-pN-Wvm"/>
+                        <outlet property="profileImagesView" destination="6PM-81-vAs" id="mda-08-U18"/>
                         <outlet property="profileImagesViewHeightConstraint" destination="ByS-tC-9zJ" id="8Wz-xh-GQS"/>
                         <outlet property="searchBarView" destination="jc8-TR-Mh0" id="j7I-S2-NY7"/>
                         <outlet property="searchDisplayController" destination="VEI-4H-SYh" id="EYy-iG-O3w"/>
@@ -885,7 +900,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYa-ks-9db">
-                                        <rect key="frame" x="68" y="240" width="240" height="160"/>
+                                        <rect key="frame" x="67.5" y="240" width="240" height="160"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kim Seltzer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRB-xj-oBI">
                                                 <rect key="frame" x="11" y="69" width="219" height="49"/>
@@ -954,7 +969,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZD0-vQ-2Or" userLabel="Horizontal Separator View">
-                                        <rect key="frame" x="68" y="354" width="240" height="1"/>
+                                        <rect key="frame" x="67.5" y="354" width="240" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Jan-7P-VjK"/>
@@ -1035,10 +1050,11 @@
         <image name="detailDisclosure" width="64" height="64"/>
         <image name="fbProfilePic" width="960" height="960"/>
         <image name="foot_icon" width="80" height="80"/>
-        <image name="kimNegativeState" width="222" height="222"/>
+        <image name="negativeStateKim" width="222" height="222"/>
+        <image name="negativeStateSachin" width="222" height="222"/>
         <image name="raccoon" width="1119" height="1119"/>
         <image name="raccoon_icon" width="80" height="80"/>
-        <image name="sachinNegativeState" width="222" height="222"/>
         <image name="uncheckedBox" width="626" height="626"/>
+        <image name="wood" width="1080" height="1920"/>
     </resources>
 </document>

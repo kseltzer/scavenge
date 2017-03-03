@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c8u-zW-D1p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8u-zW-D1p">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -14,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="qvc-Q7-VBZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qDs-6j-Fqa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-yf-nab" customClass="LoginButton" customModule="Scavenge" customModuleProvider="target">
-                                <rect key="frame" x="208" y="274" width="185" height="51"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-yf-nab" customClass="LoginButton" customModule="Scavenge" customModuleProvider="target">
+                                <rect key="frame" x="95" y="308" width="185" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="185" id="Ce7-xG-Vo9"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="Ixf-md-nDA"/>
@@ -31,12 +35,15 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ca3-yf-nab" firstAttribute="centerX" secondItem="qDs-6j-Fqa" secondAttribute="centerX" id="0EN-B6-aw8"/>
                             <constraint firstItem="Ca3-yf-nab" firstAttribute="centerY" secondItem="qDs-6j-Fqa" secondAttribute="centerY" id="gwI-pj-aKl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fbLoginButton" destination="Ca3-yf-nab" id="6Ji-su-j5M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brn-Ry-IUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

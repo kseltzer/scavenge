@@ -9,9 +9,9 @@
 import UIKit
 
 let kBounceValue : CGFloat = 8.0
-let acceptColor = UIColor(red: 23/255, green: 163/255, blue: 84/255, alpha: 1.0)
-let declineColor = UIColor.red
-let defaultViewBackgroundColor = UIColor.white
+let acceptColor = COLOR_GREEN
+let declineColor = COLOR_RED
+let defaultViewBackgroundColor = CELL_DEFAULT_COLOR_HOME
 
 protocol InvitationCellProtocol {
     func acceptedGameInvite(cell: InvitationCell)
@@ -35,7 +35,6 @@ class InvitationCell: UITableViewCell {
     @IBOutlet weak var hideButtonsView: UIView!
     @IBOutlet weak var roundedBorderView: RoundedBorderedView!
     
-    
     @IBOutlet weak var hideButtonsViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideButtonsViewLeadingConstraint: NSLayoutConstraint!
     
@@ -43,6 +42,7 @@ class InvitationCell: UITableViewCell {
         super.awakeFromNib()
         layoutIfNeeded()
         gameImageView.layer.cornerRadius =  gameImageView.frame.size.height * 3/4
+        roundedBorderView.backgroundColor = defaultViewBackgroundColor
     }
     
     @IBAction func acceptButtonTapped(_ sender: AnyObject) {
@@ -87,15 +87,15 @@ class InvitationCell: UITableViewCell {
         if (animated) {
             hideButtonsViewLeadingConstraint.constant = -getTotalButtonWidth() - kBounceValue
             hideButtonsViewTrailingConstraint.constant = getTotalButtonWidth() + kBounceValue
-        }
         
-        updateConstraintsIfNeeded { (finished) in
-            self.hideButtonsViewLeadingConstraint.constant = -self.getTotalButtonWidth() + 2
-            self.hideButtonsViewTrailingConstraint.constant = self.getTotalButtonWidth() - 2
-            
-            self.updateConstraintsIfNeeded(with: { (finished) in
-                self.startingTrailingHideButtonsViewConstant = self.hideButtonsViewTrailingConstraint.constant
-            })
+            updateConstraintsIfNeeded { (finished) in
+                self.hideButtonsViewLeadingConstraint.constant = -self.getTotalButtonWidth() + 2
+                self.hideButtonsViewTrailingConstraint.constant = self.getTotalButtonWidth() - 2
+                
+                self.updateConstraintsIfNeeded(with: { (finished) in
+                    self.startingTrailingHideButtonsViewConstant = self.hideButtonsViewTrailingConstraint.constant
+                })
+            }
         }
         
         startingTrailingHideButtonsViewConstant = hideButtonsViewTrailingConstraint.constant

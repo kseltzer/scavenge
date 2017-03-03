@@ -12,6 +12,8 @@ class GameCell: UITableViewCell {
 
     @IBOutlet weak var roundedBorderView: RoundedBorderedView!
     @IBOutlet weak var gameImageView: UIImageView?
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var gameTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +25,7 @@ class GameCell: UITableViewCell {
         if (highlighted) {
             roundedBorderView.backgroundColor = CELL_HIGHLIGHTED_COLOR
         } else {
-            roundedBorderView.backgroundColor = UIColor.white
+            roundedBorderView.backgroundColor = CELL_DEFAULT_COLOR_HOME
         }
     }
     

@@ -13,7 +13,7 @@ let screenSize: CGRect = UIScreen.main.bounds
 let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
 let cellWidth = screenSize.width - (leadingSpace + trailingSpace)
 
-let sampleContentImagesFromBackend = [UIImage(named: "aliya"), UIImage(named: "sachin"), UIImage(named: "paul")] // TODO: delete this line
+let dummyContentImagesFromBackend = [UIImage(named: "aliya"), UIImage(named: "sachin"), UIImage(named: "paul")] // TODO: delete this line
 
 class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, VotingCellDelegate {
     
@@ -86,7 +86,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.submitButton.isEnabled = true
                 cell.submitButton.alpha = 1.0
             } else {
-            cell.submitButton.isEnabled = true //TODO: set to false; currently set to true for testing purposes only
+            cell.submitButton.isEnabled = false
                 cell.submitButton.alpha = 0.6
             }
         return cell
@@ -101,7 +101,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "photosForTopicCell") as! VotingCell
         cell.delegate = self
         cell.index = (indexPath as NSIndexPath).section
-        cell.images = sampleContentImagesFromBackend as! [UIImage] // TODO: get data from images array, which gets data from backend
+        cell.images = dummyContentImagesFromBackend as! [UIImage] // TODO: get data from images array, which gets data from backend
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
         let pageNumber = round(cell.scrollView.contentOffset.x / cell.scrollView.frame.size.width)
         cell.pageControl.currentPage = Int(pageNumber)
