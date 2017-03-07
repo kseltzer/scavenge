@@ -131,6 +131,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         iconSelectionViewFrame = iconSelectionView.frame
         
         profileImagesViewHeightContstraintOriginalConstant = profileImagesViewHeightConstraint.constant
+        for index in 1...5 {
+            setTabBarNegativeStateProfileImage(index: index)
+        }
         
         downloadFriendsJSON()
     }
@@ -553,25 +556,39 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func removeSelectedFriendImageFromHeader(_ index: Int?) {
         if let headerProfilePhotoIndex = index {
-            switch (headerProfilePhotoIndex) {
-            case 1:
-                profileImageViewFriend1.image = UIImage(named: kNegativeStateProfileImageKim)
-                break
-            case 2:
-                profileImageViewFriend2.image = UIImage(named: kNegativeStateProfileImageAliya)
-                break
-            case 3:
-                profileImageViewFriend3.image = UIImage(named: kNegativeStateProfileImageMahir)
-                break
-            case 4:
-                profileImageViewFriend4.image = UIImage(named: kNegativeStateProfileImageSachin)
-                break
-            case 5:
-                profileImageViewFriend5.image = UIImage(named: kNegativeStateProfileImageIan)
-                break
-            default:
-                break
+            setTabBarNegativeStateProfileImage(index: headerProfilePhotoIndex)
+        }
+    }
+    
+    func setTabBarNegativeStateProfileImage(index: Int) {
+        switch (index) {
+        case 1:
+            if let negativeStateImage = UIImage(named: kNegativeStateProfileImageAliya) {
+                profileImageViewFriend1.image = negativeStateImage.compress()
             }
+            break
+        case 2:
+            if let negativeStateImage = UIImage(named: kNegativeStateProfileImageIan) {
+                profileImageViewFriend2.image = negativeStateImage.compress()
+            }
+            break
+        case 3:
+            if let negativeStateImage = UIImage(named: kNegativeStateProfileImageSachin) {
+                profileImageViewFriend3.image = negativeStateImage.compress()
+            }
+            break
+        case 4:
+            if let negativeStateImage = UIImage(named: kNegativeStateProfileImageKim) {
+                profileImageViewFriend4.image = negativeStateImage.compress()
+            }
+            break
+        case 5:
+            if let negativeStateImage = UIImage(named: kNegativeStateProfileImageAC) {
+                profileImageViewFriend5.image = negativeStateImage.compress()
+            }
+            break
+        default:
+            break
         }
     }
 
