@@ -94,11 +94,11 @@
                                         <rect key="frame" x="0.0" y="28" width="244" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4L-2x-9gP" id="ze8-IY-61v">
-                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lfs-av-njn">
-                                                    <rect key="frame" x="15" y="0.0" width="214" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="214" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -213,7 +213,7 @@
                                                                 <constraint firstAttribute="width" secondItem="onU-O6-05M" secondAttribute="height" multiplier="1:1" id="vY3-V1-Ahq"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-Wm-ij6">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-Wm-ij6">
                                                             <rect key="frame" x="65" y="4" width="256" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="m8n-8R-6dW"/>
@@ -234,7 +234,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="rn1-v5-7va"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -317,7 +317,7 @@
                                                                         <constraint firstAttribute="width" secondItem="Vxu-bt-lFu" secondAttribute="height" multiplier="1:1" id="yId-Lp-pzV"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgc-Ud-OZ5">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgc-Ud-OZ5">
                                                                     <rect key="frame" x="65" y="4" width="256" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="xnY-oc-JQC"/>
@@ -337,7 +337,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Eun-zW-Ppb"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="12"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -1049,7 +1049,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9EV-vy-12j" customClass="SNavigationController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uWk-yO-LTp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uWk-yO-LTp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1071,11 +1071,11 @@
         <image name="detailDisclosure" width="64" height="64"/>
         <image name="fbProfilePic" width="960" height="960"/>
         <image name="foot_icon" width="80" height="80"/>
-        <image name="negativeStateAC" width="446" height="441"/>
-        <image name="negativeStateAliya" width="446" height="448"/>
-        <image name="negativeStateIan" width="447" height="439"/>
-        <image name="negativeStateKim" width="447" height="447"/>
-        <image name="negativeStateSachin" width="447" height="444"/>
+        <image name="negativeStateAC" width="440" height="440"/>
+        <image name="negativeStateAliya" width="440" height="440"/>
+        <image name="negativeStateIan" width="440" height="440"/>
+        <image name="negativeStateKim" width="440" height="440"/>
+        <image name="negativeStateSachin" width="440" height="440"/>
         <image name="raccoon" width="1119" height="1119"/>
         <image name="raccoon_icon" width="80" height="80"/>
         <image name="uncheckedBox" width="626" height="626"/>
