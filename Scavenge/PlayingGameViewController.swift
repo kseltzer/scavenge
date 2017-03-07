@@ -281,6 +281,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     func setImageForCellAtIndexPath (_ index: Int, image: UIImage?) {
         let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! PlayingGameTopicCell
         cell.thumbnailImageView.image = cropImageToSquare(image!)
+        cell.thumbnailImageView.contentMode = .scaleAspectFill
     }
     
     func configureSubmitCell(_ cell: SubmitCell) -> SubmitCell {
@@ -325,6 +326,21 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         case .ended:
             interactor.hasStarted = false
             if (interactor.shouldFinish) {
+                if (self.capturedImage != nil) {
+                    self.setImageForCellAtIndexPath(self.selectedIndex, image: self.capturedImage)
+                    self.capturedImages[self.selectedIndex] = self.capturedImage
+                    self.capturedImage = nil
+                    
+                    self.allImagesCaptured = true
+                    for image in self.capturedImages {
+                        if (image == nil) {
+                            self.allImagesCaptured = false
+                        }
+                    }
+                    if (self.allImagesCaptured) {
+                        self.tableView.reloadData()
+                    }
+                }
                 setupUIForCapturingImage()
             }
             interactor.shouldFinish ? interactor.finish() : interactor.cancel()

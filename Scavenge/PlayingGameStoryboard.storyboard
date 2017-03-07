@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,35 +40,37 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-dl-uI1" userLabel="Custom View" customClass="RoundedBorderedView" customModule="Scavenge" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="64"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-Yh-zAm">
-                                                            <rect key="frame" x="308" y="8" width="43" height="48"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ Some Topic }" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wo8-DZ-m2S">
+                                                            <rect key="frame" x="63" y="8" width="280" height="48"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-Yh-zAm">
+                                                            <rect key="frame" x="8" y="8" width="43" height="48"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="gcF-Yh-zAm" secondAttribute="height" multiplier="7:8" constant="1" id="4Sm-6g-kZg"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ Some Topic }" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wo8-DZ-m2S">
-                                                            <rect key="frame" x="8" y="22" width="292" height="20"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.3411764706" green="0.87450980389999999" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="wo8-DZ-m2S" firstAttribute="leading" secondItem="0cc-dl-uI1" secondAttribute="leading" constant="8" id="7ks-z5-g3Z"/>
+                                                        <constraint firstItem="wo8-DZ-m2S" firstAttribute="bottom" secondItem="gcF-Yh-zAm" secondAttribute="bottom" id="6Yl-fU-jfw"/>
                                                         <constraint firstItem="gcF-Yh-zAm" firstAttribute="top" secondItem="0cc-dl-uI1" secondAttribute="top" constant="8" id="CKp-Rk-TYT"/>
                                                         <constraint firstAttribute="bottom" secondItem="gcF-Yh-zAm" secondAttribute="bottom" constant="8" id="EIG-wb-078"/>
-                                                        <constraint firstItem="gcF-Yh-zAm" firstAttribute="leading" secondItem="wo8-DZ-m2S" secondAttribute="trailing" constant="8" id="ZCO-jC-UcC"/>
+                                                        <constraint firstItem="wo8-DZ-m2S" firstAttribute="top" secondItem="gcF-Yh-zAm" secondAttribute="top" id="ILI-y6-8yL"/>
+                                                        <constraint firstItem="gcF-Yh-zAm" firstAttribute="leading" secondItem="0cc-dl-uI1" secondAttribute="leading" constant="8" id="c60-7D-Y8S"/>
                                                         <constraint firstItem="wo8-DZ-m2S" firstAttribute="centerY" secondItem="0cc-dl-uI1" secondAttribute="centerY" id="i1y-DT-adG"/>
-                                                        <constraint firstAttribute="trailing" secondItem="gcF-Yh-zAm" secondAttribute="trailing" constant="8" id="toq-fW-pq7"/>
+                                                        <constraint firstItem="wo8-DZ-m2S" firstAttribute="leading" secondItem="gcF-Yh-zAm" secondAttribute="trailing" constant="12" id="pDl-bd-NCR"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0cc-dl-uI1" secondAttribute="trailing" id="Ebf-8C-3kK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wo8-DZ-m2S" secondAttribute="trailing" constant="8" id="Nlj-oq-St4"/>
                                                 <constraint firstItem="0cc-dl-uI1" firstAttribute="top" secondItem="ScD-Lb-zLE" secondAttribute="top" id="TdL-XX-hKO"/>
                                                 <constraint firstAttribute="bottom" secondItem="0cc-dl-uI1" secondAttribute="bottom" constant="8" id="mAx-yO-DWZ"/>
                                                 <constraint firstItem="0cc-dl-uI1" firstAttribute="leading" secondItem="ScD-Lb-zLE" secondAttribute="leading" id="tMx-Sc-3gP"/>
-                                                <constraint firstAttribute="trailing" secondItem="0cc-dl-uI1" secondAttribute="trailing" id="tis-qL-378"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -134,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3IU-vo-fbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="332"/>
+            <point key="canvasLocation" x="1164" y="331.48425787106447"/>
         </scene>
         <!--Voting-->
         <scene sceneID="GUe-GY-J7K">
@@ -246,7 +249,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPU-oD-Dhk">
-                                <rect key="frame" x="148.5" y="28" width="78" height="21"/>
+                                <rect key="frame" x="149" y="28" width="78" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="g6I-zt-F0N"/>
                                     <constraint firstAttribute="width" constant="78" id="rfJ-8G-7Zl"/>
@@ -324,6 +327,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="799" height="799"/>
         <image name="profilePicNegativeState" width="1290" height="1290"/>
     </resources>
 </document>

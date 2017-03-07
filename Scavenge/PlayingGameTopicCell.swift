@@ -17,7 +17,8 @@ class PlayingGameTopicCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        thumbnailImageView.image = thumbnailImageView.image?.compress(newSize: CGSize(width: 88, height: 86))
+        thumbnailImageView.contentMode = .scaleAspectFit
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
