@@ -45,6 +45,7 @@ let kPlayingGameViewController = "PlayingGameViewController"
 let kSNavigationController = "SNavigationController"
 let kGameResultsViewController = "ResultsViewController"
 let kVotingViewController = "VotingViewController"
+let kGameSummaryViewController = "GameSummaryViewController"
 
 // MARK: - Segue Constants
 let kShowMenuSegue = "showMenu"
@@ -122,10 +123,10 @@ let JSON_KEY_TOPICS = "topics"
 
 // MARK: - Image Constants
 let kNegativeStateProfileImageKim = "negativeStateKim"
-let kNegativeStateProfileImageAliya = "negativeStateSachin" // todo, change to "negativeStateAliya"
-let kNegativeStateProfileImageMahir = "negativeStateKim" // todo, change to "negativeStateMahir"
+let kNegativeStateProfileImageAliya = "negativeStateAliya"
+let kNegativeStateProfileImageAC = "negativeStateAC"
 let kNegativeStateProfileImageSachin = "negativeStateSachin"
-let kNegativeStateProfileImageIan = "negativeStateKim" // todo, change to "negativeStateIan"
+let kNegativeStateProfileImageIan = "negativeStateIan"
 
 let kFlashOnButtonImageName = "flashOnButton"
 let kFlashOffButtonImageName = "flashOffButton"

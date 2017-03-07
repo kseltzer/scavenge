@@ -317,6 +317,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.navigationController?.pushViewController(playingGameViewController!, animated: true);
             break
         case TableViewSection.theirMove.rawValue:
+            let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
+            let gameSummaryViewController = mainStoryboard.instantiateViewController(withIdentifier: kGameSummaryViewController)
+            self.navigationController?.pushViewController(gameSummaryViewController, animated: true);
             break
         default:
             break

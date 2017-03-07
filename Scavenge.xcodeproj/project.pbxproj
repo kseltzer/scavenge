@@ -11,6 +11,9 @@
 		4E00865C1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00865B1DDC49BB00F5AD20 /* DismissNewGameProfileImageAnimator.swift */; };
 		4E0086631DDE9F1300F5AD20 /* DismissCameraAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */; };
 		4E0086671DDEE64400F5AD20 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0086661DDEE64400F5AD20 /* GameCell.swift */; };
+		4E04B5D31E6A09D600F682FB /* GameSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04B5D21E6A09D600F682FB /* GameSummaryViewController.swift */; };
+		4E04B5D81E6A1AC700F682FB /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E04B5D71E6A1AC700F682FB /* iCarousel.m */; };
+		4E04B5DA1E6A1AF300F682FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04B5D91E6A1AF300F682FB /* QuartzCore.framework */; };
 		4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1011D11D73BE4E00662E9F /* MenuViewController.swift */; };
 		4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */; };
 		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
@@ -93,6 +96,11 @@
 		4E0086621DDE9F1300F5AD20 /* DismissCameraAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissCameraAnimator.swift; sourceTree = "<group>"; };
 		4E0086661DDEE64400F5AD20 /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		4E033FE11DCD164300824D7E /* Scavenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scavenge.entitlements; sourceTree = "<group>"; };
+		4E04B5D21E6A09D600F682FB /* GameSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryViewController.swift; sourceTree = "<group>"; };
+		4E04B5D51E6A1AC600F682FB /* Scavenge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scavenge-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E04B5D61E6A1AC700F682FB /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		4E04B5D71E6A1AC700F682FB /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		4E04B5D91E6A1AF300F682FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4E1011D11D73BE4E00662E9F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
 		4E22779B1D32D0D100E22436 /* Scavenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E04B5DA1E6A1AF300F682FB /* QuartzCore.framework in Frameworks */,
 				4EC034AA1D87BBE400C6D346 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				4E2277DE1D32D80A00E22436 /* Bolts.framework in Frameworks */,
 				4E2277DF1D32D80B00E22436 /* FBSDKCoreKit.framework in Frameworks */,
@@ -195,6 +204,17 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		4E04B5D41E6A1ABA00F682FB /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				4E04B5D61E6A1AC700F682FB /* iCarousel.h */,
+				4E04B5D71E6A1AC700F682FB /* iCarousel.m */,
+				4E04B5D51E6A1AC600F682FB /* Scavenge-Bridging-Header.h */,
+			);
+			name = iCarousel;
+			path = Scavenge;
+			sourceTree = "<group>";
+		};
 		4E1584631D4ED76E00208E3A /* Playing Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +229,7 @@
 		4E2277921D32D0D100E22436 = {
 			isa = PBXGroup;
 			children = (
+				4E04B5D41E6A1ABA00F682FB /* iCarousel */,
 				4E22779D1D32D0D100E22436 /* Scavenge */,
 				4E2277C01D32D0D100E22436 /* ScavengeUITests */,
 				4E22779C1D32D0D100E22436 /* Products */,
@@ -289,6 +310,7 @@
 				4EB6408D1D76397700EA308D /* AboutViewController.swift */,
 				4EB6408F1D763AAC00EA308D /* InviteViewController.swift */,
 				4E0086591DDBA6FE00F5AD20 /* MagnifiedProfileImageViewController.swift */,
+				4E04B5D21E6A09D600F682FB /* GameSummaryViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,6 +336,7 @@
 		4E2277DA1D32D7F900E22436 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E04B5D91E6A1AF300F682FB /* QuartzCore.framework */,
 				4EC034A91D87BBE400C6D346 /* FBSDKMessengerShareKit.framework */,
 				4E2277DB1D32D80A00E22436 /* Bolts.framework */,
 				4E2277DC1D32D80A00E22436 /* FBSDKCoreKit.framework */,
@@ -488,7 +511,7 @@
 					4E22779A1D32D0D100E22436 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 83NM8QSVHT;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -587,12 +610,14 @@
 				4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */,
 				4EB042881E0DC74A00BCAA4E /* TopicSubmission.swift in Sources */,
 				4E6D98431D56CBF9007DEFAB /* VotingCell.swift in Sources */,
+				4E04B5D31E6A09D600F682FB /* GameSummaryViewController.swift in Sources */,
 				4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */,
 				4E22780D1D376FF500E22436 /* SUtilities.swift in Sources */,
 				4E2277D91D32D30300E22436 /* SButton.swift in Sources */,
 				4E2278181D41EB5B00E22436 /* NewGameViewController.swift in Sources */,
 				4E2277A71D32D0D100E22436 /* Scavenge.xcdatamodeld in Sources */,
 				4EB640761D73C38F00EA308D /* InteractiveTransitionController.swift in Sources */,
+				4E04B5D81E6A1AC700F682FB /* iCarousel.m in Sources */,
 				4EA2384A1D779BBE00BD278B /* ResultsViewController.swift in Sources */,
 				4EA9A43A1DE0E8DC00F74D97 /* InvitationCell.swift in Sources */,
 				4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */,
@@ -750,6 +775,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Scavenge/Scavenge.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -760,6 +786,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.Scavenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Scavenge/Scavenge-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -768,6 +796,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Scavenge/Scavenge.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -778,6 +807,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scavengeapp.Scavenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Scavenge/Scavenge-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

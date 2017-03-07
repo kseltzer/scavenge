@@ -452,6 +452,27 @@
             </objects>
             <point key="canvasLocation" x="1332" y="554.57271364317842"/>
         </scene>
+        <!--Game Summary-->
+        <scene sceneID="SSN-GZ-ERu">
+            <objects>
+                <viewController storyboardIdentifier="GameSummaryViewController" title="Game Summary" id="oxH-Sf-7YX" customClass="GameSummaryViewController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IxR-vT-bUO"/>
+                        <viewControllerLayoutGuide type="bottom" id="pwm-K5-Rli"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PKt-Ma-A0w" customClass="iCarousel">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.3411764706" green="0.87450980389999999" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="carouselView" destination="PKt-Ma-A0w" id="6it-nZ-Rk6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wH9-AS-LxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="1235"/>
+        </scene>
         <!--New Game-->
         <scene sceneID="O0c-Vz-mcP">
             <objects>
@@ -627,7 +648,7 @@
                                                     <constraint firstAttribute="width" secondItem="Ym4-wz-kQO" secondAttribute="height" multiplier="1:1" id="8LV-3L-dnm"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateAliya" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-zP-z6u" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="60" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -637,7 +658,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="KKo-0o-Pcz" appends="YES" id="ZVt-7i-5a7"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateIan" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="120.5" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -647,7 +668,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="1Zi-vr-SV8" appends="YES" id="9aa-66-5XQ"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="180.5" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -657,7 +678,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="2Cz-tQ-4gH" appends="YES" id="VVt-bA-kBU"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="BaR-DG-A7I" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="241" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -667,7 +688,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="XuZ-xT-QTZ" appends="YES" id="hCE-6j-vak"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateKim" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateAC" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-NO-oa8" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="301" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
@@ -900,7 +921,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYa-ks-9db">
-                                        <rect key="frame" x="67.5" y="240" width="240" height="160"/>
+                                        <rect key="frame" x="68" y="240" width="240" height="160"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kim Seltzer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRB-xj-oBI">
                                                 <rect key="frame" x="11" y="69" width="219" height="49"/>
@@ -969,7 +990,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZD0-vQ-2Or" userLabel="Horizontal Separator View">
-                                        <rect key="frame" x="67.5" y="354" width="240" height="1"/>
+                                        <rect key="frame" x="68" y="354" width="240" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Jan-7P-VjK"/>
@@ -1050,8 +1071,11 @@
         <image name="detailDisclosure" width="64" height="64"/>
         <image name="fbProfilePic" width="960" height="960"/>
         <image name="foot_icon" width="80" height="80"/>
-        <image name="negativeStateKim" width="222" height="222"/>
-        <image name="negativeStateSachin" width="222" height="222"/>
+        <image name="negativeStateAC" width="446" height="441"/>
+        <image name="negativeStateAliya" width="446" height="448"/>
+        <image name="negativeStateIan" width="447" height="439"/>
+        <image name="negativeStateKim" width="447" height="447"/>
+        <image name="negativeStateSachin" width="447" height="444"/>
         <image name="raccoon" width="1119" height="1119"/>
         <image name="raccoon_icon" width="80" height="80"/>
         <image name="uncheckedBox" width="626" height="626"/>
