@@ -254,6 +254,16 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .words
         searchController.delegate = self
+        searchController.searchBar.barTintColor = UIColor.black
+        
+        
+        // custom searchBar font
+        let textFieldInsideUISearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideUISearchBar?.textColor = UIColor.black
+        textFieldInsideUISearchBar?.font = FONT_STANDARD_TEXT_LIGHT
+        // custom cancel button
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSFontAttributeName: FONT_STANDARD_TEXT!, NSForegroundColorAttributeName: UIColor.lightGray], for: .normal)
+
     }
 
     // MARK: - UITableViewDelegate
@@ -321,11 +331,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 35))
-        returnedView.backgroundColor = UIColor.white
+        returnedView.backgroundColor = UIColor.clear
         
-        let label = UILabel(frame: CGRect(x: 8, y: topPadding, width: tableView.frame.width, height: 22))
-        label.text = sectionTitle
-        returnedView.addSubview(label)
+        let sectionTitleLabel = UILabel(frame: CGRect(x: 8, y: topPadding, width: tableView.frame.width, height: 22))
+        sectionTitleLabel.text = sectionTitle
+        sectionTitleLabel.font = TABLE_VIEW_SECTION_FONT
+        returnedView.addSubview(sectionTitleLabel)
 
         return returnedView
     }

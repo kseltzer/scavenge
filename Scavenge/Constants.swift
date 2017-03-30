@@ -8,14 +8,17 @@
 
 import Foundation
 import UIKit
-//225,154,106
+// dark brown: 157,77,71
+// light brown: 211,171,136
+// yellow: 255,206,101
+
 // MARK: - Colors
 let COLOR_LIGHT_BROWN = UIColor(red: 216/255, green: 185/255, blue: 131/255, alpha: 1.0) /* #D8B983 */
-let COLOR_RED = UIColor(red: 223/255, green: 87/255, blue: 100/255, alpha: 1.0) /* peach */
-let COLOR_BROWN = UIColor(red: 236/255, green: 203/255, blue: 140/255, alpha: 1.0) /* orangish-brown */
-let COLOR_YELLOW = UIColor(red: 246/255, green: 246/255, blue: 167/255, alpha: 1.0) /* light yellow */
+let COLOR_DARK_BROWN = UIColor(red: 211/255, green: 171/255, blue: 136/255, alpha: 1.0)
+let COLOR_ORANGE = UIColor(red: 234/255, green: 117/255, blue: 10/255, alpha: 1.0) /* #ea750a */
+let COLOR_RED = UIColor(red: 223/255, green: 87/255, blue: 100/255, alpha: 1.0) /* #df5764 */
+let COLOR_YELLOW = UIColor(red:1.00, green:0.81, blue:0.40, alpha:1.0)
 let COLOR_GREEN = UIColor(red: 87/255, green: 223/255, blue: 210/255, alpha: 1.0) /* greenish-blue */
-
 
 // MARK: - Game Play Constants
 let NUM_GAME_QUESTIONS = 5
@@ -79,9 +82,13 @@ let kSubsectionTitleYourMove = "your move"
 let kSubsectionTitleTheirMove = "their move"
 let kSectionTitleCompletedGames = "COMPLETED GAMES"
 
-let kSectionTitleRecents = "Recents"
-let kSectionTitleFriendsOnScavenge = "Friends"
-let kSectionTitleFriendsNotOnScavenge = "Invite"
+let kSectionTitleRecents = "RECENTS"
+let kSectionTitleFriendsOnScavenge = "FRIENDS"
+let kSectionTitleFriendsNotOnScavenge = "INVITE"
+
+// MARK: - Font Constants
+let FONT_STANDARD_TEXT = UIFont(name: "Avenir-Black", size: 17.0)
+let FONT_STANDARD_TEXT_LIGHT = UIFont(name: "AvenirNext-Medium", size: 17.0)
 
 // MARK: - Menu Customization
 let MENU_OPTION_TEXT_DEFAULT_COLOR = UIColor.groupTableViewBackground
@@ -90,7 +97,7 @@ let MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR = UIColor.lightGray
 // MARK: - Cell Customization
 let CELL_SELECTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)
 let CELL_HIGHLIGHTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)
-let CELL_DEFAULT_COLOR = UIColor(red: 224/255, green: 198/255, blue: 149/255, alpha: 1.0)
+let CELL_DEFAULT_COLOR = COLOR_LIGHT_BROWN
 
 let CELL_DEFAULT_COLOR_HOME = COLOR_LIGHT_BROWN
 
