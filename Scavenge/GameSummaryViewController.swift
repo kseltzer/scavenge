@@ -30,10 +30,15 @@ class GameSummaryViewController: UIViewController, iCarouselDelegate, iCarouselD
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
+
+
+
         
         var itemView: UIImageView
+
+        let largeView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 400))
         
-        let largeView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 400))
+        largeView.backgroundColor = UIColor.red
         
         //reuse view if available, otherwise create a new view
         if let view = view as? UIImageView {
@@ -43,7 +48,7 @@ class GameSummaryViewController: UIViewController, iCarouselDelegate, iCarouselD
             //don't do anything specific to the index within
             //this `if ... else` statement because the view will be
             //recycled and used with other index values later
-            itemView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 250))
+            itemView = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
             itemView.image = items[index]
             itemView.contentMode = .scaleAspectFill
         }

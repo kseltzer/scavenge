@@ -94,11 +94,11 @@
                                         <rect key="frame" x="0.0" y="28" width="244" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4L-2x-9gP" id="ze8-IY-61v">
-                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lfs-av-njn">
-                                                    <rect key="frame" x="15" y="0.0" width="214" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="214" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -463,7 +463,17 @@
                     <view key="view" contentMode="scaleToFill" id="PKt-Ma-A0w" customClass="iCarousel">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.3411764706" green="0.87450980389999999" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood" translatesAutoresizingMaskIntoConstraints="NO" id="4nH-wf-sQv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="4nH-wf-sQv" firstAttribute="top" secondItem="PKt-Ma-A0w" secondAttribute="top" id="1vq-Wj-eYH"/>
+                            <constraint firstItem="4nH-wf-sQv" firstAttribute="leading" secondItem="PKt-Ma-A0w" secondAttribute="leading" id="3L9-0S-SoI"/>
+                            <constraint firstItem="pwm-K5-Rli" firstAttribute="top" secondItem="4nH-wf-sQv" secondAttribute="bottom" id="8uw-MW-jlF"/>
+                            <constraint firstAttribute="trailing" secondItem="4nH-wf-sQv" secondAttribute="trailing" id="G2g-m3-lEb"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="carouselView" destination="PKt-Ma-A0w" id="6it-nZ-Rk6"/>
@@ -471,7 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wH9-AS-LxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2014" y="1235"/>
+            <point key="canvasLocation" x="2013.5999999999999" y="1234.6326836581711"/>
         </scene>
         <!--New Game-->
         <scene sceneID="O0c-Vz-mcP">
@@ -666,7 +676,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateIan" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                <rect key="frame" x="120.5" y="0.0" width="46" height="46"/>
+                                                <rect key="frame" x="120" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SIJ-5R-UKm" secondAttribute="height" multiplier="1:1" id="Y9S-2Q-EAS"/>
@@ -676,7 +686,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                <rect key="frame" x="180.5" y="0.0" width="46" height="46"/>
+                                                <rect key="frame" x="181" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jHM-bL-Rql" secondAttribute="height" multiplier="1:1" id="TOb-p7-bNT"/>
@@ -727,24 +737,24 @@
                                         <rect key="frame" x="8" y="8" width="210" height="210"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="otE-mj-XKK" userLabel="Horiz Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="210" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="210" height="65"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDO-rm-pIB" userLabel="Icon 1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                         <state key="normal" title="Button" image="foot_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Qtf-uH-a8o"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-rK-XWs" userLabel="Icon 2">
-                                                        <rect key="frame" x="72.5" y="0.0" width="65" height="64.5"/>
+                                                        <rect key="frame" x="73" y="0.0" width="64" height="65"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="R3B-MM-AJl"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Df-Fui" userLabel="Icon 3">
-                                                        <rect key="frame" x="145.5" y="0.0" width="64.5" height="64.5"/>
+                                                        <rect key="frame" x="145" y="0.0" width="65" height="65"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="SBB-bB-yaR"/>
@@ -753,24 +763,24 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fMi-Ht-Eac" userLabel="Horiz Stack View">
-                                                <rect key="frame" x="0.0" y="72.5" width="210" height="65"/>
+                                                <rect key="frame" x="0.0" y="73" width="210" height="64"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX2-7B-Kl7" userLabel="Icon 4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="65"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="DlR-sw-PmX"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQV-pz-Hmo" userLabel="Icon 5">
-                                                        <rect key="frame" x="72.5" y="0.0" width="65" height="65"/>
+                                                        <rect key="frame" x="73" y="0.0" width="64" height="64"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="fLl-45-RGr"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGR-P4-wGL" userLabel="Icon 6">
-                                                        <rect key="frame" x="145.5" y="0.0" width="64.5" height="65"/>
+                                                        <rect key="frame" x="145" y="0.0" width="65" height="64"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="KQB-hH-6Yk"/>
@@ -779,24 +789,24 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-mX-jIy" userLabel="Horiz Stack View">
-                                                <rect key="frame" x="0.0" y="145.5" width="210" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="145" width="210" height="65"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilu-hf-MOd" userLabel="Icon 7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="PGY-NF-gfy"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCv-GH-6m6" userLabel="Icon 8">
-                                                        <rect key="frame" x="72.5" y="0.0" width="65" height="64.5"/>
+                                                        <rect key="frame" x="73" y="0.0" width="64" height="65"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Ghb-bL-NaL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4y-On-Wwj" userLabel="Icon 9">
-                                                        <rect key="frame" x="145.5" y="0.0" width="64.5" height="64.5"/>
+                                                        <rect key="frame" x="145" y="0.0" width="65" height="65"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="1w9-xL-4de"/>
