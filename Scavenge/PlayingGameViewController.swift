@@ -61,10 +61,12 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func setupGameData() {
+        // todo: change userID to the string currentUserID (just not doing this now so I can test stuff without changing the ID from int to string (should be a string))
         if let currentGame = currentGame {
+            let tempVariableID = 4
             navigationItem.title = currentGame.title
             topics = currentGame.topics
-            if let unsubmittedResponses = currentGame.unsubmittedResponses[currentUserID] {
+            if let unsubmittedResponses = currentGame.unsubmittedResponses[tempVariableID] { // todo: if let unsubmittedResponses = currentGame.unsubmittedResponses[currentUserID]
                 capturedImages = unsubmittedResponses
             }
             

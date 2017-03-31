@@ -26,13 +26,15 @@ let IMAGE_RATIO : CGFloat = 8 / 7
 let MAX_PLAYERS : Int = 6
 
 // MARK: - Session Constants
-let KEY_UID = "uid"
+let KEY_ID = "id"
+let KEY_ACCESS_TOKEN = "access_token"
 let KEY_FIRST_NAME = "first_name"
 let KEY_LAST_NAME = "last_name"
 
 // MARK: - Session Variables
 var userProfileImage: UIImage? = nil
-var currentUserID: Int!
+var currentUserID: String = ""
+var currentUserAccessToken: String = ""
 
 // MARK: - Storyboard Constants
 let kLoginStoryboard = "LoginStoryboard"
