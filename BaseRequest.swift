@@ -13,9 +13,11 @@ import SwiftyJSON
 class BaseRequest: NSObject {
     let apiEndpointURL = "https://safe-castle-82849.herokuapp.com/api/v1"
     var completionBlock: ((_ response: JSON?, _ error: Any?) -> ())?
+    
     func path() -> String {
         return ""
     }
+    
     func params() -> [String: Any]? {
         return nil
     }
@@ -24,9 +26,13 @@ class BaseRequest: NSObject {
         return HTTPMethod.get
     }
     
+    func headers() -> HTTPHeaders? {
+        return nil
+    }
+    
     func execute() {
 
-        Alamofire.request(path(), method: method(), parameters: params(), encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: { response in
+        Alamofire.request(path(), method: method(), parameters: params(), encoding: JSONEncoding.default, headers: headers()).responseJSON(completionHandler: { response in
             print("\n------------------------------------------------------")
             print("------------------------------------------------------")
             print("REQUEST:")

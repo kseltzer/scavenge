@@ -18,13 +18,13 @@ enum GameStatus: String {
 }
 
 struct Game {
-    var id: Int
+    var id: String
     var title: String
     var icon: UIImage? = nil // Todo: change to URL
     var creator: Player? = nil
     var status: GameStatus = .yourMove
     var players: [Player] = []
-    var unsubmittedResponses: [Int:[UIImage?]] // Todo: change UIImage to URL
+    var unsubmittedResponses: [String:[UIImage?]] // Todo: change UIImage to URL
     var winner: Player? = nil
     var results: [TopicResults] = []
     var topics: [String] = []
@@ -32,33 +32,33 @@ struct Game {
         return players.count
     }
     
-    init(id: Int, title: String, topics: [String]) {
+    init(id: String, title: String, topics: [String]) {
         self.id = id
         self.title = title
         self.topics = topics
         
-        var unsubmittedResponses: [Int:[UIImage?]] = [:]
+        var unsubmittedResponses: [String:[UIImage?]] = [:]
         for player in players {
             unsubmittedResponses[player.id] = [nil, nil, nil, nil, nil]
         }
         self.unsubmittedResponses = unsubmittedResponses
     }
     
-    init(id: Int, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus) {
+    init(id: String, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus) {
         self.id = id
         self.title = title
         self.icon = icon
         self.creator = creator
         self.status = status
         
-        var unsubmittedResponses: [Int:[UIImage?]] = [:]
+        var unsubmittedResponses: [String:[UIImage?]] = [:]
         for player in players {
             unsubmittedResponses[player.id] = [nil, nil, nil, nil, nil]
         }
         self.unsubmittedResponses = unsubmittedResponses
     }
     
-    init(id: Int, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus, players: [Player], winner: Player?, results: [TopicResults], topics: [String]) {
+    init(id: String, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus, players: [Player], winner: Player?, results: [TopicResults], topics: [String]) {
         self.id = id
         self.title = title
         self.icon = icon
@@ -69,7 +69,7 @@ struct Game {
         self.results = results
         self.topics = topics
 
-        var unsubmittedResponses: [Int:[UIImage?]] = [:]
+        var unsubmittedResponses: [String:[UIImage?]] = [:]
         for player in players {
             unsubmittedResponses[player.id] = [nil, nil, nil, nil, nil]
         }

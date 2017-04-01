@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Alamofire
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
@@ -24,14 +25,12 @@ class LoginViewController: UIViewController {
         if UserDefaults.standard.value(forKey: KEY_ID) != nil && UserDefaults.standard.value(forKey: KEY_ACCESS_TOKEN) != nil {
             currentUserID = UserDefaults.standard.value(forKey: KEY_ID) as! String
             currentUserAccessToken = UserDefaults.standard.value(forKey: KEY_ACCESS_TOKEN) as! String
-            
             self.handleLoggedIn(id: currentUserID, accessToken: currentUserAccessToken)
         } else {
             fbLoginButton.isHidden = false
         }
     }
 
-    // TODO: change logging in with facebook to logging in via Scavenge backend, use that response to set currentUserID global var
     func attemptLoginWithFacebook() {
         let fbLoginManager = FBSDKLoginManager()
         fbLoginManager.logIn(withReadPermissions: ["public_profile", "user_friends"], from: self, handler: { (fbResult, error) ->
@@ -44,6 +43,7 @@ class LoginViewController: UIViewController {
             } else {
                 print("Successfully logged into Facebook.")
                 currentUserAccessToken = FBSDKAccessToken.current().tokenString
+                print("access token: ", currentUserAccessToken)
                 UserDefaults.standard.setValue(currentUserAccessToken, forKey: KEY_ACCESS_TOKEN)
                 self.getFacebookUserData()
             }
@@ -65,11 +65,19 @@ class LoginViewController: UIViewController {
         print("id: ", id)
         print("access token: ", accessToken)
         let request = RegisterFacebookRequest(facebook_id: id, facebook_token: accessToken)
+        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
+            if let json = response {
+                if let accessToken = json["accessToken"].string {
+                    currentUserAccessToken = accessToken
+                    let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
+                    let homeViewController = mainStoryboard.instantiateInitialViewController()
+                    self.present(homeViewController!, animated: true, completion: nil)
+                }
+            }
+        }
         request.execute()
         
-        let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
-        let homeViewController = mainStoryboard.instantiateInitialViewController()
-        self.present(homeViewController!, animated: true, completion: nil)
+        
     }
     
     
@@ -116,4 +124,6 @@ class LoginViewController: UIViewController {
             }
         })
     }
+    
+
 }

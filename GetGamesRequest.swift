@@ -1,16 +1,15 @@
 //
-//  RegisterFacebookRequest.swift
+//  GetGamesRequest.swift
 //  Scavenge
 //
-//  Created by Kimberly Seltzer on 3/30/17.
+//  Created by Kimberly Seltzer on 3/31/17.
 //  Copyright © 2017 Kim Seltzer. All rights reserved.
 //
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
-class RegisterFacebookRequest: BaseRequest {
+class GetGamesRequest: BaseRequest {
     var facebook_id: String
     var facebook_token: String
     
@@ -20,17 +19,14 @@ class RegisterFacebookRequest: BaseRequest {
     }
     
     override func path() -> String {
-        return "\(apiEndpointURL)/auth/facebook"
+        return "\(apiEndpointURL)/user/\(self.facebook_id)/games"
     }
     
     override func method() -> HTTPMethod {
-        return .post
+        return .get
     }
     
-    override func params() -> [String : Any]? {
-        var params: [String: Any] = [:]
-        params["userId"] = self.facebook_id
-        params["accessToken"] = self.facebook_token
-        return params
+    override func headers() -> HTTPHeaders? {
+        return ["x-access-token": self.facebook_token]
     }
 }

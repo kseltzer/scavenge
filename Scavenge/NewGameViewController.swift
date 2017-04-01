@@ -49,11 +49,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var currentGame: Game? = nil
     
-    var recentsDictionary: [Int:Player] = [:]
-    var recentsIDs: [Int] = []
+    var recentsDictionary: [String:Player] = [:]
+    var recentsIDs: [String] = []
     
-    var friendsDictionary: [Int:Player] = [:]
-    var friendsIDs: [Int] = []
+    var friendsDictionary: [String:Player] = [:]
+    var friendsIDs: [String] = []
     
     var magnifiedPlayerName: String?
     var magnifiedPlayerImage: UIImage?
@@ -67,8 +67,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var filteredRecents : [Player] = []
     var filteredFriends : [Player] = []
     
-    var filteredRecentsIDs : [Int] = []
-    var filteredFriendsIDs : [Int] = []
+    var filteredRecentsIDs : [String] = []
+    var filteredFriendsIDs : [String] = []
     
     var gameTitle : String = "Game Title"
     
@@ -153,7 +153,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let friends = json[JSON_KEY_FRIENDS] as? [[String:AnyObject]] {
                 
                 for player in recents {
-                    if let id = player[JSON_KEY_ID] as? Int,
+                    if let id = player[JSON_KEY_ID] as? String,
                         let firstName = player[JSON_KEY_FIRST_NAME] as? String,
                         let name = player[JSON_KEY_NAME] as? String,
                         let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
@@ -164,7 +164,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
                 for player in friends {
-                    if let id = player[JSON_KEY_ID] as? Int,
+                    if let id = player[JSON_KEY_ID] as? String,
                         let firstName = player[JSON_KEY_FIRST_NAME] as? String,
                         let name = player[JSON_KEY_NAME] as? String,
                         let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
@@ -195,7 +195,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let filePath = Bundle.main.path(forResource: "game", ofType: "json"), // TODO: delete this line
                 let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data (containing the response from creating a game)
                 let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
-                let id = json[JSON_KEY_ID] as? Int,
+                let id = json[JSON_KEY_ID] as? String,
                 let title = json[JSON_KEY_TITLE] as? String,
                 let topics = json[JSON_KEY_TOPICS] as? [String] {
                     self.currentGame = Game(id: id, title: title, topics: topics)

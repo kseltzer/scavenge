@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct Player {
-    var id: Int
+    var id: String
     var name: String
     var firstName: String = ""
     var profileImage: UIImage? = nil // todo: change to URL
@@ -18,14 +18,14 @@ struct Player {
     var headerIndex : Int? = nil
     var indexPath : IndexPath? = nil
     
-    init(id: Int, firstName: String, name: String, profileImage: UIImage /* todo: change to URL */) {
+    init(id: String, firstName: String, name: String, profileImage: UIImage /* todo: change to URL */) {
         self.id = id
         self.firstName = firstName
         self.name = name
         self.profileImage = profileImage
     }
     
-    init(id: Int, name: String) {
+    init(id: String, name: String) {
         self.id = id
         self.name = name
     }

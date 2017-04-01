@@ -1,13 +1,13 @@
 {
     "recents": [
         {
-            "id": 2,
+            "id": "2",
             "firstName": "Aliya",
             "name": "Aliya Kamalova",
             "profileImage": "aliya"
         },
         {
-			"id": 3,
+			"id": "3",
 			"firstName": "Mahir",
 			"name": "Mahir Shah",
 			"profileImage": "mahir"
@@ -15,37 +15,37 @@
     ],
     "friends": [
         {
-            "id": 8,
+            "id": "8",
             "firstName": "David",
             "name": "David Seltzer",
             "profileImage": "david"
         },
         {
-            "id": 5,
+            "id": "5",
             "firstName": "Ian",
             "name": "Ian Abramson",
             "profileImage": "ian"
         },
         {
-            "id": 7,
+            "id": "7",
             "firstName": "Jenny",
             "name": "Jenny Seltzer",
             "profileImage": "jenny"
         },
         {
-            "id": 9,
+            "id": "9",
             "firstName": "Jimmy",
             "name": "Jimmy Brooks",
             "profileImage": "profilePicNegativeState"
         },
         {
-            "id": 6,
+            "id": "6",
             "firstName": "Paul",
             "name": "Paul Goetz",
             "profileImage": "paul"
         },
         {
-			"id": 4,
+			"id": "4",
 			"firstName": "Sachin",
 			"name": "Sachin Medhekar",
 			"profileImage": "sachin"

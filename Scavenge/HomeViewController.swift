@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 enum TableViewSection : Int {
     case invites = 0
@@ -65,6 +66,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Manage JSON
     func downloadJSON() {
+        let request = GetGamesRequest(facebook_id: currentUserID, facebook_token: currentUserAccessToken)
+        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
+            if let json = response {
+                print("json: ", json)
+            }
+        }
+        request.execute()
+        
+        
         gamesInvites = []
         gamesResults = []
         gamesYourMove = []
@@ -82,10 +92,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let completed = json["completed"] as? [[String:AnyObject]] {
                 
                 for game in invites {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                             gamesInvites.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -93,10 +103,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 for game in results {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                         gamesResults.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -104,10 +114,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 for game in yourMove {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                         gamesYourMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -115,10 +125,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 for game in theirMove {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                         gamesTheirMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -126,10 +136,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 for game in completed {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                         gamesCompleted.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))

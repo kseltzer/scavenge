@@ -2,12 +2,12 @@
 	"id": 1,
 	"title": "Buncha Idiots",
 	"icon": "foot_icon",
-	"creatorID": 3,
+	"creatorID": "3",
 	"creatorName": "Mahir Shah",
 	"players": [
-		1,
-		2,
-		3
+		"1",
+		"2",
+		"3"
 	],
 	"numPlayers": 3,
 	"winner": null,
