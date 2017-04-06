@@ -334,7 +334,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch (section) {
         case TableViewFriendsSection.recents.rawValue:
             sectionTitle = kSectionTitleRecents
-            topPadding = 3
+            topPadding = 8
             break
         case TableViewFriendsSection.friends.rawValue:
             sectionTitle = kSectionTitleFriendsOnScavenge
@@ -352,11 +352,29 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         returnedView.backgroundColor = UIColor.clear
         
         let sectionTitleLabel = UILabel(frame: CGRect(x: 8, y: topPadding, width: tableView.frame.width, height: 22))
-        sectionTitleLabel.text = sectionTitle
+//        sectionTitleLabel.text = sectionTitle
         sectionTitleLabel.font = TABLE_VIEW_SECTION_FONT
+        sectionTitleLabel.attributedText = NSAttributedString(string: sectionTitle!, attributes: [NSForegroundColorAttributeName: UIColor.white])
         returnedView.addSubview(sectionTitleLabel)
 
         return returnedView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        var sectionTitle : String? = nil
+        var height: CGFloat = 30
+        switch (section) {
+        case TableViewFriendsSection.recents.rawValue:
+            height = 38
+            break
+        default:
+            break
+        }
+        return height
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

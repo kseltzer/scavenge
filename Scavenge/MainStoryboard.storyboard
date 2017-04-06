@@ -523,6 +523,7 @@
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game Title" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-Pm-aXv">
                                         <rect key="frame" x="66" y="20" width="301" height="19"/>
+                                        <color key="textColor" red="0.30196078431372547" green="0.1803921568627451" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                     </textField>
@@ -552,14 +553,14 @@
                                     <constraint firstItem="85C-Pn-aCI" firstAttribute="top" secondItem="GMn-Pm-aXv" secondAttribute="bottom" id="vq0-7N-cG5"/>
                                 </constraints>
                             </view>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="54" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="66F-xm-mkX">
                                 <rect key="frame" x="0.0" y="182" width="375" height="419"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="54" id="cR7-Sz-a0A" customClass="FriendCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cR7-Sz-a0A" id="e1G-rf-7vx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
@@ -627,7 +628,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteFriendsCell" rowHeight="54" id="dfO-ww-rfZ" customClass="InviteFriendsCell" customModule="Scavenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="82" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="110" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dfO-ww-rfZ" id="Yx4-tu-h6J">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
