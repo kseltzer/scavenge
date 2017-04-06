@@ -11,6 +11,14 @@ import UIKit
 class InviteFriendsCell: UITableViewCell {
 
     @IBOutlet weak var roundedBorderView: RoundedBorderedView!
+    @IBOutlet weak var cellBackgroundImageView: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        cellBackgroundImageView.layer.borderWidth = 4
+    }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if (highlighted) {

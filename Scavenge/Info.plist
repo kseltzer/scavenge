@@ -63,5 +63,10 @@
 	<string>scavenge</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Use your camera to play the whole entire friggin game.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LithosPro-Black.otf</string>
+		<string>Coquette-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

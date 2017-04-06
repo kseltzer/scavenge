@@ -66,13 +66,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Manage JSON
     func downloadJSON() {
-        let request = GetGamesRequest(facebook_id: currentUserID, facebook_token: currentUserAccessToken)
-        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
-            if let json = response {
-                print("json: ", json)
-            }
-        }
-        request.execute()
+        // TODO TODO TODO: uncomment this (temporarily not calling backend)
+//        let request = GetGamesRequest(facebook_id: currentUserID, facebook_token: currentUserAccessToken)
+//        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
+//            if let json = response {
+//                print("json: ", json)
+//            }
+//        }
+//        request.execute()
         
         
         gamesInvites = []
@@ -293,6 +294,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.frame.width, height: height))
         label.text = title
         label.font = font
+        label.textColor = UIColor.white
         sectionTitleView.addSubview(label)
         
         return sectionTitleView

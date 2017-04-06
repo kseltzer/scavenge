@@ -28,6 +28,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var iconSelectionView: UIView!
     @IBOutlet weak var startButton: UIBarButtonItem!
     
+    
+    @IBOutlet weak var gameFieldsViewBackgroundImageView: UIImageView!
     @IBOutlet weak var searchBarView: UIView!
     
     @IBOutlet weak var profileImagesView: UIView!
@@ -87,6 +89,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
 
         startButton.isEnabled = false
+        if let font = FONT_BUTTON {
+            startButton.setTitleTextAttributes([NSForegroundColorAttributeName: COLOR_DARK_BROWN_DISABLED], for: .disabled)
+            startButton.setTitleTextAttributes([NSFontAttributeName: font, NSForegroundColorAttributeName: COLOR_DARK_BROWN], for: .normal)
+        }
         
         setupSearchController()
         
@@ -119,6 +125,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             break
         }
         
+        gameFieldsViewBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        gameFieldsViewBackgroundImageView.layer.borderWidth = 8
         
         let path = UIBezierPath(roundedRect:iconSelectionView.bounds,
                                 byRoundingCorners:[.topRight, .bottomLeft, .bottomRight],
@@ -254,15 +262,25 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .words
         searchController.delegate = self
-        searchController.searchBar.barTintColor = UIColor.black
+        searchController.searchBar.barTintColor = CELL_BORDER_COLOR_DEFAULT
+        searchController.searchBar.backgroundImage = UIImage()
+
+        // customize searchBar textField
+        searchController.searchBar.searchBarStyle = .prominent
+        if let searchBarTextField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            searchBarTextField.leftViewMode = UITextFieldViewMode.never
+            searchBarTextField.textColor = COLOR_DARK_BROWN
+            searchBarTextField.font = FONT_BUTTON
+            
+            // todo todo todo
+            let placeholderAttributes: [String : AnyObject] = [NSForegroundColorAttributeName: UIColor(red:0.30, green:0.18, blue:0.12, alpha:0.4), NSFontAttributeName: FONT_BUTTON!]
+            let attributedPlaceholder: NSAttributedString = NSAttributedString(string: "Search", attributes: placeholderAttributes)
+            
+            searchBarTextField.attributedPlaceholder = attributedPlaceholder
+        }
         
-        
-        // custom searchBar font
-        let textFieldInsideUISearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideUISearchBar?.textColor = UIColor.black
-        textFieldInsideUISearchBar?.font = FONT_STANDARD_TEXT_LIGHT
         // custom cancel button
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSFontAttributeName: FONT_STANDARD_TEXT!, NSForegroundColorAttributeName: UIColor.lightGray], for: .normal)
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSFontAttributeName: FONT_BUTTON!, NSForegroundColorAttributeName: UIColor(red:0.30, green:0.18, blue:0.12, alpha:1.0)], for: .normal)
 
     }
 

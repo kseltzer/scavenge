@@ -9,7 +9,7 @@
 import UIKit
 
 let kBounceValue : CGFloat = 8.0
-let acceptColor = COLOR_GREEN
+let acceptColor = COLOR_GREENISH_BLUE
 let declineColor = COLOR_RED
 let defaultViewBackgroundColor = CELL_DEFAULT_COLOR_HOME
 

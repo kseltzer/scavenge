@@ -64,18 +64,19 @@ class LoginViewController: UIViewController {
     func handleLoggedIn(id: String, accessToken: String) {
         print("id: ", id)
         print("access token: ", accessToken)
-        let request = RegisterFacebookRequest(facebook_id: id, facebook_token: accessToken)
-        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
-            if let json = response {
-                if let accessToken = json["accessToken"].string {
-                    currentUserAccessToken = accessToken
+        // TODO TODO TODO: uncomment this (temporarily not calling backend)
+//        let request = RegisterFacebookRequest(facebook_id: id, facebook_token: accessToken)
+//        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
+//            if let json = response {
+//                if let accessToken = json["accessToken"].string {
+//                    currentUserAccessToken = accessToken
                     let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
                     let homeViewController = mainStoryboard.instantiateInitialViewController()
                     self.present(homeViewController!, animated: true, completion: nil)
-                }
-            }
-        }
-        request.execute()
+//                }
+//            }
+//        }
+//        request.execute()
         
         
     }

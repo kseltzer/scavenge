@@ -14,6 +14,8 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var customView : RoundedBorderedView!
     @IBOutlet weak var nameLabel : UILabel!
     @IBOutlet weak var checkmarkBox: UIImageView!
+    @IBOutlet weak var cellBackgroundImageView: UIImageView!
+    
     
     var userID : String!
     
@@ -21,17 +23,30 @@ class FriendCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = .none
         isSelected = false
+        
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        cellBackgroundImageView.layer.borderWidth = 4
     }
     
     func setSelectedAppearance() {
         isSelected = true
-        customView.backgroundColor = CELL_SELECTED_COLOR
+        if let backgroundImage = UIImage(named: "cellBackgroundChecked") {
+            cellBackgroundImageView.image = backgroundImage
+        } else {
+            customView.backgroundColor = CELL_SELECTED_COLOR
+        }
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_SELECTED.cgColor
         checkmarkBox.image = UIImage(named: "checkedBox")
     }
     
     func setDeselectedAppearance() {
         isSelected = false
-        customView.backgroundColor = CELL_DEFAULT_COLOR
+        if let backgroundImage = UIImage(named: "cellBackground") {
+            cellBackgroundImageView.image = backgroundImage
+        } else {
+            customView.backgroundColor = CELL_DEFAULT_COLOR
+        }
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
         checkmarkBox.image = UIImage(named: "uncheckedBox")
     }
     
