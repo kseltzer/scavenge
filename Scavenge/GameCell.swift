@@ -14,18 +14,29 @@ class GameCell: UITableViewCell {
     @IBOutlet weak var gameImageView: UIImageView?
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var gameTitleLabel: UILabel!
+    @IBOutlet weak var cellBackgroundImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layoutIfNeeded()
-        gameImageView!.layer.cornerRadius =  gameImageView!.frame.size.height * 3/4
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        cellBackgroundImageView.layer.borderWidth = 8
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if (highlighted) {
-            roundedBorderView.backgroundColor = CELL_HIGHLIGHTED_COLOR
+            if let backgroundImage = UIImage(named: IMAGE_CELL_BACKGROUND_SELECTED) {
+                cellBackgroundImageView.image = backgroundImage
+                cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_SELECTED.cgColor
+            } else {
+                roundedBorderView.backgroundColor = CELL_HIGHLIGHTED_COLOR
+            }
         } else {
-            roundedBorderView.backgroundColor = CELL_DEFAULT_COLOR_HOME
+            if let backgroundImage = UIImage(named: IMAGE_CELL_BACKGROUND) {
+                cellBackgroundImageView.image = backgroundImage
+                cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+            } else {
+                roundedBorderView.backgroundColor = CELL_DEFAULT_COLOR_HOME
+            }
         }
     }
     

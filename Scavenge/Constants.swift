@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+// MARK: - Image Constants
+let IMAGE_CELL_BACKGROUND = "cellBackground"
+let IMAGE_CELL_BACKGROUND_SELECTED = "cellBackgroundChecked"
+
 // MARK: - Colors
 let COLOR_LIGHT_BROWN = UIColor(red:0.83, green:0.60, blue:0.41, alpha:1.0) /* #D39869 */
 let COLOR_DARK_BROWN = UIColor(red:0.30, green:0.18, blue:0.12, alpha:1.0) /* #4D2E1E */
