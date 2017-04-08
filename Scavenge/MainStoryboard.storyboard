@@ -327,13 +327,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raccoon" translatesAutoresizingMaskIntoConstraints="NO" id="Vxu-bt-lFu">
-                                                                    <rect key="frame" x="8" y="8" width="41" height="41"/>
+                                                                    <rect key="frame" x="8" y="12" width="33" height="33"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Vxu-bt-lFu" secondAttribute="height" multiplier="1:1" id="yId-Lp-pzV"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgc-Ud-OZ5">
-                                                                    <rect key="frame" x="65" y="4" width="272" height="25"/>
+                                                                    <rect key="frame" x="57" y="4" width="280" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="xnY-oc-JQC"/>
                                                                     </constraints>
@@ -349,7 +349,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invited By: Kim Seltzer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEH-tW-652">
-                                                                    <rect key="frame" x="65" y="29" width="272" height="21"/>
+                                                                    <rect key="frame" x="57" y="29" width="280" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="21" id="Eun-zW-Ppb"/>
                                                                     </constraints>
@@ -366,8 +366,8 @@
                                                                 <constraint firstItem="cEH-tW-652" firstAttribute="leading" secondItem="Vxu-bt-lFu" secondAttribute="trailing" constant="16" id="J0i-l3-QWr"/>
                                                                 <constraint firstItem="cEH-tW-652" firstAttribute="top" secondItem="Vxu-bt-lFu" secondAttribute="centerY" id="a8X-zy-IGz"/>
                                                                 <constraint firstItem="sgc-Ud-OZ5" firstAttribute="bottom" secondItem="Vxu-bt-lFu" secondAttribute="centerY" id="c9j-s8-cDB"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Vxu-bt-lFu" secondAttribute="bottom" constant="8" id="jfF-hZ-8b2"/>
-                                                                <constraint firstItem="Vxu-bt-lFu" firstAttribute="top" secondItem="OzP-KN-dgh" secondAttribute="top" constant="8" id="n9v-YI-zdc"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Vxu-bt-lFu" secondAttribute="bottom" constant="12" id="jfF-hZ-8b2"/>
+                                                                <constraint firstItem="Vxu-bt-lFu" firstAttribute="top" secondItem="OzP-KN-dgh" secondAttribute="top" constant="12" id="n9v-YI-zdc"/>
                                                                 <constraint firstItem="dgJ-LM-ARA" firstAttribute="leading" secondItem="cEH-tW-652" secondAttribute="trailing" constant="8" id="seW-Ev-Sd2"/>
                                                                 <constraint firstItem="dgJ-LM-ARA" firstAttribute="leading" secondItem="sgc-Ud-OZ5" secondAttribute="trailing" constant="8" id="xhj-KO-Omz"/>
                                                             </constraints>
@@ -657,7 +657,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhE-Cf-p98">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
                                                             <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.30196078430000001" green="0.18039215689999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>

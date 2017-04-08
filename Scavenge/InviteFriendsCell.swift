@@ -22,9 +22,19 @@ class InviteFriendsCell: UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if (highlighted) {
-            roundedBorderView.backgroundColor = CELL_HIGHLIGHTED_COLOR
+            if let image = UIImage(named: IMAGE_CELL_BACKGROUND_SELECTED) {
+                cellBackgroundImageView.image = image
+                cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_SELECTED.cgColor
+            } else {
+                roundedBorderView.backgroundColor = CELL_HIGHLIGHTED_COLOR
+            }
         } else {
-            roundedBorderView.backgroundColor = UIColor.black
+            if let image = UIImage(named: IMAGE_CELL_BACKGROUND) {
+                cellBackgroundImageView.image = image
+                cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+            } else {
+                roundedBorderView.backgroundColor = UIColor.black
+            }
         }
     }
 

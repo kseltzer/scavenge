@@ -361,7 +361,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        var sectionTitle : String? = nil
+//        var sectionTitle : String? = nil
         var height: CGFloat = 30
         switch (section) {
         case TableViewFriendsSection.recents.rawValue:
