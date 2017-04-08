@@ -352,7 +352,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         returnedView.backgroundColor = UIColor.clear
         
         let sectionTitleLabel = UILabel(frame: CGRect(x: 8, y: topPadding, width: tableView.frame.width, height: 22))
-//        sectionTitleLabel.text = sectionTitle
         sectionTitleLabel.font = TABLE_VIEW_SECTION_FONT
         sectionTitleLabel.attributedText = NSAttributedString(string: sectionTitle!, attributes: [NSForegroundColorAttributeName: UIColor.white])
         returnedView.addSubview(sectionTitleLabel)
@@ -361,7 +360,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        var sectionTitle : String? = nil
         var height: CGFloat = 30
         switch (section) {
         case TableViewFriendsSection.recents.rawValue:
