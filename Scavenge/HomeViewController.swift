@@ -377,8 +377,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 } else { // panning right
-                    let constant = max(-deltaX, 8)
-                    if (constant == 8) {
+                    let constant = max(-deltaX, 0)
+                    if (constant == 0) {
                         activeCell.resetConstraintConstantsToZero(animated: false)
                         activeCell.isOpen = false
                         activeCell.acceptButton.isUserInteractionEnabled = false
@@ -403,8 +403,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 } else { // panning right
-                    let constant = max(adjustment, 8)
-                    if (activeCell.hideButtonsViewTrailingConstraint.constant == 8) {
+                    let constant = max(adjustment, 0)
+                    if (activeCell.hideButtonsViewTrailingConstraint.constant == 0) {
                         activeCell.resetConstraintConstantsToZero(animated: false)
                         activeCell.isOpen = false
                         activeCell.acceptButton.isUserInteractionEnabled = false
@@ -413,7 +413,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant + 16
+            activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant //+ 16
             break
         case .ended:
             let activeCell : InvitationCell!
@@ -481,6 +481,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func removeInvitationFromTableView(for cell: InvitationCell, withAnimation animation: UITableViewRowAnimation, andColor color: UIColor?) {
         if let backgroundColor = color {
+            cell.cellBackgroundImageView.layer.borderColor = backgroundColor.cgColor
             cell.roundedBorderView.backgroundColor = backgroundColor
             cell.acceptButton.backgroundColor = backgroundColor
             cell.declineButton.backgroundColor = backgroundColor
