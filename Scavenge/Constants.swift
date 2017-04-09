@@ -74,7 +74,7 @@ let BUTTON_FACEBOOK_BACKGROUND_COLOR = UIColor(red: 30/255.0, green: 136/255.0, 
 let BUTTON_TEXT_COLOR_NORMAL = UIColor(red: 243/255.0, green: 243/255.0, blue: 243/255.0, alpha: 1.0)
 let BUTTON_TEXT_COLOR_DISABLED = UIColor.lightGray
 let BUTTON_TEXT_FONT = UIFont(name: "LithosPro-Black", size: 18.0)
-let BAR_BUTTON_TEXT_COLOR = UIColor.white
+let BAR_BUTTON_TEXT_COLOR = COLOR_DARK_BROWN
 
 // MARK: - Table View Constants
 let TABLE_VIEW_SECTION_FONT = UIFont(name: "CoquetteBold", size: 22.0)

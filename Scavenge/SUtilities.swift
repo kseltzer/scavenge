@@ -10,7 +10,17 @@ import Foundation
 import UIKit
 
 func customBackBarItem (title: String = "") -> SBarButtonItem {
-    return SBarButtonItem(title: title, style: .plain, target: nil, action: nil)
+    let barButtonItem = SBarButtonItem(title: title, style: .plain, target: nil, action: nil)
+    return barButtonItem
+}
+
+func customBarButtonItemWith (image: UIImage) -> UIBarButtonItem {
+    let button = UIButton.init(type: .custom)
+    button.setImage(image, for: UIControlState.normal)
+    button.frame = CGRect(x: 0, y: 0, width: 53, height: 51)
+    return UIBarButtonItem(customView: button)
+
+//    self.navigationItem.rightBarButtonItem = barButton
 }
 
 extension UIImageView {
@@ -45,3 +55,5 @@ extension UIImage {
         return newImage
     }
 }
+
+

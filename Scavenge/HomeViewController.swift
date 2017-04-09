@@ -52,16 +52,60 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.rowHeight = 85
         
-        navigationItem.backBarButtonItem = customBackBarItem()
-        navigationController?.navigationBar.tintColor = NAVIGATION_BAR_TINT_COLOR
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+        navigationItem.backBarButtonItem = customBackBarItem()
+        adjustLeftBarButtonHorizontalSpacing()
+        adjustRightBarButtonHorizontalSpacing()
+        
+        // set nav bar to translucent
+        if let navigationController = navigationController {
+            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationController.navigationBar.shadowImage = UIImage()
+            navigationController.navigationBar.isTranslucent = true
+        }
         
         downloadJSON()
+    }
+    
+    // MARK: - Custom Bar Button Items
+    func segueToNewGameViewController() {
+        performSegue(withIdentifier: "createGameSegue", sender: self)
+    }
+    
+    func adjustLeftBarButtonHorizontalSpacing() {
+        let screenSize: CGRect = UIScreen.main.bounds
+        switch (screenSize.width) {
+        case iPHONE_6, iPHONE_6S, iPHONE_7, iPHONE_7S:
+            if let menuButton = navigationItem.leftBarButtonItem {
+                let negativeSpaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+                negativeSpaceButton.width = -8
+                navigationItem.setLeftBarButtonItems([negativeSpaceButton, menuButton], animated: false)
+            }
+            break
+        case iPHONE_SE, iPHONE_5, iPHONE_5S:
+            break
+        case iPHONE_6_PLUS, iPHONE_7_PLUS:
+            if let menuButton = navigationItem.leftBarButtonItem {
+                let negativeSpaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+                negativeSpaceButton.width = -10
+                navigationItem.setLeftBarButtonItems([negativeSpaceButton, menuButton], animated: false)
+            }
+            break
+        default:
+            break
+        }
+    }
+    
+    func adjustRightBarButtonHorizontalSpacing() {let plusButton = UIButton(type: .custom)
+        plusButton.setImage(UIImage(named: "plus"), for: .normal)
+        plusButton.frame = CGRect(x: 0, y: 0, width: 18, height: 18)
+        plusButton.addTarget(self, action: #selector(segueToNewGameViewController), for: .touchUpInside)
         
+        let rightBarButtonItem = SBarButtonItem(customView: plusButton)
 
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        spaceButton.width = -6
+        navigationItem.setRightBarButtonItems([spaceButton, rightBarButtonItem], animated: false)
     }
     
     // MARK: - Manage JSON

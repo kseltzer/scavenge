@@ -442,11 +442,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Scavenge" id="aeh-vV-kcq">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="hJe-aQ-I0C" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target">
+                            <color key="tintColor" red="0.30196078430000001" green="0.18039215689999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButtonPressed:" destination="dik-UW-LCa" id="OMV-ge-ImV"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xlp-rT-VH7" customClass="SBarButtonItem" customModule="Scavenge" customModuleProvider="target">
+                            <color key="tintColor" red="0.30196078430000001" green="0.18039215689999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="jKf-zi-WjN" kind="show" identifier="createGameSegue" id="VqO-by-I8g"/>
                             </connections>
@@ -1117,6 +1119,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uWk-yO-LTp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.30196078430000001" green="0.18039215689999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ide-6A-49e">
