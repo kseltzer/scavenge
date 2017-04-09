@@ -9,7 +9,7 @@
 import UIKit
 
 let kBounceValue : CGFloat = 8.0
-let acceptColor = COLOR_GREEN
+let acceptColor = COLOR_GREENISH_BLUE
 let declineColor = COLOR_RED
 let defaultViewBackgroundColor = CELL_DEFAULT_COLOR_HOME
 
@@ -34,6 +34,8 @@ class InvitationCell: UITableViewCell {
     
     @IBOutlet weak var hideButtonsView: UIView!
     @IBOutlet weak var roundedBorderView: RoundedBorderedView!
+    @IBOutlet weak var cellBackgroundImageView: UIImageView!
+    
     
     @IBOutlet weak var hideButtonsViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideButtonsViewLeadingConstraint: NSLayoutConstraint!
@@ -42,7 +44,8 @@ class InvitationCell: UITableViewCell {
         super.awakeFromNib()
         layoutIfNeeded()
         gameImageView.layer.cornerRadius =  gameImageView.frame.size.height * 3/4
-        roundedBorderView.backgroundColor = defaultViewBackgroundColor
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        cellBackgroundImageView.layer.borderWidth = 8
     }
     
     @IBAction func acceptButtonTapped(_ sender: AnyObject) {
@@ -56,11 +59,15 @@ class InvitationCell: UITableViewCell {
     }
     
     func getTotalButtonWidth() -> CGFloat {
-        return acceptButton.frame.width + declineButton.frame.width
+        return acceptButton.frame.width + declineButton.frame.width + 8
     }
     
     func resetConstraintConstantsToZero(animated: Bool) {
-        if (startingTrailingHideButtonsViewConstant == 8 && hideButtonsViewTrailingConstraint.constant == 8) { // already closed, no bounce necessary
+        if (startingTrailingHideButtonsViewConstant == 0 && hideButtonsViewTrailingConstraint.constant == 0) { // already closed, no bounce necessary
+            return
+        }
+        
+        if (hideButtonsViewTrailingConstraint.constant == 0) {
             return
         }
         
@@ -70,8 +77,8 @@ class InvitationCell: UITableViewCell {
         }
         
         updateConstraintsIfNeeded { (finished) in
-            self.hideButtonsViewTrailingConstraint.constant = 8
-            self.hideButtonsViewLeadingConstraint.constant = 8
+            self.hideButtonsViewTrailingConstraint.constant = 0
+            self.hideButtonsViewLeadingConstraint.constant = 0
             
             self.updateConstraintsIfNeeded(with: { (finished) in
                 self.startingTrailingHideButtonsViewConstant = self.hideButtonsViewTrailingConstraint.constant
@@ -109,8 +116,10 @@ class InvitationCell: UITableViewCell {
     }
     
     func resetAppearanceIfNeeded() {
-        if (roundedBorderView.backgroundColor != defaultViewBackgroundColor) {
-            roundedBorderView.backgroundColor = defaultViewBackgroundColor
+        if (cellBackgroundImageView.image !== UIImage(named: IMAGE_CELL_BACKGROUND)) {
+            roundedBorderView.backgroundColor = UIColor.clear
+            cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+            cellBackgroundImageView.image = UIImage(named: IMAGE_CELL_BACKGROUND)
             acceptButton.backgroundColor = acceptColor
             declineButton.backgroundColor = declineColor
             resetConstraintConstantsToZero(animated: false)

@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 enum TableViewSection : Int {
     case invites = 0
@@ -51,20 +52,74 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.rowHeight = 85
         
-        navigationItem.backBarButtonItem = customBackBarItem()
-        navigationController?.navigationBar.tintColor = NAVIGATION_BAR_TINT_COLOR
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+        navigationItem.backBarButtonItem = customBackBarItem()
+        adjustLeftBarButtonHorizontalSpacing()
+        adjustRightBarButtonHorizontalSpacing()
+        
+        // set nav bar to translucent
+        if let navigationController = navigationController {
+            navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationController.navigationBar.shadowImage = UIImage()
+            navigationController.navigationBar.isTranslucent = true
+        }
         
         downloadJSON()
+    }
+    
+    // MARK: - Custom Bar Button Items
+    func segueToNewGameViewController() {
+        performSegue(withIdentifier: "createGameSegue", sender: self)
+    }
+    
+    func adjustLeftBarButtonHorizontalSpacing() {
+        let screenSize: CGRect = UIScreen.main.bounds
+        switch (screenSize.width) {
+        case iPHONE_6, iPHONE_6S, iPHONE_7, iPHONE_7S:
+            if let menuButton = navigationItem.leftBarButtonItem {
+                let negativeSpaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+                negativeSpaceButton.width = -8
+                navigationItem.setLeftBarButtonItems([negativeSpaceButton, menuButton], animated: false)
+            }
+            break
+        case iPHONE_SE, iPHONE_5, iPHONE_5S:
+            break
+        case iPHONE_6_PLUS, iPHONE_7_PLUS:
+            if let menuButton = navigationItem.leftBarButtonItem {
+                let negativeSpaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+                negativeSpaceButton.width = -10
+                navigationItem.setLeftBarButtonItems([negativeSpaceButton, menuButton], animated: false)
+            }
+            break
+        default:
+            break
+        }
+    }
+    
+    func adjustRightBarButtonHorizontalSpacing() {let plusButton = UIButton(type: .custom)
+        plusButton.setImage(UIImage(named: "plus"), for: .normal)
+        plusButton.frame = CGRect(x: 0, y: 0, width: 18, height: 18)
+        plusButton.addTarget(self, action: #selector(segueToNewGameViewController), for: .touchUpInside)
         
+        let rightBarButtonItem = SBarButtonItem(customView: plusButton)
 
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        spaceButton.width = -6
+        navigationItem.setRightBarButtonItems([spaceButton, rightBarButtonItem], animated: false)
     }
     
     // MARK: - Manage JSON
     func downloadJSON() {
+        // TODO TODO TODO: uncomment this (temporarily not calling backend)
+//        let request = GetGamesRequest(facebook_id: currentUserID, facebook_token: currentUserAccessToken)
+//        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
+//            if let json = response {
+//                print("json: ", json)
+//            }
+//        }
+//        request.execute()
+        
+        
         gamesInvites = []
         gamesResults = []
         gamesYourMove = []
@@ -82,10 +137,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let completed = json["completed"] as? [[String:AnyObject]] {
                 
                 for game in invites {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                             gamesInvites.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -93,10 +148,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 for game in results {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                         gamesResults.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -104,10 +159,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 for game in yourMove {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                         gamesYourMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -115,10 +170,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 for game in theirMove {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                         gamesTheirMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -126,10 +181,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 for game in completed {
-                    if let id = game[JSON_KEY_ID] as? Int,
+                    if let id = game[JSON_KEY_ID] as? String,
                         let title = game["title"] as? String,
                         let icon = game["icon"] as? String, // TODO: change to URL
-                        let creatorID = game["creatorID"] as? Int,
+                        let creatorID = game["creatorID"] as? String,
                         let creatorName = game["creatorName"] as? String,
                         let status = game["status"] as? String {
                         gamesCompleted.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
@@ -283,9 +338,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: tableView.frame.width, height: height))
         label.text = title
         label.font = font
+        label.textColor = UIColor.white
         sectionTitleView.addSubview(label)
         
         return sectionTitleView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -365,8 +429,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 } else { // panning right
-                    let constant = max(-deltaX, 8)
-                    if (constant == 8) {
+                    let constant = max(-deltaX, 0)
+                    if (constant == 0) {
                         activeCell.resetConstraintConstantsToZero(animated: false)
                         activeCell.isOpen = false
                         activeCell.acceptButton.isUserInteractionEnabled = false
@@ -391,8 +455,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         activeCell.hideButtonsViewTrailingConstraint.constant = constant
                     }
                 } else { // panning right
-                    let constant = max(adjustment, 8)
-                    if (activeCell.hideButtonsViewTrailingConstraint.constant == 8) {
+                    let constant = max(adjustment, 0)
+                    if (activeCell.hideButtonsViewTrailingConstraint.constant == 0) {
                         activeCell.resetConstraintConstantsToZero(animated: false)
                         activeCell.isOpen = false
                         activeCell.acceptButton.isUserInteractionEnabled = false
@@ -401,7 +465,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant + 16
+            activeCell.hideButtonsViewLeadingConstraint.constant = -activeCell.hideButtonsViewTrailingConstraint.constant //+ 16
             break
         case .ended:
             let activeCell : InvitationCell!
@@ -469,6 +533,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func removeInvitationFromTableView(for cell: InvitationCell, withAnimation animation: UITableViewRowAnimation, andColor color: UIColor?) {
         if let backgroundColor = color {
+            cell.cellBackgroundImageView.layer.borderColor = backgroundColor.cgColor
             cell.roundedBorderView.backgroundColor = backgroundColor
             cell.acceptButton.backgroundColor = backgroundColor
             cell.declineButton.backgroundColor = backgroundColor

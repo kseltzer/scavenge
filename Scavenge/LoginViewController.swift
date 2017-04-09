@@ -9,6 +9,8 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Alamofire
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
@@ -20,17 +22,15 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
-            // TODO: change currentUserID to UserDefaults.standard.value(forKey: KEY_UID)
-            // this can't be done until the login function is changed to logging in via the Scavenge backend, therefore correctly returning an Int as the user ID, rather than a string like it is now (because now it's just using the FB access token as an ID, later will use a Scavenge-generated ID)
-            currentUserID = 1
-            self.handleLoggedIn()
+        if UserDefaults.standard.value(forKey: KEY_ID) != nil && UserDefaults.standard.value(forKey: KEY_ACCESS_TOKEN) != nil {
+            currentUserID = UserDefaults.standard.value(forKey: KEY_ID) as! String
+            currentUserAccessToken = UserDefaults.standard.value(forKey: KEY_ACCESS_TOKEN) as! String
+            self.handleLoggedIn(id: currentUserID, accessToken: currentUserAccessToken)
         } else {
             fbLoginButton.isHidden = false
         }
     }
 
-    // TODO: change logging in with facebook to logging in via Scavenge backend, use that response to set currentUserID global var
     func attemptLoginWithFacebook() {
         let fbLoginManager = FBSDKLoginManager()
         fbLoginManager.logIn(withReadPermissions: ["public_profile", "user_friends"], from: self, handler: { (fbResult, error) ->
@@ -42,8 +42,9 @@ class LoginViewController: UIViewController {
                 print("cancelled")
             } else {
                 print("Successfully logged into Facebook.")
-                let accessToken = FBSDKAccessToken.current().tokenString
-                UserDefaults.standard.setValue(accessToken, forKey: KEY_UID)
+                currentUserAccessToken = FBSDKAccessToken.current().tokenString
+                print("access token: ", currentUserAccessToken)
+                UserDefaults.standard.setValue(currentUserAccessToken, forKey: KEY_ACCESS_TOKEN)
                 self.getFacebookUserData()
             }
         })
@@ -60,10 +61,24 @@ class LoginViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func handleLoggedIn() {
-        let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
-        let homeViewController = mainStoryboard.instantiateInitialViewController()
-        self.present(homeViewController!, animated: true, completion: nil)
+    func handleLoggedIn(id: String, accessToken: String) {
+        print("id: ", id)
+        print("access token: ", accessToken)
+        // TODO TODO TODO: uncomment this (temporarily not calling backend)
+//        let request = RegisterFacebookRequest(facebook_id: id, facebook_token: accessToken)
+//        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
+//            if let json = response {
+//                if let accessToken = json["accessToken"].string {
+//                    currentUserAccessToken = accessToken
+                    let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
+                    let homeViewController = mainStoryboard.instantiateInitialViewController()
+                    self.present(homeViewController!, animated: true, completion: nil)
+//                }
+//            }
+//        }
+//        request.execute()
+        
+        
     }
     
     
@@ -74,7 +89,8 @@ class LoginViewController: UIViewController {
             } else {
                 guard let result = result as? [String:AnyObject],
                     let firstName = result["first_name"],
-                    let lastName = result["last_name"]
+                    let lastName = result["last_name"],
+                    let facebookID = result["id"] as? String
                 else {
                     return
                 }
@@ -86,6 +102,9 @@ class LoginViewController: UIViewController {
                 }
                 UserDefaults.standard.setValue(firstName, forKey: KEY_FIRST_NAME)
                 UserDefaults.standard.setValue(lastName, forKey: KEY_LAST_NAME)
+                UserDefaults.standard.setValue(facebookID, forKey: KEY_ID)
+                
+                currentUserID = facebookID
                 
                 DispatchQueue.global(qos: .default).async {
                     let urlString = profileImageURL
@@ -106,4 +125,6 @@ class LoginViewController: UIViewController {
             }
         })
     }
+    
+
 }

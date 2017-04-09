@@ -53,15 +53,20 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb828413077289585</string>
+				<string>fb974420629358422</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>828413077289585</string>
+	<string>974420629358422</string>
 	<key>FacebookDisplayName</key>
-	<string>Scavenge</string>
+	<string>scavenge</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Use your camera to play the whole entire friggin game.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LithosPro-Black.otf</string>
+		<string>Coquette-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

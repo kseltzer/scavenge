@@ -28,6 +28,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var iconSelectionView: UIView!
     @IBOutlet weak var startButton: UIBarButtonItem!
     
+    
+    @IBOutlet weak var gameFieldsViewBackgroundImageView: UIImageView!
     @IBOutlet weak var searchBarView: UIView!
     
     @IBOutlet weak var profileImagesView: UIView!
@@ -49,11 +51,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var currentGame: Game? = nil
     
-    var recentsDictionary: [Int:Player] = [:]
-    var recentsIDs: [Int] = []
+    var recentsDictionary: [String:Player] = [:]
+    var recentsIDs: [String] = []
     
-    var friendsDictionary: [Int:Player] = [:]
-    var friendsIDs: [Int] = []
+    var friendsDictionary: [String:Player] = [:]
+    var friendsIDs: [String] = []
     
     var magnifiedPlayerName: String?
     var magnifiedPlayerImage: UIImage?
@@ -67,8 +69,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     var filteredRecents : [Player] = []
     var filteredFriends : [Player] = []
     
-    var filteredRecentsIDs : [Int] = []
-    var filteredFriendsIDs : [Int] = []
+    var filteredRecentsIDs : [String] = []
+    var filteredFriendsIDs : [String] = []
     
     var gameTitle : String = "Game Title"
     
@@ -87,6 +89,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
 
         startButton.isEnabled = false
+        if let font = FONT_BUTTON {
+            startButton.setTitleTextAttributes([NSForegroundColorAttributeName: COLOR_DARK_BROWN_DISABLED], for: .disabled)
+            startButton.setTitleTextAttributes([NSFontAttributeName: font, NSForegroundColorAttributeName: COLOR_DARK_BROWN], for: .normal)
+        }
         
         setupSearchController()
         
@@ -119,6 +125,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             break
         }
         
+        gameFieldsViewBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        gameFieldsViewBackgroundImageView.layer.borderWidth = 8
         
         let path = UIBezierPath(roundedRect:iconSelectionView.bounds,
                                 byRoundingCorners:[.topRight, .bottomLeft, .bottomRight],
@@ -153,7 +161,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let friends = json[JSON_KEY_FRIENDS] as? [[String:AnyObject]] {
                 
                 for player in recents {
-                    if let id = player[JSON_KEY_ID] as? Int,
+                    if let id = player[JSON_KEY_ID] as? String,
                         let firstName = player[JSON_KEY_FIRST_NAME] as? String,
                         let name = player[JSON_KEY_NAME] as? String,
                         let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
@@ -164,7 +172,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
                 for player in friends {
-                    if let id = player[JSON_KEY_ID] as? Int,
+                    if let id = player[JSON_KEY_ID] as? String,
                         let firstName = player[JSON_KEY_FIRST_NAME] as? String,
                         let name = player[JSON_KEY_NAME] as? String,
                         let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
@@ -195,7 +203,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let filePath = Bundle.main.path(forResource: "game", ofType: "json"), // TODO: delete this line
                 let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data (containing the response from creating a game)
                 let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
-                let id = json[JSON_KEY_ID] as? Int,
+                let id = json[JSON_KEY_ID] as? String,
                 let title = json[JSON_KEY_TITLE] as? String,
                 let topics = json[JSON_KEY_TOPICS] as? [String] {
                     self.currentGame = Game(id: id, title: title, topics: topics)
@@ -254,6 +262,26 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .words
         searchController.delegate = self
+        searchController.searchBar.barTintColor = CELL_BORDER_COLOR_DEFAULT
+        searchController.searchBar.backgroundImage = UIImage()
+
+        // customize searchBar textField
+        searchController.searchBar.searchBarStyle = .prominent
+        if let searchBarTextField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            searchBarTextField.leftViewMode = UITextFieldViewMode.never
+            searchBarTextField.textColor = COLOR_DARK_BROWN
+            searchBarTextField.font = FONT_BUTTON
+            
+            // todo todo todo
+            let placeholderAttributes: [String : AnyObject] = [NSForegroundColorAttributeName: UIColor(red:0.30, green:0.18, blue:0.12, alpha:0.4), NSFontAttributeName: FONT_BUTTON!]
+            let attributedPlaceholder: NSAttributedString = NSAttributedString(string: "Search", attributes: placeholderAttributes)
+            
+            searchBarTextField.attributedPlaceholder = attributedPlaceholder
+        }
+        
+        // custom cancel button
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSFontAttributeName: FONT_BUTTON!, NSForegroundColorAttributeName: UIColor(red:0.30, green:0.18, blue:0.12, alpha:1.0)], for: .normal)
+
     }
 
     // MARK: - UITableViewDelegate
@@ -306,7 +334,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch (section) {
         case TableViewFriendsSection.recents.rawValue:
             sectionTitle = kSectionTitleRecents
-            topPadding = 3
+            topPadding = 8
             break
         case TableViewFriendsSection.friends.rawValue:
             sectionTitle = kSectionTitleFriendsOnScavenge
@@ -321,13 +349,30 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 35))
-        returnedView.backgroundColor = UIColor.white
+        returnedView.backgroundColor = UIColor.clear
         
-        let label = UILabel(frame: CGRect(x: 8, y: topPadding, width: tableView.frame.width, height: 22))
-        label.text = sectionTitle
-        returnedView.addSubview(label)
+        let sectionTitleLabel = UILabel(frame: CGRect(x: 8, y: topPadding, width: tableView.frame.width, height: 22))
+        sectionTitleLabel.font = TABLE_VIEW_SECTION_FONT
+        sectionTitleLabel.attributedText = NSAttributedString(string: sectionTitle!, attributes: [NSForegroundColorAttributeName: UIColor.white])
+        returnedView.addSubview(sectionTitleLabel)
 
         return returnedView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        var height: CGFloat = 30
+        switch (section) {
+        case TableViewFriendsSection.recents.rawValue:
+            height = 38
+            break
+        default:
+            break
+        }
+        return height
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
