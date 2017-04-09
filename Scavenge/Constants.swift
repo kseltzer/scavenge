@@ -19,8 +19,6 @@ let COLOR_DARK_BROWN = UIColor(red:0.30, green:0.18, blue:0.12, alpha:1.0) /* #4
 let COLOR_DARK_BROWN_DISABLED = UIColor(red:0.30, green:0.18, blue:0.12, alpha:0.5) /* #4D2E1E */
 let COLOR_RED = UIColor(red: 223/255, green: 87/255, blue: 100/255, alpha: 1.0) /* #df5764 */
 let COLOR_GREENISH_BLUE = UIColor(red: 87/255, green: 223/255, blue: 210/255, alpha: 1.0) /* #57DFD2 */
-
-// todo todo todo (these are old colors)
 let COLOR_ORANGE = UIColor(red: 234/255, green: 117/255, blue: 10/255, alpha: 1.0) /* #ea750a */
 let COLOR_YELLOW = UIColor(red:1.00, green:0.81, blue:0.40, alpha:1.0)
 
@@ -69,9 +67,9 @@ let NAVIGATION_BAR_TEXT_COLOR = UIColor.white
 let NAVIGATION_BAR_FONT = UIFont(name: "CoquetteBold", size: 25.0)
 
 // MARK: - Button Constants
-let BUTTON_DEFAULT_BACKGROUND_COLOR = COLOR_RED
+let BUTTON_DEFAULT_BACKGROUND_COLOR = COLOR_ORANGE
 let BUTTON_FACEBOOK_BACKGROUND_COLOR = UIColor(red: 30/255.0, green: 136/255.0, blue: 229/255.0, alpha: 1.0)
-let BUTTON_TEXT_COLOR_NORMAL = UIColor(red: 243/255.0, green: 243/255.0, blue: 243/255.0, alpha: 1.0)
+let BUTTON_TEXT_COLOR_NORMAL = COLOR_DARK_BROWN
 let BUTTON_TEXT_COLOR_DISABLED = UIColor.lightGray
 let BUTTON_TEXT_FONT = UIFont(name: "LithosPro-Black", size: 18.0)
 let BAR_BUTTON_TEXT_COLOR = COLOR_DARK_BROWN
@@ -101,8 +99,8 @@ let FONT_STANDARD_TEXT = UIFont(name: "CoquetteBold", size: 19.0)
 let FONT_STANDARD_TEXT_LIGHT = UIFont(name: "CoquetteBold", size: 17.0)
 
 // MARK: - Menu Customization
-let MENU_OPTION_TEXT_DEFAULT_COLOR = UIColor.groupTableViewBackground
-let MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR = UIColor.lightGray
+let MENU_OPTION_TEXT_DEFAULT_COLOR = COLOR_DARK_BROWN
+let MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR = COLOR_ORANGE
 
 // MARK: - Cell Customization
 let CELL_SELECTED_COLOR = UIColor(red: 218/255, green: 223/255, blue: 225/255, alpha: 1.0)

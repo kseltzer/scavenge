@@ -77,6 +77,7 @@
 		4EB640921D77617100EA308D /* RightToLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB640911D77617100EA308D /* RightToLeftAnimator.swift */; };
 		4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */; };
 		4EC034AA1D87BBE400C6D346 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC034A91D87BBE400C6D346 /* FBSDKMessengerShareKit.framework */; };
+		4EFD0A6D1E9ABCEC00972FE6 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFD0A6C1E9ABCEC00972FE6 /* MenuCell.swift */; };
 		AFBE84885BE3A2D0EEB38641 /* Pods_Scavenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EBFFDFFF8B206501D7C5EB3 /* Pods_Scavenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +178,7 @@
 		4EB640911D77617100EA308D /* RightToLeftAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeftAnimator.swift; sourceTree = "<group>"; };
 		4EB9AEB41D56BED400F19BB2 /* VotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
 		4EC034A91D87BBE400C6D346 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		4EFD0A6C1E9ABCEC00972FE6 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		8EBFFDFFF8B206501D7C5EB3 /* Pods_Scavenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scavenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BF440059BE14A7897F6A04 /* Pods-Scavenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scavenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scavenge/Pods-Scavenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -414,6 +416,7 @@
 				4EB640871D75572300EA308D /* CustomNavigationBar.swift */,
 				4EB640891D755A2900EA308D /* MenuButton.swift */,
 				4EA9A43F1DE8AC8000F74D97 /* InviteFriendsCell.swift */,
+				4EFD0A6C1E9ABCEC00972FE6 /* MenuCell.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */,
 				4E0086631DDE9F1300F5AD20 /* DismissCameraAnimator.swift in Sources */,
 				4E2277D71D32D29400E22436 /* Constants.swift in Sources */,
+				4EFD0A6D1E9ABCEC00972FE6 /* MenuCell.swift in Sources */,
 				4E22781E1D42030000E22436 /* FriendCell.swift in Sources */,
 				4EA2384C1D77A23B00BD278B /* ResultsCell.swift in Sources */,
 				4E0086671DDEE64400F5AD20 /* GameCell.swift in Sources */,

@@ -54,6 +54,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBackground" translatesAutoresizingMaskIntoConstraints="NO" id="06R-Sj-xGE">
+                                <rect key="frame" x="0.0" y="-16" width="375" height="699"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJu-2c-8DQ">
                                 <rect key="frame" x="244" y="20" width="131" height="647"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,72 +78,79 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oVh-Bq-3US" userLabel="profileImageView" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                <rect key="frame" x="16" y="64" width="60" height="60"/>
+                                <rect key="frame" x="32" y="64" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="45V-hd-rgf"/>
                                     <constraint firstAttribute="width" secondItem="oVh-Bq-3US" secondAttribute="height" multiplier="1:1" id="8gR-wJ-uOW"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ FirstName }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz1-xl-KvO" userLabel="First Name Label">
-                                <rect key="frame" x="84" y="64" width="152" height="25"/>
+                                <rect key="frame" x="108" y="64" width="128" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="BNO-7m-jfA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hrb-fO-CNx">
-                                <rect key="frame" x="0.0" y="159" width="244" height="508"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hrb-fO-CNx">
+                                <rect key="frame" x="16" y="159" width="228" height="508"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="separatorColor" red="0.50788509406066862" green="0.51680224430282184" blue="0.55835336538461533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.43137254899999999" green="0.25882352939999997" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuCell" textLabel="Lfs-av-njn" style="IBUITableViewCellStyleDefault" id="I4L-2x-9gP">
-                                        <rect key="frame" x="0.0" y="28" width="244" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuCell" textLabel="Lfs-av-njn" style="IBUITableViewCellStyleDefault" id="I4L-2x-9gP" customClass="MenuCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="228" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4L-2x-9gP" id="ze8-IY-61v">
-                                            <rect key="frame" x="0.0" y="0.0" width="244" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="228" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lfs-av-njn">
-                                                    <rect key="frame" x="15" y="0.0" width="214" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="198" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="20"/>
+                                                    <color key="textColor" red="0.43137254899999999" green="0.25882352939999997" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pageTitleLabel" destination="Lfs-av-njn" id="Re1-qV-GOe"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ LastName }" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QI-UZ-7ea" userLabel="Last Name Label">
-                                <rect key="frame" x="84" y="82" width="152" height="25"/>
+                                <rect key="frame" x="108" y="82" width="128" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="6l8-8G-NSd"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="oIJ-AQ-nmi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.36264879439706166" green="0.39678856860530071" blue="0.44050480769230771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="36V-WE-NeA" firstAttribute="top" secondItem="06R-Sj-xGE" secondAttribute="bottom" constant="-16" id="2rC-Hv-0Rc"/>
+                            <constraint firstAttribute="trailing" secondItem="06R-Sj-xGE" secondAttribute="trailing" id="69o-AA-4Vt"/>
                             <constraint firstItem="aJu-2c-8DQ" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leadingMargin" constant="17" id="7Vw-Er-EKg"/>
                             <constraint firstItem="hz1-xl-KvO" firstAttribute="top" secondItem="E3s-o6-pWc" secondAttribute="bottom" constant="44" id="7se-YE-hJr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aJu-2c-8DQ" secondAttribute="trailing" constant="343" id="AOW-7s-eWV"/>
-                            <constraint firstItem="hrb-fO-CNx" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leading" id="GiB-1U-VRx"/>
+                            <constraint firstItem="hrb-fO-CNx" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leading" constant="16" id="GiB-1U-VRx"/>
                             <constraint firstItem="aJu-2c-8DQ" firstAttribute="top" secondItem="E3s-o6-pWc" secondAttribute="bottom" id="LfI-eI-hyD"/>
-                            <constraint firstItem="0QI-UZ-7ea" firstAttribute="leading" secondItem="oVh-Bq-3US" secondAttribute="trailing" constant="8" id="QKk-JX-g3S"/>
+                            <constraint firstItem="0QI-UZ-7ea" firstAttribute="leading" secondItem="oVh-Bq-3US" secondAttribute="trailing" constant="16" id="QKk-JX-g3S"/>
                             <constraint firstItem="aJu-2c-8DQ" firstAttribute="leading" secondItem="0QI-UZ-7ea" secondAttribute="trailing" constant="8" id="R1c-xm-bLv"/>
                             <constraint firstItem="hrb-fO-CNx" firstAttribute="top" secondItem="oVh-Bq-3US" secondAttribute="bottom" constant="35" id="SHy-UD-0PL"/>
                             <constraint firstItem="oVh-Bq-3US" firstAttribute="top" secondItem="E3s-o6-pWc" secondAttribute="bottom" constant="44" id="TUK-Gg-mVS"/>
-                            <constraint firstItem="oVh-Bq-3US" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leading" constant="16" id="Uad-kj-bxm"/>
+                            <constraint firstItem="oVh-Bq-3US" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leading" constant="32" id="Uad-kj-bxm"/>
                             <constraint firstItem="0QI-UZ-7ea" firstAttribute="top" secondItem="hz1-xl-KvO" secondAttribute="bottom" constant="-7" id="VKH-RG-xKW"/>
                             <constraint firstItem="36V-WE-NeA" firstAttribute="top" secondItem="hrb-fO-CNx" secondAttribute="bottom" id="Vbp-Um-udH"/>
                             <constraint firstItem="36V-WE-NeA" firstAttribute="top" secondItem="aJu-2c-8DQ" secondAttribute="bottom" id="WKo-Xt-Ufg"/>
-                            <constraint firstItem="hz1-xl-KvO" firstAttribute="leading" secondItem="oVh-Bq-3US" secondAttribute="trailing" constant="8" id="Z0s-bO-rVd"/>
+                            <constraint firstItem="06R-Sj-xGE" firstAttribute="leading" secondItem="kEh-gX-94x" secondAttribute="leading" id="XcK-lf-Goq"/>
+                            <constraint firstItem="06R-Sj-xGE" firstAttribute="top" secondItem="kEh-gX-94x" secondAttribute="top" constant="-16" id="XgS-7g-eC8"/>
+                            <constraint firstItem="hz1-xl-KvO" firstAttribute="leading" secondItem="oVh-Bq-3US" secondAttribute="trailing" constant="16" id="Z0s-bO-rVd"/>
                             <constraint firstItem="aJu-2c-8DQ" firstAttribute="leading" secondItem="hrb-fO-CNx" secondAttribute="trailing" id="aEB-dh-KOt"/>
                             <constraint firstItem="aJu-2c-8DQ" firstAttribute="top" secondItem="E3s-o6-pWc" secondAttribute="bottom" constant="114" id="eTB-zK-4d0"/>
                             <constraint firstItem="aJu-2c-8DQ" firstAttribute="width" secondItem="kEh-gX-94x" secondAttribute="width" multiplier="0.35" id="esj-DH-bno"/>
@@ -164,6 +174,7 @@
                     <connections>
                         <outlet property="firstNameLabel" destination="hz1-xl-KvO" id="Of3-ux-3x5"/>
                         <outlet property="lastNameLabel" destination="0QI-UZ-7ea" id="qi2-nn-xx0"/>
+                        <outlet property="menuBackgroundImageView" destination="06R-Sj-xGE" id="07R-4y-tgf"/>
                         <outlet property="profileImageView" destination="oVh-Bq-3US" id="j6l-Am-xfM"/>
                         <outlet property="tableView" destination="hrb-fO-CNx" id="kUL-gZ-B5O"/>
                         <segue destination="RbZ-Hg-mcN" kind="presentation" identifier="showHelp" id="Mhu-KX-uXL"/>
@@ -179,7 +190,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1333" y="-136"/>
+            <point key="canvasLocation" x="1332" y="-136.28185907046478"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="04e-hM-u32">
@@ -538,7 +549,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Game Title" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-Pm-aXv">
-                                        <rect key="frame" x="66" y="19" width="301" height="20"/>
+                                        <rect key="frame" x="66" y="20" width="301" height="19"/>
                                         <color key="textColor" red="0.30196078431372547" green="0.1803921568627451" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
@@ -721,7 +732,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateIan" translatesAutoresizingMaskIntoConstraints="NO" id="SIJ-5R-UKm" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                <rect key="frame" x="120" y="0.0" width="46" height="46"/>
+                                                <rect key="frame" x="120.5" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SIJ-5R-UKm" secondAttribute="height" multiplier="1:1" id="Y9S-2Q-EAS"/>
@@ -731,7 +742,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="negativeStateSachin" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-bL-Rql" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                                <rect key="frame" x="181" y="0.0" width="46" height="46"/>
+                                                <rect key="frame" x="180.5" y="0.0" width="46" height="46"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jHM-bL-Rql" secondAttribute="height" multiplier="1:1" id="TOb-p7-bNT"/>
@@ -782,24 +793,24 @@
                                         <rect key="frame" x="8" y="8" width="210" height="210"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="otE-mj-XKK" userLabel="Horiz Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="210" height="65"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="210" height="64.5"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDO-rm-pIB" userLabel="Icon 1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
                                                         <state key="normal" title="Button" image="foot_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Qtf-uH-a8o"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-rK-XWs" userLabel="Icon 2">
-                                                        <rect key="frame" x="73" y="0.0" width="64" height="65"/>
+                                                        <rect key="frame" x="72.5" y="0.0" width="65" height="64.5"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="R3B-MM-AJl"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Df-Fui" userLabel="Icon 3">
-                                                        <rect key="frame" x="145" y="0.0" width="65" height="65"/>
+                                                        <rect key="frame" x="145.5" y="0.0" width="64.5" height="64.5"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="SBB-bB-yaR"/>
@@ -808,24 +819,24 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fMi-Ht-Eac" userLabel="Horiz Stack View">
-                                                <rect key="frame" x="0.0" y="73" width="210" height="64"/>
+                                                <rect key="frame" x="0.0" y="72.5" width="210" height="65"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX2-7B-Kl7" userLabel="Icon 4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="65"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="DlR-sw-PmX"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQV-pz-Hmo" userLabel="Icon 5">
-                                                        <rect key="frame" x="73" y="0.0" width="64" height="64"/>
+                                                        <rect key="frame" x="72.5" y="0.0" width="65" height="65"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="fLl-45-RGr"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGR-P4-wGL" userLabel="Icon 6">
-                                                        <rect key="frame" x="145" y="0.0" width="65" height="64"/>
+                                                        <rect key="frame" x="145.5" y="0.0" width="64.5" height="65"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="KQB-hH-6Yk"/>
@@ -834,24 +845,24 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-mX-jIy" userLabel="Horiz Stack View">
-                                                <rect key="frame" x="0.0" y="145" width="210" height="65"/>
+                                                <rect key="frame" x="0.0" y="145.5" width="210" height="64.5"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilu-hf-MOd" userLabel="Icon 7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="PGY-NF-gfy"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCv-GH-6m6" userLabel="Icon 8">
-                                                        <rect key="frame" x="73" y="0.0" width="64" height="65"/>
+                                                        <rect key="frame" x="72.5" y="0.0" width="65" height="64.5"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Ghb-bL-NaL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4y-On-Wwj" userLabel="Icon 9">
-                                                        <rect key="frame" x="145" y="0.0" width="65" height="65"/>
+                                                        <rect key="frame" x="145.5" y="0.0" width="64.5" height="64.5"/>
                                                         <state key="normal" title="Button" image="raccoon_icon"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="1w9-xL-4de"/>
@@ -1116,7 +1127,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9EV-vy-12j" customClass="SNavigationController" customModule="Scavenge" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uWk-yO-LTp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uWk-yO-LTp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.30196078430000001" green="0.18039215689999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
@@ -1140,6 +1151,7 @@
         <image name="detailDisclosure" width="64" height="64"/>
         <image name="fbProfilePic" width="960" height="960"/>
         <image name="foot_icon" width="80" height="80"/>
+        <image name="menuBackground" width="475" height="1233"/>
         <image name="negativeStateAC" width="440" height="440"/>
         <image name="negativeStateAliya" width="440" height="440"/>
         <image name="negativeStateIan" width="440" height="440"/>

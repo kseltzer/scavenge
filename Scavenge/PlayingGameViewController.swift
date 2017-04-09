@@ -10,7 +10,7 @@ import UIKit
 
 class PlayingGameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    var topics: [String] = ["","","","",""]
+    var topics: [String] = ["{ Some Super Really Blah Blah Blah Blah Gobfkjashdald Long Boring But Funny Actually Topic }","{ A Normal Length Topic This Is }","{ Topic }","{ Topic }","{ Topic }"]
     let cameraNotAvailableErrorMsg = "ya need a camera to play Scavenge, and this device doesn't have one"
     
     let cameraViewBackgroundColor = COLOR_LIGHT_BROWN

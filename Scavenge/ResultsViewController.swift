@@ -82,7 +82,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: 22))
-        sectionHeaderView.backgroundColor = UIColor.white
+        sectionHeaderView.backgroundColor = UIColor.clear
         let topicLabel = UILabel(frame: CGRect(x: 8, y: 0, width: cellWidth, height: 22))
         topicLabel.text = dummyGameData.topics[section]
         topicLabel.font = RESULTS_TABLE_VIEW_SECTION_FONT

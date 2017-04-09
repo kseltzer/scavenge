@@ -23,6 +23,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var profileImageView: ProfileImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var menuBackgroundImageView: UIImageView!
     
     let menuOptions : [MenuOption] = [.Home, .Invite, .Help, .About, .Feedback, .Logout]
     var currentScreen : MenuOption?
@@ -35,6 +36,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         firstNameLabel.text = UserDefaults.standard.value(forKey: KEY_FIRST_NAME) as? String
         lastNameLabel.text = UserDefaults.standard.value(forKey: KEY_LAST_NAME) as? String
+        
+        menuBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        menuBackgroundImageView.layer.borderWidth = 16
         
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
@@ -59,16 +63,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Table View
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell")
-        cell?.backgroundColor = UIColor.clear
-        let option = menuOptionForRow((indexPath as NSIndexPath).row)
-        if option == currentScreen {
-            cell?.textLabel?.textColor = MENU_OPTION_TEXT_CURRENT_SCREEN_COLOR
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell") as? MenuCell {
+            let option = menuOptionForRow((indexPath as NSIndexPath).row)
+            cell.menuOption = option
+            if option == currentScreen && option != .Feedback && option != .Logout {
+                cell.isCurrentScreen = true
+            } else {
+                cell.isCurrentScreen = false
+            }
+            cell.pageTitleLabel.text = option.rawValue
+            return cell
         } else {
-            cell?.textLabel?.textColor = MENU_OPTION_TEXT_DEFAULT_COLOR
+            return UITableViewCell()
         }
-        cell?.textLabel?.text = option.rawValue
-        return cell!
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
