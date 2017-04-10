@@ -13,10 +13,15 @@ class AboutViewController: UIViewController {
     let interactor = InteractiveTransitionController()
     let rightToLeftAnimator = RightToLeftAnimator()
     
+    @IBOutlet weak var navBar: CustomNavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // set nav bar to transparent
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
     }
 
     /*
