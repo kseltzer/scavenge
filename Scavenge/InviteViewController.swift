@@ -13,8 +13,30 @@ class InviteViewController: UIViewController {
 
     let interactor = InteractiveTransitionController()
     
+    @IBOutlet weak var navBar: CustomNavigationBar!
+    @IBOutlet weak var friendsImageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set nav bar to transparent
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+        
+        
+        // compress friends image
+        friendsImageView.image = UIImage(named: "friendAvatars")?.compress(newSize: CGSize(width: 343, height: 219))
+    }
+    
+    @IBAction func pressedInviteFriendsButton(_ sender: SButton) {
+        let inviteMessage = [inviteBody]
+        let activityViewController = UIActivityViewController(activityItems: inviteMessage, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        activityViewController.excludedActivityTypes = [.assignToContact, .addToReadingList, .openInIBooks, .postToVimeo, .saveToCameraRoll, .print]
+        self.present(activityViewController, animated: true, completion: nil)
+
     }
 }
 

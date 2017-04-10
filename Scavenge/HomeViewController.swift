@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         adjustLeftBarButtonHorizontalSpacing()
         adjustRightBarButtonHorizontalSpacing()
         
-        // set nav bar to translucent
+        // set nav bar to transparent
         if let navigationController = navigationController {
             navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigationController.navigationBar.shadowImage = UIImage()

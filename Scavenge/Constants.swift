@@ -20,7 +20,6 @@ let COLOR_DARK_BROWN_DISABLED = UIColor(red:0.30, green:0.18, blue:0.12, alpha:0
 let COLOR_RED = UIColor(red: 223/255, green: 87/255, blue: 100/255, alpha: 1.0) /* #df5764 */
 let COLOR_GREENISH_BLUE = UIColor(red: 87/255, green: 223/255, blue: 210/255, alpha: 1.0) /* #57DFD2 */
 let COLOR_ORANGE = UIColor(red: 234/255, green: 117/255, blue: 10/255, alpha: 1.0) /* #ea750a */
-let COLOR_YELLOW = UIColor(red:1.00, green:0.81, blue:0.40, alpha:1.0)
 
 // MARK: - Game Play Constants
 let NUM_GAME_QUESTIONS = 5
