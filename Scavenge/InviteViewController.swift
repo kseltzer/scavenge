@@ -25,7 +25,6 @@ class InviteViewController: UIViewController {
         navBar.shadowImage = UIImage()
         navBar.isTranslucent = true
         
-        
         // compress friends image
         friendsImageView.image = UIImage(named: "friendAvatars")?.compress(newSize: CGSize(width: 343, height: 219))
     }

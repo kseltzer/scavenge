@@ -85,8 +85,8 @@ let RESULTS_TABLE_VIEW_SECTION_HEIGHT : CGFloat = 28
 let kSectionTitleInvites = "Invites"
 let kSectionTitleResults = "Results"
 let kSectionTitleActiveGames = "Active Games"
-let kSubsectionTitleYourMove = "Your Move"
-let kSubsectionTitleTheirMove = "Their Move"
+let kSubsectionTitleYourMove = "your move"
+let kSubsectionTitleTheirMove = "their move"
 let kSectionTitleCompletedGames = "Completed Games"
 
 let kSectionTitleRecents = "Recents"

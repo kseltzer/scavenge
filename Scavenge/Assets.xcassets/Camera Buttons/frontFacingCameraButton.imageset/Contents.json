@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "front face.png",
+      "filename" : "front cam.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "front face@2x.png",
+      "filename" : "front cam-2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "front face@3x.png",
+      "filename" : "front cam-1.png",
       "scale" : "3x"
     }
   ],
