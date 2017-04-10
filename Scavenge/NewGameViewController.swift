@@ -313,6 +313,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch (section) {
         case 0:
             if (searchController.isActive && searchController.searchBar.text != "") {
+                print(filteredRecentsIDs)
                 return filteredRecentsIDs.isEmpty ? nil : kSectionTitleRecents
             }
             return recentsDictionary.isEmpty ? nil : kSectionTitleRecents
@@ -333,14 +334,35 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         var topPadding : CGFloat!
         switch (section) {
         case TableViewFriendsSection.recents.rawValue:
+            if (searchController.isActive && searchController.searchBar.text != "" && filteredRecentsIDs.isEmpty) {
+                return UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+            }
             sectionTitle = kSectionTitleRecents
             topPadding = 8
             break
         case TableViewFriendsSection.friends.rawValue:
+            if (searchController.isActive && searchController.searchBar.text != "" && filteredFriendsIDs.isEmpty) {
+                return UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+            }
             sectionTitle = kSectionTitleFriendsOnScavenge
             topPadding = 0
             break
         case TableViewFriendsSection.inviteFriends.rawValue:
+            if (searchController.isActive && searchController.searchBar.text != "" && filteredRecentsIDs.isEmpty && filteredFriendsIDs.isEmpty) {
+                let noFriendsView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 38))
+                let noFriendsLabel = UILabel(frame: CGRect(x: 16, y: 0, width: screenSize.width - 32, height: 30))
+                noFriendsLabel.attributedText = NSAttributedString(string: "The friend you're looking for isn't on Scavenge :(", attributes: [NSFontAttributeName: FONT_LABEL!, NSForegroundColorAttributeName: UIColor.white])
+                noFriendsLabel.textAlignment = .center
+                noFriendsView.addSubview(noFriendsLabel)
+                
+                let imageView = UIImageView(frame: CGRect(x: 50, y: 42, width: screenSize.width - 100, height: screenSize.width - 100))
+                imageView.image =  UIImage(named: "noFriends")
+                imageView.alpha = 0.7
+                imageView.contentMode = .scaleAspectFit
+                noFriendsView.addSubview(imageView)
+                
+                return noFriendsView
+            }
             sectionTitle = kSectionTitleFriendsNotOnScavenge
             topPadding = 0
             break
@@ -363,7 +385,20 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         var height: CGFloat = 30
         switch (section) {
         case TableViewFriendsSection.recents.rawValue:
+            if (searchController.isActive && searchController.searchBar.text != "" && filteredRecentsIDs.isEmpty) {
+                return 8
+            }
             height = 38
+            break
+        case TableViewFriendsSection.friends.rawValue:
+            if (searchController.isActive && searchController.searchBar.text != "" && filteredFriendsIDs.isEmpty) {
+                return 4
+            }
+            break
+        case TableViewFriendsSection.inviteFriends.rawValue:
+            if (searchController.isActive && searchController.searchBar.text != "" && filteredRecentsIDs.isEmpty && filteredFriendsIDs.isEmpty) {
+                return screenSize.width - 58
+            }
             break
         default:
             break
