@@ -12,7 +12,7 @@ class LoginButton: SButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = BUTTON_FACEBOOK_BACKGROUND_COLOR
+//        self.backgroundColor = BUTTON_FACEBOOK_BACKGROUND_COLOR
     }
 
 }

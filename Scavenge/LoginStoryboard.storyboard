@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LithosPro-Black.otf">
+            <string>LithosPro-Black</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="xcA-jO-bCX">
@@ -22,14 +27,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-yf-nab" customClass="LoginButton" customModule="Scavenge" customModuleProvider="target">
-                                <rect key="frame" x="95" y="308" width="185" height="51"/>
+                                <rect key="frame" x="62" y="434" width="250" height="70"/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.45882352939999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="185" id="Ce7-xG-Vo9"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="Ixf-md-nDA"/>
-                                    <constraint firstAttribute="width" constant="185" id="KNR-n1-Dhy"/>
-                                    <constraint firstAttribute="height" constant="51" id="v7S-Yz-vcC"/>
+                                    <constraint firstAttribute="width" constant="250" id="KNR-n1-Dhy"/>
+                                    <constraint firstAttribute="height" constant="70" id="v7S-Yz-vcC"/>
                                 </constraints>
-                                <state key="normal" title="Login with Facebook"/>
+                                <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" red="0.43137254899999999" green="0.25882352939999997" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="fbLoginButtonPressed:" destination="c8u-zW-D1p" eventType="touchUpInside" id="WTu-bE-E4V"/>
                                 </connections>
@@ -38,7 +45,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ca3-yf-nab" firstAttribute="centerX" secondItem="qDs-6j-Fqa" secondAttribute="centerX" id="0EN-B6-aw8"/>
-                            <constraint firstItem="Ca3-yf-nab" firstAttribute="centerY" secondItem="qDs-6j-Fqa" secondAttribute="centerY" id="gwI-pj-aKl"/>
+                            <constraint firstItem="qvc-Q7-VBZ" firstAttribute="top" secondItem="Ca3-yf-nab" secondAttribute="bottom" constant="163" id="IX1-hg-fqM"/>
                         </constraints>
                     </view>
                     <connections>
@@ -47,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brn-Ry-IUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="348"/>
+            <point key="canvasLocation" x="269.60000000000002" y="347.67616191904051"/>
         </scene>
     </scenes>
 </document>

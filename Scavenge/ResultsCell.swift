@@ -16,6 +16,7 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
     
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var cellBackgroundImageView: UIImageView!
     
     var scrollPosition : CGPoint = CGPoint(x: 0, y: 0)
     var index: Int!
@@ -25,6 +26,9 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
         super.awakeFromNib()
         
         scrollView.delegate = self
+        
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        cellBackgroundImageView.layer.borderWidth = 8
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,7 +46,7 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
         scrollView.scrollsToTop = true
         
         var x: CGFloat = 0
-        let y: CGFloat = 0
+        let y: CGFloat = 16
 
         for index in 0 ..< numPlayers {
             let imageView = UIImageView(frame: CGRect(x: x, y: y, width: imageViewWidth, height: imageViewHeight))

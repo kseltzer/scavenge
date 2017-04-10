@@ -44,7 +44,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         screenSize = UIScreen.main.bounds
         cellWidth = screenSize.width - 16
         
-        let topPadding : CGFloat = 8, bottomPadding : CGFloat = 8, playerLabelHeightAndPadding : CGFloat = 20
+        let topPadding : CGFloat = 16, bottomPadding : CGFloat = 16, playerLabelHeightAndPadding : CGFloat = 20
         
         let imageViewHeight = cellWidth * IMAGE_RATIO / 2.5
         let cellHeight = imageViewHeight + topPadding + bottomPadding + playerLabelHeightAndPadding
@@ -86,6 +86,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let topicLabel = UILabel(frame: CGRect(x: 8, y: 0, width: cellWidth, height: 22))
         topicLabel.text = dummyGameData.topics[section]
         topicLabel.font = RESULTS_TABLE_VIEW_SECTION_FONT
+        topicLabel.textColor = UIColor.white
         sectionHeaderView.addSubview(topicLabel)
         return sectionHeaderView
     }
