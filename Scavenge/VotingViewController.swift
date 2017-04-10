@@ -53,10 +53,10 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: 30))
-        sectionHeaderView.backgroundColor = UIColor.white
+        sectionHeaderView.backgroundColor = UIColor.clear
         let topicLabel = UILabel(frame: CGRect(x: leadingSpace, y: 0, width: cellWidth, height: 30))
         topicLabel.text = "Topic" // TODO: get data from backend
-//        topicLabel.textColor = UIColor.white
+        topicLabel.textColor = UIColor.white
         topicLabel.font = VOTING_TABLE_VIEW_SECTION_FONT
         sectionHeaderView.addSubview(topicLabel)
         return sectionHeaderView
@@ -106,7 +106,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "photosForTopicCell") as! VotingCell
-        cell.delegate = self
+        cell.delegate = self        
         cell.index = (indexPath as NSIndexPath).section
         cell.images = dummyContentImagesFromBackend as! [UIImage] // TODO: get data from images array, which gets data from backend
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)

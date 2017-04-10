@@ -19,6 +19,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var cellBackgroundImageView: UIImageView!
     
     var scrollPosition : CGPoint = CGPoint(x: 0, y: 0)
     var index: Int!
@@ -30,6 +31,9 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        cellBackgroundImageView.layer.borderWidth = 8
+        
         scrollView.delegate = self
         self.setupUIScrollView()
         self.setupUIPageControl()
@@ -45,7 +49,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
         scrollView.scrollsToTop = true
                 
         var x: CGFloat = 0
-        let y: CGFloat = 0
+        let y: CGFloat = 16
         
         for i in 0 ..< numPlayers {
             let imageViewTopic = UIImageView(frame: CGRect(x: x, y: y, width: imageViewWidth, height: imageViewHeight))
@@ -97,7 +101,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
         pageControl.numberOfPages = numPlayers
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.black
-        pageControl.currentPageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = COLOR_ORANGE
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

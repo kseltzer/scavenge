@@ -194,6 +194,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1qm-2b-CnQ">
+                                                    <rect key="frame" x="-8" y="0.0" width="391" height="400"/>
+                                                </imageView>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-8I-W8o">
                                                     <rect key="frame" x="152" y="363" width="71" height="37"/>
                                                     <constraints>
@@ -207,17 +210,22 @@
                                                 </scrollView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="1qm-2b-CnQ" secondAttribute="trailing" constant="-8" id="7ct-c9-kgM"/>
+                                                <constraint firstAttribute="bottom" secondItem="1qm-2b-CnQ" secondAttribute="bottom" id="AaU-jq-eEk"/>
                                                 <constraint firstAttribute="bottom" secondItem="dYD-8I-W8o" secondAttribute="bottom" id="Iej-jt-Stc"/>
                                                 <constraint firstAttribute="trailing" secondItem="k0L-TW-ths" secondAttribute="trailing" id="Vny-xn-nuV"/>
                                                 <constraint firstItem="k0L-TW-ths" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leading" constant="8" id="Zt2-m3-WKx"/>
                                                 <constraint firstItem="k0L-TW-ths" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="top" id="c44-WI-6Q1"/>
                                                 <constraint firstAttribute="bottom" secondItem="k0L-TW-ths" secondAttribute="bottom" constant="35" id="jnS-ic-6Ef"/>
+                                                <constraint firstItem="1qm-2b-CnQ" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="top" id="uOZ-F5-HJY"/>
+                                                <constraint firstItem="1qm-2b-CnQ" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leading" constant="-8" id="yqu-IP-cfU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="dYD-8I-W8o" firstAttribute="centerX" secondItem="VUd-89-6Mp" secondAttribute="centerX" id="LCG-zC-qKr"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="cellBackgroundImageView" destination="1qm-2b-CnQ" id="lQz-EH-xkf"/>
                                             <outlet property="pageControl" destination="dYD-8I-W8o" id="Hw0-6T-JHQ"/>
                                             <outlet property="scrollView" destination="k0L-TW-ths" id="bfj-AI-A8p"/>
                                         </connections>
@@ -381,7 +389,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" width="799" height="799"/>
+        <image name="camera" width="500" height="500"/>
         <image name="cellBackground" width="375" height="54"/>
         <image name="profilePicNegativeState" width="1290" height="1290"/>
         <image name="woodBackground" width="750" height="1334"/>
