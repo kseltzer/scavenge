@@ -48,10 +48,15 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (section == NUM_GAME_QUESTIONS) {
+            return nil
+        }
+        
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: 30))
-        sectionHeaderView.backgroundColor = UIColor.white
+        sectionHeaderView.backgroundColor = UIColor.clear
         let topicLabel = UILabel(frame: CGRect(x: leadingSpace, y: 0, width: cellWidth, height: 30))
         topicLabel.text = "Topic" // TODO: get data from backend
+        topicLabel.textColor = UIColor.white
         topicLabel.font = VOTING_TABLE_VIEW_SECTION_FONT
         sectionHeaderView.addSubview(topicLabel)
         return sectionHeaderView
@@ -79,14 +84,16 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 30
     }
     
+    
+    
     func configureSubmitCell(_ cell: SubmitCell) -> SubmitCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToResultsViewController))
         cell.submitButton.addGestureRecognizer(tapGesture)
         if (self.hasSubmittedAllVotes) {
-            cell.submitButton.isEnabled = true
+                cell.submitButton.isEnabled = true
                 cell.submitButton.alpha = 1.0
             } else {
-            cell.submitButton.isEnabled = false
+                cell.submitButton.isEnabled = false
                 cell.submitButton.alpha = 0.6
             }
         return cell
@@ -99,8 +106,8 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "photosForTopicCell") as! VotingCell
-        cell.delegate = self
-        cell.index = (indexPath as NSIndexPath).section
+        cell.delegate = self        
+        cell.index = (indexPath as NSIndexPath).section        
         cell.images = dummyContentImagesFromBackend as! [UIImage] // TODO: get data from images array, which gets data from backend
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
         let pageNumber = round(cell.scrollView.contentOffset.x / cell.scrollView.frame.size.width)

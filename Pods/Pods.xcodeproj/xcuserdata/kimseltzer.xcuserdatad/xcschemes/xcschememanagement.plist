@@ -19,20 +19,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>WVCheckMark.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>08E135E601B8575673A90F52230C5D9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>663FCD2A2E016D1287FA47F58BBAF3C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>93DDEE6C67AD8A29E78BA41B8D0CB6DE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EB4F42D33F7458C9AC77B18034C28B2F</key>
+		<key>FD33AE70E110F4CD292E5CE35FF32AC5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

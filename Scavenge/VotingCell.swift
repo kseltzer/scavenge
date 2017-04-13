@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WVCheckMark
 
 protocol VotingCellDelegate {
     func updateScrollPositionForIndexPath(scrollPosition: CGFloat, index: Int)
@@ -16,9 +17,12 @@ protocol VotingCellDelegate {
 
 class VotingCell: UITableViewCell, UIScrollViewDelegate {
 
+    @IBOutlet weak var checkmarkAnimationView: WVCheckMark!
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var cellBackgroundImageView: UIImageView!
+    @IBOutlet weak var overlayView: UIView!
     
     var scrollPosition : CGPoint = CGPoint(x: 0, y: 0)
     var index: Int!
@@ -30,6 +34,9 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        cellBackgroundImageView.layer.borderColor = CELL_BORDER_COLOR_DEFAULT.cgColor
+        cellBackgroundImageView.layer.borderWidth = 8
+        
         scrollView.delegate = self
         self.setupUIScrollView()
         self.setupUIPageControl()
@@ -45,7 +52,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
         scrollView.scrollsToTop = true
                 
         var x: CGFloat = 0
-        let y: CGFloat = 0
+        let y: CGFloat = 16
         
         for i in 0 ..< numPlayers {
             let imageViewTopic = UIImageView(frame: CGRect(x: x, y: y, width: imageViewWidth, height: imageViewHeight))
@@ -71,12 +78,20 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
     }
     
     func setVotedUI() {
-        scrollView.alpha = 0.7
         scrollView.isScrollEnabled = false
+        
+        overlayView.alpha = 0.5
+        checkmarkAnimationView.isHidden = false
+        checkmarkAnimationView.backgroundColor = UIColor.clear
+        checkmarkAnimationView.setColor(color: UIColor(red:0.20, green:0.60, blue:0.20, alpha:1.0).cgColor)
+        checkmarkAnimationView.setLineWidth(width: 6.0)
+        checkmarkAnimationView.setDuration(speed: 0.7)
+        checkmarkAnimationView.start()
     }
     
     func setNotVotedUI() {
-        scrollView.alpha = 1.0
+        overlayView.alpha = 0.0
+        checkmarkAnimationView.isHidden = true
         scrollView.isScrollEnabled = true
     }
     
@@ -97,7 +112,7 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
         pageControl.numberOfPages = numPlayers
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.black
-        pageControl.currentPageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = COLOR_ORANGE
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

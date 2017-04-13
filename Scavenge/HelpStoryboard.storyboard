@@ -29,6 +29,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Ol6-d3-ANT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQJ-by-iwU" customClass="CustomNavigationBar" customModule="Scavenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <constraints>
@@ -44,31 +47,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzv-Tv-vUB">
-                                <rect key="frame" x="166.5" y="323" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="0h9-R7-0Eu"/>
-                                    <constraint firstAttribute="height" constant="21" id="XEv-SP-DxE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GQJ-by-iwU" firstAttribute="leading" secondItem="cjv-Rl-qxI" secondAttribute="leading" id="Ssc-Gd-Owe"/>
-                            <constraint firstItem="Uzv-Tv-vUB" firstAttribute="centerY" secondItem="cjv-Rl-qxI" secondAttribute="centerY" id="aBd-Qd-cR5"/>
+                            <constraint firstItem="2xX-6M-EFq" firstAttribute="top" secondItem="Ol6-d3-ANT" secondAttribute="bottom" id="gJ3-4f-reA"/>
+                            <constraint firstItem="Ol6-d3-ANT" firstAttribute="top" secondItem="cjv-Rl-qxI" secondAttribute="top" id="hUP-Q1-BjV"/>
                             <constraint firstItem="GQJ-by-iwU" firstAttribute="top" secondItem="2ZX-DO-Mhh" secondAttribute="bottom" id="kr2-uC-oaC"/>
-                            <constraint firstItem="Uzv-Tv-vUB" firstAttribute="centerX" secondItem="cjv-Rl-qxI" secondAttribute="centerX" id="s4M-7U-LHh"/>
+                            <constraint firstItem="Ol6-d3-ANT" firstAttribute="leading" secondItem="cjv-Rl-qxI" secondAttribute="leading" id="odK-tD-559"/>
                             <constraint firstAttribute="trailing" secondItem="GQJ-by-iwU" secondAttribute="trailing" id="sPh-HV-YZV"/>
+                            <constraint firstAttribute="trailing" secondItem="Ol6-d3-ANT" secondAttribute="trailing" id="u5t-z6-onH"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="zfa-7J-DSU" appends="YES" id="Vnq-I5-SQB"/>
                             <outletCollection property="gestureRecognizers" destination="Fqe-Nd-2KF" appends="YES" id="Wxo-VF-zFY"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="navBar" destination="GQJ-by-iwU" id="BcH-vh-VYf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5h-P5-VMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="zfa-7J-DSU">
@@ -83,7 +81,7 @@
                     </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="598" y="-334"/>
+            <point key="canvasLocation" x="597.60000000000002" y="-334.18290854572717"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6Jq-kF-9Z5">
@@ -122,4 +120,7 @@
             <point key="canvasLocation" x="1276" y="424"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="woodBackground" width="750" height="1334"/>
+    </resources>
 </document>

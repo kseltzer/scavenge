@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         adjustLeftBarButtonHorizontalSpacing()
         adjustRightBarButtonHorizontalSpacing()
         
-        // set nav bar to translucent
+        // set nav bar to transparent
         if let navigationController = navigationController {
             navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigationController.navigationBar.shadowImage = UIImage()
@@ -275,20 +275,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if (gamesInvites.isEmpty) {
                 return nil
             }
-            return "Invites"
+            return kSectionTitleInvites
         case TableViewSection.results.rawValue:
             if (gamesResults.isEmpty) {
                 return nil
             }
-            return "Results"
+            return kSectionTitleResults
         case TableViewSection.activeGames.rawValue:
-            return "Active Games"
+            return kSectionTitleActiveGames
         case TableViewSection.yourMove.rawValue:
-            return "Your Move"
+            return kSubsectionTitleYourMove
         case TableViewSection.theirMove.rawValue:
-            return "Their Move"
+            return kSubsectionTitleTheirMove
         case TableViewSection.completedGames.rawValue:
-            return "Completed Games"
+            return kSectionTitleCompletedGames
         default:
             return ""
         }

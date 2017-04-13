@@ -136,16 +136,16 @@
                             <rect key="frame" x="20" y="0.0" width="335" height="147"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ Some Topic }" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4YJ-Aa-7lx">
-                                    <rect key="frame" x="106" y="0.0" width="124" height="74"/>
+                                    <rect key="frame" x="112.5" y="0.0" width="110" height="73.5"/>
                                     <fontDescription key="fontDescription" name="CoquetteBold" family="Coquette Bold" pointSize="19"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qa4-CS-oM7">
-                                    <rect key="frame" x="131" y="74" width="73" height="73"/>
+                                    <rect key="frame" x="131" y="73.5" width="73.5" height="73.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPd-wY-qWM">
-                                            <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="73.5" height="73.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="vPd-wY-qWM" secondAttribute="height" multiplier="1:1" id="PCa-BD-Dhx"/>
                                             </constraints>
@@ -215,7 +215,7 @@
     <resources>
         <image name="captureImageButton" width="69" height="69"/>
         <image name="flashAutoButton" width="45" height="72"/>
-        <image name="frontFacingCameraButton" width="58" height="41"/>
+        <image name="frontFacingCameraButton" width="58" height="43"/>
         <image name="submitButton" width="49" height="55"/>
         <image name="woodBackground" width="750" height="1334"/>
     </resources>

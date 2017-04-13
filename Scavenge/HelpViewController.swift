@@ -10,11 +10,16 @@ import UIKit
 
 class HelpViewController: UIViewController {
 
+    @IBOutlet weak var navBar: CustomNavigationBar!
     let interactor = InteractiveTransitionController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set nav bar to transparent
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
     }
 }
 
