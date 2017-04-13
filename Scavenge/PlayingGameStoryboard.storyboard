@@ -208,15 +208,33 @@
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0L-TW-ths">
                                                     <rect key="frame" x="8" y="0.0" width="367" height="365"/>
                                                 </scrollView>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqs-zL-PVV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0II-xM-sDS" customClass="WVCheckMark" customModule="WVCheckMark">
+                                                    <rect key="frame" x="130" y="142" width="115" height="115"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="115" id="4YM-uw-aKO"/>
+                                                        <constraint firstAttribute="height" constant="115" id="6oD-80-XVc"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="1qm-2b-CnQ" secondAttribute="trailing" constant="-8" id="7ct-c9-kgM"/>
                                                 <constraint firstAttribute="bottom" secondItem="1qm-2b-CnQ" secondAttribute="bottom" id="AaU-jq-eEk"/>
+                                                <constraint firstAttribute="trailing" secondItem="sqs-zL-PVV" secondAttribute="trailing" id="Bwa-dK-8ix"/>
+                                                <constraint firstAttribute="bottom" secondItem="sqs-zL-PVV" secondAttribute="bottom" id="GKZ-4W-TYL"/>
                                                 <constraint firstAttribute="bottom" secondItem="dYD-8I-W8o" secondAttribute="bottom" id="Iej-jt-Stc"/>
                                                 <constraint firstAttribute="trailing" secondItem="k0L-TW-ths" secondAttribute="trailing" id="Vny-xn-nuV"/>
+                                                <constraint firstItem="sqs-zL-PVV" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leading" id="XC0-mK-U7g"/>
                                                 <constraint firstItem="k0L-TW-ths" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leading" constant="8" id="Zt2-m3-WKx"/>
                                                 <constraint firstItem="k0L-TW-ths" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="top" id="c44-WI-6Q1"/>
+                                                <constraint firstItem="0II-xM-sDS" firstAttribute="centerY" secondItem="uua-2J-ZDz" secondAttribute="centerY" id="hlW-pn-Lqw"/>
                                                 <constraint firstAttribute="bottom" secondItem="k0L-TW-ths" secondAttribute="bottom" constant="35" id="jnS-ic-6Ef"/>
+                                                <constraint firstItem="sqs-zL-PVV" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="top" id="kbA-H1-oGL"/>
+                                                <constraint firstItem="0II-xM-sDS" firstAttribute="centerX" secondItem="uua-2J-ZDz" secondAttribute="centerX" id="tEk-Lk-2PL"/>
                                                 <constraint firstItem="1qm-2b-CnQ" firstAttribute="top" secondItem="uua-2J-ZDz" secondAttribute="top" id="uOZ-F5-HJY"/>
                                                 <constraint firstItem="1qm-2b-CnQ" firstAttribute="leading" secondItem="uua-2J-ZDz" secondAttribute="leading" constant="-8" id="yqu-IP-cfU"/>
                                             </constraints>
@@ -226,6 +244,8 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="cellBackgroundImageView" destination="1qm-2b-CnQ" id="lQz-EH-xkf"/>
+                                            <outlet property="checkmarkAnimationView" destination="0II-xM-sDS" id="k7p-3L-RK6"/>
+                                            <outlet property="overlayView" destination="sqs-zL-PVV" id="V9D-yy-Scl"/>
                                             <outlet property="pageControl" destination="dYD-8I-W8o" id="Hw0-6T-JHQ"/>
                                             <outlet property="scrollView" destination="k0L-TW-ths" id="bfj-AI-A8p"/>
                                         </connections>

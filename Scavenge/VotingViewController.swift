@@ -90,10 +90,10 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToResultsViewController))
         cell.submitButton.addGestureRecognizer(tapGesture)
         if (self.hasSubmittedAllVotes) {
-            cell.submitButton.isEnabled = true
+                cell.submitButton.isEnabled = true
                 cell.submitButton.alpha = 1.0
             } else {
-            cell.submitButton.isEnabled = false
+                cell.submitButton.isEnabled = false
                 cell.submitButton.alpha = 0.6
             }
         return cell
@@ -107,7 +107,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "photosForTopicCell") as! VotingCell
         cell.delegate = self        
-        cell.index = (indexPath as NSIndexPath).section
+        cell.index = (indexPath as NSIndexPath).section        
         cell.images = dummyContentImagesFromBackend as! [UIImage] // TODO: get data from images array, which gets data from backend
         cell.scrollView.contentOffset = scrollViewOffsetForIndexPath(indexPath)
         let pageNumber = round(cell.scrollView.contentOffset.x / cell.scrollView.frame.size.width)
