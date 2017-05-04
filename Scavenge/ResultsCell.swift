@@ -58,6 +58,12 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
             
             let playerLabel = UILabel(frame: CGRect(x: x, y: y + imageViewHeight, width: imageViewWidth, height: playerLabelHeight))
             playerLabel.text = "by: \(submission.submittedBy.name)"
+            
+            let cameraIconImageView = UIImageView(image: UIImage(named: "camera"))
+            cameraIconImageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+            cameraIconImageView.inputView?.contentMode = .scaleAspectFit
+            playerLabel.addSubview(cameraIconImageView)
+            
             playerLabel.font = RESULTS_TABLE_VIEW_SUBSECTION_FONT
             scrollView.addSubview(playerLabel)
             

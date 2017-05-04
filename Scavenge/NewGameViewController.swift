@@ -704,6 +704,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.overlayView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
         }, completion: { (finished) in
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.animateHideIconSelectionView))
+            tapGesture.numberOfTapsRequired = 1
             self.overlayView.addGestureRecognizer(tapGesture)
             self.overlayView.isUserInteractionEnabled = true
         })

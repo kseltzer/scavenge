@@ -558,7 +558,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8Xp-Cs-vB0" secondAttribute="height" multiplier="1:1" id="Nwd-j3-IJR"/>
                                         </constraints>
-                                        <state key="normal" image="foot_icon"/>
+                                        <state key="normal" image="raccoon2"/>
                                         <connections>
                                             <action selector="iconButtonTapped:" destination="jKf-zi-WjN" eventType="touchUpInside" id="DB5-1k-826"/>
                                         </connections>
@@ -800,6 +800,7 @@
                             </view>
                             <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6k-fq-UWv" userLabel="Overlay View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
                             </view>
                             <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxT-md-yxB" userLabel="Icon Selection View">
                                 <rect key="frame" x="68" y="128" width="226" height="226"/>
@@ -812,21 +813,21 @@
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDO-rm-pIB" userLabel="Icon 1">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
-                                                        <state key="normal" title="Button" image="foot_icon"/>
+                                                        <state key="normal" title="Button" image="raccoon2"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Qtf-uH-a8o"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-rK-XWs" userLabel="Icon 2">
                                                         <rect key="frame" x="72.5" y="0.0" width="65" height="64.5"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="hyena"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="R3B-MM-AJl"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Df-Fui" userLabel="Icon 3">
                                                         <rect key="frame" x="145.5" y="0.0" width="64.5" height="64.5"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="jackal"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="SBB-bB-yaR"/>
                                                         </connections>
@@ -838,21 +839,21 @@
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX2-7B-Kl7" userLabel="Icon 4">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="65"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="possum"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="DlR-sw-PmX"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQV-pz-Hmo" userLabel="Icon 5">
                                                         <rect key="frame" x="72.5" y="0.0" width="65" height="65"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="rat"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="fLl-45-RGr"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGR-P4-wGL" userLabel="Icon 6">
                                                         <rect key="frame" x="145.5" y="0.0" width="64.5" height="65"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="tasmanian-devil"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="KQB-hH-6Yk"/>
                                                         </connections>
@@ -864,21 +865,21 @@
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilu-hf-MOd" userLabel="Icon 7">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="vulture"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="PGY-NF-gfy"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCv-GH-6m6" userLabel="Icon 8">
                                                         <rect key="frame" x="72.5" y="0.0" width="65" height="64.5"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="yellow-jacket"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="Ghb-bL-NaL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4y-On-Wwj" userLabel="Icon 9">
                                                         <rect key="frame" x="145.5" y="0.0" width="64.5" height="64.5"/>
-                                                        <state key="normal" title="Button" image="raccoon_icon"/>
+                                                        <state key="normal" title="Button" image="crow"/>
                                                         <connections>
                                                             <action selector="selectedNewGameIcon:" destination="jKf-zi-WjN" eventType="touchUpInside" id="1w9-xL-4de"/>
                                                         </connections>
@@ -1163,18 +1164,25 @@
     </scenes>
     <resources>
         <image name="cellBackground" width="375" height="54"/>
+        <image name="crow" width="160" height="160"/>
         <image name="detailDisclosure" width="64" height="64"/>
         <image name="fbProfilePic" width="960" height="960"/>
-        <image name="foot_icon" width="80" height="80"/>
+        <image name="hyena" width="160" height="160"/>
+        <image name="jackal" width="160" height="160"/>
         <image name="menuBackground" width="417" height="685"/>
         <image name="negativeStateAC" width="440" height="440"/>
         <image name="negativeStateAliya" width="440" height="440"/>
         <image name="negativeStateIan" width="440" height="440"/>
         <image name="negativeStateKim" width="440" height="440"/>
         <image name="negativeStateSachin" width="440" height="440"/>
+        <image name="possum" width="160" height="160"/>
         <image name="raccoon" width="1119" height="1119"/>
-        <image name="raccoon_icon" width="80" height="80"/>
+        <image name="raccoon2" width="160" height="160"/>
+        <image name="rat" width="160" height="160"/>
+        <image name="tasmanian-devil" width="160" height="160"/>
         <image name="uncheckedBox" width="473" height="473"/>
+        <image name="vulture" width="160" height="160"/>
         <image name="woodBackground" width="750" height="1334"/>
+        <image name="yellow-jacket" width="160" height="160"/>
     </resources>
 </document>

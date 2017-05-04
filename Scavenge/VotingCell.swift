@@ -77,28 +77,40 @@ class VotingCell: UITableViewCell, UIScrollViewDelegate {
         }
     }
     
-    func setVotedUI() {
+    func setVotedUI(animated: Bool = false) {
         scrollView.isScrollEnabled = false
         
+        // make cell look disabled
         overlayView.alpha = 0.5
+        
+        // show checkmark
         checkmarkAnimationView.isHidden = false
         checkmarkAnimationView.backgroundColor = UIColor.clear
-        checkmarkAnimationView.setColor(color: UIColor(red:0.20, green:0.60, blue:0.20, alpha:1.0).cgColor)
+        checkmarkAnimationView.setColor(color: COLOR_GREEN_VOTE_CHECKMARK.cgColor)
         checkmarkAnimationView.setLineWidth(width: 6.0)
-        checkmarkAnimationView.setDuration(speed: 0.7)
-        checkmarkAnimationView.start()
+        
+        if (animated) {
+            checkmarkAnimationView.setDuration(speed: 0.7)
+            checkmarkAnimationView.start()
+        } else {
+            checkmarkAnimationView.setDuration(speed: 0)
+            checkmarkAnimationView.start()
+        }
+        
+        pageControl.currentPageIndicatorTintColor = COLOR_GREEN_VOTE_CHECKMARK
     }
     
     func setNotVotedUI() {
         overlayView.alpha = 0.0
         checkmarkAnimationView.isHidden = true
         scrollView.isScrollEnabled = true
+        pageControl.currentPageIndicatorTintColor = COLOR_ORANGE
     }
     
     func imageTapped(_ gestureRecognizer: UITapGestureRecognizer) {
         print("voted!")
         if (scrollView.isScrollEnabled) {                                     // vote
-            setVotedUI()
+            setVotedUI(animated: true)
             delegate.updateVoteForImageAtIndexPath(images[pageControl.currentPage], index: index)
         }
         else {                                                                // cancel vote

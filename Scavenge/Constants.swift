@@ -22,6 +22,7 @@ let COLOR_GREENISH_BLUE = UIColor(red: 87/255, green: 223/255, blue: 210/255, al
 let COLOR_ORANGE = UIColor(red: 234/255, green: 117/255, blue: 10/255, alpha: 1.0) /* #ea750a */
 let COLOR_DARK_GREEN = UIColor(red:0.25, green:0.29, blue:0.12, alpha:1.0) /* #40491E */
 let COLOR_YELLOW = UIColor(red:1.00, green:0.94, blue:0.19, alpha:1.0) /* #FFF031 */
+let COLOR_GREEN_VOTE_CHECKMARK = UIColor(red:0.20, green:0.60, blue:0.20, alpha:1.0)
 
 // MARK: - Game Play Constants
 let NUM_GAME_QUESTIONS = 5
