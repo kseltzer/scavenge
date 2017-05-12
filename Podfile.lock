@@ -1,18 +1,24 @@
 PODS:
   - Alamofire (4.4.0)
+  - AWSCore (2.5.2)
+  - AWSS3 (2.5.2):
+    - AWSCore (= 2.5.2)
   - SwiftyJSON (3.1.4)
   - WVCheckMark (1.0.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - AWSS3
   - SwiftyJSON
   - WVCheckMark
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AWSCore: b2fe455c2c7d6653521238c5b0b0ddb67ec4f063
+  AWSS3: 1f53d780bae0a5949f11da99520c14684bc90af0
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   WVCheckMark: f98b08944917c860a803bab086e371f38340bf73
 
-PODFILE CHECKSUM: e4d7379aa92510d009dd18897e1e13ca2615aec4
+PODFILE CHECKSUM: 5b7f360ef121aa162a7676004aa12eef6394727d
 
 COCOAPODS: 1.1.1

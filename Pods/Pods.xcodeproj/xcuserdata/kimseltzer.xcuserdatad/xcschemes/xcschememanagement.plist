@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AWSCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSS3.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08E135E601B8575673A90F52230C5D9C</key>
+		<key>220CE831A1DBD889534EC74E3EC967D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>663FCD2A2E016D1287FA47F58BBAF3C1</key>
+		<key>5ACFCBB5C36270A9DF9A2D2D11708867</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD33AE70E110F4CD292E5CE35FF32AC5</key>
+		<key>985225D028752D6FC17BED3A4AEC13D2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F7098779713B711F6C591B62A41F242</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B491F6E06CB9420A695DFB7C3AB30EDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
