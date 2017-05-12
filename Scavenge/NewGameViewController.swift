@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import SwiftyJSON
 
 enum TableViewFriendsSection : Int {
     case recents = 0
@@ -153,6 +154,15 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         recentsIDs = []
         friendsIDs = []
         
+        let request = GetFriendsRequest(facebook_id: currentUserID, facebook_token: currentUserAccessToken)
+        request.completionBlock = { (response: JSON?, error: Any?) -> Void in
+            if let json = response {
+                print("friends: ", json)
+                self.parseJson(json: json)
+            }
+        }
+        request.execute()
+        
         do {
             if let filePath = Bundle.main.path(forResource: "friends", ofType: "json"), // TODO: delete this line
                 let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data
@@ -192,6 +202,31 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
             print("json serialization failed")
+        }
+    }
+    
+    func parseJson(json: JSON) {
+        recentsDictionary = [:]
+        friendsDictionary = [:]
+        recentsIDs = []
+        friendsIDs = []
+        
+        let recents = json["recents"]
+        let friends = json["other"]
+
+        for player in recents {
+            let playerJson = player.1
+            if let idInt = playerJson[JSON_KEY_ID].int,
+                let firstName = playerJson[JSON_KEY_FIRST_NAME].string,
+                let name = playerJson[JSON_KEY_NAME].string,
+                let profileImageName = playerJson[JSON_KEY_PROFILE_IMAGE].string {
+                    let id = "\(idInt)"
+                    let profileImage = UIImage(named: "sachin")!
+                    recentsDictionary[id] = Player(id: "\(id)", firstName: firstName, name: name, profileImage: profileImage) // TODO: replace profile image with url
+                    recentsIDs.append(id)
+            }
+            print("recentsDictionary: ", recentsDictionary)
+            print("recentsIDs: ", recentsIDs)
         }
     }
     

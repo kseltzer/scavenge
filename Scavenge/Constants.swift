@@ -133,9 +133,9 @@ let iPHONE_SE: CGFloat = 320.0
 // MARK: - JSON Parsing Constants
 let JSON_KEY_RECENTS = "recents"
 let JSON_KEY_FRIENDS = "friends"
-let JSON_KEY_FIRST_NAME = "firstName"
+let JSON_KEY_FIRST_NAME = "first_name"
 let JSON_KEY_NAME = "name"
-let JSON_KEY_PROFILE_IMAGE = "profileImage"
+let JSON_KEY_PROFILE_IMAGE = "picture"
 let JSON_KEY_ID = "id"
 let JSON_KEY_TITLE = "title"
 let JSON_KEY_TOPICS = "topics"
