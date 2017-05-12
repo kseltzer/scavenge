@@ -1,5 +1,9 @@
 PODS:
   - Alamofire (4.4.0)
+  - AWSCognito (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSCognitoIdentityProvider (2.5.2):
+    - AWSCore (= 2.5.2)
   - AWSCore (2.5.2)
   - AWSS3 (2.5.2):
     - AWSCore (= 2.5.2)
@@ -8,17 +12,21 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - AWSCognito
+  - AWSCognitoIdentityProvider
   - AWSS3
   - SwiftyJSON
   - WVCheckMark
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AWSCognito: a29c52e3a3d4988f01b449c8b229a51b73d1c1bf
+  AWSCognitoIdentityProvider: 496a5d717180e4127f038be3c6494bc59e8ff4dd
   AWSCore: b2fe455c2c7d6653521238c5b0b0ddb67ec4f063
   AWSS3: 1f53d780bae0a5949f11da99520c14684bc90af0
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   WVCheckMark: f98b08944917c860a803bab086e371f38340bf73
 
-PODFILE CHECKSUM: 5b7f360ef121aa162a7676004aa12eef6394727d
+PODFILE CHECKSUM: f1c082aa25fd5e1afe49d5a5752ae1c75f2255a9
 
 COCOAPODS: 1.1.1
