@@ -6,4 +6,7 @@ target 'Scavenge' do
        pod 'Alamofire', '~> 4.4'
        pod 'SwiftyJSON'
        pod 'WVCheckMark'
+       pod 'AWSS3'
+       pod 'AWSCognito'
+       pod 'AWSCognitoIdentityProvider'
 end

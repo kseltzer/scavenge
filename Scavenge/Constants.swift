@@ -40,6 +40,10 @@ var userProfileImage: UIImage? = nil
 var currentUserID: String = ""
 var currentUserAccessToken: String = ""
 
+// MARK: - AWS Constants
+let AWS_IDENTITY_POOL_ID = "us-west-2:64996f09-5e74-4e22-8fa7-21d984ea7be8"
+let AWS_BUCKET = "scavengepictures"
+
 // MARK: - Font Constants
 let FONT_BUTTON = UIFont(name: "LithosPro-Black", size: 17.0)
 let FONT_LABEL = UIFont(name: "CoquetteBold", size: 17.0)
@@ -133,9 +137,9 @@ let iPHONE_SE: CGFloat = 320.0
 // MARK: - JSON Parsing Constants
 let JSON_KEY_RECENTS = "recents"
 let JSON_KEY_FRIENDS = "friends"
-let JSON_KEY_FIRST_NAME = "firstName"
+let JSON_KEY_FIRST_NAME = "first_name"
 let JSON_KEY_NAME = "name"
-let JSON_KEY_PROFILE_IMAGE = "profileImage"
+let JSON_KEY_PROFILE_IMAGE = "picture"
 let JSON_KEY_ID = "id"
 let JSON_KEY_TITLE = "title"
 let JSON_KEY_TOPICS = "topics"

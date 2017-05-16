@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "663FCD2A2E016D1287FA47F58BBAF3C1"
+               BlueprintIdentifier = "88321E1DD47699D35A1159E1F623BE94"
                BuildableName = "Pods_Scavenge.framework"
                BlueprintName = "Pods-Scavenge"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "663FCD2A2E016D1287FA47F58BBAF3C1"
+            BlueprintIdentifier = "88321E1DD47699D35A1159E1F623BE94"
             BuildableName = "Pods_Scavenge.framework"
             BlueprintName = "Pods-Scavenge"
             ReferencedContainer = "container:Pods.xcodeproj">

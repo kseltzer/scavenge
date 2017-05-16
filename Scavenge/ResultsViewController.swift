@@ -8,14 +8,14 @@
 
 import UIKit
 
-let dummyPlayer1 = Player(id: "1", firstName: "Kim", name: "Kim Seltzer", profileImage: UIImage(named: "fbProfilePic")!)
-let dummyPlayer2 = Player(id: "2", firstName: "Aliya", name: "Aliya Kamalova", profileImage: UIImage(named: "aliya")!)
-let dummyPlayer3 = Player(id: "3", firstName: "Mahir", name: "Mahir Shah", profileImage: UIImage(named: "mahir")!)
-let dummyPlayer4 = Player(id: "4", firstName: "Sachin", name: "Sachin Medhekar", profileImage: UIImage(named: "sachin")!)
-let dummyPlayer5 = Player(id: "5", firstName: "Ian", name: "Ian Abramson", profileImage: UIImage(named: "ian")!)
-let dummyPlayer6 = Player(id: "6", firstName: "Paul", name: "Paul Goetz", profileImage: UIImage(named: "paul")!)
-let dummyPlayer7 = Player(id: "7", firstName: "Jenny", name: "Jenny Seltzer", profileImage: UIImage(named: "jenny")!)
-let dummyPlayer8 = Player(id: "8", firstName: "David", name: "David Seltzer", profileImage: UIImage(named: "david")!)
+let dummyPlayer1 = Player(id: "1", firstName: "Kim", name: "Kim Seltzer")
+let dummyPlayer2 = Player(id: "2", firstName: "Aliya", name: "Aliya Kamalova")
+let dummyPlayer3 = Player(id: "3", firstName: "Mahir", name: "Mahir Shah")
+let dummyPlayer4 = Player(id: "4", firstName: "Sachin", name: "Sachin Medhekar")
+let dummyPlayer5 = Player(id: "5", firstName: "Ian", name: "Ian Abramson")
+let dummyPlayer6 = Player(id: "6", firstName: "Paul", name: "Paul Goetz")
+let dummyPlayer7 = Player(id: "7", firstName: "Jenny", name: "Jenny Seltzer")
+let dummyPlayer8 = Player(id: "8", firstName: "David", name: "David Seltzer")
 
 let dummySubmission1 = TopicSubmission(image: UIImage(named: "aliya")!, submittedBy: dummyPlayer1, numVotes: 3)
 let dummySubmission2 = TopicSubmission(image: UIImage(named: "paul")!, submittedBy: dummyPlayer2, numVotes: 0)
@@ -25,7 +25,7 @@ let dummySubmission5 = TopicSubmission(image: UIImage(named: "raccoon")!, submit
 
 let dummyResultsData: [TopicResults] = [TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5]), TopicResults(submissions: [dummySubmission1, dummySubmission2, dummySubmission3, dummySubmission4, dummySubmission5])]
 
-let dummyGameData = Game(id: "1", title: "Best Friends!", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, status: .completed, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4, dummyPlayer5], winner: dummyPlayer2, results: dummyResultsData, topics: ["Unconventionally Ugly", "So Crazy It Just Might Work", "Nostalgia", "WTF", "Haunted As Shit"])
+let dummyGameData = Game(id: "1", title: "Best Friends!", icon: UIImage(named: "raccoon")!, creator: dummyPlayer3, status: .completed, players: [dummyPlayer1, dummyPlayer2, dummyPlayer3, dummyPlayer4, dummyPlayer5], winner: dummyPlayer2, results: dummyResultsData, topics: ["Unconventionally Ugly", "So Crazy It Just Might Work", "Nostalgia", "WTF", "Haunted As Shit"], subtitle: GameSubtitle.completed)
 
 class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ResultsCellDelegate {
 

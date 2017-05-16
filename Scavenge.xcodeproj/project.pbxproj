@@ -16,6 +16,8 @@
 		4E04B5DA1E6A1AF300F682FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04B5D91E6A1AF300F682FB /* QuartzCore.framework */; };
 		4E1011D21D73BE4E00662E9F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1011D11D73BE4E00662E9F /* MenuViewController.swift */; };
 		4E1584651D4ED7AD00208E3A /* PlayingGameTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */; };
+		4E1F6FB81EBD3D9E006D0AFB /* GetFriendsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F6FB71EBD3D9E006D0AFB /* GetFriendsRequest.swift */; };
+		4E1F6FBA1EC64E01006D0AFB /* SubmitPhotosToGameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F6FB91EC64E01006D0AFB /* SubmitPhotosToGameRequest.swift */; };
 		4E22779F1D32D0D100E22436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22779E1D32D0D100E22436 /* AppDelegate.swift */; };
 		4E2277A71D32D0D100E22436 /* Scavenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E2277A51D32D0D100E22436 /* Scavenge.xcdatamodeld */; };
 		4E2277A91D32D0D100E22436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2277A81D32D0D100E22436 /* Assets.xcassets */; };
@@ -112,6 +114,8 @@
 		4E04B5D91E6A1AF300F682FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4E1011D11D73BE4E00662E9F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E1584641D4ED7AD00208E3A /* PlayingGameTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingGameTopicCell.swift; sourceTree = "<group>"; };
+		4E1F6FB71EBD3D9E006D0AFB /* GetFriendsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetFriendsRequest.swift; sourceTree = "<group>"; };
+		4E1F6FB91EC64E01006D0AFB /* SubmitPhotosToGameRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitPhotosToGameRequest.swift; path = Scavenge/SubmitPhotosToGameRequest.swift; sourceTree = "<group>"; };
 		4E22779B1D32D0D100E22436 /* Scavenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scavenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E22779E1D32D0D100E22436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E2277A61D32D0D100E22436 /* Scavenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scavenge.xcdatamodel; sourceTree = "<group>"; };
@@ -464,6 +468,8 @@
 				4E63E0FF1E8DA5C900972C18 /* BaseRequest.swift */,
 				4E63E1021E8DA93F00972C18 /* RegisterFacebookRequest.swift */,
 				4E2AD1161E8F40610063CEDE /* GetGamesRequest.swift */,
+				4E1F6FB71EBD3D9E006D0AFB /* GetFriendsRequest.swift */,
+				4E1F6FB91EC64E01006D0AFB /* SubmitPhotosToGameRequest.swift */,
 			);
 			name = Requests;
 			sourceTree = "<group>";
@@ -706,6 +712,7 @@
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4EB640881D75572300EA308D /* CustomNavigationBar.swift in Sources */,
 				4EB042861E0DC6E200BCAA4E /* TopicResults.swift in Sources */,
+				4E1F6FBA1EC64E01006D0AFB /* SubmitPhotosToGameRequest.swift in Sources */,
 				4EA9A43C1DE28B4200F74D97 /* GameInvitation.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,
 				4E2277E71D32E56D00E22436 /* HomeViewController.swift in Sources */,
@@ -715,6 +722,7 @@
 				4EA2384E1D7F4D4900BD278B /* SubmitCell.swift in Sources */,
 				4E63E1031E8DA93F00972C18 /* RegisterFacebookRequest.swift in Sources */,
 				4EB640821D751B4B00EA308D /* HelpViewController.swift in Sources */,
+				4E1F6FB81EBD3D9E006D0AFB /* GetFriendsRequest.swift in Sources */,
 				4EB6407A1D73C62900EA308D /* ShowMenuAnimator.swift in Sources */,
 				4EB9AEB51D56BED400F19BB2 /* VotingViewController.swift in Sources */,
 				4EB042881E0DC74A00BCAA4E /* TopicSubmission.swift in Sources */,
