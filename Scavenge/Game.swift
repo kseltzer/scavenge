@@ -61,31 +61,7 @@ struct Game {
         self.icon = icon
         self.creator = creator
         self.status = status
-        
-        var subtitleString: String = ""
-        switch(subtitle) {
-        case .invite:
-            subtitleString = "INVITED BY \(creator.name)"
-            break
-        case .yourPlay:
-            subtitleString = "IT'S YOUR TURN TO PLAY"
-            break
-        case .yourVote:
-            subtitleString = "YOU GOTTA VOTE"
-            break
-        case .theirPlay:
-            subtitleString = "WAITING FOR YOUR FRIENDS TO PLAY"
-            break
-        case .theirVote:
-            subtitleString = "YOUR FRIENDS HAVEN'T VOTED YET"
-            break
-        case .completed:
-            subtitleString = "___ WON THIS GAME"
-            break
-        default:
-            break
-        }
-        self.subtitle = subtitleString
+        self.subtitle = getSubtitleString(subtitle: subtitle)
         
         var unsubmittedResponses: [String:[UIImage?]] = [:]
         for player in players {
@@ -94,7 +70,7 @@ struct Game {
         self.unsubmittedResponses = unsubmittedResponses
     }
     
-    init(id: String, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus, players: [Player], winner: Player?, results: [TopicResults], topics: [String]) {
+    init(id: String, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus, players: [Player], winner: Player?, results: [TopicResults], topics: [String], subtitle: GameSubtitle) {
         self.id = id
         self.title = title
         self.icon = icon
@@ -104,6 +80,7 @@ struct Game {
         self.winner = winner
         self.results = results
         self.topics = topics
+        self.subtitle = getSubtitleString(subtitle: subtitle)
 
         var unsubmittedResponses: [String:[UIImage?]] = [:]
         for player in players {
@@ -111,7 +88,31 @@ struct Game {
         }
         self.unsubmittedResponses = unsubmittedResponses
     }
-    
-    
+}
+
+func getSubtitleString(subtitle: GameSubtitle, creator: Player? = nil, winner: Player? = nil) -> String {
+    switch(subtitle) {
+    case .invite:
+        if let creator = creator {
+            return "INVITED BY \(creator.name)"
+        }
+        break
+    case .yourPlay:
+        return "IT'S YOUR TURN TO PLAY"
+    case .yourVote:
+        return "YOU GOTTA VOTE"
+    case .theirPlay:
+        return "WAITING FOR YOUR FRIENDS TO PLAY"
+    case .theirVote:
+        return "YOUR FRIENDS HAVEN'T VOTED YET"
+    case .completed:
+        if let winner = winner {
+            return "\(winner.name) WON THIS GAME"
+        }
+        break
+    default:
+        break
+    }
+    return ""
 }
 
