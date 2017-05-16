@@ -14,7 +14,7 @@ struct Player {
     var name: String
     var firstName: String = ""
     var picture: URL? = nil
-    var profileImage: UIImage? = nil // todo: change to URL
+    var profileImage: UIImage? = UIImage(named: "profilePicNegativeState")!
     var addedToGame : Bool = false
     var headerIndex : Int? = nil
     var indexPath : IndexPath? = nil

@@ -442,6 +442,19 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
                 friend.indexPath = indexPath
             }
+            
+            var pictureData: Data?
+            do {
+                if let pictureURL = friend.picture {
+                    try pictureData = Data(contentsOf: pictureURL)
+                }
+            } catch {
+                pictureData = nil
+            }
+            if (pictureData != nil) {
+                friend.profileImage = UIImage(data: pictureData!)
+            }
+            
             recentsDictionary[friend.id] = friend
             break
         case .friends:
@@ -456,6 +469,20 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
                 friend.indexPath = indexPath
             }
+            
+            // convert picture URL to UIImage
+            var pictureData: Data?
+            do {
+                if let pictureURL = friend.picture {
+                    try pictureData = Data(contentsOf: pictureURL)
+                }
+            } catch {
+                pictureData = nil
+            }
+            if (pictureData != nil) {
+                friend.profileImage = UIImage(data: pictureData!)
+            }
+            
             friendsDictionary[friend.id] = friend
             break
         default:
@@ -465,21 +492,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.nameLabel.text = friend.name
         cell.profileImage.layoutIfNeeded()
         cell.profileImage.circular()
+        cell.profileImage.image = friend.profileImage
         cell.setDeselectedAppearance()
-        
-        var pictureData: Data?
-        do {
-            if let pictureURL = friend.picture {
-                try pictureData = Data(contentsOf: pictureURL)
-            }
-        } catch {
-            pictureData = nil
-        }
-        if (pictureData != nil) {
-            cell.profileImage.image = UIImage(data: pictureData!)
-        } else {
-            cell.profileImage.image = UIImage(named: "profilePicNegativeState")!
-        }
         
         return cell
     }
