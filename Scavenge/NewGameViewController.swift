@@ -162,47 +162,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         request.execute()
-        
-        do {
-            if let filePath = Bundle.main.path(forResource: "friends", ofType: "json"), // TODO: delete this line
-                let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data
-                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
-                let recents = json[JSON_KEY_RECENTS] as? [[String:AnyObject]],
-                let friends = json[JSON_KEY_FRIENDS] as? [[String:AnyObject]] {
-                
-                for player in recents {
-                    if let id = player[JSON_KEY_ID] as? String,
-                        let firstName = player[JSON_KEY_FIRST_NAME] as? String,
-                        let name = player[JSON_KEY_NAME] as? String,
-                        let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
-                        let profileImage = UIImage(named: profileImageName) {
-                        recentsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // TODO: replace profile image with url
-                        recentsIDs.append(id)
-                    }
-                }
-                
-                for player in friends {
-                    if let id = player[JSON_KEY_ID] as? String,
-                        let firstName = player[JSON_KEY_FIRST_NAME] as? String,
-                        let name = player[JSON_KEY_NAME] as? String,
-                        let profileImageName = player[JSON_KEY_PROFILE_IMAGE] as? String,
-                        let profileImage = UIImage(named: profileImageName) {
-                        friendsDictionary[id] = Player(id: id, firstName: firstName, name: name, profileImage: profileImage) // TODO: replace profile image with url
-                        friendsIDs.append(id)
-                    }
-                }
-                
-                tableView.reloadData()
-            }
-        } catch {
-            let alertController = UIAlertController(title: "uh oh!", message: "Error loading data.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert) in
-                _ = self.navigationController?.popViewController(animated: true)
-            })
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-            print("json serialization failed")
-        }
     }
     
     func parseJson(json: JSON) {
@@ -219,15 +178,26 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let idInt = playerJson[JSON_KEY_ID].int,
                 let firstName = playerJson[JSON_KEY_FIRST_NAME].string,
                 let name = playerJson[JSON_KEY_NAME].string,
-                let profileImageName = playerJson[JSON_KEY_PROFILE_IMAGE].string {
+                let pictureURLString = playerJson[JSON_KEY_PROFILE_IMAGE].string {
                     let id = "\(idInt)"
-                    let profileImage = UIImage(named: "sachin")!
-                    recentsDictionary[id] = Player(id: "\(id)", firstName: firstName, name: name, profileImage: profileImage) // TODO: replace profile image with url
-                    recentsIDs.append(id)
+                recentsDictionary[id] = Player(id: "\(id)", firstName: firstName, name: name, picture: URL(string: pictureURLString))
+                recentsIDs.append(id)
             }
-            print("recentsDictionary: ", recentsDictionary)
-            print("recentsIDs: ", recentsIDs)
         }
+        
+        for player in friends {
+            let playerJson = player.1
+            if let idInt = playerJson[JSON_KEY_ID].int,
+                let firstName = playerJson[JSON_KEY_FIRST_NAME].string,
+                let name = playerJson[JSON_KEY_NAME].string,
+                let pictureURLString = playerJson[JSON_KEY_PROFILE_IMAGE].string {
+                let id = "\(idInt)"
+                friendsDictionary[id] = Player(id: "\(id)", firstName: firstName, name: name, picture: URL(string: pictureURLString))
+                friendsIDs.append(id)
+            }
+        }
+        
+        tableView.reloadData()
     }
     
     // TODO: todo: implement to send create game request to backend, send response to destination view controller
@@ -495,8 +465,22 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.nameLabel.text = friend.name
         cell.profileImage.layoutIfNeeded()
         cell.profileImage.circular()
-        cell.profileImage.image = friend.profileImage
         cell.setDeselectedAppearance()
+        
+        var pictureData: Data?
+        do {
+            if let pictureURL = friend.picture {
+                try pictureData = Data(contentsOf: pictureURL)
+            }
+        } catch {
+            pictureData = nil
+        }
+        if (pictureData != nil) {
+            cell.profileImage.image = UIImage(data: pictureData!)
+        } else {
+            cell.profileImage.image = UIImage(named: "profilePicNegativeState")!
+        }
+        
         return cell
     }
     
