@@ -288,74 +288,96 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         gamesTheirMove = []
         gamesCompleted = []
         
-//        if let jsonDict = json.dictionary,
-//        let invites = jsonDict["invites"] as? [[String:AnyObject]],
-//        let results = jsonDict["results"] as? [[String:AnyObject]],
-//        let yourVote = jsonDict["yourVote"] as? [[String:AnyObject]],
-//        let theirVote = jsonDict["theirVote"] as? [[String:AnyObject]],
-//        let completed = jsonDict["closed"] as? [[String:AnyObject]],
-//        let theirPlay = jsonDict["theirPlay"] as? [[String:AnyObject]],
-//        let yourPlay = jsonDict["yourPlay"] as? [[String:AnyObject]] {
-//            
-////            for game in invites {
-////                if let id = game[JSON_KEY_ID] as? String,
-////                    let title = game["title"] as? String,
-////                    let icon = game["icon"] as? String, // TODO: change to URL
-////                    let creatorID = game["creatorID"] as? String,
-////                    let creatorName = game["creatorName"] as? String,
-////                    let status = game["status"] as? String {
-////                    gamesInvites.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-////                }
-////            }
-//            
-//            for game in results {
-//                if let id = game[JSON_KEY_ID] as? String,
-//                    let title = game["title"] as? String,
-////                    let icon = game["icon"] as? String,
-//                    let creatorID = game["creator"] as? String,
-////                    let creatorName = game["creatorName"] as? String,
-//                    let status = game["status"] as? String {
-//                    gamesResults.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-//                }
-//            }
-//            
-////            for game in yourMove {
-////                if let id = game[JSON_KEY_ID] as? String,
-////                    let title = game["title"] as? String,
-////                    let icon = game["icon"] as? String, // TODO: change to URL
-////                    let creatorID = game["creatorID"] as? String,
-////                    let creatorName = game["creatorName"] as? String,
-////                    let status = game["status"] as? String {
-////                    gamesYourMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-////                }
-////            }
-////            
-////            for game in theirMove {
-////                if let id = game[JSON_KEY_ID] as? String,
-////                    let title = game["title"] as? String,
-////                    let icon = game["icon"] as? String, // TODO: change to URL
-////                    let creatorID = game["creatorID"] as? String,
-////                    let creatorName = game["creatorName"] as? String,
-////                    let status = game["status"] as? String {
-////                    gamesTheirMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-////                }
-////            }
-////            
-////            for game in completed {
-////                if let id = game[JSON_KEY_ID] as? String,
-////                    let title = game["title"] as? String,
-////                    let icon = game["icon"] as? String, // TODO: change to URL
-////                    let creatorID = game["creatorID"] as? String,
-////                    let creatorName = game["creatorName"] as? String,
-////                    let status = game["status"] as? String {
-////                    gamesCompleted.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-////                }
-////            }
-//        
-//            tableView.reloadData()
-//
-//
-//        }
+        let yourPlay = json["yourPlay"]
+        for gameObject in yourPlay {
+            let game = gameObject.1
+            if  let id = game[JSON_KEY_ID].string,
+                let title = game["title"].string,
+                let creator = game["creator"].int,
+                //                let dateCreated = game["dateCreated"].string,
+                let icon = UIImage(named: "raccoon2") {
+                
+                let creatorName = "Kim" // dummy data
+                let creatorID = String(creator)
+                let status = GameStatus.yourMove
+                let subtitle = GameSubtitle.yourPlay
+//                let 
+                gamesYourMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
+            }
+        }
+        
+        let yourVote = json["yourVote"]
+        for gameObject in yourVote {
+            let game = gameObject.1
+            if  let id = game[JSON_KEY_ID].string,
+                let title = game["title"].string,
+                let creator = game["creator"].int,
+                //                let dateCreated = game["dateCreated"].string,
+                let icon = UIImage(named: "raccoon2") {
+                
+                let creatorName = "Kim" // dummy data
+                let creatorID = String(creator)
+                let subtitle = GameSubtitle.yourVote
+                let status = GameStatus.yourMove
+                gamesYourMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
+            }
+        }
+        
+        let theirPlay = json["theirPlay"]
+        for gameObject in theirPlay {
+            let game = gameObject.1
+            if let id = game[JSON_KEY_ID].string,
+                let title = game["title"].string,
+                let icon = UIImage(named: "vulture"),
+                let creator = game["creator"].int //,
+//                let creatorName = game["creatorName"].string
+                {
+                    
+                let creatorID = String(creator)
+                let subtitle = GameSubtitle.theirPlay
+                let status = GameStatus.theirMove
+                let creatorName = "Kim" // dummy data
+                gamesTheirMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
+            }
+        }
+        
+        let theirVote = json["theirVote"]
+        for gameObject in theirVote {
+            let game = gameObject.1
+            if let id = game[JSON_KEY_ID].string,
+                let title = game["title"].string,
+                let icon = UIImage(named: "vulture"),
+                let creator = game["creator"].int //,
+                //                let creatorName = game["creatorName"].string
+            {
+                
+                let creatorID = String(creator)
+                let subtitle = GameSubtitle.theirVote
+                let status = GameStatus.theirMove
+                let creatorName = "Kim" // dummy data
+                gamesTheirMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
+            }
+        }
+        
+        let completed = json["closed"]
+        for gameObject in completed {
+            let game = gameObject.1
+            if  let id = game[JSON_KEY_ID].string,
+                let title = game["title"].string,
+                let creator = game["creator"].int,
+                //                let dateCreated = game["dateCreated"].string,
+                let icon = UIImage(named: "raccoon2") {
+                
+                let creatorName = "Kim" // dummy data
+                let creatorID = String(creator)
+                let subtitle = GameSubtitle.completed
+                let status = GameStatus.completed
+                gamesCompleted.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
+            }
+        }
+    
+        
+        tableView.reloadData()
         
     }
     
@@ -419,6 +441,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return UITableViewCell()
         }
         cell.gameTitleLabel.text = game.title
+        cell.subtitleLabel.text = game.subtitle
         cell.gameImageView?.image = game.icon
         return cell
     }

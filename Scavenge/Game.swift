@@ -17,12 +17,23 @@ enum GameStatus: String {
     case completed = "completed"
 }
 
+enum GameSubtitle: String {
+    case invite
+    case results
+    case yourPlay
+    case yourVote
+    case theirPlay
+    case theirVote
+    case completed
+}
+
 struct Game {
     var id: String
     var title: String
     var icon: UIImage? = nil // Todo: change to URL
     var creator: Player? = nil
     var status: GameStatus = .yourMove
+    var subtitle: String = ""
     var players: [Player] = []
     var unsubmittedResponses: [String:[UIImage?]] // Todo: change UIImage to URL
     var winner: Player? = nil
@@ -44,12 +55,37 @@ struct Game {
         self.unsubmittedResponses = unsubmittedResponses
     }
     
-    init(id: String, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus) {
+    init(id: String, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus, subtitle: GameSubtitle) {
         self.id = id
         self.title = title
         self.icon = icon
         self.creator = creator
         self.status = status
+        
+        var subtitleString: String = ""
+        switch(subtitle) {
+        case .invite:
+            subtitleString = "INVITED BY \(creator.name)"
+            break
+        case .yourPlay:
+            subtitleString = "IT'S YOUR TURN TO PLAY"
+            break
+        case .yourVote:
+            subtitleString = "YOU GOTTA VOTE"
+            break
+        case .theirPlay:
+            subtitleString = "WAITING FOR YOUR FRIENDS TO PLAY"
+            break
+        case .theirVote:
+            subtitleString = "YOUR FRIENDS HAVEN'T VOTED YET"
+            break
+        case .completed:
+            subtitleString = "___ WON THIS GAME"
+            break
+        default:
+            break
+        }
+        self.subtitle = subtitleString
         
         var unsubmittedResponses: [String:[UIImage?]] = [:]
         for player in players {
@@ -75,5 +111,7 @@ struct Game {
         }
         self.unsubmittedResponses = unsubmittedResponses
     }
+    
+    
 }
 
