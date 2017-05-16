@@ -9,6 +9,7 @@
 
 import UIKit
 import SwiftyJSON
+import AWSS3
 
 enum TableViewSection : Int {
     case invites = 0
@@ -65,6 +66,79 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         downloadJSON()
+    }
+    
+    func downloadImageFromBucketTest() {
+        let key = "C01F7131-DE5B-434F-A2F8-0270129C3B86-29054-0000AC5BD44D2677.jpg"
+        let downloadingFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(key)")
+       
+        if let downloadRequest = AWSS3TransferManagerDownloadRequest() {
+        
+            downloadRequest.bucket = AWS_BUCKET
+            downloadRequest.key = "C01F7131-DE5B-434F-A2F8-0270129C3B86-29054-0000AC5BD44D2677.jpg"
+            downloadRequest.downloadingFileURL = downloadingFileURL
+            
+            let transferManager = AWSS3TransferManager.default()
+            transferManager.download(downloadRequest).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
+                
+                if let error = task.error as? NSError {
+                    if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
+                        switch code {
+                        case .cancelled, .paused:
+                            break
+                        default:
+                            print("Error downloading: \(downloadRequest.key) Error: \(error)")
+                        }
+                    } else {
+                        print("Error downloading: \(downloadRequest.key) Error: \(error)")
+                    }
+                    return nil
+                }
+                print("Download complete for: \(downloadRequest.key)")
+                let downloadOutput = task.result
+                print("Download output: ", downloadOutput as Any)
+                
+
+                return nil
+            })
+        }
+    }
+    
+    func uploadImageToBucketTest() {
+        let transferManager = AWSS3TransferManager.default()
+        
+        let ext = "jpg"
+        let imageURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("sachin.jpg")!
+        
+        // save image to URL
+        do {
+            try UIImageJPEGRepresentation(UIImage(named: "sachin")!, 1)?.write(to: imageURL)
+        } catch { print("couldn't save") }
+        
+        let uploadRequest = AWSS3TransferManagerUploadRequest()
+        uploadRequest?.bucket = AWS_BUCKET
+        uploadRequest?.key = ProcessInfo.processInfo.globallyUniqueString + "." + ext
+        uploadRequest?.body = imageURL
+        uploadRequest?.contentType = "image/" + ext
+        
+        if let request = uploadRequest {
+            transferManager.upload(request).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
+                // Do something with the response
+                if let error = task.error {
+                    print("Upload failed ❌ (\(error))")
+                }
+                if task.result != nil {
+//                    let s3URL = NSURL(string: "http://s3.amazonaws.com/\(AWS_BUCKET)/\(uploadRequest?.key!)")
+                    let s3URL2 = URL(string: "http://s3.amazonaws.com/\(AWS_BUCKET)/6E321038-6683-4420-8131-B2E632BD8B45-28869-0000AC44E81B9A57.jpg")
+                    print("Uploaded to:\n\(s3URL2)")
+                }
+                else {
+                    print("Unexpected empty result.")
+                }
+                return nil
+            })
+            
+        }
     }
     
     // MARK: - Custom Bar Button Items

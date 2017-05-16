@@ -40,6 +40,10 @@ var userProfileImage: UIImage? = nil
 var currentUserID: String = ""
 var currentUserAccessToken: String = ""
 
+// MARK: - AWS Constants
+let AWS_IDENTITY_POOL_ID = "us-west-2:64996f09-5e74-4e22-8fa7-21d984ea7be8"
+let AWS_BUCKET = "scavengepictures"
+
 // MARK: - Font Constants
 let FONT_BUTTON = UIFont(name: "LithosPro-Black", size: 17.0)
 let FONT_LABEL = UIFont(name: "CoquetteBold", size: 17.0)

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AWSS3
 
 func customBackBarItem (title: String = "") -> SBarButtonItem {
     let barButtonItem = SBarButtonItem(title: title, style: .plain, target: nil, action: nil)
@@ -21,6 +22,41 @@ func customBarButtonItemWith (image: UIImage) -> UIBarButtonItem {
     return UIBarButtonItem(customView: button)
 
 //    self.navigationItem.rightBarButtonItem = barButton
+}
+
+func downloadImageFromBucket(key: String) -> UIImage? {
+    let downloadingFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(key).jpg")
+    
+    if let downloadRequest = AWSS3TransferManagerDownloadRequest() {
+        
+        downloadRequest.bucket = AWS_BUCKET
+        downloadRequest.key = "\(key).jpg"
+        downloadRequest.downloadingFileURL = downloadingFileURL
+        
+        let transferManager = AWSS3TransferManager.default()
+        transferManager.download(downloadRequest).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
+            
+            if let error = task.error as? NSError {
+                if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
+                    switch code {
+                    case .cancelled, .paused:
+                        break
+                    default:
+                        print("Error downloading: \(downloadRequest.key).jpg Error: \(error)")
+                    }
+                } else {
+                    print("Error downloading: \(downloadRequest.key).jpg Error: \(error)")
+                }
+                return nil
+            }
+            print("Download complete for: \(downloadRequest.key).jpg")
+//            let downloadOutput = task.result
+            
+            return UIImage(contentsOfFile: downloadingFileURL.path)
+        })
+    }
+    
+    return nil
 }
 
 extension UIImageView {
@@ -53,6 +89,42 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+    
+    func uploadToBucket(key: String) {
+        let transferManager = AWSS3TransferManager.default()
+        
+        let ext = "jpg"
+        let imageURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(key).jpg")!
+        
+        // save image to URL
+        do {
+            try UIImageJPEGRepresentation(self, 1)?.write(to: imageURL)
+        } catch { print("couldn't save") }
+        
+        let uploadRequest = AWSS3TransferManagerUploadRequest()
+        uploadRequest?.bucket = AWS_BUCKET
+        uploadRequest?.key = ProcessInfo.processInfo.globallyUniqueString + "." + ext
+        uploadRequest?.body = imageURL
+        uploadRequest?.contentType = "image/" + ext
+        
+        if let request = uploadRequest {
+            transferManager.upload(request).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
+                // Do something with the response
+                if let error = task.error {
+                    print("Upload failed ❌ (\(error))")
+                }
+                if task.result != nil {
+                    let s3URL2 = URL(string: "http://s3.amazonaws.com/\(AWS_BUCKET)/\(key).jpg")
+                    print("Uploaded to:\n\(s3URL2)")
+                }
+                else {
+                    print("Unexpected empty result.")
+                }
+                return nil
+            })
+            
+        }
     }
 }
 

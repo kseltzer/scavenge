@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: FONT_BUTTON!], for: .normal)
         
         // AWS login
-        let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USWest1, identityPoolId: "us-west-2:64996f09-5e74-4e22-8fa7-21d984ea7be8")
-        let configuration = AWSServiceConfiguration(region: .USWest1, credentialsProvider: credentialProvider)
+        let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USWest2, identityPoolId: AWS_IDENTITY_POOL_ID)
+        let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
 
         // Facebook login
