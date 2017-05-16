@@ -360,8 +360,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 noFriendsLabel.textAlignment = .center
                 noFriendsView.addSubview(noFriendsLabel)
                 
-                let imageView = UIImageView(frame: CGRect(x: 50, y: 42, width: screenSize.width - 100, height: screenSize.width - 100))
-                imageView.image =  UIImage(named: "noFriends")
+                let imageViewSize = CGSize(width: screenSize.width - 100, height: (screenSize.width - 100) * 6/7)
+                let imageView = UIImageView(frame: CGRect(x: 50, y: 52, width: imageViewSize.width, height: imageViewSize.height))
+                imageView.image =  UIImage(named: "noFriends")?.compress(newSize: imageViewSize)
                 imageView.alpha = 0.7
                 imageView.contentMode = .scaleAspectFit
                 noFriendsView.addSubview(imageView)
