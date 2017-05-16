@@ -26,7 +26,8 @@ class InviteViewController: UIViewController {
         navBar.isTranslucent = true
         
         // compress friends image
-        friendsImageView.image = UIImage(named: "friendAvatars")?.compress(newSize: CGSize(width: 343, height: 219))
+        let newSize = CGSize(width: screenSize.width - 32, height: screenSize.width * 4/6)
+        friendsImageView.image = UIImage(named: "friendAvatars")?.compress(newSize: newSize)
     }
     
     @IBAction func pressedInviteFriendsButton(_ sender: SButton) {
