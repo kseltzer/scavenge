@@ -197,7 +197,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         
-        tableView.reloadData()
+        // animate table refresh
+        DispatchQueue.main.async(execute: {
+            UIView.transition(with: self.tableView, duration: 0.1, options: .curveEaseInOut, animations: {
+                self.tableView.reloadData()
+            }, completion: nil)
+        })
     }
     
     // TODO: todo: implement to send create game request to backend, send response to destination view controller
@@ -360,8 +365,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 noFriendsLabel.textAlignment = .center
                 noFriendsView.addSubview(noFriendsLabel)
                 
-                let imageView = UIImageView(frame: CGRect(x: 50, y: 42, width: screenSize.width - 100, height: screenSize.width - 100))
-                imageView.image =  UIImage(named: "noFriends")
+                let imageViewSize = CGSize(width: screenSize.width - 100, height: (screenSize.width - 100) * 6/7)
+                let imageView = UIImageView(frame: CGRect(x: 50, y: 52, width: imageViewSize.width, height: imageViewSize.height))
+                imageView.image =  UIImage(named: "noFriends")?.compress(newSize: imageViewSize)
                 imageView.alpha = 0.7
                 imageView.contentMode = .scaleAspectFit
                 noFriendsView.addSubview(imageView)

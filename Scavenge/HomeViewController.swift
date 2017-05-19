@@ -193,92 +193,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         request.execute()
-        
-        
-//        gamesInvites = []
-//        gamesResults = []
-//        gamesYourMove = []
-//        gamesTheirMove = []
-//        gamesCompleted = []
-        
-        
-//        do {
-//            if let filePath = Bundle.main.path(forResource: "games", ofType: "json"), // TODO: delete this line
-//                let data = NSData(contentsOfFile: filePath) as? Data, // TODO: replace with actual data
-//                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any],
-//                let invites = json["invites"] as? [[String:AnyObject]],
-//                let results = json["results"] as? [[String:AnyObject]],
-//                let yourMove = json["yourMove"] as? [[String:AnyObject]],
-//                let theirMove = json["theirMove"] as? [[String:AnyObject]],
-//                let completed = json["completed"] as? [[String:AnyObject]] {
-//                
-//                for game in invites {
-//                    if let id = game[JSON_KEY_ID] as? String,
-//                        let title = game["title"] as? String,
-//                        let icon = game["icon"] as? String, // TODO: change to URL
-//                        let creatorID = game["creatorID"] as? String,
-//                        let creatorName = game["creatorName"] as? String,
-//                        let status = game["status"] as? String {
-//                            gamesInvites.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-//                    }
-//                }
-//
-//                for game in results {
-//                    if let id = game[JSON_KEY_ID] as? String,
-//                        let title = game["title"] as? String,
-//                        let icon = game["icon"] as? String, // TODO: change to URL
-//                        let creatorID = game["creatorID"] as? String,
-//                        let creatorName = game["creatorName"] as? String,
-//                        let status = game["status"] as? String {
-//                        gamesResults.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-//                    }
-//                }
-//                
-//                for game in yourMove {
-//                    if let id = game[JSON_KEY_ID] as? String,
-//                        let title = game["title"] as? String,
-//                        let icon = game["icon"] as? String, // TODO: change to URL
-//                        let creatorID = game["creatorID"] as? String,
-//                        let creatorName = game["creatorName"] as? String,
-//                        let status = game["status"] as? String {
-//                        gamesYourMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-//                    }
-//                }
-//                
-//                for game in theirMove {
-//                    if let id = game[JSON_KEY_ID] as? String,
-//                        let title = game["title"] as? String,
-//                        let icon = game["icon"] as? String, // TODO: change to URL
-//                        let creatorID = game["creatorID"] as? String,
-//                        let creatorName = game["creatorName"] as? String,
-//                        let status = game["status"] as? String {
-//                        gamesTheirMove.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-//                    }
-//                }
-//                
-//                for game in completed {
-//                    if let id = game[JSON_KEY_ID] as? String,
-//                        let title = game["title"] as? String,
-//                        let icon = game["icon"] as? String, // TODO: change to URL
-//                        let creatorID = game["creatorID"] as? String,
-//                        let creatorName = game["creatorName"] as? String,
-//                        let status = game["status"] as? String {
-//                        gamesCompleted.append(Game(id: id, title: title, icon: UIImage(named: icon)!, creator: Player(id: creatorID, name: creatorName), status: GameStatus(rawValue: status)!))
-//                    }
-//                }
-//                
-//                tableView.reloadData()
-//            }
-//        } catch {
-//            let alertController = UIAlertController(title: "uh oh!", message: "Error loading data.", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert) in
-//                _ = self.navigationController?.popViewController(animated: true)
-//            })
-//            alertController.addAction(okAction)
-//            self.present(alertController, animated: true, completion: nil)
-//            print("json serialization failed")
-//        }
-        
     }
     
     func parseJson(json: JSON) {
@@ -301,7 +215,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let creatorID = String(creator)
                 let status = GameStatus.yourMove
                 let subtitle = GameSubtitle.yourPlay
-//                let 
                 gamesYourMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
             }
         }
@@ -376,8 +289,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     
-        
-        tableView.reloadData()
+        // animate table refresh
+        DispatchQueue.main.async(execute: {
+            UIView.transition(with: self.tableView, duration: 0.1, options: .curveEaseInOut, animations: {
+                self.tableView.reloadData()
+            }, completion: nil)
+        })
         
     }
     
