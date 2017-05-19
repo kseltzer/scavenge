@@ -197,7 +197,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         
-        tableView.reloadData()
+        // animate table refresh
+        DispatchQueue.main.async(execute: {
+            UIView.transition(with: self.tableView, duration: 0.1, options: .curveEaseInOut, animations: {
+                self.tableView.reloadData()
+            }, completion: nil)
+        })
     }
     
     // TODO: todo: implement to send create game request to backend, send response to destination view controller
