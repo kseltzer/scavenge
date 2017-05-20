@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SAConfettiView
+import AVFoundation
 
 let dummyPlayer1 = Player(id: "1", firstName: "Kim", name: "Kim Seltzer")
 let dummyPlayer2 = Player(id: "2", firstName: "Aliya", name: "Aliya Kamalova")
@@ -31,10 +33,13 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var winnerImageView: ProfileImageView!
+    @IBOutlet weak var winnerBlurEffect: UIVisualEffectView!
     
     var screenSize : CGRect!
     var cellWidth : CGFloat!
     var scrollViewOffsets : [CGFloat] = []
+    
+    var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,14 +56,72 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.rowHeight = cellHeight
         tableView.scrollsToTop = true
         
-        winnerImageView.image = dummyGameData.winner?.profileImage
+        winnerImageView.image = UIImage(named: "sachin")! //dummyGameData.winner?.profileImage
+
         setupScrollViewOffsets()
+        
+        setupBlurEffect()
+        
+    }
+    
+    // MARK: - Visual Effects
+    func setupBlurEffect() {
+        winnerBlurEffect.layoutIfNeeded()
+        winnerBlurEffect.layer.cornerRadius = winnerBlurEffect.frame.height/2
+        winnerBlurEffect.clipsToBounds = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(blurEffectTapped))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        winnerBlurEffect.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func blurEffectTapped() {
+        // animate unblur
+        DispatchQueue.main.async(execute: {
+            UIView.transition(with: self.tableView, duration: 0.3, options: .curveEaseIn, animations: {
+                self.winnerBlurEffect.alpha = 0.0
+            }, completion: nil)
+        })
+        
+        self.startConfetti()
+    }
+    
+    func startConfetti() {
+        let confettiView = SAConfettiView(frame: self.view.bounds)
+        if let racoonImage = UIImage(named: "confetti-raccoon") {
+            confettiView.type = .Image(racoonImage)
+        } else {
+            confettiView.type = .Triangle
+        }
+        confettiView.intensity = 0.5
+        confettiView.isUserInteractionEnabled = false
+        self.view.addSubview(confettiView)
+        
+        confettiView.startConfetti()
+        playHornSound()
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
+            confettiView.stopConfetti()
+        }
     }
     
     func setupScrollViewOffsets() {
         let numPlayers = dummyGameData.numPlayers // TODO: get data from backend
         for _ in 0..<numPlayers {
             scrollViewOffsets.append(0)
+        }
+    }
+    
+    func playHornSound() {
+        let url = Bundle.main.url(forResource: "party-horn", withExtension: "mp3")!
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            
+            player.prepareToPlay()
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
     

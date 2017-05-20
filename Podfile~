@@ -7,4 +7,6 @@ target 'Scavenge' do
        pod 'SwiftyJSON'
        pod 'WVCheckMark'
        pod 'AWSS3'
+       pod 'AWSCognito'
+       pod 'AWSCognitoIdentityProvider'
 end

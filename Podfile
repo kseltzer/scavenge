@@ -9,4 +9,5 @@ target 'Scavenge' do
        pod 'AWSS3'
        pod 'AWSCognito'
        pod 'AWSCognitoIdentityProvider'
+       pod "SAConfettiView"
 end
