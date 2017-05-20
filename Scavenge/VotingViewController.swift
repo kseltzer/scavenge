@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 let screenSize: CGRect = UIScreen.main.bounds
 let leadingSpace : CGFloat = 8, trailingSpace : CGFloat = 8
 let cellWidth = screenSize.width - (leadingSpace + trailingSpace)
@@ -93,7 +92,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.submitButton.isEnabled = true
                 cell.submitButton.alpha = 1.0
             } else {
-                cell.submitButton.isEnabled = false
+//                cell.submitButton.isEnabled = false // todo todo todo: uncomment this line [submit button always enabled for testing purposes only]
                 cell.submitButton.alpha = 0.6
             }
         return cell
