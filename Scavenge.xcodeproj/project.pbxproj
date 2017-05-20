@@ -48,6 +48,7 @@
 		4E2AD1201E9051570063CEDE /* LithosPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E2AD11F1E9051570063CEDE /* LithosPro-Black.otf */; };
 		4E5C9BD91ECFC15D004C18EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5C9BD81ECFC15D004C18EB /* AVFoundation.framework */; };
 		4E5C9BDC1ECFC437004C18EB /* party-horn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C9BDB1ECFC437004C18EB /* party-horn.mp3 */; };
+		4E5C9BDE1ECFCB11004C18EB /* DoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C9BDD1ECFCB11004C18EB /* DoneCell.swift */; };
 		4E63E1001E8DA5C900972C18 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63E0FF1E8DA5C900972C18 /* BaseRequest.swift */; };
 		4E63E1031E8DA93F00972C18 /* RegisterFacebookRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E63E1021E8DA93F00972C18 /* RegisterFacebookRequest.swift */; };
 		4E6D98431D56CBF9007DEFAB /* VotingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D98421D56CBF9007DEFAB /* VotingCell.swift */; };
@@ -153,6 +154,7 @@
 		4E2AD11F1E9051570063CEDE /* LithosPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LithosPro-Black.otf"; sourceTree = "<group>"; };
 		4E5C9BD81ECFC15D004C18EB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4E5C9BDB1ECFC437004C18EB /* party-horn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "party-horn.mp3"; sourceTree = "<group>"; };
+		4E5C9BDD1ECFCB11004C18EB /* DoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneCell.swift; sourceTree = "<group>"; };
 		4E63E0FF1E8DA5C900972C18 /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		4E63E1021E8DA93F00972C18 /* RegisterFacebookRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFacebookRequest.swift; sourceTree = "<group>"; };
 		4E6D98421D56CBF9007DEFAB /* VotingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingCell.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				4E6D98421D56CBF9007DEFAB /* VotingCell.swift */,
 				4EA2384B1D77A23B00BD278B /* ResultsCell.swift */,
 				4EA2384D1D7F4D4900BD278B /* SubmitCell.swift */,
+				4E5C9BDD1ECFCB11004C18EB /* DoneCell.swift */,
 			);
 			name = "Playing Game";
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				4E2278161D41E4C500E22436 /* RoundedBorderedView.swift in Sources */,
 				4EB640881D75572300EA308D /* CustomNavigationBar.swift in Sources */,
 				4EB042861E0DC6E200BCAA4E /* TopicResults.swift in Sources */,
+				4E5C9BDE1ECFCB11004C18EB /* DoneCell.swift in Sources */,
 				4E1F6FBA1EC64E01006D0AFB /* SubmitPhotosToGameRequest.swift in Sources */,
 				4EA9A43C1DE28B4200F74D97 /* GameInvitation.swift in Sources */,
 				4E2277FF1D33290800E22436 /* SBaseTableViewCell.swift in Sources */,

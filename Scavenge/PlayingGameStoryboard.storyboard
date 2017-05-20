@@ -363,6 +363,37 @@
                                             <outlet property="scrollView" destination="OH2-ub-TGK" id="hpX-1E-vdX"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="doneCell" rowHeight="71" id="gve-cP-i1g" customClass="DoneCell" customModule="Scavenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="306" width="375" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gve-cP-i1g" id="Y6p-GI-Rzu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJh-NH-bJh" customClass="SButton" customModule="Scavenge" customModuleProvider="target">
+                                                    <rect key="frame" x="130" y="32" width="115" height="55"/>
+                                                    <color key="backgroundColor" red="0.91764705882352937" green="0.46274509803921571" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="115" id="IcR-lx-j8J"/>
+                                                        <constraint firstAttribute="height" constant="55" id="Qdl-0P-gPO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
+                                                    <state key="normal" title="DONE">
+                                                        <color key="titleColor" red="0.30196078430000001" green="0.18039215689999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="doneButtonPressed:" destination="PpU-n8-sp7" eventType="touchUpInside" id="bHX-jX-whg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="PJh-NH-bJh" firstAttribute="top" secondItem="Y6p-GI-Rzu" secondAttribute="topMargin" constant="24" id="Dq1-qV-p92"/>
+                                                <constraint firstItem="PJh-NH-bJh" firstAttribute="centerX" secondItem="Y6p-GI-Rzu" secondAttribute="centerX" id="GB1-hv-3Ao"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3V-cq-GAn" userLabel="Horizontal Line View">
@@ -372,7 +403,7 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sachin" translatesAutoresizingMaskIntoConstraints="NO" id="pM2-ry-Qt0" customClass="ProfileImageView" customModule="Scavenge" customModuleProvider="target">
-                                <rect key="frame" x="127.5" y="57" width="120" height="120"/>
+                                <rect key="frame" x="128" y="57" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="FmH-SU-pPa"/>
                                     <constraint firstAttribute="width" secondItem="pM2-ry-Qt0" secondAttribute="height" multiplier="1:1" id="orA-aa-GQE"/>

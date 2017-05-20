@@ -58,13 +58,14 @@ class ResultsCell: UITableViewCell, UIScrollViewDelegate {
             
             let playerLabel = UILabel(frame: CGRect(x: x, y: y + imageViewHeight, width: imageViewWidth, height: playerLabelHeight))
             playerLabel.text = "      : \(submission.submittedBy.name)"
+            playerLabel.font = RESULTS_TABLE_VIEW_SUBSECTION_FONT
+            playerLabel.textColor = UIColor.white
             
             let cameraIconImageView = UIImageView(image: UIImage(named: "camera-no-bg"))
             cameraIconImageView.frame = CGRect(x: 0, y: 1.5, width: 18, height: 18)
             cameraIconImageView.contentMode = .scaleAspectFit
             playerLabel.addSubview(cameraIconImageView)
             
-            playerLabel.font = RESULTS_TABLE_VIEW_SUBSECTION_FONT
             scrollView.addSubview(playerLabel)
             
             var votesLabelBackgroundWidth: CGFloat = 52

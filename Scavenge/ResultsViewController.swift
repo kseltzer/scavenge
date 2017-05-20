@@ -37,6 +37,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var screenSize : CGRect!
     var cellWidth : CGFloat!
+    var cellHeight: CGFloat!
     var scrollViewOffsets : [CGFloat] = []
     
     var player: AVAudioPlayer?
@@ -52,8 +53,8 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let topPadding : CGFloat = 16, bottomPadding : CGFloat = 16, playerLabelHeightAndPadding : CGFloat = 20
         
         let imageViewHeight = cellWidth * IMAGE_RATIO / 2.5
-        let cellHeight = imageViewHeight + topPadding + bottomPadding + playerLabelHeightAndPadding
-        tableView.rowHeight = cellHeight
+        cellHeight = imageViewHeight + topPadding + bottomPadding + playerLabelHeightAndPadding
+//        tableView.rowHeight = cellHeight
         tableView.scrollsToTop = true
         
         winnerImageView.image = UIImage(named: "sachin")! //dummyGameData.winner?.profileImage
@@ -131,10 +132,18 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section == NUM_GAME_QUESTIONS - 1) {
+            return 2
+        }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.row == 1) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "doneCell") as! DoneCell
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell") as! ResultsCell
         cell.delegate = self
         cell.index = (indexPath as NSIndexPath).section
@@ -156,6 +165,22 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return RESULTS_TABLE_VIEW_SECTION_HEIGHT
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.section == NUM_GAME_QUESTIONS - 1 && indexPath.row == 1) {
+            return 101
+        }
+        return cellHeight
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        for controller in self.navigationController!.viewControllers as Array {
+            if (controller is HomeViewController) {
+                self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
     }
     
     // MARK: - ResultsCellDelegate

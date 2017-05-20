@@ -47,7 +47,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (section == NUM_GAME_QUESTIONS) {
+        if isSectionSubmitButton(section) {
             return nil
         }
         
@@ -62,7 +62,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath as NSIndexPath).section >= NUM_GAME_QUESTIONS {
+        if isSectionSubmitButton(indexPath.section) {
             let buttonHeight : CGFloat = 55
             let topSpace : CGFloat = 8, bottomSpace : CGFloat = 32
             return buttonHeight + topSpace + bottomSpace
@@ -76,14 +76,19 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section >= NUM_GAME_QUESTIONS {
+        if isSectionSubmitButton(section) {
             return 0
         }
         
         return 30
     }
     
-    
+    func isSectionSubmitButton(_ section: Int) -> Bool {
+        if section >= NUM_GAME_QUESTIONS {
+            return true
+        }
+        return false
+    }
     
     func configureSubmitCell(_ cell: SubmitCell) -> SubmitCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(goToResultsViewController))
@@ -99,7 +104,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath as NSIndexPath).section >= NUM_GAME_QUESTIONS {
+        if  isSectionSubmitButton(indexPath.section) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "submitCell") as! SubmitCell
             return configureSubmitCell(cell)
         }
