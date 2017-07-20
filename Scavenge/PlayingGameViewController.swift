@@ -54,7 +54,7 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 85
+//        tableView.rowHeight = 85 // todo todo todo
         tableView.scrollsToTop = true
         
         setupGameData()
@@ -276,6 +276,13 @@ class PlayingGameViewController: UIViewController, UIImagePickerControllerDelega
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return NUM_GAME_QUESTIONS + 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == NUM_GAME_QUESTIONS {
+            return 90
+        }
+        return 85
     }
     
     func setImageForCellAtIndexPath (_ index: Int, image: UIImage?) {

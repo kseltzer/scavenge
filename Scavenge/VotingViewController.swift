@@ -63,9 +63,8 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isSectionSubmitButton(indexPath.section) {
-            let buttonHeight : CGFloat = 55
-            let topSpace : CGFloat = 8, bottomSpace : CGFloat = 32
-            return buttonHeight + topSpace + bottomSpace
+            let buttonHeight : CGFloat = 50
+            return buttonHeight
         }
         
         let bottomSpace : CGFloat = 8
@@ -84,10 +83,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func isSectionSubmitButton(_ section: Int) -> Bool {
-        if section >= NUM_GAME_QUESTIONS {
-            return true
-        }
-        return false
+        return section >= NUM_GAME_QUESTIONS
     }
     
     func configureSubmitCell(_ cell: SubmitCell) -> SubmitCell {

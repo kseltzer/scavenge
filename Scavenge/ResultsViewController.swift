@@ -169,7 +169,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.section == NUM_GAME_QUESTIONS - 1 && indexPath.row == 1) {
-            return 101
+            return 90
         }
         return cellHeight
     }

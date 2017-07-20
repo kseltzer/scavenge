@@ -27,11 +27,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-yf-nab" customClass="LoginButton" customModule="Scavenge" customModuleProvider="target">
-                                <rect key="frame" x="62" y="434" width="250" height="70"/>
-                                <color key="backgroundColor" red="0.90588235289999997" green="0.45882352939999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="61.5" y="454" width="251" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.53725490200000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="KNR-n1-Dhy"/>
-                                    <constraint firstAttribute="height" constant="70" id="v7S-Yz-vcC"/>
+                                    <constraint firstAttribute="width" constant="251" id="KNR-n1-Dhy"/>
+                                    <constraint firstAttribute="height" constant="50" id="v7S-Yz-vcC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
                                 <state key="normal" title="Login with Facebook">

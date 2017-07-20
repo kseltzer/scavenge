@@ -10,7 +10,9 @@ import UIKit
 
 class FriendCell: UITableViewCell {
 
-    @IBOutlet weak var profileImage : ProfileImageView!
+//    @IBOutlet weak var profileImage : ProfileImageView!
+    
+    @IBOutlet weak var profileImage: NetworkImageView!
     @IBOutlet weak var customView : RoundedBorderedView!
     @IBOutlet weak var nameLabel : UILabel!
     @IBOutlet weak var checkmarkBox: UIImageView!
