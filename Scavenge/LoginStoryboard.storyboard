@@ -38,7 +38,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
                                 <state key="normal" title="Login with Facebook">
-                                    <color key="titleColor" red="0.50196078431372548" green="0.27843137254901962" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.30196078430000001" green="0.18039215689999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="fbLoginButtonPressed:" destination="c8u-zW-D1p" eventType="touchUpInside" id="WTu-bE-E4V"/>
