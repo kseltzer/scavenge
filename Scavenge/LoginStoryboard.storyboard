@@ -26,8 +26,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="6iL-AI-Y9d">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-yf-nab" customClass="LoginButton" customModule="Scavenge" customModuleProvider="target">
-                                <rect key="frame" x="61.5" y="454" width="251" height="50"/>
+                                <rect key="frame" x="62" y="493" width="251" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.53725490200000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="251" id="KNR-n1-Dhy"/>
@@ -35,7 +38,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="LithosPro-Black" family="Lithos Pro" pointSize="17"/>
                                 <state key="normal" title="Login with Facebook">
-                                    <color key="titleColor" red="0.43137254899999999" green="0.25882352939999997" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.50196078431372548" green="0.27843137254901962" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="fbLoginButtonPressed:" destination="c8u-zW-D1p" eventType="touchUpInside" id="WTu-bE-E4V"/>
@@ -45,7 +48,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ca3-yf-nab" firstAttribute="centerX" secondItem="qDs-6j-Fqa" secondAttribute="centerX" id="0EN-B6-aw8"/>
-                            <constraint firstItem="qvc-Q7-VBZ" firstAttribute="top" secondItem="Ca3-yf-nab" secondAttribute="bottom" constant="163" id="IX1-hg-fqM"/>
+                            <constraint firstItem="qvc-Q7-VBZ" firstAttribute="top" secondItem="Ca3-yf-nab" secondAttribute="bottom" constant="124" id="ULg-vM-Jaw"/>
+                            <constraint firstItem="6iL-AI-Y9d" firstAttribute="leading" secondItem="qDs-6j-Fqa" secondAttribute="leading" id="UUy-V9-rCG"/>
+                            <constraint firstAttribute="trailing" secondItem="6iL-AI-Y9d" secondAttribute="trailing" id="gbb-4n-zBs"/>
+                            <constraint firstItem="6iL-AI-Y9d" firstAttribute="top" secondItem="qDs-6j-Fqa" secondAttribute="top" id="nhP-pf-JPI"/>
+                            <constraint firstItem="qvc-Q7-VBZ" firstAttribute="top" secondItem="6iL-AI-Y9d" secondAttribute="bottom" id="uB0-YO-1l8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -57,4 +64,7 @@
             <point key="canvasLocation" x="269.60000000000002" y="347.67616191904051"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="loginBackground" width="1125" height="2001"/>
+    </resources>
 </document>
