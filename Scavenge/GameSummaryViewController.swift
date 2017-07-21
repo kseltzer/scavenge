@@ -9,13 +9,26 @@
 import UIKit
 
 class GameSummaryViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
+
+    // MARK: - Outlets
     @IBOutlet var carouselView: iCarousel!
     @IBOutlet var playerView: UIView!
-    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var profilePictureImageView: NetworkImageView!
     
-    let backgroundColors = [COLOR_ORANGE, COLOR_DARK_GREEN, COLOR_YELLOW, COLOR_ORANGE, COLOR_DARK_GREEN]
-    let items: [UIImage] = [UIImage(named: "aliya")!, UIImage(named: "sachin")!, UIImage(named: "ian")!, UIImage(named: "paul")!]
     
+    // MARK: - Constants
+    let backgroundColors = [COLOR_GREENISH_BLUE, COLOR_RED, COLOR_YELLOW, COLOR_DARK_GREEN]
+    
+    
+    // MARK: - Variables
+    var game: Game! {
+        didSet {
+            self.updateUI()
+        }
+    }
+    
+    
+    // MARK: - Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,60 +38,47 @@ class GameSummaryViewController: UIViewController, iCarouselDelegate, iCarouselD
         carouselView.reloadData()
         carouselView.type = .rotary
     }
+    
+    func updateUI() {
+        self.title = game.title
+    }
+    
 
     // MARK: - iCarousel Data Source
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return items.count
+        return self.game.players.count
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         let largeView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 480))
         
+        let player = self.game.players[index]
+        
         DispatchQueue.main.async {
             Bundle.main.loadNibNamed("SummaryCarouselView", owner:self, options:nil)
+            
+            var colorIndex = index
+            if (colorIndex >= self.backgroundColors.count) {
+                colorIndex = 0
+            }
+            self.playerView.backgroundColor = self.backgroundColors[colorIndex]
+            
             self.playerView.frame = CGRect(x: 0, y: 30, width: 300, height: 450)
-//            self.playerView.backgroundColor = backgroundColors[index]
-            self.playerView.backgroundColor = COLOR_LIGHT_BROWN
-            self.profilePictureImageView.image = UIImage(named: "paul")
+            self.profilePictureImageView.image_url = player.picture_url
             self.profilePictureImageView.contentMode = .scaleAspectFill
             self.profilePictureImageView.layoutIfNeeded()
             self.profilePictureImageView.layer.cornerRadius = self.profilePictureImageView.frame.size.height/2
+            
             largeView.addSubview(self.playerView)
         }
         
         
         return largeView
-        
-//        var itemView: UIImageView
-//        
-//        let largeView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 400))
-//        
-//        largeView.backgroundColor = backgroundColors[index]
-//        
-//        //reuse view if available, otherwise create a new view
-//        if let view = view as? UIImageView {
-//            itemView = view
-//            //get a reference to the label in the recycled view
-//        } else {
-//            //don't do anything specific to the index within
-//            //this `if ... else` statement because the view will be
-//            //recycled and used with other index values later
-//            itemView = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
-//            itemView.image = items[index]
-//            itemView.contentMode = .scaleAspectFill
-//        }
-//        
-//        //remember to always set any properties of your carousel item
-//        //views outside of the `if (view == nil) {...}` check otherwise
-//        //you'll get weird issues with carousel item content appearing
-//        //in the wrong place in the carousel
-//        
-//        largeView.addSubview(itemView)
-//        return largeView
     }
     
     @IBAction func nudgeButtonTapped(_ sender: SButton) {
         print("nudge")
+        // TODO: Send notification to user
     }
     
     // MARK: - iCarousel Delegate

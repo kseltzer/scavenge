@@ -55,13 +55,14 @@ struct Game {
         self.unsubmittedResponses = unsubmittedResponses
     }
     
-    init(id: String, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus, subtitle: GameSubtitle) {
+    init(id: String, title: String, icon: UIImage /* todo: change to Int */, creator: Player, status: GameStatus, subtitle: GameSubtitle, players: [Player] = []) {
         self.id = id
         self.title = title
         self.icon = icon
         self.creator = creator
         self.status = status
         self.subtitle = getSubtitleString(subtitle: subtitle)
+        self.players = players
         
         var unsubmittedResponses: [String:[UIImage?]] = [:]
         for player in players {

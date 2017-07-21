@@ -253,7 +253,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let subtitle = GameSubtitle.theirPlay
                 let status = GameStatus.theirMove
                 let creatorName = "Kim" // TODO: replace dummy data
-                gamesTheirMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
+                
+                var players: [Player] = []
+                let playersArray = game["players"].arrayValue
+                for player in playersArray {
+                    let player = player.dictionaryValue
+                    if let name = player["name"]?.string, let picture_url = player["profilePicture"]?.string, let id = player["id"]?.number {
+                        players.append(Player(id: "\(id)", firstName: name, name: name, picture_url: picture_url))
+                    }
+                }
+                    
+                gamesTheirMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle, players: players))
             }
         }
         
@@ -479,7 +489,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             break
         case TableViewSection.theirMove.rawValue:
             let mainStoryboard = UIStoryboard(name: kMainStoryboard, bundle: nil)
-            let gameSummaryViewController = mainStoryboard.instantiateViewController(withIdentifier: kGameSummaryViewController)
+            let gameSummaryViewController = mainStoryboard.instantiateViewController(withIdentifier: kGameSummaryViewController) as! GameSummaryViewController
+            gameSummaryViewController.game = gamesTheirMove[indexPath.row]
             self.navigationController?.pushViewController(gameSummaryViewController, animated: true);
             break
         default:
