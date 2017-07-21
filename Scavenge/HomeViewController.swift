@@ -65,7 +65,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             navigationController.navigationBar.isTranslucent = true
         }
         
-        downloadJSON()
+        loadGames()
     }
     
     func downloadImageFromBucketTest() {
@@ -183,8 +183,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // MARK: - Manage JSON
-    func downloadJSON() {
-        // TODO TODO TODO: uncomment this (temporarily not calling backend)
+    func refreshGames() {
+        gamesInvites = []
+        gamesResults = []
+        gamesYourMove = []
+        gamesTheirMove = []
+        gamesCompleted = []
+        
+        loadGames()
+    }
+    
+    func loadGames() {
         let request = GetGamesRequest(facebook_id: currentUserID, facebook_token: currentUserAccessToken)
         request.completionBlock = { (response: JSON?, error: Any?) -> Void in
             if let json = response {
@@ -196,12 +205,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func parseJson(json: JSON) {
-        gamesInvites = []
-        gamesResults = []
-        gamesYourMove = []
-        gamesTheirMove = []
-        gamesCompleted = []
-        
         let yourPlay = json["yourPlay"]
         for gameObject in yourPlay {
             let game = gameObject.1
@@ -209,9 +212,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let title = game["title"].string,
                 let creator = game["creator"].int,
                 //                let dateCreated = game["dateCreated"].string,
-                let icon = UIImage(named: "raccoon2") {
+                let icon = UIImage(named: "raccoon2") { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 
-                let creatorName = "Kim" // dummy data
+                let creatorName = "Kim" // TODO: replace dummy data
                 let creatorID = String(creator)
                 let status = GameStatus.yourMove
                 let subtitle = GameSubtitle.yourPlay
@@ -226,9 +229,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let title = game["title"].string,
                 let creator = game["creator"].int,
                 //                let dateCreated = game["dateCreated"].string,
-                let icon = UIImage(named: "raccoon2") {
+                let icon = UIImage(named: "raccoon2") { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 
-                let creatorName = "Kim" // dummy data
+                let creatorName = "Kim" // TODO: replace dummy data
                 let creatorID = String(creator)
                 let subtitle = GameSubtitle.yourVote
                 let status = GameStatus.yourMove
@@ -241,7 +244,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let game = gameObject.1
             if let id = game[JSON_KEY_ID].string,
                 let title = game["title"].string,
-                let icon = UIImage(named: "vulture"),
+                let icon = UIImage(named: "vulture"), // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 let creator = game["creator"].int //,
 //                let creatorName = game["creatorName"].string
                 {
@@ -249,7 +252,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let creatorID = String(creator)
                 let subtitle = GameSubtitle.theirPlay
                 let status = GameStatus.theirMove
-                let creatorName = "Kim" // dummy data
+                let creatorName = "Kim" // TODO: replace dummy data
                 gamesTheirMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
             }
         }
@@ -259,7 +262,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let game = gameObject.1
             if let id = game[JSON_KEY_ID].string,
                 let title = game["title"].string,
-                let icon = UIImage(named: "vulture"),
+                let icon = UIImage(named: "vulture"), // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 let creator = game["creator"].int //,
                 //                let creatorName = game["creatorName"].string
             {
@@ -267,7 +270,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let creatorID = String(creator)
                 let subtitle = GameSubtitle.theirVote
                 let status = GameStatus.theirMove
-                let creatorName = "Kim" // dummy data
+                let creatorName = "Kim" // TODO: replace dummy data
                 gamesTheirMove.append(Game(id: id, title: title, icon: icon, creator: Player(id: creatorID, name: creatorName), status: status, subtitle: subtitle))
             }
         }
@@ -279,9 +282,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let title = game["title"].string,
                 let creator = game["creator"].int,
                 //                let dateCreated = game["dateCreated"].string,
-                let icon = UIImage(named: "raccoon2") {
+                let icon = UIImage(named: "raccoon2") { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 
-                let creatorName = "Kim" // dummy data
+                let creatorName = "Kim" // TODO: replace dummy data
                 let creatorID = String(creator)
                 let subtitle = GameSubtitle.completed
                 let status = GameStatus.completed
