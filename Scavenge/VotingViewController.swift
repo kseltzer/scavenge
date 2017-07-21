@@ -64,7 +64,7 @@ class VotingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isSectionSubmitButton(indexPath.section) {
             let buttonHeight : CGFloat = 50
-            return buttonHeight
+            return buttonHeight + 8
         }
         
         let bottomSpace : CGFloat = 8

@@ -23,6 +23,8 @@ let cannotAddAdditionalPlayersMessage = "ya can't have more than \(MAX_PLAYERS) 
 
 class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, MagnifiedProfileImageViewDelegate {
     
+    
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var iconButton: UIButton!
@@ -41,7 +43,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileImageViewFriend4: ProfileImageView!
     @IBOutlet weak var profileImageViewFriend5: ProfileImageView!
     
-    var profileImagesViewHeightContstraintOriginalConstant: CGFloat!
     @IBOutlet weak var profileImagesViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImagesStackViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var profileImagesStackViewTrailingConstraint: NSLayoutConstraint!
@@ -49,6 +50,10 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileImagesStackViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var overlayView: UIView!
+    
+    
+    // MARK: - Variables
+    var profileImagesViewHeightContstraintOriginalConstant: CGFloat!
     
     var currentGame: Game? = nil
     
@@ -144,11 +149,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             setTabBarNegativeStateProfileImage(index: index)
         }
         
-        downloadFriendsJSON()
+        loadFriends()
     }
 
     // MARK: - Communicate With Backend
-    func downloadFriendsJSON() {
+    func loadFriends() {
         recentsDictionary = [:]
         friendsDictionary = [:]
         recentsIDs = []
@@ -157,7 +162,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         let request = GetFriendsRequest(facebook_id: currentUserID, facebook_token: currentUserAccessToken)
         request.completionBlock = { (response: JSON?, error: Any?) -> Void in
             if let json = response {
-                print("friends: ", json)
                 self.parseJson(json: json)
             }
         }
@@ -205,7 +209,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         })
     }
     
-    // TODO: todo: implement to send create game request to backend, send response to destination view controller
+    // TODO: create and execute new game request, send response to destination view controller
     func createGame() {
         
         // the following code parses the json response from creating a game
