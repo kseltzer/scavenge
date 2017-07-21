@@ -17,7 +17,7 @@ class GameSummaryViewController: UIViewController, iCarouselDelegate, iCarouselD
     
     
     // MARK: - Constants
-    let backgroundColors = [COLOR_GREENISH_BLUE, COLOR_RED, COLOR_YELLOW, COLOR_DARK_GREEN]
+    let backgroundColors = [COLOR_GREENISH_BLUE, COLOR_RED, COLOR_YELLOW, COLOR_LIGHT_GREEN]
     
     
     // MARK: - Variables
