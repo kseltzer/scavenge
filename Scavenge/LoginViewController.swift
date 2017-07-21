@@ -93,11 +93,10 @@ class LoginViewController: UIViewController {
                     return
                 }
                 var profileImageURL : String?
-                if let profileImageDict = result["picture"] as? NSDictionary {
-                    if let pictureData = profileImageDict["data"] as? NSDictionary {
-                        profileImageURL = pictureData["url"] as? String
-                    }
+                if let pictureDict = result["picture"] as? NSDictionary, let pictureData = pictureDict["data"] as? NSDictionary, let pictureUrl = pictureData["url"] as? String {
+                    profileImageURL = pictureUrl
                 }
+                
                 UserDefaults.standard.setValue(firstName, forKey: KEY_FIRST_NAME)
                 UserDefaults.standard.setValue(lastName, forKey: KEY_LAST_NAME)
                 UserDefaults.standard.setValue(facebookID, forKey: KEY_ID)

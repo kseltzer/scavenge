@@ -36,7 +36,8 @@ let KEY_FIRST_NAME = "first_name"
 let KEY_LAST_NAME = "last_name"
 
 // MARK: - Session Variables
-var userProfileImage: UIImage? = nil
+//var userProfileImage: UIImage? = nil
+var currentUserProfileImageUrl: String? = nil
 var currentUserID: String = ""
 var currentUserAccessToken: String = ""
 

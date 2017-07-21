@@ -20,19 +20,20 @@ class MagnifiedProfileImageViewController: UIViewController {
     var interactor: InteractiveTransitionController? = nil
 
     @IBOutlet weak var magnifiedProfileImageView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: NetworkImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var xButton: UIButton!
     @IBOutlet weak var checkmarkButton: UIButton!
     
-    var playerImage: UIImage!
+//    var playerImage: UIImage!
+    var playerImageUrl: String!
     var playerName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         magnifiedProfileImageView.layer.cornerRadius = 13
         imageView.layoutIfNeeded()
-        imageView.image = playerImage
+        imageView.image_url = playerImageUrl
         let maskPath = UIBezierPath(arcCenter: CGPoint(x: imageView.bounds.size.width/2, y: imageView.bounds.size.height/2), radius: (imageView.frame.size.width / 2.0) - 0.5, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: false)
         let maskLayer = CAShapeLayer()
         maskLayer.path = maskPath.cgPath

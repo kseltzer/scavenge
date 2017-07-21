@@ -47,6 +47,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         if fileManager.fileExists(atPath: imagePath){
             self.profileImageView.image = UIImage(contentsOfFile: imagePath)
         } else{
+            self.profileImageView.image = UIImage(named: "profilePicNegativeState")
             print("No profile image available")
         }
     }

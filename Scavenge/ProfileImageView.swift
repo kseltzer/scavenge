@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileImageView: UIImageView {
+class ProfileImageView: NetworkImageView {
 
     override func awakeFromNib() {
         super.awakeFromNib()

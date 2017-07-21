@@ -182,9 +182,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let idInt = playerJson[JSON_KEY_ID].int,
                 let firstName = playerJson[JSON_KEY_FIRST_NAME].string,
                 let name = playerJson[JSON_KEY_NAME].string,
-                let pictureURLString = playerJson[JSON_KEY_PROFILE_IMAGE].string {
+                let pictureURL = playerJson[JSON_KEY_PROFILE_IMAGE].string {
                     let id = "\(idInt)"
-                recentsDictionary[id] = Player(id: "\(id)", firstName: firstName, name: name, picture: URL(string: pictureURLString))
+                recentsDictionary[id] = Player(id: "\(id)", firstName: firstName, name: name, picture_url: pictureURL)
                 recentsIDs.append(id)
             }
         }
@@ -194,9 +194,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let idInt = playerJson[JSON_KEY_ID].int,
                 let firstName = playerJson[JSON_KEY_FIRST_NAME].string,
                 let name = playerJson[JSON_KEY_NAME].string,
-                let pictureURLString = playerJson[JSON_KEY_PROFILE_IMAGE].string {
+                let pictureURL = playerJson[JSON_KEY_PROFILE_IMAGE].string {
                 let id = "\(idInt)"
-                friendsDictionary[id] = Player(id: "\(id)", firstName: firstName, name: name, picture: URL(string: pictureURLString))
+                friendsDictionary[id] = Player(id: "\(id)", firstName: firstName, name: name, picture_url: pictureURL)
                 friendsIDs.append(id)
             }
         }
@@ -453,18 +453,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
                 friend.indexPath = indexPath
             }
             
-            var pictureData: Data?
-            do {
-                if let pictureURL = friend.picture {
-                    try pictureData = Data(contentsOf: pictureURL)
-                }
-            } catch {
-                pictureData = nil
-            }
-            if (pictureData != nil) {
-                friend.profileImage = UIImage(data: pictureData!)
-            }
-            
             recentsDictionary[friend.id] = friend
             break
         case .friends:
@@ -478,20 +466,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             friend.addedToGame = false
             if (!(searchController.isActive && searchController.searchBar.text != nil)) {
                 friend.indexPath = indexPath
-            }
-            
-            // convert picture URL to UIImage
-            var pictureData: Data?
-            do {
-                if let pictureURL = friend.picture {
-                    try pictureData = Data(contentsOf: pictureURL)
-                }
-            } catch {
-                pictureData = nil
-            }
-            if (pictureData != nil) {
-                friend.profileImage = UIImage(data: pictureData!)
-            }
+            }            
             
             friendsDictionary[friend.id] = friend
             break
@@ -502,7 +477,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.nameLabel.text = friend.name
         cell.profileImage.layoutIfNeeded()
         cell.profileImage.circular()
-        cell.profileImage.image = friend.profileImage
+        cell.profileImage.image_url = friend.picture_url
         cell.setDeselectedAppearance()
         
         return cell
@@ -555,7 +530,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.nameLabel.text = friend.name
         cell.profileImage.layoutIfNeeded()
         cell.profileImage.circular()
-        cell.profileImage.image = friend.profileImage
+        cell.profileImage.image_url = friend.picture_url
         return cell
     }
     
@@ -600,7 +575,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
             let headerIndex = selectedFriendsHeaderIndices.popLast()
             friend.headerIndex = headerIndex
             friend.addedToGame = true
-            self.addSelectedFriendImageToHeader(friend.profileImage, index: headerIndex)
+            self.addSelectedFriendImageToHeader(friend.picture_url, index: headerIndex)
             selectedFriendsFirstNames.append(friend.firstName)
             if headerIndex != nil {
                 selectedFriends[headerIndex! - 1] = friend
@@ -653,23 +628,23 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     
-    func addSelectedFriendImageToHeader(_ profileImage: UIImage?, index: Int?) {
-        if let image = profileImage, let headerProfilePhotoIndex = index {
+    func addSelectedFriendImageToHeader(_ pictureUrl: String?, index: Int?) {
+        if let imageUrl = pictureUrl, let headerProfilePhotoIndex = index {
             switch (headerProfilePhotoIndex) {
             case 1:
-                profileImageViewFriend1.image = image
+                profileImageViewFriend1.image_url = imageUrl
                 break
             case 2:
-                profileImageViewFriend2.image = image
+                profileImageViewFriend2.image_url = imageUrl
                 break
             case 3:
-                profileImageViewFriend3.image = image
+                profileImageViewFriend3.image_url = imageUrl
                 break
             case 4:
-                profileImageViewFriend4.image = image
+                profileImageViewFriend4.image_url = imageUrl
                 break
             case 5:
-                profileImageViewFriend5.image = image
+                profileImageViewFriend5.image_url = imageUrl
                 break
             default:
                 break
@@ -880,7 +855,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? MagnifiedProfileImageViewController {
             if let index = magnifiedPlayerIndex, let magnifiedPlayer = selectedFriends[index] {
-                destinationViewController.playerImage = magnifiedPlayer.profileImage
+                destinationViewController.playerImageUrl = magnifiedPlayer.picture_url
                 destinationViewController.playerName = magnifiedPlayer.name
                 destinationViewController.delegate = self
                 

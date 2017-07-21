@@ -1027,7 +1027,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="yQY-Me-I7I">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fbProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="yQY-Me-I7I" customClass="NetworkImageView" customModule="Scavenge" customModuleProvider="target">
                                                 <rect key="frame" x="70" y="-31" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="H4e-w3-VB3"/>
@@ -1117,7 +1117,7 @@
                     </view>
                     <connections>
                         <outlet property="checkmarkButton" destination="KEx-bZ-fF6" id="AYr-BD-mdu"/>
-                        <outlet property="imageView" destination="yQY-Me-I7I" id="Sc2-dx-u1D"/>
+                        <outlet property="imageView" destination="yQY-Me-I7I" id="my4-7q-SVv"/>
                         <outlet property="magnifiedProfileImageView" destination="XYa-ks-9db" id="XM6-YT-ACK"/>
                         <outlet property="nameLabel" destination="nRB-xj-oBI" id="d0g-qc-Mvb"/>
                         <outlet property="xButton" destination="Ik0-Yb-Yeo" id="pjb-ga-gWQ"/>
