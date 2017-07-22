@@ -30,12 +30,12 @@ enum GameSubtitle: String {
 struct Game {
     var id: String
     var title: String
-    var icon: UIImage? = nil // Todo: change to URL
+    var icon: Int = 0 // Todo: change to Int
     var creator: Player? = nil
     var status: GameStatus = .yourMove
     var subtitle: String = ""
     var players: [Player] = []
-    var unsubmittedResponses: [String:[UIImage?]] // Todo: change UIImage to URL
+    var unsubmittedResponses: [String:[UIImage?]] // Todo: change UIImage to String
     var winner: Player? = nil
     var results: [TopicResults] = []
     var topics: [String] = []
@@ -55,7 +55,7 @@ struct Game {
         self.unsubmittedResponses = unsubmittedResponses
     }
     
-    init(id: String, title: String, icon: UIImage /* todo: change to Int */, creator: Player, status: GameStatus, subtitle: GameSubtitle, players: [Player] = []) {
+    init(id: String, title: String, icon: Int, creator: Player, status: GameStatus, subtitle: GameSubtitle, players: [Player] = []) {
         self.id = id
         self.title = title
         self.icon = icon
@@ -71,7 +71,7 @@ struct Game {
         self.unsubmittedResponses = unsubmittedResponses
     }
     
-    init(id: String, title: String, icon: UIImage /* todo: change to URL */, creator: Player, status: GameStatus, players: [Player], winner: Player?, results: [TopicResults], topics: [String], subtitle: GameSubtitle) {
+    init(id: String, title: String, icon: Int, creator: Player, status: GameStatus, players: [Player], winner: Player?, results: [TopicResults], topics: [String], subtitle: GameSubtitle) {
         self.id = id
         self.title = title
         self.icon = icon

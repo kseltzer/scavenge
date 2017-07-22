@@ -205,14 +205,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func parseJson(json: JSON) {
+        let icon = 0 // TODO: DELETE THIS DUMMY DATA, constant unnecessary
+        
         let yourPlay = json["yourPlay"]
         for gameObject in yourPlay {
             let game = gameObject.1
             if  let id = game[JSON_KEY_ID].string,
                 let title = game["title"].string,
-                let creator = game["creator"].int,
+                let creator = game["creator"].int//,
                 //                let dateCreated = game["dateCreated"].string,
-                let icon = UIImage(named: "raccoon2") { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
+//                let icon = game["icon"].int 
+                { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 
                 let creatorName = "Kim" // TODO: replace dummy data
                 let creatorID = String(creator)
@@ -227,9 +230,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let game = gameObject.1
             if  let id = game[JSON_KEY_ID].string,
                 let title = game["title"].string,
-                let creator = game["creator"].int,
+                let creator = game["creator"].int//,
                 //                let dateCreated = game["dateCreated"].string,
-                let icon = UIImage(named: "raccoon2") { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
+//                let icon = game["icon"].int 
+                { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 
                 let creatorName = "Kim" // TODO: replace dummy data
                 let creatorID = String(creator)
@@ -244,7 +248,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let game = gameObject.1
             if let id = game[JSON_KEY_ID].string,
                 let title = game["title"].string,
-                let icon = UIImage(named: "vulture"), // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
+//                let icon = game["icon"].int // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 let creator = game["creator"].int //,
 //                let creatorName = game["creatorName"].string
                 {
@@ -272,7 +276,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let game = gameObject.1
             if let id = game[JSON_KEY_ID].string,
                 let title = game["title"].string,
-                let icon = UIImage(named: "vulture"), // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
+//                let icon = game["icon"].int, // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 let creator = game["creator"].int //,
                 //                let creatorName = game["creatorName"].string
             {
@@ -290,9 +294,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let game = gameObject.1
             if  let id = game[JSON_KEY_ID].string,
                 let title = game["title"].string,
-                let creator = game["creator"].int,
+                let creator = game["creator"].int//,
                 //                let dateCreated = game["dateCreated"].string,
-                let icon = UIImage(named: "raccoon2") { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
+//                let icon = game["icon"].int 
+                { // TODO: parse icon, should be returned as int 0-9 each num representing an icon image
                 
                 let creatorName = "Kim" // TODO: replace dummy data
                 let creatorID = String(creator)
@@ -343,7 +348,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             game = gamesInvites[indexPath.row]
             let inviteCell = tableView.dequeueReusableCell(withIdentifier: "invitationCell", for: indexPath) as! InvitationCell
             inviteCell.gameTitleLabel.text = game.title
-            inviteCell.gameImageView.image = game.icon
+            inviteCell.gameImageView.image = getImageFrom(icon: game.icon)
             if let creator = game.creator {
                 inviteCell.invitedByLabel.text = "invited by: \(creator.name)"
             }
@@ -372,7 +377,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         cell.gameTitleLabel.text = game.title
         cell.subtitleLabel.text = game.subtitle
-        cell.gameImageView?.image = game.icon
+        cell.gameImageView?.image = getImageFrom(icon: game.icon) //game.icon
         return cell
     }
     

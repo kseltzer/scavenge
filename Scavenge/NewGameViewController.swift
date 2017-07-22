@@ -708,7 +708,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func animateShowIconSelectionView() {
         iconSelectionView.isHidden = false
-        searchController.isActive = false
+        searchController.isActive = false        
         
         self.iconSelectionView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.0)
         self.iconSelectionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)

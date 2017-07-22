@@ -129,3 +129,54 @@ extension UIImage {
 }
 
 
+// MARK: - Icon Constants
+enum GameIcon: Int {
+    case raccoon = 0
+    case hyena = 1
+    case jackal = 2
+    case possum = 3
+    case rat = 4
+    case tasmanianDevil = 5
+    case vulture = 6
+    case yellowJacket = 7
+    case crow = 8
+}
+
+func getImageFrom(icon: Int) -> UIImage {
+    var imageName: String = "raccoon2"
+    
+    switch icon {
+    case GameIcon.raccoon.rawValue:
+        imageName = "raccoon2"
+        break
+    case GameIcon.hyena.rawValue:
+        imageName = "hyena"
+        break
+    case GameIcon.jackal.rawValue:
+        imageName = "jackal"
+        break
+    case GameIcon.possum.rawValue:
+        imageName = "possum"
+        break
+    case GameIcon.rat.rawValue:
+        imageName = "rat"
+        break
+    case GameIcon.tasmanianDevil.rawValue:
+        imageName = "tasmanianDevil"
+        break
+    case GameIcon.vulture.rawValue:
+        imageName = "vulture"
+        break
+    case GameIcon.yellowJacket.rawValue:
+        imageName = "yellowJacket"
+        break
+    case GameIcon.crow.rawValue:
+        imageName = "crow"
+        break
+    default:
+        break
+    }
+    
+    return UIImage(named: imageName)!
+}
+
