@@ -65,6 +65,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             navigationController.navigationBar.isTranslucent = true
         }
         
+        // Configure refresh control
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl!.addTarget(self, action: #selector(self.refreshGames), for: UIControlEvents.valueChanged)
+        self.tableView.refreshControl!.tintColor = COLOR_DARK_BROWN
+        self.tableView?.addSubview(self.tableView.refreshControl!)
+        
+        // download json
         loadGames()
     }
     
@@ -200,6 +207,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("json: ", json)
                 self.parseJson(json: json)
             }
+            
+            self.tableView.refreshControl?.endRefreshing()
         }
         request.execute()
     }
@@ -377,7 +386,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         cell.gameTitleLabel.text = game.title
         cell.subtitleLabel.text = game.subtitle
-        cell.gameImageView?.image = getImageFrom(icon: game.icon) //game.icon
+        cell.gameImageView?.image = getImageFrom(icon: game.icon)
         return cell
     }
     
